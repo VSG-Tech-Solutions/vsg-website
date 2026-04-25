@@ -3,6 +3,7 @@ import { PageBanner } from "@/components/PageBanner";
 import { HowItWorks } from "@/components/HowItWorks";
 import { TenActions } from "@/components/TenActions";
 import { WorkflowLibrary } from "@/components/WorkflowLibrary";
+import { VantageNotFor } from "@/components/VantageNotFor";
 import { VantageAI } from "@/components/VantageAI";
 import { VantagePrototype } from "@/components/VantagePrototype";
 import { PilotPromo } from "@/components/PilotPromo";
@@ -60,8 +61,9 @@ export default function VantagePage() {
       <TenActions />
       <WorkflowLibrary />
       <VantageAI />
-      <PilotPromo />
       <DayInLife />
+      <VantageNotFor />
+      <PilotPromo />
       <LogoCloud />
       <Stats />
       <CTA variant="demo" />

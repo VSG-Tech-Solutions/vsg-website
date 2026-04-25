@@ -1,8 +1,20 @@
 import Link from "next/link";
-import { ArrowRight, Factory, Shield, Megaphone } from "lucide-react";
+import {
+  ArrowRight,
+  Factory,
+  Shield,
+  Megaphone,
+  Building2,
+  Truck,
+  type LucideIcon,
+} from "lucide-react";
 import { SiteShell } from "@/components/SiteShell";
 import { PageBanner } from "@/components/PageBanner";
 import { CTA } from "@/components/CTA";
+import {
+  caseStudies,
+  type CaseStudyIcon,
+} from "@/lib/case-studies";
 
 export const metadata = {
   title: "Case studies — Real pilots, published as they complete",
@@ -10,29 +22,15 @@ export const metadata = {
     "VSG is in active pilot discovery with mid-market distribution, insurance and marketing clients. Real case studies publish here as each pilot completes — no placeholder companies, no invented outcomes.",
 };
 
-const pipeline = [
-  {
-    icon: Factory,
-    vertical: "Manufacturing & distribution",
-    stage: "In active discovery",
-    focus:
-      "Supplier exception handling and PO-mismatch resolution for a 60-person distributor on Syspro. The pilot brief: reduce time-to-resolution on short-shipments from days to hours, with an auditable trail for the annual review.",
-  },
-  {
-    icon: Shield,
-    vertical: "Insurance",
-    stage: "Scoping conversations",
-    focus:
-      "Bordereaux controls and claims front-door workflow for a specialty insurer. The brief: catch inbound claims the moment they land, classify by policy + severity, and route to the right adjuster with SLA timers.",
-  },
-  {
-    icon: Megaphone,
-    vertical: "Marketing services",
-    stage: "Scoping conversations",
-    focus:
-      "Client-request intake and approval routing for an agency drowning in Slack and email. The brief: every client request captured, tracked through brief → draft → review → delivery with a visible status at every stage.",
-  },
-];
+// Icon registry — keeps the lucide imports inside the page (server component)
+// while letting the data file stay JSON-friendly.
+const iconMap: Record<CaseStudyIcon, LucideIcon> = {
+  Factory,
+  Shield,
+  Megaphone,
+  Building2,
+  Truck,
+};
 
 export default function CaseStudiesPage() {
   return (
@@ -41,7 +39,7 @@ export default function CaseStudiesPage() {
         eyebrow="Case studies"
         title="Real pilots —"
         highlight="published as each one lands."
-        lede="We're pre-pilot and honest about it. Three case studies are in active scoping: one manufacturing distributor, one specialty insurer, one marketing agency. When each pilot closes its five-week window, the real write-up publishes here — with real numbers, a named outcome, and a reference call on request. We won't invent client names to look bigger than we are."
+        lede="We're pre-pilot and honest about it. Three case studies are in active scoping: one manufacturing distributor, one specialty insurer, one marketing agency. Click any card to read the full brief, what we'll measure, and the current status. When each pilot closes its five-week window, the real write-up — with numbers, named outcome and a reference call on request — replaces the brief in place."
       />
 
       <section
@@ -80,20 +78,22 @@ export default function CaseStudiesPage() {
                 fontFamily: "var(--font-body)",
               }}
             >
-              Each one is a five-week fixed-scope pilot. Full write-ups
-              publish here as each completes — including the things that
-              didn&apos;t work, the exception volumes measured, and the
-              production handover notes.
+              Each one is a five-week fixed-scope pilot. Click a card to read
+              the full brief, the success metrics we&apos;ll measure, and the
+              current status. Full write-ups publish here as each completes —
+              including the things that didn&apos;t work, the exception volumes
+              measured, and the production handover notes.
             </p>
           </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {pipeline.map((p) => {
-              const Icon = p.icon;
+            {caseStudies.map((c) => {
+              const Icon = iconMap[c.iconName];
               return (
-                <div
-                  key={p.vertical}
-                  className="relative rounded-2xl border p-7 overflow-hidden themed-rounded"
+                <Link
+                  key={c.slug}
+                  href={`/case-studies/${c.slug}`}
+                  className="group relative rounded-2xl border p-7 overflow-hidden themed-rounded transition-all duration-300 hover:-translate-y-1"
                   style={{
                     borderColor: "var(--card-border)",
                     background:
@@ -101,7 +101,7 @@ export default function CaseStudiesPage() {
                   }}
                 >
                   <div
-                    className="pointer-events-none absolute -top-16 -right-16 w-[180px] h-[180px] rounded-full blur-[60px] opacity-30"
+                    className="pointer-events-none absolute -top-16 -right-16 w-[180px] h-[180px] rounded-full blur-[60px] opacity-30 group-hover:opacity-60 transition-opacity duration-500"
                     style={{ background: "var(--accent-glow)" }}
                   />
                   <div className="relative">
@@ -121,23 +121,36 @@ export default function CaseStudiesPage() {
                       />
                     </div>
                     <div
-                      className="mt-5 text-[10px] uppercase tracking-[0.25em]"
+                      className="mt-5 flex items-center gap-2 text-[10px] uppercase tracking-[0.25em]"
                       style={{
                         color: "var(--accent-2)",
                         fontFamily: "var(--font-body)",
                       }}
                     >
-                      {p.stage}
+                      <span
+                        className="w-1.5 h-1.5 rounded-full animate-pulse"
+                        style={{ background: "var(--accent-2)" }}
+                      />
+                      {c.stage}
                     </div>
                     <h3
-                      className="mt-2 text-lg font-semibold"
+                      className="mt-2 text-lg font-semibold leading-tight"
                       style={{
                         fontFamily: "var(--font-display)",
                         color: "var(--fg)",
                       }}
                     >
-                      {p.vertical}
+                      {c.vertical}
                     </h3>
+                    <p
+                      className="mt-1 text-sm font-medium leading-snug"
+                      style={{
+                        color: "var(--fg)",
+                        fontFamily: "var(--font-body)",
+                      }}
+                    >
+                      {c.headline}
+                    </p>
                     <p
                       className="mt-3 text-sm leading-relaxed"
                       style={{
@@ -145,10 +158,21 @@ export default function CaseStudiesPage() {
                         fontFamily: "var(--font-body)",
                       }}
                     >
-                      {p.focus}
+                      {c.summary}
                     </p>
+                    <div
+                      className="mt-5 pt-4 border-t flex items-center gap-2 text-sm font-semibold"
+                      style={{
+                        borderColor: "var(--card-border)",
+                        color: "var(--accent-2)",
+                        fontFamily: "var(--font-body)",
+                      }}
+                    >
+                      <span>Read the brief</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

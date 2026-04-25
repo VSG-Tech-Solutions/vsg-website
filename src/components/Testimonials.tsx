@@ -122,7 +122,7 @@ export const Testimonials: React.FC = () => {
                     fontFamily: "var(--font-body)",
                   }}
                 >
-                  CEO & Co-founder · VSG Tech Solutions
+                  Founder & CEO · VSG Tech Solutions
                 </div>
               </div>
             </footer>

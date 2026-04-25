@@ -11,6 +11,11 @@ import {
   PackageCheck,
   Sparkles,
   ArrowRight,
+  FileText,
+  Link2,
+  CreditCard,
+  Wallet,
+  FileSignature,
 } from "lucide-react";
 
 // The standard workflow library — the concrete answer to "what does
@@ -48,6 +53,36 @@ const standardWorkflows = [
     icon: PackageCheck,
     title: "Receiving Discrepancies",
     body: "Short-ships, damages, wrong-SKU, over-receipts. Auto-created from GRN vs PO mismatches.",
+  },
+  {
+    icon: FileText,
+    title: "Bordereaux & Claims Intake",
+    body: "Inbound claims, bordereaux files and policy docs captured at the front door. Classified, severity-scored and routed to the right adjuster with SLA timers.",
+  },
+  {
+    icon: Link2,
+    title: "GRN-to-Invoice Reconciliation",
+    body: "Three-way match across PO, GRN and invoice — the moment one of them lands. Catches partial receipts, price drift and duplicate invoices before they post.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "BEE & Vendor Compliance Refresh",
+    body: "Tracks BEE certs, tax clearance, banking proofs and insurance expiries per supplier. Auto-prompts the vendor before they lapse — not after a payment fails.",
+  },
+  {
+    icon: CreditCard,
+    title: "Customer Credit-Limit Overrides",
+    body: "Orders that breach the credit limit pause for review with full ageing, exposure and override history. Approved or declined with named accountability.",
+  },
+  {
+    icon: Wallet,
+    title: "Expense Exceptions",
+    body: "Out-of-policy claims, missing receipts, split-billing patterns and approval-chain bypass. Flagged at submission, not at month-end audit.",
+  },
+  {
+    icon: FileSignature,
+    title: "Contract & Renewal Gate",
+    body: "Service contracts and customer agreements approaching renewal or auto-renewal. Triggers review with margin, usage and counter-party risk in one view.",
   },
 ];
 

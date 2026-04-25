@@ -21,7 +21,7 @@ import {
 const PILOT = {
   slotsTotal: 5,
   slotsFilled: 1, // bump as installs book
-  closeWindow: "May – June 2026",
+  closeWindow: "June – July 2026",
 };
 
 type Benefit = {
@@ -54,7 +54,7 @@ const BENEFITS: Benefit[] = [
 
 const PROMISES: string[] = [
   "First workflow live in 5 weeks on your real data",
-  "Founders on every working session — no SDR, no handoff",
+  "Founder on every working session — no SDR, no handoff",
   "Named success outcome, contracted on day one",
   "Month-to-month after go-live · pause or exit anytime",
 ];
@@ -381,6 +381,16 @@ export const PilotPromo: React.FC = () => {
                 >
                   <span>{PILOT.slotsFilled} booked</span>
                   <span>{remaining} open</span>
+                </div>
+                <div
+                  className="mt-3 text-[11px] leading-relaxed"
+                  style={{
+                    color: "var(--muted-2)",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  First slot booked April 2026 · {remaining} slots remain
+                  open for {PILOT.closeWindow} setup
                 </div>
               </div>
 

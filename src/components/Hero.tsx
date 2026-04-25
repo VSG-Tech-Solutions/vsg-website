@@ -143,7 +143,7 @@ export const Hero: React.FC = () => {
                 className="h-1.5 w-1.5 rounded-full animate-pulse shrink-0"
                 style={{ background: "var(--accent)" }}
               />
-              <span>Setup slots open — May / June 2026</span>
+              <span>Setup slots open — June / July 2026</span>
             </div>
             <span
               className="hidden sm:inline-block h-1 w-1 rounded-full"

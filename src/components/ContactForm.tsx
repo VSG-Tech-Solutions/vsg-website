@@ -5,7 +5,6 @@ import { useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
-  CheckCircle2,
   Mail,
   Phone,
   Calendar,
@@ -14,6 +13,7 @@ import { LinkedInIcon } from "./brand/LinkedInIcon";
 import { CONTACT } from "@/lib/contact";
 import { submitContactLead } from "@/app/actions/contact-lead";
 import { BookingButton } from "./BookingButton";
+import { ThankYouModal } from "./ThankYouModal";
 
 type ProblemArea =
   | "Custom software"
@@ -41,6 +41,9 @@ export const ContactForm: React.FC = () => {
   const [delivered, setDelivered] = useState(false);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Capture the lead's first name BEFORE we reset the form so the thank-you
+  // modal can greet them by name even after the inputs clear.
+  const [submittedFirstName, setSubmittedFirstName] = useState("");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -65,8 +68,19 @@ export const ContactForm: React.FC = () => {
         message: form.message,
       });
       if (result.ok) {
+        setSubmittedFirstName(form.name.split(" ")[0] || "");
         setDelivered(result.delivered);
         setSubmitted(true);
+        // Reset the form so when the user closes the modal they see a fresh
+        // form rather than their previously submitted values.
+        setForm({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          problem: "",
+          message: "",
+        });
       } else {
         setError(result.error);
       }
@@ -132,7 +146,7 @@ export const ContactForm: React.FC = () => {
             we&apos;ll come back to you with honest, useful direction.
           </p>
 
-          {!submitted ? (
+          {(
             <form
               onSubmit={handleSubmit}
               className="mt-8 grid gap-4 sm:grid-cols-2"
@@ -342,74 +356,6 @@ export const ContactForm: React.FC = () => {
                 .
               </p>
             </form>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-8 rounded-2xl border p-8 flex items-start gap-4 themed-rounded"
-              style={{
-                borderColor: "var(--ring)",
-                background: "var(--accent-soft)",
-              }}
-            >
-              <CheckCircle2
-                className="w-6 h-6 shrink-0 mt-0.5"
-                style={{ color: "var(--accent-2)" }}
-              />
-              <div>
-                <div
-                  className="text-base font-semibold"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    color: "var(--fg)",
-                  }}
-                >
-                  {delivered
-                    ? "Got it — thanks, " + (form.name.split(" ")[0] || "we'll be in touch")
-                    : "Got it — we have your message."}
-                </div>
-                <p
-                  className="mt-1 text-sm leading-relaxed"
-                  style={{
-                    color: "var(--muted)",
-                    fontFamily: "var(--font-body)",
-                  }}
-                >
-                  {delivered ? (
-                    <>
-                      Your message landed in {CONTACT.founder.name.split(" ")[0]}&apos;s
-                      inbox — most replies inside a few hours, latest within one
-                      working day. The team will come back to you directly.
-                    </>
-                  ) : (
-                    <>
-                      We&apos;ve recorded your enquiry and will follow up within one
-                      working day. If you&apos;d rather reach out directly, write to{" "}
-                      <a
-                        href={`mailto:${CONTACT.founder.email}`}
-                        style={{ color: "var(--accent-2)" }}
-                      >
-                        {CONTACT.founder.email}
-                      </a>
-                      .
-                    </>
-                  )}
-                </p>
-                <BookingButton
-                  className="mt-5 group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 cursor-pointer themed-rounded"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
-                    color: "#ffffff",
-                    boxShadow: "0 0 24px var(--accent-glow)",
-                    fontFamily: "var(--font-body)",
-                  }}
-                >
-                  <span>Or skip the wait — book a slot now</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </BookingButton>
-              </div>
-            </motion.div>
           )}
         </motion.div>
 
@@ -679,6 +625,14 @@ export const ContactForm: React.FC = () => {
           </div>
         </motion.div>
       </div>
+
+      <ThankYouModal
+        open={submitted}
+        onClose={() => setSubmitted(false)}
+        context="contact"
+        firstName={submittedFirstName}
+        delivered={delivered}
+      />
     </section>
   );
 };

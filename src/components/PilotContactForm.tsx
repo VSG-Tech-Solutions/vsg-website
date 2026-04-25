@@ -15,6 +15,7 @@ import {
 import { CONTACT } from "@/lib/contact";
 import { submitPilotLead, type PilotLeadInput } from "@/app/actions/pilot-lead";
 import { BookingButton } from "./BookingButton";
+import { ThankYouModal } from "./ThankYouModal";
 
 // Dedicated Pilot Promo lead form — sends straight to Stephan's inbox via the
 // server action in src/app/actions/pilot-lead.ts.
@@ -40,6 +41,8 @@ export const PilotContactForm: React.FC = () => {
     message: "",
   });
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  // Captured before the form resets so the thank-you modal can greet by name.
+  const [submittedFirstName, setSubmittedFirstName] = useState("");
 
   const update =
     <K extends keyof PilotLeadInput>(key: K) =>
@@ -62,6 +65,7 @@ export const PilotContactForm: React.FC = () => {
         setStatus({ kind: "error", message: result.error });
         return;
       }
+      setSubmittedFirstName(form.name.split(" ")[0] || "");
       setStatus({ kind: "success", delivered: result.delivered });
       setForm({
         name: "",
