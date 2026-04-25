@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+:root {
+  /* Ocean Deep — permanent production theme. Values mirror themes.ts "ocean"
+     so there is no flash-of-unstyled-theme before ThemeProvider hydrates. */
+  --bg: #020812;
+  --bg-elev: #051a2e;
+  --fg: #e0f7fa;
+  --muted: rgba(207, 250, 254, 0.7);
+  --muted-2: rgba(207, 250, 254, 0.45);
+  --accent: #14b8a6;
+  --accent-2: #67e8f9;
+  --accent-soft: rgba(20, 184, 166, 0.12);
+  --accent-glow: rgba(103, 232, 249, 0.45);
+  --card-bg: rgba(103, 232, 249, 0.05);
+  --card-border: rgba(207, 250, 254, 0.14);
+  --ring: rgba(20, 184, 166, 0.55);
+
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-accent: var(--accent);
+  --font-orbitron: var(--font-orbitron);
+  --font-exo2: var(--font-exo2);
+  --font-inter: var(--font-inter);
+  --font-space-grotesk: var(--font-space-grotesk);
+  --font-space-mono: var(--font-space-mono);
+  --font-fraunces: var(--font-fraunces);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+/* Scrollbar — follows theme */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 10px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background-image: radial-gradient(var(--tw-gradient-stops));
+}
+
+/* Brand lockup — persistent teal/cyan halo on the petal mark, amplified on
+   hover. Filter animation is GPU-accelerated; transform is a micro-scale so
+   the whole lockup feels alive without shifting layout. */
+.brand-lockup:hover .brand-logo-glow {
+  filter: drop-shadow(0 0 10px var(--accent))
+    drop-shadow(0 0 22px var(--accent-glow))
+    drop-shadow(0 0 32px var(--accent-glow)) !important;
+  transform: scale(1.04);
+}
+
+/* Brutalist flourish — harder edges when active */
+html[data-theme="brutalist"] .themed-rounded {
+  border-radius: 0 !important;
+}
+
+/* Light-mode: dashboard previews + dark-only elements need to flip */
+html[data-mode="light"] .dark-only {
+  display: none;
+}
+html[data-mode="dark"] .light-only {
+  display: none;
+}
+
+/* Legal page prose */
+.legal-prose {
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.7;
+  font-size: 15px;
+}
+.legal-prose .lead {
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+.legal-prose h2 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+.legal-prose p,
+.legal-prose li {
+  color: var(--muted);
+}
+.legal-prose ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 1rem;
+}
+.legal-prose li {
+  margin-bottom: 0.4rem;
+}
+.legal-prose a {
+  color: var(--accent-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.legal-prose strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+.legal-prose .draft-notice {
+  border: 1px solid var(--ring);
+  background: var(--accent-soft);
+  padding: 1rem 1.1rem;
+  border-radius: 0.75rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 14px;
+  color: var(--fg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
