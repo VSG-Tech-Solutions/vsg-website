@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 
@@ -137,8 +138,16 @@ export const Testimonials: React.FC = () => {
           className="mt-10 text-center text-sm"
           style={{ color: "var(--muted-2)", fontFamily: "var(--font-body)" }}
         >
-          First pilot case study publishing Q2 2026 — a South African funeral
-          insurance distributor running 900+ agents nationally.
+          First case study live — a South African funeral insurance
+          distributor running 900+ agents nationwide on a platform we built
+          end-to-end.{" "}
+          <Link
+            href="/case-studies/funeral-insurance-distribution"
+            className="font-semibold underline-offset-4 hover:underline"
+            style={{ color: "var(--accent-2)" }}
+          >
+            Read the full write-up →
+          </Link>
         </motion.div>
       </div>
     </section>

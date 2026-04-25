@@ -10,8 +10,10 @@ import {
   Truck,
   Target,
   ClipboardList,
+  Wrench,
   Activity,
   CheckCircle2,
+  Clock,
   type LucideIcon,
 } from "lucide-react";
 import { SiteShell } from "@/components/SiteShell";
@@ -60,6 +62,7 @@ export default async function CaseStudyDetailPage({
   if (!study) notFound();
 
   const Icon = iconMap[study.iconName];
+  const otherStudies = caseStudies.filter((c) => c.slug !== study.slug);
 
   return (
     <SiteShell>
@@ -150,9 +153,9 @@ export default async function CaseStudyDetailPage({
         <div className="mx-auto max-w-5xl px-6 grid lg:grid-cols-[1fr_320px] gap-12">
           {/* Main column */}
           <div className="space-y-12">
-            {/* The brief */}
+            {/* Problem */}
             <div>
-              <SectionEyebrow icon={ClipboardList} label="The brief" />
+              <SectionEyebrow icon={ClipboardList} label="The problem" />
               <div
                 className="mt-5 space-y-4 text-base leading-relaxed"
                 style={{
@@ -160,7 +163,7 @@ export default async function CaseStudyDetailPage({
                   fontFamily: "var(--font-body)",
                 }}
               >
-                {study.brief.map((p, i) => (
+                {study.problem.map((p, i) => (
                   <p key={i} style={i === 0 ? { color: "var(--fg)" } : {}}>
                     {p}
                   </p>
@@ -168,11 +171,27 @@ export default async function CaseStudyDetailPage({
               </div>
             </div>
 
-            {/* Success metrics */}
+            {/* Approach */}
             <div>
-              <SectionEyebrow icon={Target} label="What we'll measure" />
+              <SectionEyebrow icon={Wrench} label="The approach" />
+              <div
+                className="mt-5 space-y-4 text-base leading-relaxed"
+                style={{
+                  color: "var(--muted)",
+                  fontFamily: "var(--font-body)",
+                }}
+              >
+                {study.approach.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+
+            {/* What we delivered */}
+            <div>
+              <SectionEyebrow icon={Target} label="What we delivered" />
               <ul className="mt-5 space-y-3">
-                {study.successMetrics.map((m, i) => (
+                {study.delivered.map((m, i) => (
                   <li
                     key={i}
                     className="flex items-start gap-3 text-base leading-relaxed"
@@ -202,10 +221,10 @@ export default async function CaseStudyDetailPage({
               </ul>
             </div>
 
-            {/* Outcome (only shown when published) */}
-            {study.published && study.outcome && study.outcome.length > 0 && (
+            {/* Outcome */}
+            {study.outcome && study.outcome.length > 0 && (
               <div>
-                <SectionEyebrow icon={CheckCircle2} label="Outcome" />
+                <SectionEyebrow icon={CheckCircle2} label="The result" />
                 <ul className="mt-5 space-y-3">
                   {study.outcome.map((o, i) => (
                     <li
@@ -226,10 +245,47 @@ export default async function CaseStudyDetailPage({
                 </ul>
               </div>
             )}
+
+            {/* Ongoing */}
+            {study.ongoing && study.ongoing.length > 0 && (
+              <div>
+                <SectionEyebrow icon={Clock} label="Phase 2 — in progress" />
+                <ul className="mt-5 space-y-3">
+                  {study.ongoing.map((o, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-base leading-relaxed"
+                      style={{
+                        color: "var(--muted)",
+                        fontFamily: "var(--font-body)",
+                      }}
+                    >
+                      <span
+                        className="inline-flex items-center justify-center w-5 h-5 rounded-full shrink-0 mt-0.5"
+                        style={{
+                          background:
+                            "color-mix(in oklab, var(--accent-2) 12%, transparent)",
+                          border:
+                            "1px solid color-mix(in oklab, var(--accent-2) 35%, var(--card-border))",
+                        }}
+                      >
+                        <Clock
+                          className="w-3 h-3"
+                          style={{ color: "var(--accent-2)" }}
+                          strokeWidth={2.4}
+                        />
+                      </span>
+                      <span>{o}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
           {/* Sidebar */}
           <aside className="space-y-5">
+            {/* Engagement card */}
             <div
               className="rounded-2xl border p-6 themed-rounded"
               style={{
@@ -237,6 +293,67 @@ export default async function CaseStudyDetailPage({
                   "color-mix(in oklab, var(--accent-2) 30%, var(--card-border))",
                 background:
                   "linear-gradient(145deg, color-mix(in oklab, var(--accent-2) 8%, var(--card-bg)), var(--card-bg))",
+              }}
+            >
+              <div
+                className="text-[10px] uppercase tracking-[0.25em] mb-3"
+                style={{
+                  color: "var(--accent-2)",
+                  fontFamily: "var(--font-body)",
+                }}
+              >
+                Engagement
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <div
+                    className="text-[11px] uppercase tracking-[0.18em] mb-1"
+                    style={{
+                      color: "var(--muted-2)",
+                      fontFamily: "var(--font-body)",
+                    }}
+                  >
+                    Client
+                  </div>
+                  <div
+                    className="text-sm leading-relaxed"
+                    style={{
+                      color: "var(--fg)",
+                      fontFamily: "var(--font-body)",
+                    }}
+                  >
+                    {study.client}
+                  </div>
+                </div>
+                <div>
+                  <div
+                    className="text-[11px] uppercase tracking-[0.18em] mb-1"
+                    style={{
+                      color: "var(--muted-2)",
+                      fontFamily: "var(--font-body)",
+                    }}
+                  >
+                    Size
+                  </div>
+                  <div
+                    className="text-sm leading-relaxed"
+                    style={{
+                      color: "var(--muted)",
+                      fontFamily: "var(--font-body)",
+                    }}
+                  >
+                    {study.size}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Current status card */}
+            <div
+              className="rounded-2xl border p-6 themed-rounded"
+              style={{
+                borderColor: "var(--card-border)",
+                background: "var(--card-bg)",
               }}
             >
               <SectionEyebrow icon={Activity} label="Current status" />
@@ -251,7 +368,8 @@ export default async function CaseStudyDetailPage({
               </p>
             </div>
 
-            {!study.published && (
+            {/* Pending quote honesty panel */}
+            {study.pendingQuote && (
               <div
                 className="rounded-2xl border p-6 themed-rounded"
                 style={{
@@ -266,7 +384,7 @@ export default async function CaseStudyDetailPage({
                     fontFamily: "var(--font-body)",
                   }}
                 >
-                  Honest pre-pilot status
+                  Client quote
                 </div>
                 <p
                   className="text-sm leading-relaxed"
@@ -275,10 +393,10 @@ export default async function CaseStudyDetailPage({
                     fontFamily: "var(--font-body)",
                   }}
                 >
-                  No outcome numbers yet — we won&apos;t invent them. The
-                  full case study, including the things that didn&apos;t work
-                  and the production handover notes, replaces this brief
-                  in place once the pilot completes.
+                  We&apos;re collecting a quote from the client sponsor. Until
+                  it&apos;s in writing we won&apos;t invent one — the result
+                  bullets above are what shipped, signed off by the team
+                  running the platform every day.
                 </p>
               </div>
             )}
@@ -320,29 +438,28 @@ export default async function CaseStudyDetailPage({
         </div>
       </section>
 
-      {/* Other case studies */}
-      <section
-        className="relative w-full py-16 border-t"
-        style={{
-          background: "var(--bg)",
-          color: "var(--fg)",
-          borderColor: "var(--card-border)",
-        }}
-      >
-        <div className="mx-auto max-w-5xl px-6">
-          <div
-            className="text-[11px] uppercase tracking-[0.25em] mb-6"
-            style={{
-              color: "var(--accent-2)",
-              fontFamily: "var(--font-body)",
-            }}
-          >
-            Other pilots in scope
-          </div>
-          <div className="grid gap-5 md:grid-cols-2">
-            {caseStudies
-              .filter((c) => c.slug !== study.slug)
-              .map((c) => {
+      {/* Other case studies — only render when there are others to show */}
+      {otherStudies.length > 0 && (
+        <section
+          className="relative w-full py-16 border-t"
+          style={{
+            background: "var(--bg)",
+            color: "var(--fg)",
+            borderColor: "var(--card-border)",
+          }}
+        >
+          <div className="mx-auto max-w-5xl px-6">
+            <div
+              className="text-[11px] uppercase tracking-[0.25em] mb-6"
+              style={{
+                color: "var(--accent-2)",
+                fontFamily: "var(--font-body)",
+              }}
+            >
+              Other case studies
+            </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              {otherStudies.map((c) => {
                 const OtherIcon = iconMap[c.iconName];
                 return (
                   <Link
@@ -397,9 +514,10 @@ export default async function CaseStudyDetailPage({
                   </Link>
                 );
               })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <CTA variant="minimal" />
     </SiteShell>

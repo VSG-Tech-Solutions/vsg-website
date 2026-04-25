@@ -2,20 +2,20 @@
  * Case study source-of-truth.
  *
  * Each entry powers BOTH the card on /case-studies AND the dedicated detail
- * page at /case-studies/[slug]. Honest pre-pilot positioning: every record
- * has an explicit `stage` (scoping / in-pilot / published) and a `published`
- * boolean — we never invent outcomes for cards still in discovery.
+ * page at /case-studies/[slug]. We only publish real engagements with real
+ * client sign-off. No invented case studies, no placeholder logos.
  *
  * To add a new case study:
  *   1. Append a record below with a unique `slug`.
  *   2. Pick a Lucide icon name from the `iconName` union (or extend it).
- *   3. Once a real outcome lands, set `published: true` and fill `outcome`.
+ *   3. Set `published: true` only after client sign-off on naming + outcome.
  */
 
 export type CaseStudyStage =
   | "Scoping conversations"
   | "In active discovery"
   | "Pilot live"
+  | "Delivered — phase 2 ongoing"
   | "Published";
 
 export type CaseStudyIcon =
@@ -31,94 +31,78 @@ export type CaseStudy = {
   vertical: string;
   headline: string;
   stage: CaseStudyStage;
-  /** Whether the public detail page should announce real outcomes or stay in
-   *  honest "we'll publish when it ships" mode. */
+  /** Whether the public detail page should show real outcomes. */
   published: boolean;
   /** One-paragraph summary used on the card. */
   summary: string;
-  /** Sectioned long-form content rendered on the detail page. */
-  brief: string[];
-  /** What we will measure during the pilot. */
-  successMetrics: string[];
-  /** What's currently happening — visible on detail page so prospects can
-   *  see we don't hide pre-pilot honestly. */
+  /** Anonymised client label (e.g. "SME funeral insurance distributor, South Africa"). */
+  client: string;
+  /** Size / shape of the operation. */
+  size: string;
+  /** Problem narrative — paragraphs. */
+  problem: string[];
+  /** Approach narrative — paragraphs. */
+  approach: string[];
+  /** What we delivered — bullets of live scope. */
+  delivered: string[];
+  /** Measurable result bullets. */
+  outcome: string[];
+  /** Phase-2 / ongoing work bullets — optional. */
+  ongoing?: string[];
+  /** Sidebar status copy — visible on the detail page. */
   currentStatus: string;
-  /** Once published, fill in the actual outcome bullets. */
-  outcome?: string[];
+  /** Set true while a client quote is pending — surfaces an honest panel
+   *  instead of a fabricated quote. */
+  pendingQuote?: boolean;
 };
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "manufacturing-distributor-syspro",
-    iconName: "Factory",
-    vertical: "Manufacturing & distribution",
+    slug: "funeral-insurance-distribution",
+    iconName: "Building2",
+    vertical: "Funeral insurance — distribution",
     headline:
-      "Supplier exception handling for a 60-person Syspro distributor.",
-    stage: "In active discovery",
-    published: false,
+      "One self-service platform for 900+ agents — onboarding, comms, commission, payroll.",
+    stage: "Delivered — phase 2 ongoing",
+    published: true,
     summary:
-      "Reduce time-to-resolution on short-shipments and supplier mismatches from days to hours, with an auditable trail for the annual review.",
-    brief: [
-      "A 60-person distributor running Syspro is losing 18–22 working days per month to supplier exceptions — short-ships, damaged stock, wrong-SKU receipts, and three-way-match failures that sit in shared mailboxes for days before resolution.",
-      "Their finance team logs every exception manually into a spreadsheet for the year-end audit. By the time auditors arrive, half the trail has already gone cold.",
-      "The brief: drop time-to-resolution from days to hours, capture every exception with operator identity and timestamps, and produce an auditor-ready export at the click of a button.",
+      "Replaced the spreadsheets and WhatsApp threads that ran a six-tier sales force with a single .NET 8 + React platform on Azure. Every agent has their own login. Onboarding, comms, commission and payroll all live on one audit trail.",
+    client: "SME funeral insurance distributor, South Africa (published anonymously at client's request).",
+    size: "900+ active agents nationwide, organised in a six-tier sales hierarchy (L1 Agents through L6 National Manager) across multiple partner silos.",
+    problem: [
+      "The client recruits and manages a funeral insurance sales force across a six-level hierarchy — agents, distributors, managers, area managers, regional managers and a national manager — selling policies administered on a separate external system called POL360.",
+      "Before this engagement, the sales-force database lived in spreadsheets. Onboarding a new agent meant chasing documents by email, manually capturing details into a sheet, copying verification links into WhatsApps, and hoping nothing fell through.",
+      "Commission workings sat in separate workbooks. There was no single place to see which agents were dormant, which were awaiting a verified email, or which had never submitted a first policy.",
     ],
-    successMetrics: [
-      "Median time-to-resolution on supplier exceptions (target: under 4 hours)",
-      "% of exceptions with full audit trail (target: 100%)",
-      "Annual audit prep time (target: 80% reduction)",
-      "Supplier-side response SLA hit rate (baseline + delta)",
+    approach: [
+      "We built a centralised sales-force platform in .NET 8 and React on Azure, modelling the six-level hierarchy directly in SQL Server so L1–L6 relationships, agent re-allocations, and partner-scoped permissions became data rather than spreadsheet conventions.",
+      "Every agent and distributor has their own login — cookie-based auth and five enforced access levels mean an L1 Agent sees their own commissions, status, documents and stats; an L6 National Manager sees everything across every partner; admin sees the operational control surface.",
+      "For communications we wrote a Hangfire-driven pipeline with per-message de-duplication, dispatched through BulkSMS for SMS and SMTP for email, with every send timestamped and stored under the recipient. The three-email onboarding sequence and status-change notifications fire automatically the moment an agent moves out of Under-Review.",
+      "On top of that we automated the money side: commission calculations run on the platform against ingested policy data, and payroll is prepared and managed from the same system — so every agent's journey from onboarding to earnings to payout lives on one audit trail.",
+    ],
+    delivered: [
+      "Centralised .NET 8 + React platform on Azure (App Service, Azure SQL, Key Vault).",
+      "Six-tier sales hierarchy modelled in SQL with partner-scoped permissions.",
+      "Per-agent self-service login with five enforced access levels (L1 Agent through L6 National Manager + admin).",
+      "Hangfire-driven communications pipeline — three-email onboarding sequence + status-change notifications, BulkSMS for SMS, SMTP for email, every send timestamped.",
+      "Commission automation against ingested policy data.",
+      "Payroll preparation and management on the same audit trail.",
+    ],
+    outcome: [
+      "900+ active agents nationwide running on one platform, each with their own login.",
+      "Agents and distributors self-serve on status, commissions, documents and sales stats — no more phoning head office.",
+      "Onboarding is fully remote and digital end-to-end: capture, verification, status tracking and document storage all live in the platform.",
+      "What an agent sold, what they earned and what they were paid reconcile on one audit trail.",
+      "Spreadsheets and WhatsApp-based manual onboarding retired.",
+    ],
+    ongoing: [
+      "POL360 policy-system integration.",
+      "Approval workflow for status transitions.",
+      "Operational dashboards on top of the platform base.",
     ],
     currentStatus:
-      "Discovery brief signed. Pilot scope locked for the next available cohort slot. Integration plan covers Syspro AP module, GRN data and email-based supplier comms.",
-  },
-  {
-    slug: "specialty-insurer-bordereaux",
-    iconName: "Shield",
-    vertical: "Specialty insurance",
-    headline:
-      "Bordereaux + claims front-door workflow for a specialty insurer.",
-    stage: "Scoping conversations",
-    published: false,
-    summary:
-      "Catch inbound claims the moment they land, classify by policy and severity, and route to the right adjuster with SLA timers — replacing the current shared-inbox triage.",
-    brief: [
-      "A specialty insurer handling complex claims runs intake through a shared mailbox. Bordereaux files arrive from brokers in mixed formats — Excel, PDF, sometimes embedded in email body — and triage relies on whoever opens the inbox first that morning.",
-      "Claims occasionally sit unread for 48+ hours during volume spikes. The compliance team has no realtime view of front-door dwell time, and audit packs are reconstructed manually when regulators ask.",
-      "The brief: capture every inbound claim at the front door, classify by policy line and severity using the insurer's own rules, route to the named adjuster with an SLA timer running from minute one — and produce a regulator-ready trail by default.",
-    ],
-    successMetrics: [
-      "Claims-at-front-door dwell time (target: under 30 minutes)",
-      "% of claims correctly classified on first pass (target: > 95%)",
-      "SLA breach rate by policy line (baseline + delta)",
-      "Audit pack assembly time (target: same-day, not week-long)",
-    ],
-    currentStatus:
-      "Two scoping conversations completed. Awaiting confirmation of pilot start date pending the underwriting head's review of the rules-engine deployment plan.",
-  },
-  {
-    slug: "marketing-agency-intake",
-    iconName: "Megaphone",
-    vertical: "Marketing services",
-    headline:
-      "Client-request intake and approval routing for a busy agency.",
-    stage: "Scoping conversations",
-    published: false,
-    summary:
-      "Replace Slack-and-email chaos with a structured intake → brief → draft → review → delivery flow with a visible status at every stage.",
-    brief: [
-      "An agency with ~40 staff and ~25 retained accounts is drowning in client requests across Slack, email, WhatsApp and a project tool that nobody uses consistently. Account managers spend most of Monday reconstructing the previous week.",
-      "Repeat work, missed approvals, and quiet scope creep are eating margin. There is no single view of who owes what, to whom, by when — and clients are noticing.",
-      "The brief: one intake door, one approval ladder, one status board per client — built on the agency's existing taxonomy of work types, not a generic project template.",
-    ],
-    successMetrics: [
-      "Account manager hours spent on status reconstruction (target: 70% reduction)",
-      "% of requests with explicit client approval recorded (target: 100%)",
-      "Median request → first response time (target: under 1 working day)",
-      "Net retainer margin delta over the pilot quarter",
-    ],
-    currentStatus:
-      "Two scoping conversations completed. Workflow taxonomy mapped against the agency's existing work types — pilot cohort placement pending sign-off.",
+      "Phase 1 delivered and in production on Azure. Phase 2 — POL360 integration, approval workflow and dashboards — is in active build.",
+    pendingQuote: true,
   },
 ];
 

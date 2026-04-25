@@ -17,9 +17,9 @@ import {
 } from "@/lib/case-studies";
 
 export const metadata = {
-  title: "Case studies — Real pilots, published as they complete",
+  title: "Case studies — Real engagements, published with client sign-off",
   description:
-    "VSG is in active pilot discovery with mid-market distribution, insurance and marketing clients. Real case studies publish here as each pilot completes — no placeholder companies, no invented outcomes.",
+    "VSG ships real platforms for South African SMEs. Each case study published here is a real engagement with real client sign-off — no placeholder logos, no invented outcomes.",
 };
 
 // Icon registry — keeps the lucide imports inside the page (server component)
@@ -33,13 +33,14 @@ const iconMap: Record<CaseStudyIcon, LucideIcon> = {
 };
 
 export default function CaseStudiesPage() {
+  const count = caseStudies.length;
   return (
     <SiteShell>
       <PageBanner
         eyebrow="Case studies"
-        title="Real pilots —"
-        highlight="published as each one lands."
-        lede="We're pre-pilot and honest about it. Three case studies are in active scoping: one manufacturing distributor, one specialty insurer, one marketing agency. Click any card to read the full brief, what we'll measure, and the current status. When each pilot closes its five-week window, the real write-up — with numbers, named outcome and a reference call on request — replaces the brief in place."
+        title="Real engagements —"
+        highlight="published with client sign-off."
+        lede="One case study live today — a South African funeral insurance distributor running 900+ agents nationwide on a platform we built end-to-end. Click through for the full write-up: the problem before, the architecture we shipped, what's live now and what's still in build. As more pilots close their five-week windows, the real write-ups land here in place."
       />
 
       <section
@@ -47,7 +48,7 @@ export default function CaseStudiesPage() {
         style={{ background: "var(--bg)", color: "var(--fg)" }}
       >
         <div className="mx-auto max-w-6xl px-6">
-          {/* Pipeline section */}
+          {/* Live engagements */}
           <div className="max-w-3xl">
             <div
               className="flex items-center gap-3 text-[11px] uppercase tracking-[0.25em]"
@@ -60,7 +61,7 @@ export default function CaseStudiesPage() {
                 className="h-px w-8"
                 style={{ background: "var(--accent-2)" }}
               />
-              <span>Active pipeline</span>
+              <span>Live engagements</span>
             </div>
             <h2
               className="mt-5 text-3xl sm:text-4xl font-bold leading-tight tracking-tight"
@@ -69,7 +70,9 @@ export default function CaseStudiesPage() {
                 color: "var(--fg)",
               }}
             >
-              Three pilots currently in scope.
+              {count === 1
+                ? "One published case study so far."
+                : `${count} published case studies so far.`}
             </h2>
             <p
               className="mt-4 text-base sm:text-lg leading-relaxed"
@@ -78,15 +81,22 @@ export default function CaseStudiesPage() {
                 fontFamily: "var(--font-body)",
               }}
             >
-              Each one is a five-week fixed-scope pilot. Click a card to read
-              the full brief, the success metrics we&apos;ll measure, and the
-              current status. Full write-ups publish here as each completes —
-              including the things that didn&apos;t work, the exception volumes
-              measured, and the production handover notes.
+              Click through for the full engagement: the problem before, the
+              architecture, what we delivered, what&apos;s live in production
+              now, and what&apos;s still in build for phase 2. Client name is
+              redacted at the client&apos;s request — everything else is real.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div
+            className={
+              count === 1
+                ? "mt-12 grid gap-5 md:grid-cols-1 max-w-2xl"
+                : count === 2
+                  ? "mt-12 grid gap-5 md:grid-cols-2"
+                  : "mt-12 grid gap-5 md:grid-cols-3"
+            }
+          >
             {caseStudies.map((c) => {
               const Icon = iconMap[c.iconName];
               return (
@@ -168,7 +178,7 @@ export default function CaseStudiesPage() {
                         fontFamily: "var(--font-body)",
                       }}
                     >
-                      <span>Read the brief</span>
+                      <span>Read the case study</span>
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
@@ -199,7 +209,7 @@ export default function CaseStudiesPage() {
                   fontFamily: "var(--font-body)",
                 }}
               >
-                Why there aren&apos;t fake logos here
+                Why there aren&apos;t more logos here yet
               </div>
               <h3
                 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight"
@@ -219,13 +229,16 @@ export default function CaseStudiesPage() {
                 }}
               >
                 A case study is a promise — &quot;this business got this result
-                from us.&quot; Until we can prove a result with a named
-                customer, a real number, and a reference call on request,
-                there&apos;s nothing to publish. In the meantime, the Vantage
-                product page shows the system working end-to-end, and the
-                commercial model (a scoped five-week pilot with a named
-                success outcome, contracted on day one) is how we put our own
-                money behind the claim.
+                from us.&quot; The funeral insurance distribution write-up
+                above is real, with the client&apos;s sign-off on the result
+                bullets and a quote landing once the sponsor signs off the
+                wording. Future engagements publish here the same way: real
+                client, real architecture, real outcome — or we don&apos;t
+                publish them at all. The Vantage product page shows the
+                operations system working end-to-end, and the commercial model
+                (a scoped five-week pilot with a named success outcome,
+                contracted on day one) is how we put our own money behind the
+                claim.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3">
                 <Link
