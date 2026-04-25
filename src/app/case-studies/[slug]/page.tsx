@@ -45,7 +45,7 @@ export async function generateMetadata({
   const c = getCaseStudyBySlug(slug);
   if (!c) return { title: "Case study not found" };
   return {
-    title: `${c.vertical} — Case study | VSG Tech Solutions`,
+    title: `${c.vertical} — Case study`,
     description: c.summary,
   };
 }
