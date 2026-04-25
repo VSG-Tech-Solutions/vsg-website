@@ -54,6 +54,13 @@ export type CaseStudy = {
   /** Set true while a client quote is pending — surfaces an honest panel
    *  instead of a fabricated quote. */
   pendingQuote?: boolean;
+  /** Optional in-platform screenshots. All client-identifying chrome must be
+   *  scrubbed before adding here (logo, tabs, real names, banking fields). */
+  screenshots?: {
+    src: string;
+    alt: string;
+    caption: string;
+  }[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -103,6 +110,38 @@ export const caseStudies: CaseStudy[] = [
     currentStatus:
       "Phase 1 delivered and in production on Azure. Phase 2 — POL360 integration, approval workflow and dashboards — is in active build.",
     pendingQuote: true,
+    screenshots: [
+      {
+        src: "/case-studies/funeral-insurance/01-dashboard.png",
+        alt: "Sales operations dashboard showing active agents, policies today, MTD volume, new premium, pending approvals and outstanding documents, with charts for captured policies and inception-month breakdowns.",
+        caption:
+          "The operational control surface — active agents, policies today, MTD volume, pending approvals and outstanding documents on one screen, with captured-policy and inception-month breakdowns underneath.",
+      },
+      {
+        src: "/case-studies/funeral-insurance/02-sales-force-roster.png",
+        alt: "Sales force roster table listing agents with role, M&C code, status, province, distributor, area manager and compliance percentage.",
+        caption:
+          "The six-tier hierarchy modelled in SQL — every agent's role, M&C code, distributor, area manager and compliance score in one filterable roster.",
+      },
+      {
+        src: "/case-studies/funeral-insurance/03-add-member.png",
+        alt: "Add Member modal capturing personal information, ID, mobile, role and assessment mark, with tabs for documents, bank, address and notes.",
+        caption:
+          "Onboarding intake — every new agent captured digitally end-to-end. Submission triggers verification, welcome and policy-link emails automatically.",
+      },
+      {
+        src: "/case-studies/funeral-insurance/04-commission-cycle.png",
+        alt: "Commission cycle screen with exception flags (invalid email, compliance below 80%, duplicate M&C code) above a provisional ledger of per-agent and per-distributor earnings totalling R 162,575 across 1476 policies, with an Approve Cycle action.",
+        caption:
+          "A monthly commission cycle — exceptions surfaced before approval, then a provisional ledger of per-agent, distributor and area-manager earnings on the same audit trail as onboarding.",
+      },
+      {
+        src: "/case-studies/funeral-insurance/05-audit-logs.png",
+        alt: "System administration audit log showing timestamped commission rule updates, cycle approvals, hierarchy modifications and compliance setting changes against named users.",
+        caption:
+          "Every config change, cycle approval and hierarchy edit timestamped against the user — the audit trail that used to be reconstructed from spreadsheets at year-end.",
+      },
+    ],
   },
 ];
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -14,6 +15,7 @@ import {
   Activity,
   CheckCircle2,
   Clock,
+  Monitor,
   type LucideIcon,
 } from "lucide-react";
 import { SiteShell } from "@/components/SiteShell";
@@ -186,6 +188,63 @@ export default async function CaseStudyDetailPage({
                 ))}
               </div>
             </div>
+
+            {/* Inside the platform — screenshot gallery */}
+            {study.screenshots && study.screenshots.length > 0 && (
+              <div>
+                <SectionEyebrow icon={Monitor} label="Inside the platform" />
+                <div className="mt-5 grid gap-5 sm:grid-cols-2">
+                  {study.screenshots.map((shot, i) => (
+                    <figure
+                      key={shot.src}
+                      className="rounded-2xl border overflow-hidden themed-rounded"
+                      style={{
+                        borderColor: "var(--card-border)",
+                        background: "var(--card-bg)",
+                      }}
+                    >
+                      <div
+                        className="relative w-full"
+                        style={{
+                          aspectRatio: "16 / 10",
+                          background: "var(--bg-elev)",
+                        }}
+                      >
+                        <Image
+                          src={shot.src}
+                          alt={shot.alt}
+                          fill
+                          sizes="(min-width: 1024px) 460px, (min-width: 640px) 50vw, 100vw"
+                          className="object-cover object-top"
+                          priority={i === 0}
+                        />
+                      </div>
+                      <figcaption
+                        className="px-5 py-4 text-sm leading-relaxed border-t"
+                        style={{
+                          color: "var(--muted)",
+                          fontFamily: "var(--font-body)",
+                          borderColor: "var(--card-border)",
+                        }}
+                      >
+                        {shot.caption}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+                <p
+                  className="mt-4 text-xs leading-relaxed"
+                  style={{
+                    color: "var(--muted-2)",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  Client logo, real names, banking fields and partner
+                  identifiers redacted at the client&apos;s request. Sample
+                  data shown in place of live records.
+                </p>
+              </div>
+            )}
 
             {/* What we delivered */}
             <div>
