@@ -45,3 +45,5 @@ next-env.d.ts
 
 # allow .env.local.example to ship as a template
 !.env.local.example
+
+.vercel

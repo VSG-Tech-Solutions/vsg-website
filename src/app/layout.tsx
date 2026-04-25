@@ -9,6 +9,8 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/themes/ThemeProvider";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const orbitron = Orbitron({
   variable: "--font-orbitron",
@@ -201,6 +203,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
         />
         <ThemeProvider>{children}</ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
