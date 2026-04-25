@@ -13,6 +13,7 @@ import {
   Lock,
 } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
+import { BookingButton } from "./BookingButton";
 import {
   submitServicesLead,
   type ServicesLeadInput,
@@ -315,7 +316,7 @@ export const ServicesContactForm: React.FC = () => {
 
               {status.kind === "success" && (
                 <div
-                  className="rounded-xl border p-4 flex items-start gap-3 text-sm leading-relaxed"
+                  className="rounded-xl border p-4 flex flex-col gap-3 text-sm leading-relaxed"
                   style={{
                     borderColor:
                       "color-mix(in oklab, var(--accent-2) 55%, var(--card-border))",
@@ -325,28 +326,43 @@ export const ServicesContactForm: React.FC = () => {
                     fontFamily: "var(--font-body)",
                   }}
                 >
-                  <CheckCircle2
-                    className="w-5 h-5 shrink-0 mt-0.5"
-                    style={{ color: "var(--accent-2)" }}
-                  />
-                  <div>
-                    <strong>Got it — on its way to Stephan.</strong>
-                    {status.delivered ? (
-                      <> You&apos;ll hear back within one working day.</>
-                    ) : (
-                      <>
-                        {" "}
-                        If you don&apos;t hear back in 24 hours, email{" "}
-                        <a
-                          href={`mailto:${CONTACT.founder.email}`}
-                          style={{ color: "var(--accent-2)" }}
-                        >
-                          {CONTACT.founder.email}
-                        </a>{" "}
-                        directly.
-                      </>
-                    )}
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2
+                      className="w-5 h-5 shrink-0 mt-0.5"
+                      style={{ color: "var(--accent-2)" }}
+                    />
+                    <div>
+                      <strong>Got it — on its way to Stephan.</strong>
+                      {status.delivered ? (
+                        <> You&apos;ll hear back within one working day.</>
+                      ) : (
+                        <>
+                          {" "}
+                          If you don&apos;t hear back in 24 hours, email{" "}
+                          <a
+                            href={`mailto:${CONTACT.founder.email}`}
+                            style={{ color: "var(--accent-2)" }}
+                          >
+                            {CONTACT.founder.email}
+                          </a>{" "}
+                          directly.
+                        </>
+                      )}
+                    </div>
                   </div>
+                  <BookingButton
+                    className="group inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 cursor-pointer themed-rounded"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
+                      color: "#ffffff",
+                      boxShadow: "0 0 24px var(--accent-glow)",
+                      fontFamily: "var(--font-body)",
+                    }}
+                  >
+                    <span>Skip the wait — book a scoping call now</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </BookingButton>
                 </div>
               )}
               {status.kind === "error" && (

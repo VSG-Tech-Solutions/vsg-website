@@ -1,6 +1,7 @@
 "use server";
 
 import { CONTACT } from "@/lib/contact";
+import { sendLeadAutoresponder } from "@/lib/lead-autoresponder";
 
 // Server action for the Pilot Promo lead form.
 //
@@ -147,6 +148,13 @@ export async function submitPilotLead(
       console.error("[pilot-lead] Resend error", resp.status, body);
       return { ok: true, delivered: false };
     }
+
+    void sendLeadAutoresponder({
+      toEmail: input.email,
+      toName: input.name,
+      context: "pilot",
+      fromAddress: FROM_ADDRESS,
+    });
 
     return { ok: true, delivered: true };
   } catch (err) {

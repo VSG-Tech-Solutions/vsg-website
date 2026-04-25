@@ -1,6 +1,7 @@
 "use server";
 
 import { CONTACT } from "@/lib/contact";
+import { sendLeadAutoresponder } from "@/lib/lead-autoresponder";
 
 // Server action for the /services custom-build scoping form.
 //
@@ -155,6 +156,13 @@ export async function submitServicesLead(
       console.error("[services-lead] Resend error", resp.status, body);
       return { ok: true, delivered: false };
     }
+
+    void sendLeadAutoresponder({
+      toEmail: input.email,
+      toName: input.name,
+      context: "services",
+      fromAddress: FROM_ADDRESS,
+    });
 
     return { ok: true, delivered: true };
   } catch (err) {

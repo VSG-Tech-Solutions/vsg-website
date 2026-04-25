@@ -13,6 +13,7 @@ import {
 import { LinkedInIcon } from "./brand/LinkedInIcon";
 import { CONTACT } from "@/lib/contact";
 import { submitContactLead } from "@/app/actions/contact-lead";
+import { BookingButton } from "./BookingButton";
 
 type ProblemArea =
   | "Custom software"
@@ -396,6 +397,19 @@ export const ContactForm: React.FC = () => {
                     </>
                   )}
                 </p>
+                <BookingButton
+                  className="mt-5 group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 cursor-pointer themed-rounded"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
+                    color: "#ffffff",
+                    boxShadow: "0 0 24px var(--accent-glow)",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  <span>Or skip the wait — book a slot now</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </BookingButton>
               </div>
             </motion.div>
           )}
@@ -445,17 +459,19 @@ export const ContactForm: React.FC = () => {
               Pick a 20-minute slot that works for you. We&apos;ll walk through
               Vantage on your stack and talk through where a pilot makes sense.
             </p>
-            <a
-              href="mailto:stephan@vsgtech.co.za?subject=Booking%20request"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-medium"
+            <BookingButton
+              className="mt-4 group inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer themed-rounded"
               style={{
-                color: "var(--accent-2)",
+                background:
+                  "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
+                color: "#ffffff",
+                boxShadow: "0 0 24px var(--accent-glow)",
                 fontFamily: "var(--font-body)",
               }}
             >
-              Request a booking link
-              <ArrowRight className="w-4 h-4" />
-            </a>
+              <span>Pick a 20-minute slot</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </BookingButton>
           </div>
 
           {/* Company channel */}

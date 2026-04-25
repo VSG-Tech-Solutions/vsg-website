@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { HeroBackground } from "./backgrounds/HeroBackground";
+import { BookingButton } from "./BookingButton";
 
 const container = {
   hidden: { opacity: 0 },
@@ -102,8 +103,7 @@ export const Hero: React.FC = () => {
             variants={item}
             className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
           >
-            <Link
-              href="/contact"
+            <BookingButton
               className="group relative inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold tracking-wide transition-all duration-300 cursor-pointer themed-rounded"
               style={{
                 background:
@@ -115,7 +115,7 @@ export const Hero: React.FC = () => {
             >
               <span>Book a 20-minute demo</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </BookingButton>
             <Link
               href="/vantage"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border backdrop-blur-sm font-semibold transition-all duration-300 cursor-pointer themed-rounded"

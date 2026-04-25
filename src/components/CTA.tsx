@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Phone, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Mail, Phone, ArrowUpRight, Calendar } from "lucide-react";
 import { LinkedInIcon } from "./brand/LinkedInIcon";
 import { CONTACT } from "@/lib/contact";
+import { BookingButton } from "./BookingButton";
 
 type CTAVariant = "pilot" | "demo" | "book" | "founder" | "minimal";
 
@@ -145,37 +146,65 @@ export const CTA: React.FC<CTAProps> = ({
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href={isFounderVariant ? `mailto:${CONTACT.founder.email}` : "/contact"}
-                className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 cursor-pointer themed-rounded"
-                style={{
-                  background:
-                    "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
-                  color: "#ffffff",
-                  boxShadow: "0 0 40px var(--accent-glow)",
-                  fontFamily: "var(--font-body)",
-                }}
-              >
-                <span>{c.primaryCta}</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a
-                href={
-                  isFounderVariant
-                    ? "/contact"
-                    : `mailto:${CONTACT.founder.email}`
-                }
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border font-semibold transition-all duration-300 cursor-pointer themed-rounded"
-                style={{
-                  borderColor: "var(--card-border)",
-                  background: "var(--card-bg)",
-                  color: "var(--fg)",
-                  fontFamily: "var(--font-body)",
-                }}
-              >
-                <Mail className="w-4 h-4" />
-                {c.secondaryCta}
-              </a>
+              {isFounderVariant ? (
+                <a
+                  href={`mailto:${CONTACT.founder.email}`}
+                  className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 cursor-pointer themed-rounded"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
+                    color: "#ffffff",
+                    boxShadow: "0 0 40px var(--accent-glow)",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  <span>{c.primaryCta}</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              ) : (
+                <BookingButton
+                  className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 cursor-pointer themed-rounded"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
+                    color: "#ffffff",
+                    boxShadow: "0 0 40px var(--accent-glow)",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  <Calendar className="w-4 h-4" />
+                  <span>{c.primaryCta}</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </BookingButton>
+              )}
+              {isFounderVariant ? (
+                <BookingButton
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border font-semibold transition-all duration-300 cursor-pointer themed-rounded"
+                  style={{
+                    borderColor: "var(--card-border)",
+                    background: "var(--card-bg)",
+                    color: "var(--fg)",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  <Calendar className="w-4 h-4" />
+                  {c.secondaryCta}
+                </BookingButton>
+              ) : (
+                <a
+                  href={`mailto:${CONTACT.founder.email}`}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border font-semibold transition-all duration-300 cursor-pointer themed-rounded"
+                  style={{
+                    borderColor: "var(--card-border)",
+                    background: "var(--card-bg)",
+                    color: "var(--fg)",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  <Mail className="w-4 h-4" />
+                  {c.secondaryCta}
+                </a>
+              )}
             </div>
 
             {/* Two-channel directory — company vs founder direct line */}

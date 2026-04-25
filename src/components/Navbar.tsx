@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { VSGLogo } from "./VSGLogo";
+import { BookingButton } from "./BookingButton";
 
 const links = [
   { label: "Vantage", href: "/vantage" },
@@ -100,8 +101,7 @@ export const Navbar: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/contact"
+          <BookingButton
             className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer themed-rounded whitespace-nowrap"
             style={{
               background:
@@ -112,7 +112,7 @@ export const Navbar: React.FC = () => {
             }}
           >
             Book a demo
-          </Link>
+          </BookingButton>
           <button
             aria-label="Toggle menu"
             onClick={() => setOpen(!open)}
@@ -152,8 +152,7 @@ export const Navbar: React.FC = () => {
               </Link>
             );
           })}
-          <Link
-            href="/contact"
+          <BookingButton
             onClick={() => setOpen(false)}
             className="mt-3 w-full text-center px-4 py-3 text-sm font-semibold rounded-lg themed-rounded"
             style={{
@@ -165,7 +164,7 @@ export const Navbar: React.FC = () => {
             }}
           >
             Book a demo →
-          </Link>
+          </BookingButton>
         </motion.div>
       )}
     </motion.nav>

@@ -13,6 +13,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
+import { BookingButton } from "./BookingButton";
 
 // ExceptionScenarios — concrete "before Vantage vs with Vantage" stories.
 //
@@ -353,8 +354,7 @@ export const ExceptionScenarios: React.FC = () => {
             >
               Click through the prototype
             </Link>
-            <Link
-              href="/pilot#apply"
+            <BookingButton
               className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 cursor-pointer themed-rounded"
               style={{
                 background:
@@ -366,7 +366,7 @@ export const ExceptionScenarios: React.FC = () => {
             >
               <span>Book a mapping session</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </BookingButton>
           </div>
         </div>
       </div>

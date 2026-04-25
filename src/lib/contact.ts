@@ -24,6 +24,11 @@ export const CONTACT = {
     linkedin: "https://www.linkedin.com/in/stephan-esterhuizen-459714365/",
     linkedinLabel: "Connect with Stephan",
   },
+  booking: {
+    // Calendly: one event type, "20-minute scoping call".
+    // Used by <BookingButton /> (Calendly popup) and the lead autoresponder.
+    scopingCall: "https://calendly.com/stephan_esterhuizen/scoping-call",
+  },
   location: "Cape Town · South Africa",
   timezone: "CAT time zone",
   compliance: "POPIA-aligned",

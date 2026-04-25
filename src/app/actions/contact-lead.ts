@@ -1,6 +1,7 @@
 "use server";
 
 import { CONTACT } from "@/lib/contact";
+import { sendLeadAutoresponder } from "@/lib/lead-autoresponder";
 
 // Server action for the main /contact form ("Request an assessment").
 //
@@ -147,6 +148,15 @@ export async function submitContactLead(
       console.error("[contact-lead] Resend error", resp.status, body);
       return { ok: true, delivered: false };
     }
+
+    // Fire-and-forget autoresponder to the lead. Failure here is logged
+    // inside the helper — we never block the user response on it.
+    void sendLeadAutoresponder({
+      toEmail: input.email,
+      toName: input.name,
+      context: "contact",
+      fromAddress: FROM_ADDRESS,
+    });
 
     return { ok: true, delivered: true };
   } catch (err) {
