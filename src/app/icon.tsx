@@ -20,14 +20,14 @@ export default function Icon() {
           alignItems: "center",
           justifyContent: "center",
           borderRadius: 14,
-          background: "linear-gradient(145deg, #14b8a6, #0d9488)",
+          background: "#000000",
         }}
       >
         <svg width="56" height="56" viewBox="0 0 100 100">
           <g transform="translate(50 50)">
             {petals.map((deg) => (
               <g key={deg} transform={`rotate(${deg})`}>
-                <ellipse cx="0" cy="-24" rx="8" ry="20" fill="#f0fdfa" />
+                <ellipse cx="0" cy="-24" rx="8" ry="20" fill="#ffffff" />
               </g>
             ))}
           </g>
