@@ -129,8 +129,7 @@ export const ContactForm: React.FC = () => {
           >
             Drop us a line — we&apos;d love to meet you. We reply within one
             working day, everything stays confidential under POPIA, and
-            we&apos;ll tell you honestly whether Vantage is the right fit for
-            where you are.
+            we&apos;ll come back to you with honest, useful direction.
           </p>
 
           {!submitted ? (
@@ -378,10 +377,9 @@ export const ContactForm: React.FC = () => {
                 >
                   {delivered ? (
                     <>
-                      Your enquiry landed in {CONTACT.founder.name.split(" ")[0]}&apos;s
+                      Your message landed in {CONTACT.founder.name.split(" ")[0]}&apos;s
                       inbox — most replies inside a few hours, latest within one
-                      working day. We&apos;ll come back honestly on whether Vantage is
-                      the right fit for where you are.
+                      working day. The team will come back to you directly.
                     </>
                   ) : (
                     <>
@@ -456,8 +454,8 @@ export const ContactForm: React.FC = () => {
                 fontFamily: "var(--font-body)",
               }}
             >
-              Pick a 20-minute slot that works for you. We&apos;ll walk through
-              Vantage on your stack and talk through where a pilot makes sense.
+              Pick a 20-minute slot that works for you. We&apos;ll talk through
+              what you&apos;re working on and where we can help.
             </p>
             <BookingButton
               className="mt-4 group inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer themed-rounded"
