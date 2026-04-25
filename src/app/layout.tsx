@@ -45,8 +45,7 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default:
-      "VSG Tech Solutions — Operational control software for South African mid-market business",
+    default: "VSG Tech Solutions",
     template: "%s | VSG Tech Solutions",
   },
   description:
