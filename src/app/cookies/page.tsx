@@ -1,7 +1,7 @@
 import { LegalLayout } from "@/components/LegalLayout";
 
 export const metadata = {
-  title: "Cookie Policy — VSG Tech Solutions",
+  title: "Cookie Policy",
   description:
     "How VSG Tech Solutions uses cookies and similar technologies on its website.",
 };

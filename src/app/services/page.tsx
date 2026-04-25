@@ -6,7 +6,7 @@ import { ServicesContactForm } from "@/components/ServicesContactForm";
 import { Stats } from "@/components/Stats";
 
 export const metadata = {
-  title: "Services — Custom software, AI, workflow automation | VSG",
+  title: "Services — Custom software, AI, workflow automation",
   description:
     "VSG runs a fixed-price services practice — bespoke software, custom AI systems and end-to-end workflow automation. Senior engineers, Cape Town delivery, 1–2 weeks of scoping then a fixed quote in writing.",
 };

@@ -1,7 +1,7 @@
 import { LegalLayout } from "@/components/LegalLayout";
 
 export const metadata = {
-  title: "Terms of Service — VSG Tech Solutions",
+  title: "Terms of Service",
   description:
     "Terms governing use of the VSG Tech Solutions website, Vantage, and services engagements.",
 };

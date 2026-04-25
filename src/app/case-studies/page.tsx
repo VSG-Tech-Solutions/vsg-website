@@ -5,7 +5,7 @@ import { PageBanner } from "@/components/PageBanner";
 import { CTA } from "@/components/CTA";
 
 export const metadata = {
-  title: "Case studies — Real pilots, published as they complete | VSG",
+  title: "Case studies — Real pilots, published as they complete",
   description:
     "VSG is in active pilot discovery with mid-market distribution, insurance and marketing clients. Real case studies publish here as each pilot completes — no placeholder companies, no invented outcomes.",
 };

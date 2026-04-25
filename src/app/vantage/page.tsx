@@ -12,7 +12,7 @@ import { Stats } from "@/components/Stats";
 import { CTA } from "@/components/CTA";
 
 export const metadata = {
-  title: "Vantage — Operational control platform | VSG Tech Solutions",
+  title: "Vantage — Operational control platform",
   description:
     "Vantage is the AI-powered operational control platform that runs alongside Syspro, SAP, Sage, NetSuite and internal systems to manage every exception, approval, escalation and discrepancy.",
 };

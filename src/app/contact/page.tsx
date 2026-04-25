@@ -4,7 +4,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { Testimonials } from "@/components/Testimonials";
 
 export const metadata = {
-  title: "Contact — Request a Vantage assessment | VSG Tech Solutions",
+  title: "Contact — Request a Vantage assessment",
   description:
     "Come say hello — we'd love to meet you. Drop us a line about where Vantage might help or what you're trying to build, and we'll reply within one working day. Cape Town-based, POPIA-aligned, honest about fit.",
 };

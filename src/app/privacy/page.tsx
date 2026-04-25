@@ -1,7 +1,7 @@
 import { LegalLayout } from "@/components/LegalLayout";
 
 export const metadata = {
-  title: "Privacy Policy — VSG Tech Solutions",
+  title: "Privacy Policy",
   description:
     "How VSG Tech Solutions collects, uses, and protects personal information under POPIA.",
 };

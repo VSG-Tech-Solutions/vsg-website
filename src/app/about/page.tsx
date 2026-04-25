@@ -5,7 +5,7 @@ import { LogoCloud } from "@/components/LogoCloud";
 import { CTA } from "@/components/CTA";
 
 export const metadata = {
-  title: "About — Cape Town-built operational software | VSG Tech Solutions",
+  title: "About — Cape Town-built operational software",
   description:
     "VSG Tech Solutions builds Vantage and runs a fixed-price custom software, AI and workflow practice. Cape Town-based, POPIA-aligned, founder-led.",
 };
