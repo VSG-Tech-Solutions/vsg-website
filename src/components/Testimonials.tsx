@@ -138,15 +138,15 @@ export const Testimonials: React.FC = () => {
           className="mt-10 text-center text-sm"
           style={{ color: "var(--muted-2)", fontFamily: "var(--font-body)" }}
         >
-          First case study live — a South African funeral insurance
-          distributor running 900+ agents nationwide on a platform we built
-          end-to-end.{" "}
+          Real engagements live — Denver Auto Spares&apos; bespoke parts
+          management app, and a South African funeral insurance distributor
+          running 900+ agents nationwide.{" "}
           <Link
-            href="/case-studies/funeral-insurance-distribution"
+            href="/case-studies"
             className="font-semibold underline-offset-4 hover:underline"
             style={{ color: "var(--accent-2)" }}
           >
-            Read the full write-up →
+            Read the case studies →
           </Link>
         </motion.div>
       </div>

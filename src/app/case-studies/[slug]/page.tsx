@@ -16,6 +16,8 @@ import {
   CheckCircle2,
   Clock,
   Monitor,
+  Quote,
+  ExternalLink,
   type LucideIcon,
 } from "lucide-react";
 import { SiteShell } from "@/components/SiteShell";
@@ -305,10 +307,47 @@ export default async function CaseStudyDetailPage({
               </div>
             )}
 
+            {/* Featured client quote */}
+            {study.quote && (
+              <figure
+                className="relative rounded-2xl border p-7 sm:p-8 themed-rounded overflow-hidden"
+                style={{
+                  borderColor:
+                    "color-mix(in oklab, var(--accent-2) 35%, var(--card-border))",
+                  background:
+                    "linear-gradient(145deg, color-mix(in oklab, var(--accent-2) 10%, var(--card-bg)), var(--card-bg))",
+                }}
+              >
+                <Quote
+                  className="absolute top-5 right-5 w-8 h-8 opacity-25"
+                  style={{ color: "var(--accent-2)" }}
+                  strokeWidth={1.5}
+                />
+                <blockquote
+                  className="relative text-xl sm:text-2xl font-semibold leading-snug tracking-tight"
+                  style={{
+                    color: "var(--fg)",
+                    fontFamily: "var(--font-display)",
+                  }}
+                >
+                  &ldquo;{study.quote.text}&rdquo;
+                </blockquote>
+                <figcaption
+                  className="mt-4 text-sm leading-relaxed"
+                  style={{
+                    color: "var(--muted-2)",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  — {study.quote.attribution}
+                </figcaption>
+              </figure>
+            )}
+
             {/* Ongoing */}
             {study.ongoing && study.ongoing.length > 0 && (
               <div>
-                <SectionEyebrow icon={Clock} label="Phase 2 — in progress" />
+                <SectionEyebrow icon={Clock} label="Ongoing — in build" />
                 <ul className="mt-5 space-y-3">
                   {study.ongoing.map((o, i) => (
                     <li
@@ -383,6 +422,25 @@ export default async function CaseStudyDetailPage({
                   >
                     {study.client}
                   </div>
+                  {study.clientUrl && (
+                    <a
+                      href={study.clientUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-flex items-center gap-1 text-xs font-semibold underline-offset-4 hover:underline"
+                      style={{
+                        color: "var(--accent-2)",
+                        fontFamily: "var(--font-body)",
+                      }}
+                    >
+                      <span>
+                        {study.clientUrl
+                          .replace(/^https?:\/\//, "")
+                          .replace(/\/$/, "")}
+                      </span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
                 </div>
                 <div>
                   <div
@@ -404,6 +462,28 @@ export default async function CaseStudyDetailPage({
                     {study.size}
                   </div>
                 </div>
+                {study.engagement && (
+                  <div>
+                    <div
+                      className="text-[11px] uppercase tracking-[0.18em] mb-1"
+                      style={{
+                        color: "var(--muted-2)",
+                        fontFamily: "var(--font-body)",
+                      }}
+                    >
+                      Engagement
+                    </div>
+                    <div
+                      className="text-sm leading-relaxed"
+                      style={{
+                        color: "var(--muted)",
+                        fontFamily: "var(--font-body)",
+                      }}
+                    >
+                      {study.engagement}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

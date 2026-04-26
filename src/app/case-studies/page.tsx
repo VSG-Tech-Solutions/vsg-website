@@ -40,7 +40,7 @@ export default function CaseStudiesPage() {
         eyebrow="Case studies"
         title="Real engagements —"
         highlight="published with client sign-off."
-        lede="One case study live today — a South African funeral insurance distributor running 900+ agents nationwide on a platform we built end-to-end. Click through for the full write-up: the problem before, the architecture we shipped, what's live now and what's still in build. As more pilots close their five-week windows, the real write-ups land here in place."
+        lede="Real platforms we shipped, with real clients. Each case study is the full engagement: the problem before, the architecture, what's live in production now, and what's still in build. Clients are named where they've given permission, and anonymised where they've asked us to. Either way the architecture and outcome are real."
       />
 
       <section

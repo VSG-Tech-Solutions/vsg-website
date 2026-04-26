@@ -16,6 +16,7 @@ export type CaseStudyStage =
   | "In active discovery"
   | "Pilot live"
   | "Delivered — phase 2 ongoing"
+  | "Live in production"
   | "Published";
 
 export type CaseStudyIcon =
@@ -35,8 +36,13 @@ export type CaseStudy = {
   published: boolean;
   /** One-paragraph summary used on the card. */
   summary: string;
-  /** Anonymised client label (e.g. "SME funeral insurance distributor, South Africa"). */
+  /** Client label — anonymised string OR named client (e.g. "Denver Auto Spares"). */
   client: string;
+  /** Optional public client website. Shown as a link in the engagement sidebar
+   *  when the client is named. */
+  clientUrl?: string;
+  /** Optional engagement window (e.g. "June 2025 – April 2026"). */
+  engagement?: string;
   /** Size / shape of the operation. */
   size: string;
   /** Problem narrative — paragraphs. */
@@ -52,8 +58,14 @@ export type CaseStudy = {
   /** Sidebar status copy — visible on the detail page. */
   currentStatus: string;
   /** Set true while a client quote is pending — surfaces an honest panel
-   *  instead of a fabricated quote. */
+   *  instead of a fabricated quote. Mutually exclusive with `quote`. */
   pendingQuote?: boolean;
+  /** Real client quote — rendered as a pull-quote on the detail page. Only
+   *  add when the client has signed off on the wording. */
+  quote?: {
+    text: string;
+    attribution: string;
+  };
   /** Optional in-platform screenshots. All client-identifying chrome must be
    *  scrubbed before adding here (logo, tabs, real names, banking fields). */
   screenshots?: {
@@ -64,6 +76,56 @@ export type CaseStudy = {
 };
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "denver-auto-spares",
+    iconName: "Truck",
+    vertical: "Auto spares — vehicle stripping & retail",
+    headline:
+      "Stock counts ten times faster with QR-labelled parts.",
+    stage: "Live in production",
+    published: true,
+    summary:
+      "A bespoke .NET 8 + MariaDB app on AWS Lambda, built across 11 sequential work orders. Counter staff scan parts on arrival, customers self-register from the website, and the same codebase is now growing into the company's financial-management hub.",
+    client: "Denver Auto Spares (Port Elizabeth, South Africa).",
+    clientUrl: "https://denverautospares.co.za",
+    engagement: "June 2025 – April 2026 · ongoing.",
+    size: "~10 in-store staff, single branch in Port Elizabeth, stripping five different car brands.",
+    problem: [
+      "Denver Auto Spares strips five different car brands in Port Elizabeth and resells the parts to walk-in, phone and online customers. Off-the-shelf retail and accounting tools don't model what they actually do — a single car becomes a long list of individually-tracked parts, each with photos, pricing and a status (available, in cart, sold, damaged, lost).",
+      "Stock counts dragged at the end of every shift. Counter staff captured customer details on paper, then re-typed them into the system, costing roughly twenty minutes per new customer and introducing typos that resurfaced months later on invoices.",
+    ],
+    approach: [
+      "Denver Auto Spares brought us a written spec broken into numbered work orders — WO1 through WO11 — and asked us for a bespoke build rather than an automation layer. We worked through the work orders sequentially against a single .NET 8 codebase rather than starting greenfield each time, so every release built on the last.",
+      "The app is a custom ASP.NET Core MVC application running on one AWS Lambda function fronted by API Gateway, with MariaDB for storage. The front-end is server-rendered Razor with vanilla JavaScript per page — no SPA framework. Where third-party libraries earned their place, we used them: QuestPDF for invoices, quotes and credit notes; QRCoder for printable part labels with a batch print queue; SixLabors.ImageSharp to resize and thumbnail every part photo on upload; Twilio for the staff PIN login.",
+      "We built the public customer-registration form to write directly into MariaDB with input validation and bot protection, removing the paper-and-retype step at the counter. The bank-statement CSV import ships with duplicate detection so a re-uploaded month does not double-book.",
+    ],
+    delivered: [
+      "Custom ASP.NET Core MVC app on a single AWS Lambda + API Gateway, with MariaDB for storage.",
+      "Server-rendered Razor + vanilla JavaScript per page — no SPA framework, low overhead for a 10-person shop.",
+      "Per-part tracking with photos, pricing and status (available, in cart, sold, damaged, lost) — a stripped car becomes a structured inventory list.",
+      "QR-coded printable part labels (QRCoder) with a batch print queue.",
+      "QuestPDF invoices, quotes and credit notes.",
+      "Twilio-driven staff PIN login.",
+      "Public customer-registration form writing straight into MariaDB with input validation and bot protection.",
+      "Bank-statement CSV import with duplicate detection so re-uploaded months don't double-book.",
+      "SixLabors.ImageSharp resizing and thumbnailing every part photo on upload.",
+    ],
+    outcome: [
+      "Stock counting ten times faster, in the owner's words — manual counts replaced by scan-in on arrival, with periodic audits instead of every-shift counts.",
+      "≈20 minutes saved per new customer at the counter, plus the typo-driven invoice errors that used to surface months later are gone.",
+      "Bank-statement import surfaces mis-keyed payments before they age, instead of being reconstructed at month-end.",
+      "Eleven work orders shipped sequentially against one codebase — every release builds on the last instead of starting greenfield.",
+    ],
+    ongoing: [
+      "Steady expansion of the same codebase into Denver Auto Spares' financial-management hub — accounts, reporting and adjacent workflows landing on the existing platform rather than as bolted-on tools.",
+    ],
+    currentStatus:
+      "Live in production, in active use across all in-store stations. Continued releases ship against the same .NET 8 codebase as the financial-hub scope grows.",
+    quote: {
+      text: "You guys are on fire.",
+      attribution: "Owner, Denver Auto Spares — standing line on delivery pace.",
+    },
+  },
   {
     slug: "funeral-insurance-distribution",
     iconName: "Building2",
