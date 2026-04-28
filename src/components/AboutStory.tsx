@@ -389,19 +389,28 @@ export const AboutStory: React.FC = () => {
             >
               <p>
                 Every operations team we&apos;ve worked with has been let
-                down by software that promised to fix the chaos and
-                didn&apos;t. ERPs that nearly fit. Integrations that almost
-                worked. Spreadsheets pretending to be systems. The pattern
-                is the same everywhere, and it&apos;s exhausting to watch.
+                down by the same pattern. The ERP handles the transaction,
+                and everything around it — company approvals, procurement,
+                supplier exceptions, compliance checks, the actual
+                operational work — sits scattered across spreadsheets,
+                email chains, WhatsApp threads and phone calls. No
+                centralised platform. No AI. No audit trail. Just people
+                holding it together with goodwill.
               </p>
               <p>
-                VSG isn&apos;t built around transactions. We build
-                relationships with the operators we work with — that means
-                staying past go-live, fixing the things we said we&apos;d
-                fix, being on the call when something breaks, and treating
-                their systems like our own. Every pilot we&apos;re both on
-                the call. Every rule we ship has been tested against real
-                exception data.
+                That&apos;s exactly what we build. Vantage is the layer
+                around the ERP that pulls all of that work onto one
+                platform — every approval routed, every exception logged,
+                every supplier comm timestamped, every rule auditable.
+                Same data the ERP already owns, one system on top of it.
+              </p>
+              <p>
+                And we don&apos;t build like a vendor. We build
+                relationships with the operators we work with — staying
+                past go-live, fixing the things we said we&apos;d fix,
+                being on the call when something breaks, treating their
+                systems like our own. Both founders on every pilot. Every
+                rule we ship has been tested against real exception data.
               </p>
               <p style={{ color: "var(--fg)" }}>
                 If you&apos;re evaluating Vantage, you&apos;ll talk to a
