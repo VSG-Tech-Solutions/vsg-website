@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { HeroBackground } from "./backgrounds/HeroBackground";
 import { BookingButton } from "./BookingButton";
@@ -34,16 +35,32 @@ const item = {
  * Massive top padding by design — the negative space is the design.
  */
 export const Hero: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Parallax: as the hero leaves, content drifts up gently and fades.
+  const y = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.6, 0]);
+  // Background grid drifts up at half speed for parallax depth.
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+
   return (
     <section
+      ref={sectionRef}
       className="relative w-full overflow-hidden pb-32 sm:pb-48"
       style={{ background: "var(--bg)", color: "var(--fg)" }}
     >
-      <div className="absolute inset-0 z-0">
+      <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
         <HeroBackground />
-      </div>
+      </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6 pt-28 sm:pt-44">
+      <motion.div
+        className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6 pt-28 sm:pt-44"
+        style={{ y, opacity }}
+      >
         <motion.div
           variants={container}
           initial="hidden"
@@ -55,19 +72,19 @@ export const Hero: React.FC = () => {
             <span>Operations platform · South Africa</span>
           </motion.div>
 
-          {/* Display H1 — 2 lines, tight tracking */}
+          {/* Display H1 — 2 lines, tight tracking. First line muted, second
+             line full white for editorial emphasis. No colored gradient. */}
           <motion.h1
             variants={item}
             className="display-tight mt-7 sm:mt-9 text-[2.6rem] sm:text-[5rem] lg:text-[6.25rem]"
           >
-            <span className="block">Your ERP tracks transactions.</span>
             <span
-              className="block bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(110deg, var(--fg) 30%, var(--accent-2) 60%, var(--accent) 95%)",
-              }}
+              className="block"
+              style={{ color: "var(--muted)" }}
             >
+              Your ERP tracks transactions.
+            </span>
+            <span className="block" style={{ color: "var(--fg)" }}>
               Who tracks the work?
             </span>
           </motion.h1>
@@ -122,7 +139,7 @@ export const Hero: React.FC = () => {
             <TrustLockup label="Engagement" value="Founder-led · Cape Town" />
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

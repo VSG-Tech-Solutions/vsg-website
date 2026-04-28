@@ -4,18 +4,18 @@
   /* Holo Black — redesign-experiment branch. Values mirror themes.ts
      "holoblack" so there is no flash-of-unstyled-theme before ThemeProvider
      hydrates. Ocean Deep remains in the registry for instant rollback. */
-  --bg: #07070A;
-  --bg-elev: #0E0E13;
+  --bg: #040408;
+  --bg-elev: #0A0A0F;
   --fg: #F4F4F7;
-  --muted: rgba(244, 244, 247, 0.62);
-  --muted-2: rgba(244, 244, 247, 0.40);
+  --muted: rgba(244, 244, 247, 0.58);
+  --muted-2: rgba(244, 244, 247, 0.36);
   --accent: #14B8A6;
   --accent-2: #67E8F9;
-  --accent-soft: rgba(20, 184, 166, 0.12);
-  --accent-glow: rgba(103, 232, 249, 0.30);
-  --card-bg: rgba(255, 255, 255, 0.025);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --ring: rgba(20, 184, 166, 0.55);
+  --accent-soft: rgba(20, 184, 166, 0.08);
+  --accent-glow: rgba(103, 232, 249, 0.10);
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --card-border: rgba(255, 255, 255, 0.07);
+  --ring: rgba(20, 184, 166, 0.4);
 
   --font-display: var(--font-space-grotesk);
   --font-body: var(--font-inter);
@@ -31,7 +31,8 @@
   color: var(--fg);
 }
 
-/* Holo-style pill button — gradient cobalt CTA, white text, rounded-full. */
+/* Holo-style pill button — solid teal CTA, white text, rounded-full.
+   Shadow is barely-there by default; lifts subtly on hover. No glow. */
 .pill-cta {
   display: inline-flex;
   align-items: center;
@@ -47,16 +48,16 @@
   background: linear-gradient(
     135deg,
     var(--accent),
-    color-mix(in oklab, var(--accent) 70%, var(--accent-2))
+    color-mix(in oklab, var(--accent) 80%, black)
   );
-  box-shadow: 0 8px 32px var(--accent-glow);
-  transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: transform 200ms ease, filter 200ms ease;
   cursor: pointer;
 }
 .pill-cta:hover {
   transform: translateY(-1px);
-  filter: brightness(1.06);
-  box-shadow: 0 12px 40px var(--accent-glow);
+  filter: brightness(1.04);
 }
 
 /* Holo-style ghost pill — hairline border, glass surface, white text. */
@@ -104,11 +105,10 @@
 .eyebrow-pill::before {
   content: "";
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 9999px;
   background: var(--accent-2);
-  box-shadow: 0 0 8px var(--accent-glow);
   animation: eyebrow-pulse 2.4s ease-in-out infinite;
 }
 @keyframes eyebrow-pulse {
@@ -165,10 +165,8 @@ body {
    hover. Filter animation is GPU-accelerated; transform is a micro-scale so
    the whole lockup feels alive without shifting layout. */
 .brand-lockup:hover .brand-logo-glow {
-  filter: drop-shadow(0 0 10px var(--accent))
-    drop-shadow(0 0 22px var(--accent-glow))
-    drop-shadow(0 0 32px var(--accent-glow)) !important;
-  transform: scale(1.04);
+  filter: drop-shadow(0 0 6px var(--accent-soft)) !important;
+  transform: scale(1.03);
 }
 
 /* Brutalist flourish — harder edges when active */

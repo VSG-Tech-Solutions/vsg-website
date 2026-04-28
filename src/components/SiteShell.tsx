@@ -1,6 +1,7 @@
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { PilotPromoBanner } from "./PilotPromoBanner";
+import { ScrollProgress } from "./ScrollProgress";
 
 /**
  * Shared site chrome — promo banner + Navbar on top, Footer at bottom, page
@@ -16,6 +17,7 @@ export const SiteShell: React.FC<{ children: React.ReactNode }> = ({
       className="relative"
       style={{ background: "var(--bg)", color: "var(--fg)" }}
     >
+      <ScrollProgress />
       <PilotPromoBanner />
       <Navbar />
       {children}

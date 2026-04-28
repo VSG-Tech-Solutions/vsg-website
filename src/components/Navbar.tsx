@@ -54,19 +54,16 @@ export const Navbar: React.FC = () => {
           <span
             className="brand-logo-glow relative inline-flex items-center justify-center"
             style={{
-              filter:
-                "drop-shadow(0 0 6px var(--accent)) drop-shadow(0 0 14px var(--accent-glow))",
               transition: "filter 0.35s ease, transform 0.35s ease",
             }}
           >
             <VSGLogo size={30} />
           </span>
           <span
-            className="text-xl font-extrabold tracking-[0.24em] bg-clip-text text-transparent"
+            className="text-xl font-extrabold tracking-[0.24em]"
             style={{
               fontFamily: "var(--font-display)",
-              backgroundImage:
-                "linear-gradient(120deg, var(--fg) 0%, var(--accent-2) 60%, var(--accent) 100%)",
+              color: "var(--fg)",
             }}
           >
             VSG
