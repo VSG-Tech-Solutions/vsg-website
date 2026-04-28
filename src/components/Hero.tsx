@@ -87,12 +87,16 @@ export const Hero: React.FC = () => {
             className="mt-8 max-w-2xl text-base sm:text-lg leading-relaxed"
             style={{ color: "var(--muted)", fontFamily: "var(--font-body)" }}
           >
-            Mid-market operators lose 15–25 days a month to invoice mismatches,
-            stuck approvals, QC non-conformances and supplier onboarding chaos.
-            Vantage runs alongside Syspro, SAP, Sage or any internal system —
-            pulling that work out of email, spreadsheets and WhatsApp and
-            routing it through workflows you own. First workflow live in five
-            weeks. Right now we&apos;re hand-picking{" "}
+            Vantage centralises everything around the ERP transaction —
+            company approvals, procurement, supplier exceptions, compliance,
+            customer requests — onto one platform. Then it adds{" "}
+            <strong style={{ color: "var(--fg)", fontWeight: 600 }}>
+              module-specific AI trained on your operational data
+            </strong>
+            : procurement AI that drafts supplier quotes from live stock
+            levels, exception AI that classifies and routes inbound work,
+            approval AI that learns your routing rules. First workflow live
+            in five weeks. Right now we&apos;re hand-picking{" "}
             <strong style={{ color: "var(--fg)", fontWeight: 600 }}>
               five pilot clients
             </strong>
