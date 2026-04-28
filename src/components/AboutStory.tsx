@@ -388,13 +388,11 @@ export const AboutStory: React.FC = () => {
               linkedinLabel={CONTACT.founders.stephan.linkedinLabel}
             >
               <p>
-                Every operations team we&apos;ve worked with — from
-                family-run distributors to mid-market SA companies — has
-                been let down by software that promised to fix the chaos
-                and didn&apos;t. ERPs that nearly fit. Integrations that
-                almost worked. Spreadsheets pretending to be systems. The
-                pattern is the same everywhere, and it&apos;s exhausting to
-                watch.
+                Every operations team we&apos;ve worked with has been let
+                down by software that promised to fix the chaos and
+                didn&apos;t. ERPs that nearly fit. Integrations that almost
+                worked. Spreadsheets pretending to be systems. The pattern
+                is the same everywhere, and it&apos;s exhausting to watch.
               </p>
               <p>
                 VSG isn&apos;t built around transactions. We build
