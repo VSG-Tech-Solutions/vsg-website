@@ -13,9 +13,9 @@ import { Stats } from "@/components/Stats";
 import { CTA } from "@/components/CTA";
 
 export const metadata = {
-  title: "Vantage — Operational control platform",
+  title: "Vantage — Operational layer for the ERP",
   description:
-    "Vantage is the AI-powered operational control platform that runs alongside Syspro, SAP, Sage, NetSuite and internal systems to manage every exception, approval, escalation and discrepancy.",
+    "Vantage centralises everything around the ERP transaction — company approvals, procurement, supplier exceptions, compliance — onto one platform, then adds module-specific AI trained on your operational data. Procurement AI drafts supplier quotes from live stock levels. First workflow live in five weeks.",
 };
 
 export default function VantagePage() {
@@ -23,28 +23,30 @@ export default function VantagePage() {
     <SiteShell>
       <PageBanner
         eyebrow="Flagship SaaS product"
-        title="Every exception, every workflow —"
-        highlight="controlled on one configurable platform."
+        title="The operational layer for everything —"
+        highlight="around the ERP transaction."
         lede={
           <>
-            Vantage is a configurable operational control platform that sits
-            between your ERP and the work it was never built to handle. It
-            ships with a{" "}
+            Your ERP handles the transaction. Vantage handles the work
+            around it — company approvals, procurement, supplier
+            exceptions, compliance checks, customer requests — that today
+            lives scattered across spreadsheets, email chains, WhatsApp
+            threads and phone calls.{" "}
             <strong style={{ color: "var(--fg)", fontWeight: 600 }}>
-              standard library of 12 exception workflows
+              One platform, full audit trail, routing logic you own in
+              plain English.
             </strong>{" "}
-            — AP mismatches, stuck approvals, QC non-conformances, supplier
-            onboarding, customer complaints and more — deployed to your data
-            in five weeks and routed through rules you own in plain English.{" "}
+            And on top of that platform, we add module-specific AI trained
+            on your operational data — not a generic chatbot. Procurement
+            AI drafts supplier quotes from live stock levels and historical
+            pricing. Exception AI classifies and routes inbound work the
+            moment it lands. Approval AI learns your routing rules and
+            surfaces edge cases.{" "}
             <strong style={{ color: "var(--fg)", fontWeight: 600 }}>
-              Need logic beyond the library? We build custom workflows and
-              features directly on your Vantage instance
+              First workflow live in five weeks.
             </strong>{" "}
-            — no separate platform, no vendor juggling, same audit trail and
-            rules engine. Scoped in 1–2 weeks, fixed-price, delivered by the
-            team that built Vantage. The built-in AI watches the whole thing,
-            proposing new rules with evidence — so the system sharpens every
-            week without ever running autonomously.
+            Custom modules scoped in 1–2 weeks, fixed-price, built by the
+            team that built Vantage — same instance, same audit trail.
           </>
         }
       />

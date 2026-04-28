@@ -98,12 +98,14 @@ export const Hero: React.FC = () => {
               fontFamily: "var(--font-body)",
             }}
           >
-            Vantage runs alongside your Syspro, SAP or Sage stack and pulls
-            invoice mismatches, stuck approvals and supplier exceptions out
-            of email and WhatsApp into workflows you own.{" "}
+            Vantage centralises everything around the ERP transaction —
+            approvals, procurement, supplier exceptions, compliance — onto
+            one platform, then adds{" "}
             <span style={{ color: "var(--fg)", fontWeight: 600 }}>
-              First workflow live in five weeks.
+              module-specific AI trained on your data
             </span>
+            . Procurement AI drafts supplier quotes from live stock levels.
+            First workflow live in five weeks.
           </motion.p>
 
           {/* CTAs — pill primary + ghost secondary */}
