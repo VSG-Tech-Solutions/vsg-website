@@ -17,6 +17,7 @@ import { MidCenturyBg } from "./MidCenturyBg";
 import { OceanBg } from "./OceanBg";
 import { OrigamiBg } from "./OrigamiBg";
 import { NoirBg } from "./NoirBg";
+import { HoloBlackBg } from "./HoloBlackBg";
 
 export const HeroBackground: React.FC = () => {
   const { theme } = useTheme();
@@ -53,6 +54,8 @@ export const HeroBackground: React.FC = () => {
       return <OrigamiBg />;
     case "noir":
       return <NoirBg />;
+    case "holoblack":
+      return <HoloBlackBg />;
     default:
       return <OceanBg />;
   }

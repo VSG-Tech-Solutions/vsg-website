@@ -149,10 +149,10 @@ export const CTA: React.FC<CTAProps> = ({
               {isFounderVariant ? (
                 <a
                   href={`mailto:${CONTACT.founder.email}`}
-                  className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 cursor-pointer themed-rounded"
+                  className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold transition-all duration-300 cursor-pointer themed-rounded"
                   style={{
                     background:
-                      "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
+                      "linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 70%, var(--accent-2)))",
                     color: "#ffffff",
                     boxShadow: "0 0 40px var(--accent-glow)",
                     fontFamily: "var(--font-body)",
@@ -163,10 +163,10 @@ export const CTA: React.FC<CTAProps> = ({
                 </a>
               ) : (
                 <BookingButton
-                  className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 cursor-pointer themed-rounded"
+                  className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold transition-all duration-300 cursor-pointer themed-rounded"
                   style={{
                     background:
-                      "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
+                      "linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 70%, var(--accent-2)))",
                     color: "#ffffff",
                     boxShadow: "0 0 40px var(--accent-glow)",
                     fontFamily: "var(--font-body)",
@@ -179,7 +179,7 @@ export const CTA: React.FC<CTAProps> = ({
               )}
               {isFounderVariant ? (
                 <BookingButton
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border font-semibold transition-all duration-300 cursor-pointer themed-rounded"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border font-semibold transition-all duration-300 cursor-pointer themed-rounded"
                   style={{
                     borderColor: "var(--card-border)",
                     background: "var(--card-bg)",
@@ -193,7 +193,7 @@ export const CTA: React.FC<CTAProps> = ({
               ) : (
                 <a
                   href={`mailto:${CONTACT.founder.email}`}
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border font-semibold transition-all duration-300 cursor-pointer themed-rounded"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border font-semibold transition-all duration-300 cursor-pointer themed-rounded"
                   style={{
                     borderColor: "var(--card-border)",
                     background: "var(--card-bg)",

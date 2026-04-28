@@ -23,6 +23,7 @@ const swatches: Record<ThemeName, { a: string; b: string; c: string }> = {
   ocean: { a: "#020812", b: "#14b8a6", c: "#67e8f9" },
   origami: { a: "#f5f2e9", b: "#be123c", c: "#9a3412" },
   noir: { a: "#05060a", b: "#f43f5e", c: "#06b6d4" },
+  holoblack: { a: "#07070A", b: "#2563EB", c: "#60A5FA" },
 };
 
 export const ThemePicker: React.FC = () => {

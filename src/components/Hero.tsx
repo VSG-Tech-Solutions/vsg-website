@@ -10,12 +10,12 @@ const container = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
   },
 };
 
 const item = {
-  hidden: { y: 24, opacity: 0 },
+  hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -23,147 +23,137 @@ const item = {
   },
 };
 
+/**
+ * Hero — Holo-inspired editorial pattern.
+ *
+ * Centered column. Tiny pulse-pill eyebrow → giant 2-line H1 (display-tight,
+ * Space Grotesk 800, -0.025em tracking) → short subhead in muted gray →
+ * single gradient pill CTA + ghost secondary → tiny trust strip with three
+ * lockups (cohort status · POPIA · founder-led).
+ *
+ * Massive top padding by design — the negative space is the design.
+ */
 export const Hero: React.FC = () => {
   return (
     <section
-      className="relative w-full overflow-hidden pb-24 sm:pb-48"
+      className="relative w-full overflow-hidden pb-32 sm:pb-48"
       style={{ background: "var(--bg)", color: "var(--fg)" }}
     >
-      {/* Theme-aware depth background */}
       <div className="absolute inset-0 z-0">
         <HeroBackground />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-6 pt-32 sm:pt-48">
+      <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6 pt-28 sm:pt-44">
         <motion.div
           variants={container}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-start max-w-4xl"
+          className="flex flex-col items-center text-center"
         >
-          {/* Refined eyebrow — no more chunky pill */}
-          <motion.div
-            variants={item}
-            className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.25em] whitespace-nowrap"
-            style={{
-              color: "var(--muted-2)",
-              fontFamily: "var(--font-body)",
-            }}
-          >
-            <span
-              className="h-px w-6 sm:w-8 shrink-0"
-              style={{ background: "var(--accent-2)" }}
-            />
-            <span>VSG Tech Solutions</span>
-            <span
-              className="h-1 w-1 rounded-full shrink-0"
-              style={{ background: "var(--muted-2)" }}
-            />
-            <span>Cape Town</span>
+          {/* Eyebrow pill */}
+          <motion.div variants={item} className="eyebrow-pill">
+            <span>Operations platform · South Africa</span>
           </motion.div>
 
+          {/* Display H1 — 2 lines, tight tracking */}
           <motion.h1
             variants={item}
-            className="mt-7 sm:mt-8 font-bold text-[2.15rem] sm:text-7xl lg:text-[5.75rem] leading-[1.05] sm:leading-[0.95] tracking-tight"
-            style={{ fontFamily: "var(--font-display)", color: "var(--fg)" }}
+            className="display-tight mt-7 sm:mt-9 text-[2.6rem] sm:text-[5rem] lg:text-[6.25rem]"
           >
-            <span className="block">Your ERP tracks</span>
-            <span className="block">transactions.</span>
+            <span className="block">Your ERP tracks transactions.</span>
             <span
               className="block bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  "linear-gradient(to bottom right, var(--fg), var(--accent-2), var(--accent))",
-                filter: "drop-shadow(0 0 30px var(--accent-glow))",
+                  "linear-gradient(110deg, var(--fg) 30%, var(--accent-2) 60%, var(--accent) 95%)",
               }}
             >
               Who tracks the work?
             </span>
           </motion.h1>
 
+          {/* Subhead — short, single paragraph */}
           <motion.p
             variants={item}
-            className="mt-8 max-w-2xl text-base sm:text-lg leading-relaxed"
-            style={{ color: "var(--muted)", fontFamily: "var(--font-body)" }}
+            className="mt-7 max-w-2xl text-base sm:text-lg leading-relaxed"
+            style={{
+              color: "var(--muted)",
+              fontFamily: "var(--font-body)",
+            }}
           >
-            Mid-market operators lose 15–25 days a month to invoice mismatches,
-            stuck approvals, QC non-conformances and supplier onboarding chaos.
-            Vantage runs alongside Syspro, SAP, Sage or any internal system —
-            pulling that work out of email, spreadsheets and WhatsApp and
-            routing it through workflows you own. First workflow live in five
-            weeks. Right now we&apos;re hand-picking{" "}
-            <strong style={{ color: "var(--fg)", fontWeight: 600 }}>
-              five pilot clients
-            </strong>
-            {" "}— 40% off setup, free support, no per-user fees.
+            Vantage runs alongside your Syspro, SAP or Sage stack and pulls
+            invoice mismatches, stuck approvals and supplier exceptions out
+            of email and WhatsApp into workflows you own.{" "}
+            <span style={{ color: "var(--fg)", fontWeight: 600 }}>
+              First workflow live in five weeks.
+            </span>
           </motion.p>
 
+          {/* CTAs — pill primary + ghost secondary */}
           <motion.div
             variants={item}
             className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
           >
-            <BookingButton
-              className="group relative inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold tracking-wide transition-all duration-300 cursor-pointer themed-rounded"
-              style={{
-                background:
-                  "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
-                color: "#ffffff",
-                boxShadow: "0 0 40px var(--accent-glow)",
-                fontFamily: "var(--font-body)",
-              }}
-            >
+            <BookingButton className="pill-cta">
               <span>Book a 20-minute demo</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </BookingButton>
-            <Link
-              href="/vantage"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border backdrop-blur-sm font-semibold transition-all duration-300 cursor-pointer themed-rounded"
-              style={{
-                borderColor: "var(--card-border)",
-                background: "var(--card-bg)",
-                color: "var(--fg)",
-                fontFamily: "var(--font-body)",
-              }}
-            >
-              See how Vantage works
+            <Link href="/vantage" className="pill-ghost">
+              <span>See how Vantage works</span>
             </Link>
           </motion.div>
 
+          {/* Trust strip — three pill lockups, hairline divider */}
           <motion.div
             variants={item}
-            className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-y-1.5 sm:gap-y-2 sm:gap-x-8 text-xs"
+            className="mt-12 sm:mt-14 flex flex-col sm:flex-row items-center gap-3 sm:gap-0 text-xs"
             style={{
               color: "var(--muted-2)",
               fontFamily: "var(--font-body)",
             }}
           >
-            <div className="flex items-center gap-2">
-              <span
-                className="h-1.5 w-1.5 rounded-full animate-pulse shrink-0"
-                style={{ background: "var(--accent)" }}
-              />
-              <span>Setup slots open — June / July 2026</span>
-            </div>
-            <span
-              className="hidden sm:inline-block h-1 w-1 rounded-full"
-              style={{ background: "var(--muted-2)" }}
+            <TrustLockup
+              label="Pilot cohort"
+              value="3 of 5 booked · 40% off setup"
             />
-            <span>
-              <span className="sm:hidden">· </span>
-              Pilot cohort — 40% off setup
-            </span>
-            <span
-              className="hidden sm:inline-block h-1 w-1 rounded-full"
-              style={{ background: "var(--muted-2)" }}
-            />
-            <span>
-              <span className="sm:hidden">· </span>
-              POPIA-aligned · Founder-led
-            </span>
+            <TrustDivider />
+            <TrustLockup label="Compliance" value="POPIA-aligned" />
+            <TrustDivider />
+            <TrustLockup label="Engagement" value="Founder-led · Cape Town" />
           </motion.div>
         </motion.div>
       </div>
     </section>
   );
 };
+
+/* Small two-line lockup: faint label on top, foreground value beneath.
+   Holo's site uses this exact pattern under their hero ("Backed by VC funds /
+   5MM valuation"). */
+const TrustLockup: React.FC<{ label: string; value: string }> = ({
+  label,
+  value,
+}) => (
+  <div className="px-4 sm:px-6 leading-tight">
+    <div
+      className="text-[10px] uppercase tracking-[0.18em]"
+      style={{ color: "var(--muted-2)" }}
+    >
+      {label}
+    </div>
+    <div
+      className="mt-0.5 text-sm font-semibold"
+      style={{ color: "var(--fg)" }}
+    >
+      {value}
+    </div>
+  </div>
+);
+
+const TrustDivider: React.FC = () => (
+  <span
+    aria-hidden
+    className="hidden sm:block w-px h-8"
+    style={{ background: "var(--card-border)" }}
+  />
+);

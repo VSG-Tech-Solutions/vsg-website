@@ -102,12 +102,12 @@ export const Navbar: React.FC = () => {
 
         <div className="flex items-center gap-2">
           <BookingButton
-            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer themed-rounded whitespace-nowrap"
+            className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 cursor-pointer whitespace-nowrap"
             style={{
               background:
-                "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
+                "linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 70%, var(--accent-2)))",
               color: "#ffffff",
-              boxShadow: "0 0 20px var(--accent-glow)",
+              boxShadow: "0 4px 20px var(--accent-glow)",
               fontFamily: "var(--font-body)",
             }}
           >
@@ -154,12 +154,12 @@ export const Navbar: React.FC = () => {
           })}
           <BookingButton
             onClick={() => setOpen(false)}
-            className="mt-3 w-full text-center px-4 py-3 text-sm font-semibold rounded-lg themed-rounded"
+            className="mt-3 w-full text-center px-4 py-3 text-sm font-semibold rounded-full"
             style={{
               background:
-                "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
+                "linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 70%, var(--accent-2)))",
               color: "#ffffff",
-              boxShadow: "0 0 24px var(--accent-glow)",
+              boxShadow: "0 4px 24px var(--accent-glow)",
               fontFamily: "var(--font-body)",
             }}
           >

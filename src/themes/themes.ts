@@ -10,6 +10,7 @@ export type ThemeName =
   | "cosmos"
   | "glitch"
   | "holo"
+  | "holoblack"
   | "quantum"
   | "midcentury"
   | "ocean"
@@ -39,7 +40,8 @@ export interface Theme {
     | "midcentury"
     | "ocean"
     | "origami"
-    | "noir";
+    | "noir"
+    | "holoblack";
   vars: Record<string, string>;
 }
 
@@ -412,6 +414,29 @@ export const themes: Record<ThemeName, Theme> = {
       "--ring": "rgba(244,63,94,0.6)",
     },
   },
+  holoblack: {
+    name: "holoblack",
+    label: "Holo Black",
+    blurb: "Deep graphite · cobalt accent · editorial calm",
+    mode: "dark",
+    fontDisplay: "var(--font-space-grotesk)",
+    fontBody: "var(--font-inter)",
+    bgMode: "holoblack",
+    vars: {
+      "--bg": "#07070A",
+      "--bg-elev": "#0E0E13",
+      "--fg": "#F4F4F7",
+      "--muted": "rgba(244,244,247,0.62)",
+      "--muted-2": "rgba(244,244,247,0.40)",
+      "--accent": "#2563EB",
+      "--accent-2": "#60A5FA",
+      "--accent-soft": "rgba(37,99,235,0.12)",
+      "--accent-glow": "rgba(96,165,250,0.30)",
+      "--card-bg": "rgba(255,255,255,0.025)",
+      "--card-border": "rgba(255,255,255,0.08)",
+      "--ring": "rgba(96,165,250,0.55)",
+    },
+  },
 };
 
-export const DEFAULT_THEME: ThemeName = "ocean";
+export const DEFAULT_THEME: ThemeName = "holoblack";

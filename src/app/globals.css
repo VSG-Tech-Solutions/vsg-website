@@ -1,23 +1,119 @@
 @import "tailwindcss";
 
 :root {
-  /* Ocean Deep — permanent production theme. Values mirror themes.ts "ocean"
-     so there is no flash-of-unstyled-theme before ThemeProvider hydrates. */
-  --bg: #020812;
-  --bg-elev: #051a2e;
-  --fg: #e0f7fa;
-  --muted: rgba(207, 250, 254, 0.7);
-  --muted-2: rgba(207, 250, 254, 0.45);
-  --accent: #14b8a6;
-  --accent-2: #67e8f9;
-  --accent-soft: rgba(20, 184, 166, 0.12);
-  --accent-glow: rgba(103, 232, 249, 0.45);
-  --card-bg: rgba(103, 232, 249, 0.05);
-  --card-border: rgba(207, 250, 254, 0.14);
-  --ring: rgba(20, 184, 166, 0.55);
+  /* Holo Black — redesign-experiment branch. Values mirror themes.ts
+     "holoblack" so there is no flash-of-unstyled-theme before ThemeProvider
+     hydrates. Ocean Deep remains in the registry for instant rollback. */
+  --bg: #07070A;
+  --bg-elev: #0E0E13;
+  --fg: #F4F4F7;
+  --muted: rgba(244, 244, 247, 0.62);
+  --muted-2: rgba(244, 244, 247, 0.40);
+  --accent: #2563EB;
+  --accent-2: #60A5FA;
+  --accent-soft: rgba(37, 99, 235, 0.12);
+  --accent-glow: rgba(96, 165, 250, 0.30);
+  --card-bg: rgba(255, 255, 255, 0.025);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --ring: rgba(96, 165, 250, 0.55);
 
   --font-display: var(--font-space-grotesk);
   --font-body: var(--font-inter);
+}
+
+/* Holo-style display headline — heavy weight, tight tracking, near-pure
+   white. Use on hero H1 and major section H2s. */
+.display-tight {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  color: var(--fg);
+}
+
+/* Holo-style pill button — gradient cobalt CTA, white text, rounded-full. */
+.pill-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 9999px;
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: -0.005em;
+  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    color-mix(in oklab, var(--accent) 70%, var(--accent-2))
+  );
+  box-shadow: 0 8px 32px var(--accent-glow);
+  transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+  cursor: pointer;
+}
+.pill-cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 12px 40px var(--accent-glow);
+}
+
+/* Holo-style ghost pill — hairline border, glass surface, white text. */
+.pill-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--fg);
+  transition: background-color 200ms ease, border-color 200ms ease,
+    transform 200ms ease;
+  cursor: pointer;
+}
+.pill-ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+/* Holo-style eyebrow — small gradient-stroke pill above the hero H1. */
+.eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.025);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.eyebrow-pill::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--accent-2);
+  box-shadow: 0 0 8px var(--accent-glow);
+  animation: eyebrow-pulse 2.4s ease-in-out infinite;
+}
+@keyframes eyebrow-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 
 @theme inline {
