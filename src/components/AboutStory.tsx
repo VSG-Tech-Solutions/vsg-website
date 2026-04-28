@@ -322,9 +322,9 @@ export const AboutStory: React.FC = () => {
         </div>
       </section>
 
-      {/* Founder card — single solo-founder voice with photo, role, bio,
-       *  LinkedIn and direct mailto. The single most important trust artifact
-       *  for a one-person SaaS company. */}
+      {/* Founders section — both founders rendered side-by-side. Stephan +
+       *  Ernst, equal weight, equal accountability. Replaces the previous
+       *  solo-founder card. */}
       <section
         className="relative w-full py-24 border-t"
         style={{
@@ -352,141 +352,216 @@ export const AboutStory: React.FC = () => {
                 className="h-px w-8"
                 style={{ background: "var(--accent-2)" }}
               />
-              <span>The founder</span>
+              <span>The founders</span>
             </div>
             <h2
               className="mt-5 text-3xl sm:text-4xl font-bold leading-[1.05] tracking-tight"
               style={{ fontFamily: "var(--font-display)", color: "var(--fg)" }}
             >
-              The person behind{" "}
-              <span style={{ color: "var(--accent-2)" }}>every line of code.</span>
+              Two founders.{" "}
+              <span style={{ color: "var(--accent-2)" }}>
+                Both on every pilot.
+              </span>
             </h2>
+            <p
+              className="mt-5 text-base sm:text-lg leading-relaxed"
+              style={{
+                color: "var(--muted)",
+                fontFamily: "var(--font-body)",
+              }}
+            >
+              VSG is built by two founders with a small bench of senior
+              engineers we&apos;ve worked with for years. There&apos;s no
+              SDR, no account-manager relay, no junior CS rep on a script.
+              You email a founder, you talk to a founder.
+            </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.65 }}
-            className="relative mt-12 rounded-3xl border p-8 sm:p-12 overflow-hidden themed-rounded"
-            style={{
-              borderColor:
-                "color-mix(in oklab, var(--accent-2) 30%, var(--card-border))",
-              background:
-                "linear-gradient(145deg, color-mix(in oklab, var(--accent-2) 8%, var(--card-bg)), var(--card-bg))",
-            }}
-          >
-            <div
-              className="pointer-events-none absolute -top-24 -right-24 w-[280px] h-[280px] rounded-full blur-[80px] opacity-50"
-              style={{ background: "var(--accent-glow)" }}
-            />
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {/* Stephan card */}
+            <FounderCard
+              name={CONTACT.founders.stephan.name}
+              role={CONTACT.founders.stephan.role}
+              initials={CONTACT.founders.stephan.initials}
+              email={CONTACT.founders.stephan.email}
+              linkedin={CONTACT.founders.stephan.linkedin}
+              linkedinLabel={CONTACT.founders.stephan.linkedinLabel}
+            >
+              <p>
+                I&apos;m 21. I started VSG because every operator I&apos;d
+                worked with — family-run distributors, small SA businesses,
+                mid-market firms — was running their day-to-day on
+                spreadsheets, WhatsApp threads and goodwill. The ERPs they
+                paid for stopped at the transaction. Vantage is where the
+                actual work picks up.
+              </p>
+              <p>
+                I run VSG with Ernst and a small bench of senior engineers
+                we&apos;ve worked with for years. Every pilot we&apos;re
+                both on the call. Every rule we ship has been tested against
+                real exception data. At five pilot clients, that
+                accountability is just the math.
+              </p>
+              <p style={{ color: "var(--fg)" }}>
+                If you&apos;re evaluating Vantage, you&apos;ll talk to a
+                founder directly. Email me — I read every message.
+              </p>
+            </FounderCard>
 
-            <div className="relative grid lg:grid-cols-[180px_1fr] gap-8 items-start">
-              {/* Avatar — uses the SE initials block, mirrors the testimonial
-                 *  treatment. Drop in a real headshot at /public/stephan.jpg
-                 *  when ready and swap this block for an <Image>. */}
-              <div className="flex lg:block justify-start">
-                <div
-                  className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl flex items-center justify-center text-3xl font-bold tracking-tight themed-rounded"
-                  style={{
-                    background:
-                      "linear-gradient(145deg, color-mix(in oklab, var(--accent-2) 20%, var(--bg-elev)), var(--bg-elev))",
-                    border:
-                      "1.5px solid color-mix(in oklab, var(--accent-2) 50%, var(--card-border))",
-                    color: "var(--accent-2)",
-                    fontFamily: "var(--font-display)",
-                    boxShadow: "0 0 28px var(--accent-glow)",
-                  }}
-                >
-                  SE
-                </div>
-              </div>
-
-              <div>
-                <div
-                  className="text-[10px] uppercase tracking-[0.25em]"
-                  style={{
-                    color: "var(--accent-2)",
-                    fontFamily: "var(--font-body)",
-                  }}
-                >
-                  {CONTACT.founder.role} · VSG Tech Solutions
-                </div>
-                <h3
-                  className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    color: "var(--fg)",
-                  }}
-                >
-                  {CONTACT.founder.name}
-                </h3>
-
-                <div
-                  className="mt-5 space-y-4 text-base leading-relaxed"
-                  style={{
-                    color: "var(--muted)",
-                    fontFamily: "var(--font-body)",
-                  }}
-                >
-                  <p>
-                    I&apos;ve spent the last decade building software for
-                    South African operators — ERPs that nearly fit, integrations
-                    that almost worked, and a long list of spreadsheets pretending
-                    to be systems. Vantage is the platform I wished existed
-                    every time an exception fell off the edge of a real ERP.
-                  </p>
-                  <p>
-                    I run VSG solo with a small bench of senior engineers I&apos;ve
-                    worked with for years. Every pilot I&apos;m on the call,
-                    every rule we ship I&apos;ve seen tested, every line of
-                    customer data I&apos;m personally accountable for. That&apos;s
-                    not a marketing stance — at five pilot clients, that&apos;s
-                    just the math.
-                  </p>
-                  <p style={{ color: "var(--fg)" }}>
-                    If you&apos;re evaluating Vantage, you&apos;ll talk to me.
-                    Not an SDR, not a sales engineer, not a junior CS rep on a
-                    script. Email me directly — I read every message.
-                  </p>
-                </div>
-
-                <div className="mt-7 flex flex-wrap gap-3">
-                  <a
-                    href={`mailto:${CONTACT.founder.email}`}
-                    className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 cursor-pointer themed-rounded"
-                    style={{
-                      background:
-                        "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
-                      color: "#ffffff",
-                      boxShadow: "0 0 28px var(--accent-glow)",
-                      fontFamily: "var(--font-body)",
-                    }}
-                  >
-                    <Mail className="w-4 h-4" />
-                    <span>{CONTACT.founder.email}</span>
-                  </a>
-                  <a
-                    href={CONTACT.founder.linkedin}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border font-semibold text-sm transition-all duration-300 cursor-pointer themed-rounded"
-                    style={{
-                      borderColor: "var(--card-border)",
-                      background: "var(--bg-elev)",
-                      color: "var(--fg)",
-                      fontFamily: "var(--font-body)",
-                    }}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    <span>{CONTACT.founder.linkedinLabel}</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+            {/* Ernst card */}
+            <FounderCard
+              name={CONTACT.founders.ernst.name}
+              role={CONTACT.founders.ernst.role}
+              initials={CONTACT.founders.ernst.initials}
+              email={CONTACT.founders.ernst.email}
+              linkedin={CONTACT.founders.ernst.linkedin}
+              linkedinLabel={CONTACT.founders.ernst.linkedinLabel}
+              delay={0.1}
+            >
+              <p>
+                Co-founder of VSG Tech Solutions. Builds and ships alongside
+                Stephan on every customer engagement — same direct line,
+                same accountability for the work.
+              </p>
+              <p style={{ color: "var(--fg)" }}>
+                Email Ernst directly. Every founder reads every message —
+                no relay, no qualification script, no waiting in a queue.
+              </p>
+            </FounderCard>
+          </div>
         </div>
       </section>
     </>
   );
 };
+
+/* ------------------------------------------------------------------------ */
+/*  FounderCard — internal, used for the two founder cards above. Initials
+ *  avatar (drop in real headshot at /public/<slug>.jpg later and swap to
+ *  <Image>), role + name lockup, bio paragraphs as children, mailto + (if
+ *  set) LinkedIn.                                                           */
+/* ------------------------------------------------------------------------ */
+const FounderCard: React.FC<{
+  name: string;
+  role: string;
+  initials: string;
+  email: string;
+  linkedin: string;
+  linkedinLabel: string;
+  delay?: number;
+  children: React.ReactNode;
+}> = ({
+  name,
+  role,
+  initials,
+  email,
+  linkedin,
+  linkedinLabel,
+  delay = 0,
+  children,
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-60px" }}
+    transition={{ duration: 0.65, delay }}
+    className="relative rounded-3xl border p-8 sm:p-10 overflow-hidden themed-rounded h-full"
+    style={{
+      borderColor:
+        "color-mix(in oklab, var(--accent-2) 30%, var(--card-border))",
+      background:
+        "linear-gradient(145deg, color-mix(in oklab, var(--accent-2) 8%, var(--card-bg)), var(--card-bg))",
+    }}
+  >
+    <div
+      className="pointer-events-none absolute -top-20 -right-20 w-[220px] h-[220px] rounded-full blur-[70px] opacity-45"
+      style={{ background: "var(--accent-glow)" }}
+    />
+
+    <div className="relative">
+      {/* Header lockup — avatar + role/name */}
+      <div className="flex items-center gap-5">
+        <div
+          className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center text-2xl sm:text-3xl font-bold tracking-tight themed-rounded shrink-0"
+          style={{
+            background:
+              "linear-gradient(145deg, color-mix(in oklab, var(--accent-2) 20%, var(--bg-elev)), var(--bg-elev))",
+            border:
+              "1.5px solid color-mix(in oklab, var(--accent-2) 50%, var(--card-border))",
+            color: "var(--accent-2)",
+            fontFamily: "var(--font-display)",
+            boxShadow: "0 0 24px var(--accent-glow)",
+          }}
+        >
+          {initials}
+        </div>
+        <div className="min-w-0">
+          <div
+            className="text-[10px] uppercase tracking-[0.25em]"
+            style={{
+              color: "var(--accent-2)",
+              fontFamily: "var(--font-body)",
+            }}
+          >
+            {role} · VSG Tech Solutions
+          </div>
+          <h3
+            className="mt-1 text-2xl sm:text-3xl font-bold tracking-tight truncate"
+            style={{
+              fontFamily: "var(--font-display)",
+              color: "var(--fg)",
+            }}
+          >
+            {name}
+          </h3>
+        </div>
+      </div>
+
+      {/* Bio */}
+      <div
+        className="mt-6 space-y-4 text-base leading-relaxed"
+        style={{
+          color: "var(--muted)",
+          fontFamily: "var(--font-body)",
+        }}
+      >
+        {children}
+      </div>
+
+      {/* CTAs */}
+      <div className="mt-7 flex flex-wrap gap-3">
+        <a
+          href={`mailto:${email}`}
+          className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 cursor-pointer themed-rounded"
+          style={{
+            background:
+              "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
+            color: "#ffffff",
+            boxShadow: "0 0 28px var(--accent-glow)",
+            fontFamily: "var(--font-body)",
+          }}
+        >
+          <Mail className="w-4 h-4" />
+          <span>{email}</span>
+        </a>
+        {linkedin && (
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border font-semibold text-sm transition-all duration-300 cursor-pointer themed-rounded"
+            style={{
+              borderColor: "var(--card-border)",
+              background: "var(--bg-elev)",
+              color: "var(--fg)",
+              fontFamily: "var(--font-body)",
+            }}
+          >
+            <ExternalLink className="w-4 h-4" />
+            <span>{linkedinLabel}</span>
+          </a>
+        )}
+      </div>
+    </div>
+  </motion.div>
+);

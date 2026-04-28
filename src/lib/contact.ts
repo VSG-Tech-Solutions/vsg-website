@@ -4,9 +4,30 @@
  * Two tiers:
  *   - company: general enquiries, auditors, legal, anyone who needs a stable
  *     role-based inbox that outlives individual people.
- *   - founder: direct line to Stephan for buyers who want founder access
- *     without an account-manager relay.
+ *   - founders: direct lines to Stephan + Ernst for buyers who want founder
+ *     access without an account-manager relay.
+ *
+ * `founder` (singular) is kept as an alias to `founders.stephan` so older
+ * components and the founder-variant CTA keep working without a refactor.
  */
+
+const stephan = {
+  name: "Stephan Esterhuizen",
+  role: "Co-founder",
+  email: "stephan@vsgtech.co.za",
+  linkedin: "https://www.linkedin.com/in/stephan-esterhuizen-459714365/",
+  linkedinLabel: "Connect with Stephan",
+  initials: "SE",
+} as const;
+
+const ernst = {
+  name: "Ernst",
+  role: "Co-founder",
+  email: "Ernst@vsgtech.co.za",
+  linkedin: "",
+  linkedinLabel: "Connect with Ernst",
+  initials: "E",
+} as const;
 
 export const CONTACT = {
   company: {
@@ -17,13 +38,15 @@ export const CONTACT = {
     linkedin: "https://www.linkedin.com/company/vsg-tech-solutions",
     linkedinLabel: "Follow VSG on LinkedIn",
   },
-  founder: {
-    name: "Stephan Esterhuizen",
-    role: "Founder",
-    email: "stephan@vsgtech.co.za",
-    linkedin: "https://www.linkedin.com/in/stephan-esterhuizen-459714365/",
-    linkedinLabel: "Connect with Stephan",
+  founders: {
+    stephan,
+    ernst,
+    /** Both founders, in display order, for components that render the team. */
+    list: [stephan, ernst] as const,
   },
+  /** Backwards-compat alias — Stephan remains the default direct-line for
+   *  the CTA founder variant and the old `CONTACT.founder` lookups. */
+  founder: stephan,
   booking: {
     // Calendly: one event type, "20-minute scoping call".
     // Used by <BookingButton /> (Calendly popup) and the lead autoresponder.
