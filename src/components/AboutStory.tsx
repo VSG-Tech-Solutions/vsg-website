@@ -388,19 +388,22 @@ export const AboutStory: React.FC = () => {
               linkedinLabel={CONTACT.founders.stephan.linkedinLabel}
             >
               <p>
-                I&apos;m 21. I started VSG because every operator I&apos;d
-                worked with — family-run distributors, small SA businesses,
-                mid-market firms — was running their day-to-day on
-                spreadsheets, WhatsApp threads and goodwill. The ERPs they
-                paid for stopped at the transaction. Vantage is where the
-                actual work picks up.
+                Every operations team we&apos;ve worked with — from
+                family-run distributors to mid-market SA companies — has
+                been let down by software that promised to fix the chaos
+                and didn&apos;t. ERPs that nearly fit. Integrations that
+                almost worked. Spreadsheets pretending to be systems. The
+                pattern is the same everywhere, and it&apos;s exhausting to
+                watch.
               </p>
               <p>
-                I run VSG with Ernst and a small bench of senior engineers
-                we&apos;ve worked with for years. Every pilot we&apos;re
-                both on the call. Every rule we ship has been tested against
-                real exception data. At five pilot clients, that
-                accountability is just the math.
+                VSG isn&apos;t built around transactions. We build
+                relationships with the operators we work with — that means
+                staying past go-live, fixing the things we said we&apos;d
+                fix, being on the call when something breaks, and treating
+                their systems like our own. Every pilot we&apos;re both on
+                the call. Every rule we ship has been tested against real
+                exception data.
               </p>
               <p style={{ color: "var(--fg)" }}>
                 If you&apos;re evaluating Vantage, you&apos;ll talk to a
