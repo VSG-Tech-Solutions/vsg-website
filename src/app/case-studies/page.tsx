@@ -9,21 +9,18 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { SiteShell } from "@/components/SiteShell";
-import { PageBanner } from "@/components/PageBanner";
-import { CTA } from "@/components/CTA";
-import {
-  caseStudies,
-  type CaseStudyIcon,
-} from "@/lib/case-studies";
+import { Section } from "@/components/patterns/Section";
+import { Eyebrow } from "@/components/patterns/Eyebrow";
+import { DisplayHead } from "@/components/patterns/DisplayHead";
+import { EndCTA } from "@/components/patterns/EndCTA";
+import { caseStudies, type CaseStudyIcon } from "@/lib/case-studies";
 
 export const metadata = {
   title: "Case studies — Real engagements, published with client sign-off",
   description:
-    "VSG ships real platforms for South African SMEs. Each case study published here is a real engagement with real client sign-off — no placeholder logos, no invented outcomes.",
+    "Real platforms VSG has shipped, with real clients. Each case study is a real engagement with the client's sign-off — anonymised only when the client requests it.",
 };
 
-// Icon registry — keeps the lucide imports inside the page (server component)
-// while letting the data file stay JSON-friendly.
 const iconMap: Record<CaseStudyIcon, LucideIcon> = {
   Factory,
   Shield,
@@ -33,247 +30,156 @@ const iconMap: Record<CaseStudyIcon, LucideIcon> = {
 };
 
 export default function CaseStudiesPage() {
-  const count = caseStudies.length;
   return (
     <SiteShell>
-      <PageBanner
-        eyebrow="Case studies"
-        title="Real engagements —"
-        highlight="published with client sign-off."
-        lede="Real platforms we shipped, with real clients. Each case study is the full engagement: the problem before, the architecture, what's live in production now, and what's still in build. Clients are named where they've given permission, and anonymised where they've asked us to. Either way the architecture and outcome are real."
-      />
-
-      <section
-        className="relative w-full py-16 overflow-hidden"
-        style={{ background: "var(--bg)", color: "var(--fg)" }}
-      >
-        <div className="mx-auto max-w-6xl px-6">
-          {/* Live engagements */}
-          <div className="max-w-3xl">
-            <div
-              className="flex items-center gap-3 text-[11px] uppercase tracking-[0.25em]"
-              style={{
-                color: "var(--accent-2)",
-                fontFamily: "var(--font-body)",
-              }}
-            >
-              <span
-                className="h-px w-8"
-                style={{ background: "var(--accent-2)" }}
-              />
-              <span>Live engagements</span>
-            </div>
-            <h2
-              className="mt-5 text-3xl sm:text-4xl font-bold leading-tight tracking-tight"
-              style={{
-                fontFamily: "var(--font-display)",
-                color: "var(--fg)",
-              }}
-            >
-              {count === 1
-                ? "One published case study so far."
-                : `${count} published case studies so far.`}
-            </h2>
-            <p
-              className="mt-4 text-base sm:text-lg leading-relaxed"
-              style={{
-                color: "var(--muted)",
-                fontFamily: "var(--font-body)",
-              }}
-            >
-              Click through for the full engagement: the problem before, the
-              architecture, what we delivered, what&apos;s live in production
-              now, and what&apos;s still in build for phase 2. Client name is
-              redacted at the client&apos;s request — everything else is real.
-            </p>
-          </div>
-
-          <div
-            className={
-              count === 1
-                ? "mt-12 grid gap-5 md:grid-cols-1 max-w-2xl"
-                : count === 2
-                  ? "mt-12 grid gap-5 md:grid-cols-2"
-                  : "mt-12 grid gap-5 md:grid-cols-3"
-            }
-          >
-            {caseStudies.map((c) => {
-              const Icon = iconMap[c.iconName];
-              return (
-                <Link
-                  key={c.slug}
-                  href={`/case-studies/${c.slug}`}
-                  className="group relative rounded-2xl border p-7 overflow-hidden themed-rounded transition-all duration-300 hover:-translate-y-1"
-                  style={{
-                    borderColor: "var(--card-border)",
-                    background:
-                      "linear-gradient(180deg, var(--card-bg), color-mix(in oklab, var(--card-bg) 50%, transparent))",
-                  }}
-                >
-                  <div
-                    className="pointer-events-none absolute -top-16 -right-16 w-[180px] h-[180px] rounded-full blur-[60px] opacity-30 group-hover:opacity-60 transition-opacity duration-500"
-                    style={{ background: "var(--accent-glow)" }}
-                  />
-                  <div className="relative">
-                    <div
-                      className="inline-flex items-center justify-center w-12 h-12 rounded-xl border-2 themed-rounded"
-                      style={{
-                        borderColor: "var(--accent-2)",
-                        background:
-                          "linear-gradient(145deg, color-mix(in oklab, var(--accent-2) 12%, var(--bg-elev)), var(--bg-elev))",
-                        boxShadow: "0 0 20px var(--accent-glow)",
-                      }}
-                    >
-                      <Icon
-                        className="w-5 h-5"
-                        style={{ color: "var(--accent-2)" }}
-                        strokeWidth={1.8}
-                      />
-                    </div>
-                    <div
-                      className="mt-5 flex items-center gap-2 text-[10px] uppercase tracking-[0.25em]"
-                      style={{
-                        color: "var(--accent-2)",
-                        fontFamily: "var(--font-body)",
-                      }}
-                    >
-                      <span
-                        className="w-1.5 h-1.5 rounded-full animate-pulse"
-                        style={{ background: "var(--accent-2)" }}
-                      />
-                      {c.stage}
-                    </div>
-                    <h3
-                      className="mt-2 text-lg font-semibold leading-tight"
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        color: "var(--fg)",
-                      }}
-                    >
-                      {c.vertical}
-                    </h3>
-                    <p
-                      className="mt-1 text-sm font-medium leading-snug"
-                      style={{
-                        color: "var(--fg)",
-                        fontFamily: "var(--font-body)",
-                      }}
-                    >
-                      {c.headline}
-                    </p>
-                    <p
-                      className="mt-3 text-sm leading-relaxed"
-                      style={{
-                        color: "var(--muted)",
-                        fontFamily: "var(--font-body)",
-                      }}
-                    >
-                      {c.summary}
-                    </p>
-                    <div
-                      className="mt-5 pt-4 border-t flex items-center gap-2 text-sm font-semibold"
-                      style={{
-                        borderColor: "var(--card-border)",
-                        color: "var(--accent-2)",
-                        fontFamily: "var(--font-body)",
-                      }}
-                    >
-                      <span>Read the case study</span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Honesty panel */}
-          <div
-            className="relative mt-16 rounded-2xl border p-8 sm:p-10 overflow-hidden themed-rounded"
+      {/* Hero */}
+      <Section compact divider={false} className="pt-32 sm:pt-44">
+        <Eyebrow variant="dot">Case studies</Eyebrow>
+        <div className="mt-7 max-w-4xl">
+          <DisplayHead level="h1" accent="published with client sign-off.">
+            Real engagements,
+          </DisplayHead>
+          <p
+            className="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed"
             style={{
-              borderColor:
-                "color-mix(in oklab, var(--accent-2) 40%, var(--card-border))",
-              background:
-                "linear-gradient(145deg, color-mix(in oklab, var(--accent-2) 10%, var(--card-bg)), var(--card-bg))",
+              color: "var(--muted)",
+              fontFamily: "var(--font-body)",
             }}
           >
-            <div
-              className="pointer-events-none absolute -top-20 -right-20 w-[260px] h-[260px] rounded-full blur-[70px] opacity-60"
-              style={{ background: "var(--accent-glow)" }}
-            />
-            <div className="relative">
-              <div
-                className="text-[10px] uppercase tracking-[0.25em]"
-                style={{
-                  color: "var(--accent-2)",
-                  fontFamily: "var(--font-body)",
-                }}
-              >
-                Why there aren&apos;t more logos here yet
-              </div>
-              <h3
-                className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  color: "var(--fg)",
-                }}
-              >
-                Every other early SaaS puts made-up client logos on this page.
-                We won&apos;t.
-              </h3>
-              <p
-                className="mt-4 text-base leading-relaxed max-w-2xl"
-                style={{
-                  color: "var(--muted)",
-                  fontFamily: "var(--font-body)",
-                }}
-              >
-                A case study is a promise — &quot;this business got this result
-                from us.&quot; The funeral insurance distribution write-up
-                above is real, with the client&apos;s sign-off on the result
-                bullets and a quote landing once the sponsor signs off the
-                wording. Future engagements publish here the same way: real
-                client, real architecture, real outcome — or we don&apos;t
-                publish them at all. The Vantage product page shows the
-                operations system working end-to-end, and the commercial model
-                (a scoped five-week pilot with a named success outcome,
-                contracted on day one) is how we put our own money behind the
-                claim.
-              </p>
-              <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                <Link
-                  href="/vantage"
-                  className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 cursor-pointer themed-rounded"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 80%, black))",
-                    color: "#ffffff",
-                    boxShadow: "0 0 28px var(--accent-glow)",
-                    fontFamily: "var(--font-body)",
-                  }}
-                >
-                  <span>See Vantage in detail</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border font-semibold text-sm transition-all duration-300 themed-rounded"
-                  style={{
-                    borderColor: "var(--card-border)",
-                    background: "var(--bg-elev)",
-                    color: "var(--fg)",
-                    fontFamily: "var(--font-body)",
-                  }}
-                >
-                  Request a pilot slot
-                </Link>
-              </div>
-            </div>
-          </div>
+            Real platforms we shipped, with real clients. Each case study is
+            the full engagement: the problem before, the architecture, what&apos;s
+            live in production now, and what&apos;s still in build. Clients are
+            named where they&apos;ve given permission, and anonymised where
+            they&apos;ve asked us to.
+          </p>
         </div>
-      </section>
+      </Section>
 
-      <CTA variant="minimal" />
+      {/* Case study grid — full-bleed editorial cards with hairline grid */}
+      <Section>
+        <div
+          className="grid gap-px lg:grid-cols-2"
+          style={{ background: "var(--card-border)" }}
+        >
+          {caseStudies.map((c) => {
+            const Icon = iconMap[c.iconName];
+            return (
+              <Link
+                key={c.slug}
+                href={`/case-studies/${c.slug}`}
+                className="group p-8 sm:p-10 lg:p-12 transition-colors duration-300"
+                style={{ background: "var(--bg)" }}
+              >
+                <div className="flex items-start justify-between">
+                  <div
+                    className="inline-flex items-center justify-center w-12 h-12 rounded-xl border"
+                    style={{
+                      borderColor: "var(--card-border)",
+                      background: "rgba(255,255,255,0.02)",
+                    }}
+                  >
+                    <Icon
+                      className="w-5 h-5"
+                      style={{ color: "var(--accent-2)" }}
+                      strokeWidth={1.6}
+                    />
+                  </div>
+                  <span
+                    className="text-[10px] uppercase tracking-[0.22em]"
+                    style={{
+                      color: "var(--accent-2)",
+                      fontFamily: "var(--font-body)",
+                    }}
+                  >
+                    {c.stage}
+                  </span>
+                </div>
+
+                <div
+                  className="mt-8 text-[10px] uppercase tracking-[0.22em]"
+                  style={{
+                    color: "var(--muted-2)",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  {c.vertical}
+                </div>
+                <h3
+                  className="mt-3 text-2xl sm:text-3xl font-extrabold leading-tight"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    color: "var(--fg)",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  {c.headline}
+                </h3>
+                <p
+                  className="mt-5 text-base leading-relaxed max-w-xl"
+                  style={{
+                    color: "var(--muted)",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  {c.summary}
+                </p>
+
+                <div
+                  className="mt-8 inline-flex items-center gap-2 text-sm font-semibold"
+                  style={{
+                    color: "var(--accent-2)",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  <span>Read the case study</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </Section>
+
+      {/* Honesty panel — minimal, type-only */}
+      <Section>
+        <div className="max-w-3xl">
+          <Eyebrow>Why there aren&apos;t more logos here yet</Eyebrow>
+          <div className="mt-6">
+            <DisplayHead level="h2" accent="We won't.">
+              Every other early SaaS puts made-up client logos on this page.
+            </DisplayHead>
+          </div>
+          <p
+            className="mt-7 text-base sm:text-lg leading-relaxed"
+            style={{
+              color: "var(--muted)",
+              fontFamily: "var(--font-body)",
+            }}
+          >
+            A case study is a promise — &quot;this business got this result
+            from us.&quot; Each one above is real, with the client&apos;s
+            sign-off on the result bullets. Future engagements publish here
+            the same way: real client, real architecture, real outcome — or
+            we don&apos;t publish them at all. The Vantage product page
+            shows the operations system working end-to-end, and the
+            commercial model (a scoped five-week pilot with a named success
+            outcome, contracted on day one) is how we put our own money
+            behind the claim.
+          </p>
+        </div>
+      </Section>
+
+      {/* End CTA */}
+      <Section spacious>
+        <EndCTA
+          eyebrow="Open a similar pilot"
+          title="Your engagement"
+          accent="next on this page."
+          body="A 30-minute scoping call to pick the first workflow, agree the success metric, and lock the cohort terms. We publish the outcome — named, with sign-off — when the pilot completes."
+          primaryLabel="Book a 20-minute demo"
+          secondaryLabel="stephan@vsgtech.co.za"
+        />
+      </Section>
     </SiteShell>
   );
 }

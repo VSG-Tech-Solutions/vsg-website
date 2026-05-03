@@ -70,78 +70,59 @@ export default async function CaseStudyDetailPage({
 
   return (
     <SiteShell>
-      {/* Hero */}
+      {/* Hero — minimal editorial */}
       <section
-        className="relative w-full pt-20 pb-16 overflow-hidden"
+        className="relative w-full pt-28 sm:pt-40 pb-16"
         style={{ background: "var(--bg)", color: "var(--fg)" }}
       >
-        <div
-          className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[600px] rounded-full blur-[180px] opacity-40"
-          style={{ background: "var(--accent-glow)" }}
-        />
-        <div className="relative mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-5xl px-5 sm:px-6">
           <Link
             href="/case-studies"
-            className="inline-flex items-center gap-2 text-sm font-semibold transition-colors"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] transition-colors hover:opacity-80"
             style={{
               color: "var(--muted-2)",
               fontFamily: "var(--font-body)",
             }}
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-3.5 h-3.5" />
             Back to case studies
           </Link>
 
-          <div className="mt-10 flex items-start gap-5">
-            <div
-              className="hidden sm:inline-flex items-center justify-center w-14 h-14 rounded-2xl border-2 themed-rounded shrink-0"
-              style={{
-                borderColor: "var(--accent-2)",
-                background:
-                  "linear-gradient(145deg, color-mix(in oklab, var(--accent-2) 14%, var(--bg-elev)), var(--bg-elev))",
-                boxShadow: "0 0 24px var(--accent-glow)",
-              }}
-            >
-              <Icon
-                className="w-6 h-6"
-                style={{ color: "var(--accent-2)" }}
-                strokeWidth={1.8}
-              />
-            </div>
-            <div>
-              <div
-                className="flex items-center gap-2 text-[11px] uppercase tracking-[0.25em]"
-                style={{
-                  color: "var(--accent-2)",
-                  fontFamily: "var(--font-body)",
-                }}
-              >
-                <span
-                  className="w-1.5 h-1.5 rounded-full animate-pulse"
-                  style={{ background: "var(--accent-2)" }}
-                />
-                {study.stage} · {study.vertical}
-              </div>
-              <h1
-                className="mt-3 text-3xl sm:text-5xl font-bold leading-[1.05] tracking-tight"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  color: "var(--fg)",
-                }}
-              >
-                {study.headline}
-              </h1>
-              <p
-                className="mt-5 text-base sm:text-lg leading-relaxed max-w-3xl"
-                style={{
-                  color: "var(--muted)",
-                  fontFamily: "var(--font-body)",
-                }}
-              >
-                {study.summary}
-              </p>
-            </div>
+          <div
+            className="mt-12 flex items-center gap-2 text-[11px] uppercase tracking-[0.22em]"
+            style={{
+              color: "var(--accent-2)",
+              fontFamily: "var(--font-body)",
+            }}
+          >
+            <span
+              aria-hidden
+              className="w-1.5 h-1.5 rounded-full animate-pulse"
+              style={{ background: "var(--accent-2)" }}
+            />
+            <Icon className="w-3.5 h-3.5" strokeWidth={1.6} />
+            <span>{study.stage} · {study.vertical}</span>
           </div>
+          <h1
+            className="mt-5 font-extrabold leading-[1.02]"
+            style={{
+              fontFamily: "var(--font-display)",
+              color: "var(--fg)",
+              fontSize: "clamp(2.4rem, 6vw, 4.5rem)",
+              letterSpacing: "-0.025em",
+            }}
+          >
+            {study.headline}
+          </h1>
+          <p
+            className="mt-7 text-base sm:text-lg leading-relaxed max-w-3xl"
+            style={{
+              color: "var(--muted)",
+              fontFamily: "var(--font-body)",
+            }}
+          >
+            {study.summary}
+          </p>
         </div>
       </section>
 

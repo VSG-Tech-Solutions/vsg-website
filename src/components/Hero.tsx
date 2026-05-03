@@ -1,11 +1,12 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { HeroBackground } from "./backgrounds/HeroBackground";
 import { BookingButton } from "./BookingButton";
+import { LiveModuleTicker } from "./patterns/LiveModuleTicker";
 
 const container = {
   hidden: { opacity: 0 },
@@ -24,15 +25,24 @@ const item = {
   },
 };
 
+const TICKER_LINES = [
+  "Procurement AI · drafted 24 supplier quotes today",
+  "Exception AI · classified 117 inbound items today",
+  "Approval AI · surfaced 3 edge cases today",
+  "Compliance AI · flagged 6 expiring certificates today",
+];
+
 /**
  * Hero — Holo-inspired editorial pattern.
  *
- * Centered column. Tiny pulse-pill eyebrow → giant 2-line H1 (display-tight,
- * Space Grotesk 800, -0.025em tracking) → short subhead in muted gray →
- * single gradient pill CTA + ghost secondary → tiny trust strip with three
- * lockups (cohort status · POPIA · founder-led).
+ * Centred column. Pulse-pill eyebrow → 2-line giant H1 with scroll-driven
+ * "exhale" tracking transition (-0.04em → -0.02em as you scroll past) →
+ * short subhead → primary pill CTA + ghost secondary → live module ticker
+ * → trust strip with three lockups.
  *
- * Massive top padding by design — the negative space is the design.
+ * The tracking-exhale is the signature moment: as the H1 leaves the
+ * viewport, its letter-spacing releases gently while opacity fades —
+ * the type "breathes out" rather than just disappearing.
  */
 export const Hero: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -40,17 +50,22 @@ export const Hero: React.FC = () => {
     target: sectionRef,
     offset: ["start start", "end start"],
   });
+  const prefersReduce = useReducedMotion();
 
-  // Parallax: as the hero leaves, content drifts up gently and fades.
   const y = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.6, 0]);
-  // Background grid drifts up at half speed for parallax depth.
+  const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.5, 0]);
   const bgY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  // Signature: H1 letter-spacing exhale on scroll.
+  const tracking = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["-0.04em", "-0.015em"]
+  );
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden pb-32 sm:pb-48"
+      className="relative w-full overflow-hidden pb-32 sm:pb-44"
       style={{ background: "var(--bg)", color: "var(--fg)" }}
     >
       <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
@@ -59,7 +74,7 @@ export const Hero: React.FC = () => {
 
       <motion.div
         className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6 pt-28 sm:pt-44"
-        style={{ y, opacity }}
+        style={prefersReduce ? undefined : { y, opacity }}
       >
         <motion.div
           variants={container}
@@ -72,16 +87,17 @@ export const Hero: React.FC = () => {
             <span>Operations platform · South Africa</span>
           </motion.div>
 
-          {/* Display H1 — 2 lines, tight tracking. First line muted, second
-             line full white for editorial emphasis. No colored gradient. */}
+          {/* Display H1 — 2 lines, exhale tracking on scroll */}
           <motion.h1
             variants={item}
-            className="display-tight mt-7 sm:mt-9 text-[2.6rem] sm:text-[5rem] lg:text-[6.25rem]"
+            className="mt-7 sm:mt-9 font-extrabold text-[2.6rem] sm:text-[5rem] lg:text-[6.25rem]"
+            style={{
+              fontFamily: "var(--font-display)",
+              lineHeight: 1.02,
+              letterSpacing: prefersReduce ? "-0.025em" : tracking,
+            }}
           >
-            <span
-              className="block"
-              style={{ color: "var(--muted)" }}
-            >
+            <span className="block" style={{ color: "var(--muted)" }}>
               Your ERP tracks transactions.
             </span>
             <span className="block" style={{ color: "var(--fg)" }}>
@@ -89,7 +105,7 @@ export const Hero: React.FC = () => {
             </span>
           </motion.h1>
 
-          {/* Subhead — short, single paragraph */}
+          {/* Subhead */}
           <motion.p
             variants={item}
             className="mt-7 max-w-2xl text-base sm:text-lg leading-relaxed"
@@ -98,9 +114,9 @@ export const Hero: React.FC = () => {
               fontFamily: "var(--font-body)",
             }}
           >
-            Vantage centralises everything around the ERP transaction —
-            approvals, procurement, supplier exceptions, compliance — onto
-            one platform, then adds{" "}
+            Vantage is the operational layer for everything around the ERP
+            transaction. One platform for approvals, procurement, supplier
+            exceptions and compliance — with{" "}
             <span style={{ color: "var(--fg)", fontWeight: 600 }}>
               module-specific AI trained on your data
             </span>
@@ -108,12 +124,12 @@ export const Hero: React.FC = () => {
             First workflow live in five weeks.
           </motion.p>
 
-          {/* CTAs — pill primary + ghost secondary */}
+          {/* CTAs */}
           <motion.div
             variants={item}
             className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
           >
-            <BookingButton className="pill-cta">
+            <BookingButton className="pill-cta group">
               <span>Book a 20-minute demo</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </BookingButton>
@@ -122,19 +138,21 @@ export const Hero: React.FC = () => {
             </Link>
           </motion.div>
 
-          {/* Trust strip — three pill lockups, hairline divider */}
+          {/* Live module ticker */}
+          <motion.div variants={item} className="mt-10">
+            <LiveModuleTicker lines={TICKER_LINES} interval={4} />
+          </motion.div>
+
+          {/* Trust strip — three lockups */}
           <motion.div
             variants={item}
-            className="mt-12 sm:mt-14 flex flex-col sm:flex-row items-center gap-3 sm:gap-0 text-xs"
+            className="mt-14 sm:mt-16 flex flex-col sm:flex-row items-center gap-3 sm:gap-0 text-xs"
             style={{
               color: "var(--muted-2)",
               fontFamily: "var(--font-body)",
             }}
           >
-            <TrustLockup
-              label="Pilot cohort"
-              value="3 of 5 booked · 40% off setup"
-            />
+            <TrustLockup label="Pilot cohort" value="3 of 5 booked" />
             <TrustDivider />
             <TrustLockup label="Compliance" value="POPIA-aligned" />
             <TrustDivider />
@@ -146,9 +164,6 @@ export const Hero: React.FC = () => {
   );
 };
 
-/* Small two-line lockup: faint label on top, foreground value beneath.
-   Holo's site uses this exact pattern under their hero ("Backed by VC funds /
-   5MM valuation"). */
 const TrustLockup: React.FC<{ label: string; value: string }> = ({
   label,
   value,
