@@ -71,7 +71,7 @@ export default function AboutPage() {
       {/* Founders */}
       <Section>
         <div className="max-w-3xl mb-12">
-          <Eyebrow>The founders</Eyebrow>
+          <Eyebrow variant="slash">The founders</Eyebrow>
           <div className="mt-6">
             <DisplayHead level="h2" accent="Both on every pilot.">
               Two founders.

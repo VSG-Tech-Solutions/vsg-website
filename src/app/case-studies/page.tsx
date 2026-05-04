@@ -143,7 +143,7 @@ export default function CaseStudiesPage() {
       {/* Honesty panel — minimal, type-only */}
       <Section>
         <div className="max-w-3xl">
-          <Eyebrow>Why there aren&apos;t more logos here yet</Eyebrow>
+          <Eyebrow variant="slash">Why there aren&apos;t more logos here yet</Eyebrow>
           <div className="mt-6">
             <DisplayHead level="h2" accent="We won't.">
               Every other early SaaS puts made-up client logos on this page.

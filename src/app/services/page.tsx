@@ -180,7 +180,7 @@ export default function ServicesPage() {
       {/* Form */}
       <Section>
         <div className="max-w-3xl mb-12">
-          <Eyebrow>Send a brief</Eyebrow>
+          <Eyebrow variant="slash">Send a brief</Eyebrow>
           <div className="mt-6">
             <DisplayHead level="h2" accent="we'll reply within a day.">
               Tell us what you&apos;re trying to build —

@@ -8,6 +8,7 @@ import { TickerLockup } from "@/components/patterns/TickerLockup";
 import { PullQuoteFrame } from "@/components/patterns/PullQuoteFrame";
 import { InstrumentRow } from "@/components/patterns/InstrumentRow";
 import { EndCTA } from "@/components/patterns/EndCTA";
+import { PinnedNarrative } from "@/components/patterns/PinnedNarrative";
 
 export default function Home() {
   return (
@@ -31,6 +32,75 @@ export default function Home() {
           "Vendor compliance",
         ]}
         duration={70}
+      />
+
+      {/* Pinned narrative — STR8FIRE-style scroll storytelling */}
+      <PinnedNarrative
+        defaultLeft={
+          <div className="space-y-4">
+            <div
+              className="text-[10px] uppercase tracking-[0.22em]"
+              style={{
+                color: "var(--muted-2)",
+                fontFamily: "var(--font-body)",
+              }}
+            >
+              <span style={{ color: "var(--accent-2)" }}>/</span> Vantage in
+              four beats
+            </div>
+            <h2
+              className="font-extrabold leading-[0.92]"
+              style={{
+                color: "var(--fg)",
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+                letterSpacing: "-0.03em",
+              }}
+            >
+              The
+              <br />
+              operational
+              <br />
+              <span style={{ color: "var(--accent-2)" }}>layer.</span>
+            </h2>
+            <p
+              className="text-base leading-relaxed max-w-sm pt-4"
+              style={{
+                color: "var(--muted)",
+                fontFamily: "var(--font-body)",
+              }}
+            >
+              Scroll through how Vantage handles everything around the ERP
+              transaction — one beat at a time.
+            </p>
+          </div>
+        }
+        beats={[
+          {
+            eyebrow: "What Vantage is",
+            display: "ONE",
+            kicker: "Centralised platform",
+            body: "Every approval, exception, supplier comm and compliance check on one platform. Same data the ERP already owns, one system on top of it. Full audit trail by default.",
+          },
+          {
+            eyebrow: "How the AI works",
+            display: "PER MODULE",
+            kicker: "Trained on your data",
+            body: "Procurement AI sees procurement data. Approval AI learns your routing rules. Exception AI classifies the moment work lands. Not a generic chatbot stretched across everything.",
+          },
+          {
+            eyebrow: "Time to value",
+            display: "5 WEEKS",
+            kicker: "First workflow live",
+            body: "Fixed-scope pilot, fixed-price, on your real data. Not a demo, not a sandbox — operators using Vantage in production by day 36.",
+          },
+          {
+            eyebrow: "Pilot cohort",
+            display: "3 / 5",
+            kicker: "Slots booked",
+            body: "We're hand-picking the first five. 40% off setup, free founder-led support, no per-user fees. Two slots remain.",
+          },
+        ]}
       />
 
       {/* Vantage in 4 lines */}

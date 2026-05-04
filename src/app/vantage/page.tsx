@@ -98,7 +98,7 @@ export default function VantagePage() {
       {/* Terminal — Vantage in action */}
       <Section>
         <div className="max-w-3xl mb-12">
-          <Eyebrow>One inbound exception</Eyebrow>
+          <Eyebrow variant="slash">One inbound exception</Eyebrow>
           <div className="mt-6">
             <DisplayHead level="h2" accent="end-to-end.">
               From scattered to settled,

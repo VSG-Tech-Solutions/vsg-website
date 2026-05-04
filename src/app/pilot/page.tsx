@@ -53,7 +53,7 @@ export default function PilotPage() {
       {/* Cohort stats */}
       <Section>
         <div className="max-w-3xl mb-12">
-          <Eyebrow>Cohort terms</Eyebrow>
+          <Eyebrow variant="slash">Cohort terms</Eyebrow>
           <div className="mt-6">
             <DisplayHead level="h2" accent="locked on day one.">
               Fair trade,
@@ -124,7 +124,7 @@ export default function PilotPage() {
       {/* What's in / what's out */}
       <Section>
         <div className="max-w-3xl mb-12">
-          <Eyebrow>What you&apos;re signing up for</Eyebrow>
+          <Eyebrow variant="slash">What you&apos;re signing up for</Eyebrow>
           <div className="mt-6">
             <DisplayHead level="h2" accent="what we won't.">
               What we&apos;ll do —
@@ -167,7 +167,7 @@ export default function PilotPage() {
       {/* Contact form */}
       <Section>
         <div className="max-w-3xl mb-12">
-          <Eyebrow>Apply to the cohort</Eyebrow>
+          <Eyebrow variant="slash">Apply to the cohort</Eyebrow>
           <div className="mt-6">
             <DisplayHead level="h2" accent="email a founder.">
               Send a brief, or just

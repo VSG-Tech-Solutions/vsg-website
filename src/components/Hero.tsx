@@ -8,23 +8,6 @@ import { HeroBackground } from "./backgrounds/HeroBackground";
 import { BookingButton } from "./BookingButton";
 import { LiveModuleTicker } from "./patterns/LiveModuleTicker";
 
-const container = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
-  },
-};
-
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const },
-  },
-};
-
 const TICKER_LINES = [
   "Procurement AI · drafted 24 supplier quotes today",
   "Exception AI · classified 117 inbound items today",
@@ -32,17 +15,32 @@ const TICKER_LINES = [
   "Compliance AI · flagged 6 expiring certificates today",
 ];
 
+const ease = [0.16, 1, 0.3, 1] as const;
+
 /**
- * Hero — Holo-inspired editorial pattern.
+ * Hero — STR8FIRE-inspired editorial cinema.
  *
- * Centred column. Pulse-pill eyebrow → 2-line giant H1 with scroll-driven
- * "exhale" tracking transition (-0.04em → -0.02em as you scroll past) →
- * short subhead → primary pill CTA + ghost secondary → live module ticker
- * → trust strip with three lockups.
+ * Layout:
+ *   - Top-left: tiny logo + city pin lockup
+ *   - Top-center: nav menu (handled by Navbar above)
+ *   - Top-right: small WHITEPAPER-style affordance (handled by Navbar)
+ *   - Centered massive H1 — clamp(4rem, 9vw, 9rem), tracking-tight, two
+ *     lines: "Your ERP tracks transactions." (muted) / "Who tracks the
+ *     work?" (fg, accent-2 word).
+ *   - Below: short subhead, primary CTA, live module ticker.
+ *   - Bottom-left: 3-line tagline lockup
+ *   - Bottom-center: persistent community/contact strip
+ *   - Bottom-right: SCROLL DOWN affordance
  *
- * The tracking-exhale is the signature moment: as the H1 leaves the
- * viewport, its letter-spacing releases gently while opacity fades —
- * the type "breathes out" rather than just disappearing.
+ * Page-load sequence:
+ *   1. Top + bottom strips slide in
+ *   2. H1 first line fades + lifts
+ *   3. H1 second line fades + lifts
+ *   4. Subhead → CTAs → ticker stagger
+ *
+ * On scroll-out:
+ *   - H1 letter-spacing exhales
+ *   - Whole content drifts up + fades
  */
 export const Hero: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -52,81 +50,115 @@ export const Hero: React.FC = () => {
   });
   const prefersReduce = useReducedMotion();
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.5, 0]);
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, -40]);
-  // Signature: H1 letter-spacing exhale on scroll.
+  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.4, 0]);
   const tracking = useTransform(
     scrollYProgress,
     [0, 1],
-    ["-0.04em", "-0.015em"]
+    ["-0.045em", "-0.02em"]
   );
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden pb-32 sm:pb-44"
-      style={{ background: "var(--bg)", color: "var(--fg)" }}
+      className="relative w-full overflow-hidden"
+      style={{
+        background: "var(--bg)",
+        color: "var(--fg)",
+        minHeight: "100svh",
+      }}
     >
-      <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
+      <div className="absolute inset-0 z-0">
         <HeroBackground />
+      </div>
+
+      {/* Top-left tagline (small lockup, persistent) */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease, delay: 0.05 }}
+        className="absolute top-6 left-6 z-20 hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] pointer-events-none"
+        style={{
+          color: "var(--muted-2)",
+          fontFamily: "var(--font-body)",
+        }}
+      >
+        <span style={{ color: "var(--accent-2)" }}>/</span>
+        <span>Cape Town · Operations platform</span>
       </motion.div>
 
+      {/* Centered hero content */}
       <motion.div
-        className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6 pt-28 sm:pt-44"
+        className="relative z-10 mx-auto max-w-[110rem] px-5 sm:px-10 pt-32 sm:pt-44 pb-32 sm:pb-44"
         style={prefersReduce ? undefined : { y, opacity }}
       >
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col items-center text-center"
-        >
+        <div className="flex flex-col items-center text-center">
           {/* Eyebrow pill */}
-          <motion.div variants={item} className="eyebrow-pill">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease, delay: 0.15 }}
+            className="eyebrow-pill"
+          >
             <span>Operations platform · South Africa</span>
           </motion.div>
 
-          {/* Display H1 — 2 lines, exhale tracking on scroll */}
+          {/* Display H1 — STR8FIRE-scale type with exhale on scroll */}
           <motion.h1
-            variants={item}
-            className="mt-7 sm:mt-9 font-extrabold text-[2.6rem] sm:text-[5rem] lg:text-[6.25rem]"
+            className="mt-8 sm:mt-10 font-extrabold w-full"
             style={{
               fontFamily: "var(--font-display)",
-              lineHeight: 1.02,
-              letterSpacing: prefersReduce ? "-0.025em" : tracking,
+              lineHeight: 0.92,
+              letterSpacing: prefersReduce ? "-0.03em" : tracking,
+              fontSize: "clamp(2.8rem, 9vw, 9rem)",
             }}
           >
-            <span className="block" style={{ color: "var(--muted)" }}>
+            <motion.span
+              className="block"
+              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1, ease, delay: 0.3 }}
+              style={{ color: "var(--muted)" }}
+            >
               Your ERP tracks transactions.
-            </span>
-            <span className="block" style={{ color: "var(--fg)" }}>
-              Who tracks the work?
-            </span>
+            </motion.span>
+            <motion.span
+              className="block"
+              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1, ease, delay: 0.55 }}
+              style={{ color: "var(--fg)" }}
+            >
+              Who tracks{" "}
+              <span style={{ color: "var(--accent-2)" }}>the work?</span>
+            </motion.span>
           </motion.h1>
 
           {/* Subhead */}
           <motion.p
-            variants={item}
-            className="mt-7 max-w-2xl text-base sm:text-lg leading-relaxed"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease, delay: 0.85 }}
+            className="mt-9 max-w-2xl text-base sm:text-lg leading-relaxed"
             style={{
               color: "var(--muted)",
               fontFamily: "var(--font-body)",
             }}
           >
             Vantage is the operational layer for everything around the ERP
-            transaction. One platform for approvals, procurement, supplier
-            exceptions and compliance — with{" "}
+            transaction.{" "}
             <span style={{ color: "var(--fg)", fontWeight: 600 }}>
-              module-specific AI trained on your data
-            </span>
-            . Procurement AI drafts supplier quotes from live stock levels.
+              Module-specific AI trained on your data.
+            </span>{" "}
+            Procurement AI drafts supplier quotes from live stock levels.
             First workflow live in five weeks.
           </motion.p>
 
           {/* CTAs */}
           <motion.div
-            variants={item}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease, delay: 1 }}
             className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
           >
             <BookingButton className="pill-cta group">
@@ -139,55 +171,59 @@ export const Hero: React.FC = () => {
           </motion.div>
 
           {/* Live module ticker */}
-          <motion.div variants={item} className="mt-10">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, ease, delay: 1.2 }}
+            className="mt-10"
+          >
             <LiveModuleTicker lines={TICKER_LINES} interval={4} />
           </motion.div>
+        </div>
+      </motion.div>
 
-          {/* Trust strip — three lockups */}
-          <motion.div
-            variants={item}
-            className="mt-14 sm:mt-16 flex flex-col sm:flex-row items-center gap-3 sm:gap-0 text-xs"
-            style={{
-              color: "var(--muted-2)",
-              fontFamily: "var(--font-body)",
-            }}
-          >
-            <TrustLockup label="Pilot cohort" value="3 of 5 booked" />
-            <TrustDivider />
-            <TrustLockup label="Compliance" value="POPIA-aligned" />
-            <TrustDivider />
-            <TrustLockup label="Engagement" value="Founder-led · Cape Town" />
-          </motion.div>
-        </motion.div>
+      {/* Bottom-left: 3-line tagline lockup (STR8FIRE pattern) */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease, delay: 1.3 }}
+        className="absolute bottom-6 left-6 z-20 max-w-xs hidden sm:block"
+      >
+        <p
+          className="text-[10px] uppercase tracking-[0.18em] leading-[1.6]"
+          style={{
+            color: "var(--muted-2)",
+            fontFamily: "var(--font-body)",
+          }}
+        >
+          Two founders. Five-week pilots.
+          <br />
+          POPIA-aligned. Direct line to the people
+          <br />
+          building the product.
+        </p>
+      </motion.div>
+
+      {/* Bottom-right: SCROLL DOWN affordance */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease, delay: 1.4 }}
+        className="absolute bottom-6 right-6 z-20 hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.22em]"
+        style={{
+          color: "var(--muted-2)",
+          fontFamily: "var(--font-body)",
+        }}
+      >
+        <span>Scroll down</span>
+        <motion.span
+          aria-hidden
+          animate={{ y: [0, 4, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          ↓
+        </motion.span>
       </motion.div>
     </section>
   );
 };
-
-const TrustLockup: React.FC<{ label: string; value: string }> = ({
-  label,
-  value,
-}) => (
-  <div className="px-4 sm:px-6 leading-tight">
-    <div
-      className="text-[10px] uppercase tracking-[0.18em]"
-      style={{ color: "var(--muted-2)" }}
-    >
-      {label}
-    </div>
-    <div
-      className="mt-0.5 text-sm font-semibold"
-      style={{ color: "var(--fg)" }}
-    >
-      {value}
-    </div>
-  </div>
-);
-
-const TrustDivider: React.FC = () => (
-  <span
-    aria-hidden
-    className="hidden sm:block w-px h-8"
-    style={{ background: "var(--card-border)" }}
-  />
-);

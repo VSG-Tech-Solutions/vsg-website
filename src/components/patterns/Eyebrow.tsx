@@ -12,7 +12,7 @@ import type { ReactNode } from "react";
 
 type EyebrowProps = {
   children: ReactNode;
-  variant?: "rule" | "dot" | "plain";
+  variant?: "rule" | "dot" | "slash" | "plain";
   className?: string;
 };
 
@@ -22,7 +22,7 @@ export const Eyebrow: React.FC<EyebrowProps> = ({
   className = "",
 }) => (
   <div
-    className={`flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] ${className}`}
+    className={`flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] ${className}`}
     style={{
       color: "var(--muted-2)",
       fontFamily: "var(--font-body)",
@@ -31,16 +31,21 @@ export const Eyebrow: React.FC<EyebrowProps> = ({
     {variant === "rule" && (
       <span
         aria-hidden
-        className="h-px w-8 shrink-0"
+        className="h-px w-8 shrink-0 mr-1"
         style={{ background: "var(--accent-2)" }}
       />
     )}
     {variant === "dot" && (
       <span
         aria-hidden
-        className="h-1.5 w-1.5 rounded-full shrink-0 animate-pulse"
+        className="h-1.5 w-1.5 rounded-full shrink-0 animate-pulse mr-1"
         style={{ background: "var(--accent-2)" }}
       />
+    )}
+    {variant === "slash" && (
+      <span aria-hidden style={{ color: "var(--accent-2)" }}>
+        /
+      </span>
     )}
     <span style={{ color: "var(--accent-2)" }}>{children}</span>
   </div>

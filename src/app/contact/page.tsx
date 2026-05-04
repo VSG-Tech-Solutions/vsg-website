@@ -39,7 +39,7 @@ export default function ContactPage() {
       <Section>
         <div className="grid lg:grid-cols-[7fr_5fr] gap-12 lg:gap-20">
           <div>
-            <Eyebrow>Send a brief</Eyebrow>
+            <Eyebrow variant="slash">Send a brief</Eyebrow>
             <div className="mt-6">
               <DisplayHead level="h2">Tell us what you&apos;re trying to fix.</DisplayHead>
             </div>
