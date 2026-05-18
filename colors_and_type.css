@@ -1,0 +1,260 @@
+/* =====================================================================
+   VSG Tech — Design Tokens
+   colors_and_type.css
+
+   Editorial light mode. Type-led. Restrained palette.
+   Reference vibe: Anthropic.com / Linear / a premium publication.
+   Never: SaaS dashboard chrome.
+   ===================================================================== */
+
+/* Geist Sans — loaded from local variable font file the brand provided. */
+@font-face {
+  font-family: "Geist";
+  src: url("./fonts/Geist-VariableFont_wght.ttf") format("truetype-variations"),
+       url("./fonts/Geist-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+/* Synthetic italic — Geist VariableFont ships roman only.
+   The browser slants on its own, which is acceptable for the geometric italic
+   register the system calls for. Flag: drop in a real Geist-Italic.ttf if available. */
+@font-face {
+  font-family: "Geist";
+  src: url("./fonts/Geist-VariableFont_wght.ttf") format("truetype-variations"),
+       url("./fonts/Geist-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Geist Mono — no file supplied; loaded from Google Fonts.
+   Flag: stakeholder to supply Geist Mono .ttf for full self-host parity. */
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500&display=swap');
+
+:root {
+  /* ---------- Color: surfaces ---------- */
+  --paper:            #F5F0E8;  /* main canvas — warm cream */
+  --paper-2:          #FBF7EF;  /* alternating section — lighter cream */
+  --surface-white:    #FFFFFF;  /* pure white card */
+
+  /* ---------- Color: ink (foreground) ---------- */
+  --ink-1:            #1A1612;  /* primary text, warm near-black */
+  --ink-2:            #3D362E;  /* mid-tone, sub-heads, body emphasis */
+  --ink-3:            #6B6358;  /* body */
+  --ink-4:            #9C9387;  /* muted caption */
+
+  /* ---------- Color: lines ---------- */
+  --hairline:         #E5DDCC;  /* 1px borders, section dividers */
+  --divider-strong:   #C9BFA9;  /* hover/active border darken */
+
+  /* ---------- Color: accent (coral) ---------- */
+  --coral:            #C9633A;  /* THE accent. used sparingly. */
+  --coral-soft:       rgba(201, 99, 58, 0.10);
+
+  /* ---------- Color: semantic ---------- */
+  --success:          #0E7A5A;
+  --success-soft:     rgba(14, 122, 90, 0.10);
+
+  /* ---------- Font families ---------- */
+  /* Geist Sans for display + body; Geist Mono for captions/labels. */
+  --font-display:     "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body:        "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono:        "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ---------- Font sizes ---------- */
+  --fs-eyebrow:       11px;
+  --fs-caption:       13px;
+  --fs-body-sm:       15px;
+  --fs-body:          17px;
+  --fs-body-lg:       19px;
+  --fs-lead:          22px;
+  --fs-h4:            28px;
+  --fs-h3:            40px;
+  --fs-h2:            56px;
+  --fs-h1:            80px;
+  --fs-display:       112px;
+
+  /* ---------- Line heights ---------- */
+  --lh-display:       1.0;
+  --lh-headline:      1.05;
+  --lh-subhead:       1.25;
+  --lh-body:          1.65;
+  --lh-body-loose:    1.7;
+
+  /* ---------- Tracking ---------- */
+  --track-display:    -0.035em;
+  --track-headline:   -0.025em;
+  --track-body:        0;
+  --track-mono:        0.28em;
+
+  /* ---------- Spacing scale (4px base) ---------- */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  24px;
+  --sp-6:  32px;     /* canonical headline → body gap */
+  --sp-7:  48px;
+  --sp-8:  64px;
+  --sp-9:  96px;
+  --sp-10: 144px;    /* section vertical padding */
+
+  /* ---------- Radii ---------- */
+  --r-card:    20px;
+  --r-tile:    12px;
+  --r-input:    8px;
+  --r-pill:   999px;
+
+  /* ---------- Components ---------- */
+  --btn-h:           50px;
+  --btn-px:          28px;
+  --card-pad:        40px;
+  --container:      1200px;
+  --container-wide: 1320px;
+
+  /* ---------- Motion ---------- */
+  --ease-standard:   cubic-bezier(0.2, 0.0, 0.0, 1);
+  --ease-out:        cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:        140ms;
+  --dur-base:        220ms;
+  --dur-slow:        420ms;
+
+  /* ---------- Semantic role aliases ---------- */
+  --bg:              var(--paper);
+  --bg-alt:          var(--paper-2);
+  --fg:              var(--ink-1);
+  --fg-muted:        var(--ink-3);
+  --border:          var(--hairline);
+  --accent:          var(--coral);
+}
+
+/* =====================================================================
+   Base + Semantic Type
+   ===================================================================== */
+
+html, body {
+  background: var(--paper);
+  color: var(--ink-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Eyebrow — sits above every big serif headline.
+   Mono, coral, 11px, all-caps, .28em tracking. */
+.eyebrow,
+[data-style="eyebrow"] {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--track-mono);
+  text-transform: uppercase;
+  color: var(--coral);
+  line-height: 1;
+  display: inline-block;
+}
+
+/* Display headlines — Geist Sans, heavy weight (700), tight tracking. */
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  font-family: var(--font-display);
+  font-weight: 700;       /* heavy sans display. 800 for max-impact hero. */
+  line-height: var(--lh-headline);
+  letter-spacing: var(--track-headline);
+  color: var(--ink-1);
+  margin: 0;
+}
+h1, .h1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-display);
+  letter-spacing: var(--track-display);
+}
+h2, .h2 { font-size: var(--fs-h2); }
+h3, .h3 { font-size: var(--fs-h3); }
+h4, .h4 { font-size: var(--fs-h4); }
+
+/* Italic emphasis inside headlines — keep weight 300, switch to italic. */
+/* Italic emphasis inside headlines — keep weight 700, switch to italic.
+   In a sans display this reads as a subtle inflection, not a swoop. */
+h1 em, h1 i, .h1 em, .h1 i,
+h2 em, h2 i, .h2 em, .h2 i,
+h3 em, h3 i, .h3 em, .h3 i {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--ink-1);
+}
+
+/* Body text — Inter, generous leading. */
+p, .body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body-loose);
+  color: var(--ink-3);
+  margin: 0;
+  text-wrap: pretty;
+}
+.body-sm   { font-size: var(--fs-body-sm); line-height: var(--lh-body); }
+.lead      { font-size: var(--fs-lead);    line-height: 1.5; color: var(--ink-2); }
+.caption   { font-size: var(--fs-caption); line-height: 1.45; color: var(--ink-4); }
+
+/* Mono utility (captions, source notes, code) — note: NOT colored coral by default;
+   only the .eyebrow variant is coral. */
+.mono, code, kbd {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+.mono-caps {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--track-mono);
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+/* Links — ink color, coral underline. */
+a {
+  color: var(--ink-1);
+  text-decoration: underline;
+  text-decoration-color: var(--coral);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  transition: text-decoration-thickness var(--dur-fast) var(--ease-standard);
+}
+a:hover { text-decoration-thickness: 2.5px; }
+
+/* Hairline horizontal rule */
+hr.hairline {
+  border: none;
+  border-top: 1px solid var(--hairline);
+  margin: 0;
+}
+
+/* Section utility — alternating cream backgrounds, 144px vertical padding. */
+.section {
+  padding-top: var(--sp-10);
+  padding-bottom: var(--sp-10);
+  background: var(--paper);
+}
+.section--alt { background: var(--paper-2); }
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--sp-7);
+  padding-right: var(--sp-7);
+}
+
+/* Canonical headline → body gap: 32px on both sides of the headline. */
+.eyebrow + h1, .eyebrow + h2, .eyebrow + h3,
+.eyebrow + .h1, .eyebrow + .h2, .eyebrow + .h3 { margin-top: var(--sp-6); }
+h1 + p, h2 + p, h3 + p,
+.h1 + p, .h2 + p, .h3 + p { margin-top: var(--sp-6); }
+
+/* Selection */
+::selection { background: var(--coral-soft); color: var(--ink-1); }

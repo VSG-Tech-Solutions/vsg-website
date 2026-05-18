@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>VSG Tech — Logo Concepts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="colors_and_type.css">
+  <style>
+    html, body { margin: 0; background: var(--paper); font-family: 'Geist', sans-serif; color: var(--ink-1); }
+    * { box-sizing: border-box; }
+  </style>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    /* ============================================================
+       LOGO CONCEPTS — 5 distinct directions
+       Each <Mark> is an SVG component that takes (size, dark, monochrome)
+       ============================================================ */
+
+    /* CONCEPT 1 — "V·" Marked V
+       The current concept refined. No box. Clean V letterform with a
+       small coral dot floating at the apex. Editorial, precise.
+       The dot is the "ACE" — the AI on top of the operation. */
+    function MarkOne({ size = 64, dark = false, mono = false }) {
+      const ink = dark ? "#F5F0E8" : "#1A1612";
+      const accent = mono ? ink : "var(--coral)";
+      return (
+        <svg width={size} height={size} viewBox="0 0 40 40" style={{ display: "block" }}>
+          <path d="M8 10 L20 30 L32 10" stroke={ink} strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          <circle cx="20" cy="30" r="3.2" fill={accent} />
+        </svg>
+      );
+    }
+
+    /* CONCEPT 2 — "Ascent V"
+       V where the right stroke extends past the apex, into a small
+       upward tick. Suggests forward motion, an upward chart-line,
+       "the next quarter goes up". Geometric, momentum-led. */
+    function MarkTwo({ size = 64, dark = false, mono = false }) {
+      const ink = dark ? "#F5F0E8" : "#1A1612";
+      const accent = mono ? ink : "var(--coral)";
+      return (
+        <svg width={size} height={size} viewBox="0 0 40 40" style={{ display: "block" }}>
+          <path d="M6 14 L18 30 L30 8" stroke={ink} strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          <path d="M30 8 L34 4" stroke={accent} strokeWidth="3.2" strokeLinecap="round" fill="none" />
+        </svg>
+      );
+    }
+
+    /* CONCEPT 3 — "Bracket V"
+       V formed by two angle brackets meeting at the bottom.
+       References code/engineering without being cliché. The coral
+       accent is a small dot at the meeting point — "where the
+       decisions land". Most technical-feeling. */
+    function MarkThree({ size = 64, dark = false, mono = false }) {
+      const ink = dark ? "#F5F0E8" : "#1A1612";
+      const accent = mono ? ink : "var(--coral)";
+      return (
+        <svg width={size} height={size} viewBox="0 0 40 40" style={{ display: "block" }}>
+          {/* Left bracket */}
+          <path d="M8 8 L16 14 L14 20 L18 26 L8 32"
+                stroke={ink} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          {/* Right bracket */}
+          <path d="M32 8 L24 14 L26 20 L22 26 L32 32"
+                stroke={ink} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          {/* Meeting point */}
+          <circle cx="20" cy="20" r="2.6" fill={accent} />
+        </svg>
+      );
+    }
+
+    /* CONCEPT 4 — "Stacked V"
+       V composed of three horizontal layers of decreasing width,
+       like an architectural diagram or a sound-wave at rest.
+       References "VSG = three lines, one architecture". Most
+       distinctive and brand-mark-like. */
+    function MarkFour({ size = 64, dark = false, mono = false }) {
+      const ink = dark ? "#F5F0E8" : "#1A1612";
+      const accent = mono ? ink : "var(--coral)";
+      return (
+        <svg width={size} height={size} viewBox="0 0 40 40" style={{ display: "block" }}>
+          <rect x="8"  y="10" width="24" height="3.4" rx="1.7" fill={ink} />
+          <rect x="12" y="18" width="16" height="3.4" rx="1.7" fill={ink} />
+          <rect x="16" y="26" width="8"  height="3.4" rx="1.7" fill={accent} />
+        </svg>
+      );
+    }
+
+    /* CONCEPT 5 — "Pure Wordmark"
+       No mark. Just the VSG wordmark in custom-tuned Geist, with
+       a coral dot as a "punctuation accent" after the G. The
+       Anthropic / Linear / Stripe playbook — lean entirely on
+       the wordmark. Most editorial. */
+    function MarkFive({ size = 64, dark = false, mono = false }) {
+      const ink = dark ? "#F5F0E8" : "#1A1612";
+      const accent = mono ? ink : "var(--coral)";
+      // Render as a horizontal wordmark; size param maps to height
+      const h = size;
+      return (
+        <svg width={h * 2.4} height={h} viewBox="0 0 96 40" style={{ display: "block" }}>
+          <text x="0" y="32"
+            style={{
+              fontFamily: "'Geist', sans-serif",
+              fontWeight: 800,
+              fontSize: 34,
+              letterSpacing: "-0.04em",
+              fill: ink,
+            }}>VSG</text>
+          <circle cx="76" cy="30" r="3.2" fill={accent} />
+        </svg>
+      );
+    }
+
+    /* CONCEPT 6 — "Stack"
+       Three horizontal bars of equal width, the bottom in coral.
+       Reads as "three layers / architectural stack / VSG stacked
+       on top of your ERP". The first non-letterform option. */
+    function MarkSix({ size = 64, dark = false, mono = false }) {
+      const ink = dark ? "#F5F0E8" : "#1A1612";
+      const accent = mono ? ink : "var(--coral)";
+      return (
+        <svg width={size} height={size} viewBox="0 0 40 40" style={{ display: "block" }}>
+          <rect x="8" y="11" width="24" height="3.2" rx="1.6" fill={ink} />
+          <rect x="8" y="18" width="24" height="3.2" rx="1.6" fill={ink} />
+          <rect x="8" y="25" width="24" height="3.2" rx="1.6" fill={accent} />
+        </svg>
+      );
+    }
+
+    /* CONCEPT 7 — "Loop"
+       A 270° arc with a coral dot at the opening — references the
+       AI learning loop, the compounding curve, the iteration.
+       Most aligned with the ACE story. */
+    function MarkSeven({ size = 64, dark = false, mono = false }) {
+      const ink = dark ? "#F5F0E8" : "#1A1612";
+      const accent = mono ? ink : "var(--coral)";
+      return (
+        <svg width={size} height={size} viewBox="0 0 40 40" style={{ display: "block" }}>
+          <path d="M 20 6 A 14 14 0 1 1 6 20" stroke={ink} strokeWidth="3.4" strokeLinecap="round" fill="none" />
+          <circle cx="20" cy="6" r="3.4" fill={accent} />
+        </svg>
+      );
+    }
+
+    /* CONCEPT 8 — "Node"
+       Three satellite dots connected by hairlines to a central
+       coral core. The literal architecture: three tenants, one
+       AI engine. Most ACE-architecture-coded. */
+    function MarkEight({ size = 64, dark = false, mono = false }) {
+      const ink = dark ? "#F5F0E8" : "#1A1612";
+      const accent = mono ? ink : "var(--coral)";
+      const lineOp = dark ? "0.45" : "0.35";
+      return (
+        <svg width={size} height={size} viewBox="0 0 40 40" style={{ display: "block" }}>
+          <line x1="20" y1="20" x2="10" y2="9"  stroke={ink} strokeWidth="1.6" strokeLinecap="round" opacity={lineOp} />
+          <line x1="20" y1="20" x2="30" y2="9"  stroke={ink} strokeWidth="1.6" strokeLinecap="round" opacity={lineOp} />
+          <line x1="20" y1="20" x2="20" y2="33" stroke={ink} strokeWidth="1.6" strokeLinecap="round" opacity={lineOp} />
+          <circle cx="10" cy="9"  r="3" fill={ink} />
+          <circle cx="30" cy="9"  r="3" fill={ink} />
+          <circle cx="20" cy="33" r="3" fill={ink} />
+          <circle cx="20" cy="20" r="4.6" fill={accent} />
+        </svg>
+      );
+    }
+
+    /* CONCEPT 9 — "Cursor"
+       The classic pointer arrow + a coral "active" dot. References
+       the cursor demo we built on the Source page. Active, decisive,
+       tech-direct. Most distinctively VSG (because of the demo). */
+    function MarkNine({ size = 64, dark = false, mono = false }) {
+      const ink = dark ? "#F5F0E8" : "#1A1612";
+      const accent = mono ? ink : "var(--coral)";
+      return (
+        <svg width={size} height={size} viewBox="0 0 40 40" style={{ display: "block" }}>
+          <path d="M9 7 L9 29 L16 24 L20 32 L24 30.5 L20 22.5 L28 22.5 Z"
+                fill={ink} stroke={ink} strokeWidth="0.8" strokeLinejoin="round" />
+          <circle cx="32" cy="8" r="3" fill={accent} />
+        </svg>
+      );
+    }
+
+    /* CONCEPT 10 — "Sight"
+       A rounded square viewfinder with a crosshair and a coral
+       center dot. Precision instrument / measurement / "this is
+       what we're aiming at" feel. Industrial-tech. */
+    function MarkTen({ size = 64, dark = false, mono = false }) {
+      const ink = dark ? "#F5F0E8" : "#1A1612";
+      const accent = mono ? ink : "var(--coral)";
+      return (
+        <svg width={size} height={size} viewBox="0 0 40 40" style={{ display: "block" }}>
+          <rect x="6" y="6" width="28" height="28" rx="5" stroke={ink} strokeWidth="2.4" fill="none" />
+          <line x1="20" y1="12" x2="20" y2="17" stroke={ink} strokeWidth="1.6" strokeLinecap="round" />
+          <line x1="20" y1="23" x2="20" y2="28" stroke={ink} strokeWidth="1.6" strokeLinecap="round" />
+          <line x1="12" y1="20" x2="17" y2="20" stroke={ink} strokeWidth="1.6" strokeLinecap="round" />
+          <line x1="23" y1="20" x2="28" y2="20" stroke={ink} strokeWidth="1.6" strokeLinecap="round" />
+          <circle cx="20" cy="20" r="2.6" fill={accent} />
+        </svg>
+      );
+    }
+
+    /* CONCEPT 11 — "Horizon"  ★ recommended
+       A coral semicircle sun rising over a thin ink horizon line.
+       Directly echoes the sunrise glow we apply to the dark hero
+       sections — so the brand mark and the hero treatment reinforce
+       each other across the system.
+       Story: operational intelligence rising / dawn over the floor /
+       the per-customer AI peeking up at the start of every day.
+       Reads at every size. Owns its shape. */
+    function MarkEleven({ size = 64, dark = false, mono = false }) {
+      const ink = dark ? "#F5F0E8" : "#1A1612";
+      const accent = mono ? ink : "var(--coral)";
+      // viewBox 40x40 — horizon line + half-circle sun
+      return (
+        <svg width={size} height={size} viewBox="0 0 40 40" style={{ display: "block" }}>
+          {/* Half-sun rising above the horizon */}
+          <path d="M 8 26 A 12 12 0 0 1 32 26 Z" fill={accent} />
+          {/* Horizon line */}
+          <line x1="4" y1="28" x2="36" y2="28" stroke={ink} strokeWidth="2.6" strokeLinecap="round" />
+        </svg>
+      );
+    }
+
+    const CONCEPTS = [
+      {
+        id: 11, name: "◐  Horizon  ★ recommended",
+        rationale: "A coral half-sun rising over an ink horizon line. Directly echoes the sunrise glow on every hero section — so the brand mark and the visual system reinforce each other. Story: operational intelligence rising / dawn over the floor / the per-customer AI peeking up at the start of every working day. Single distinctive shape, scales perfectly, no letterform.",
+        Mark: MarkEleven,
+      },
+      {
+        id: 1, name: "V·  Marked V",
+        rationale: "The current concept, refined. Loses the box and the awkward stroke alignment. Clean V letterform with a coral dot landing at the apex — 'the AI on top of the operation'. Most editorial of the marked options.",
+        Mark: MarkOne,
+      },
+      {
+        id: 2, name: "V/  Ascent V",
+        rationale: "V where the right stroke extends into an upward tick in coral. Suggests momentum, a chart climbing, forward motion. The most dynamic and 'business outcomes' coded.",
+        Mark: MarkTwo,
+      },
+      {
+        id: 3, name: "</>  Bracket V",
+        rationale: "Two angle brackets meeting in the middle to form a V. References code/engineering without being a cliché terminal cursor. Most technical-feeling — for an IT-lead audience.",
+        Mark: MarkThree,
+      },
+      {
+        id: 4, name: "≡  Stacked V",
+        rationale: "Three horizontal layers of decreasing width forming a V silhouette. 'Three lines, one architecture' — references VSG's three core capabilities and the layered product stack. Most distinctive as a brand mark.",
+        Mark: MarkFour,
+      },
+      {
+        id: 5, name: "VSG·  Pure Wordmark",
+        rationale: "No mark. Wordmark only with a coral dot punctuation. The Anthropic/Linear/Stripe move — confident enough in the name to not need a symbol. Most editorial; trades distinctiveness for refinement.",
+        Mark: MarkFive,
+      },
+      {
+        id: 6, name: "≡  Stack",
+        rationale: "Three equal horizontal bars, bottom layer in coral. Reads as 'three layers, one architecture' — references the product stack VSG ships into. Industrial, schematic, no letterform. The first non-V option.",
+        Mark: MarkSix,
+      },
+      {
+        id: 7, name: "↻  Loop",
+        rationale: "A 270° arc with a coral dot at the opening. References the AI learning loop, the compounding curve, the iteration ACE runs every week. Most aligned with the ACE moat story. Abstract but meaningful.",
+        Mark: MarkSeven,
+      },
+      {
+        id: 8, name: "◉  Node",
+        rationale: "Three satellite dots connected to a central coral core. The literal architecture diagram: three tenants, one AI engine. The most 'this is what VSG is' mark — built directly from the per-customer AI story.",
+        Mark: MarkEight,
+      },
+      {
+        id: 9, name: "↗  Cursor",
+        rationale: "A pointer arrow + a coral 'active' dot. References the animated cursor demo on the Source page. Active, decisive, tech-direct. Most uniquely VSG (because of the demo) — nobody else's logo is doing this.",
+        Mark: MarkNine,
+      },
+      {
+        id: 10, name: "⊕  Sight",
+        rationale: "A rounded square viewfinder with a crosshair and a coral center dot. Precision-instrument feel — measurement, targeting, focus. Industrial-tech credibility. The most 'engineered' option.",
+        Mark: MarkTen,
+      },
+    ];
+
+    function ConceptCard({ concept }) {
+      const { Mark, name, rationale, id } = concept;
+      return (
+        <div style={{
+          background: "var(--surface-white)",
+          border: "1px solid var(--hairline)",
+          borderRadius: 20,
+          padding: 36,
+          marginBottom: 32,
+        }}>
+          {/* Header */}
+          <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 12 }}>
+            <h2 style={{
+              fontFamily: "'Geist', sans-serif",
+              fontWeight: 700, fontSize: 28,
+              letterSpacing: "-0.02em",
+              color: "var(--ink-1)",
+              margin: 0,
+            }}>
+              <span style={{ color: "var(--coral)", marginRight: 12 }}>#{id}</span>
+              {name}
+            </h2>
+            <span style={{
+              fontFamily: "'Geist Mono', monospace",
+              fontWeight: 500, fontSize: 11,
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: "var(--ink-4)",
+            }}>
+              Concept {id} / 5
+            </span>
+          </div>
+          <p style={{
+            fontFamily: "'Geist', sans-serif",
+            fontSize: 15, lineHeight: 1.65,
+            color: "var(--ink-3)",
+            maxWidth: 700,
+            margin: "0 0 32px",
+          }}>
+            {rationale}
+          </p>
+
+          {/* Demo grid */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 16,
+          }}>
+            {/* LIGHT — large mark */}
+            <div style={{
+              background: "var(--paper)",
+              border: "1px solid var(--hairline)",
+              borderRadius: 14,
+              padding: "44px 28px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 16,
+              minHeight: 200,
+            }}>
+              <Mark size={80} dark={false} />
+              <span style={{
+                fontFamily: "'Geist Mono', monospace",
+                fontSize: 10, letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "var(--ink-4)",
+              }}>
+                Light · 80px
+              </span>
+            </div>
+
+            {/* DARK — large mark */}
+            <div style={{
+              background: "#1A1612",
+              border: "1px solid var(--hairline)",
+              borderRadius: 14,
+              padding: "44px 28px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 16,
+              minHeight: 200,
+            }}>
+              <Mark size={80} dark={true} />
+              <span style={{
+                fontFamily: "'Geist Mono', monospace",
+                fontSize: 10, letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "rgba(245,240,232,0.4)",
+              }}>
+                Dark · 80px
+              </span>
+            </div>
+
+            {/* WITH WORDMARK — nav size */}
+            <div style={{
+              background: "var(--paper-2)",
+              border: "1px solid var(--hairline)",
+              borderRadius: 14,
+              padding: "28px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 18,
+              minHeight: 130,
+            }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: id === 5 ? 0 : 10 }}>
+                <Mark size={30} dark={false} />
+                {id !== 5 && (
+                  <span style={{
+                    fontFamily: "'Geist', sans-serif",
+                    fontWeight: 700, fontSize: 18,
+                    color: "var(--ink-1)",
+                    letterSpacing: "-0.01em",
+                  }}>
+                    VSG Tech
+                  </span>
+                )}
+              </div>
+              <span style={{
+                fontFamily: "'Geist Mono', monospace",
+                fontSize: 10, letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "var(--ink-4)",
+              }}>
+                Nav size · 30px
+              </span>
+            </div>
+
+            {/* MONOCHROME / SMALL — proves legibility at favicon size */}
+            <div style={{
+              background: "var(--paper-2)",
+              border: "1px solid var(--hairline)",
+              borderRadius: 14,
+              padding: "28px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 18,
+              minHeight: 130,
+            }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 20 }}>
+                <Mark size={16} dark={false} mono={true} />
+                <Mark size={24} dark={false} mono={true} />
+                <Mark size={32} dark={false} />
+              </div>
+              <span style={{
+                fontFamily: "'Geist Mono', monospace",
+                fontSize: 10, letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "var(--ink-4)",
+              }}>
+                16 · 24 mono · 32px favicon test
+              </span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function LogoPreviewPage() {
+      return (
+        <div style={{ maxWidth: 1080, margin: "0 auto", padding: "72px 32px" }}>
+          {/* Header */}
+          <div style={{ marginBottom: 56 }}>
+            <div style={{
+              fontFamily: "'Geist Mono', monospace",
+              fontWeight: 500, fontSize: 11,
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: "var(--coral)",
+              marginBottom: 18,
+            }}>
+              Logo concepts · VSG Tech
+            </div>
+            <h1 style={{
+              fontFamily: "'Geist', sans-serif",
+              fontWeight: 700, fontSize: 64,
+              letterSpacing: "-0.04em",
+              color: "var(--ink-1)",
+              margin: "0 0 22px",
+              lineHeight: 1.05,
+              textWrap: "balance",
+            }}>
+              Five marks. <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>One pick.</em>
+            </h1>
+            <p style={{
+              fontFamily: "'Geist', sans-serif",
+              fontSize: 18, lineHeight: 1.65,
+              color: "var(--ink-2)",
+              maxWidth: 700,
+              margin: 0,
+            }}>
+              Five distinct directions. Each tested at hero size, on dark, in the nav-bar slot, and at favicon scale (16/24/32px). Pick the number that lands and I'll apply it across Nav, Footer, and favicon.
+            </p>
+          </div>
+
+          {/* Current logo for comparison */}
+          <div style={{
+            background: "var(--paper-2)",
+            border: "1px dashed var(--hairline)",
+            borderRadius: 16,
+            padding: "28px 32px",
+            marginBottom: 56,
+            display: "flex",
+            alignItems: "center",
+            gap: 32,
+          }}>
+            <div style={{
+              fontFamily: "'Geist Mono', monospace",
+              fontWeight: 500, fontSize: 11,
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: "var(--ink-4)",
+            }}>
+              Current
+            </div>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+              <svg aria-hidden="true" width="30" height="30" viewBox="0 0 30 30">
+                <rect width="30" height="30" rx="8" fill="var(--ink-1)" />
+                <path d="M7 9 L15 22 L23 9" stroke="var(--paper)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                <circle cx="23" cy="9" r="2.6" fill="var(--coral)" />
+              </svg>
+              <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 18, color: "var(--ink-1)", letterSpacing: "-0.01em" }}>
+                VSG Tech
+              </span>
+            </div>
+            <span style={{
+              fontFamily: "'Geist', sans-serif",
+              fontSize: 13, color: "var(--ink-3)",
+              marginLeft: "auto",
+              maxWidth: 380,
+              lineHeight: 1.5,
+            }}>
+              Black rounded square with a V-checkmark and a coral spark top-right. Functional but generic — every SaaS startup uses this pattern.
+            </span>
+          </div>
+
+          {/* Concepts */}
+          {CONCEPTS.map((c) => (
+            <ConceptCard key={c.id} concept={c} />
+          ))}
+
+          {/* Footer CTA */}
+          <div style={{
+            marginTop: 24,
+            padding: "36px 40px",
+            background: "#1A1612",
+            color: "#F5F0E8",
+            borderRadius: 20,
+            textAlign: "center",
+          }}>
+            <div style={{
+              fontFamily: "'Geist Mono', monospace",
+              fontWeight: 500, fontSize: 11,
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: "var(--coral)",
+              marginBottom: 14,
+            }}>
+              Next step
+            </div>
+            <p style={{
+              fontFamily: "'Geist', sans-serif",
+              fontSize: 18, lineHeight: 1.55,
+              margin: 0,
+              maxWidth: 640,
+              marginLeft: "auto",
+              marginRight: "auto",
+              color: "rgba(245,240,232,0.85)",
+            }}>
+              Pick a number (1–5). I'll apply it across Nav, Footer, and a matching favicon. If none hit, tell me what to tweak — colour, stroke weight, geometry, mark type — and I'll iterate.
+            </p>
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<LogoPreviewPage />);
+  </script>
+</body>
+</html>

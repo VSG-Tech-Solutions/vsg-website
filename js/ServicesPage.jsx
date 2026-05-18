@@ -1,0 +1,400 @@
+/* global React, ReactDOM */
+
+/* Services page — deeper than the homepage Services section.
+   Three offerings, each with a dedicated section (hero row + use cases),
+   plus engagement model + final CTA. */
+
+function ServicesHero({ onBookDemo }) {
+  return (
+    <section style={{ position: "relative", background: "var(--paper)", padding: "96px 0 80px", overflow: "hidden" }}>
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "-30%",
+          right: "-10%",
+          width: 1000,
+          height: 1000,
+          background: "radial-gradient(circle at center, rgba(201,99,58,0.12), rgba(201,99,58,0) 60%)",
+          pointerEvents: "none",
+        }}
+      />
+      <Container style={{ position: "relative" }}>
+        <Reveal>
+          <Eyebrow>Services</Eyebrow>
+          <h1 style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 96, lineHeight: 1.0, letterSpacing: "-0.04em", color: "var(--ink-1)", margin: "32px 0 0", maxWidth: 960, textWrap: "balance" }}>
+            Three ways to <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>work with us.</em>
+          </h1>
+        </Reveal>
+        <Reveal delay={120}>
+          <p style={{ marginTop: 32, maxWidth: 720, fontFamily: "'Geist', sans-serif", fontSize: 21, lineHeight: 1.55, color: "var(--ink-2)" }}>
+            Beyond our standalone products, three engagement shapes for the same audience: SA mid-market manufacturers and distributors. All on the same VSG ACE core, all priced before we start.
+          </p>
+        </Reveal>
+        <Reveal delay={200}>
+          <div style={{ marginTop: 40, display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap" }}>
+            <PrimaryButton onClick={onBookDemo} size="lg">Start a conversation</PrimaryButton>
+            <OutlineButton as="a" href="#custom" size="lg">See the work</OutlineButton>
+          </div>
+        </Reveal>
+
+        {/* anchor jump nav */}
+        <Reveal delay={280}>
+          <div style={{ marginTop: 56, display: "flex", gap: 0, borderTop: "1px solid var(--hairline)", borderBottom: "1px solid var(--hairline)" }}>
+            {[
+              { h: "#sprints", n: "A", l: "AI Sprints" },
+              { h: "#automation", n: "B", l: "AI Workflow Automation" },
+              { h: "#bespoke", n: "C", l: "Bespoke Software" },
+            ].map((a, i) => (
+              <a
+                key={i}
+                href={a.h}
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 14,
+                  padding: "22px 24px",
+                  borderRight: i < 2 ? "1px solid var(--hairline)" : "none",
+                  textDecoration: "none",
+                  color: "var(--ink-1)",
+                  transition: "background 220ms cubic-bezier(.2,0,0,1)",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "var(--paper-2)")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+              >
+                <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--coral)" }}>{a.n}</span>
+                <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 600, fontSize: 17, letterSpacing: "-0.015em" }}>{a.l}</span>
+                <span style={{ marginLeft: "auto", color: "var(--ink-3)" }}>↓</span>
+              </a>
+            ))}
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+// Reuse the visuals from Services.jsx by re-declaring small inline visual cards
+// (avoid coupling — keep this page self-sufficient).
+function ServiceDeepDive({ id, num, eyebrow, headline, emphasis, body, useCases, deliverables, visual, reverse }) {
+  return (
+    <Section id={id} alt={reverse}>
+      <Container>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1.05fr",
+            gap: 80,
+            alignItems: "start",
+            direction: reverse ? "rtl" : "ltr",
+          }}
+        >
+          <div style={{ direction: "ltr" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+              <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--ink-4)" }}>
+                Service {num}
+              </span>
+              <Eyebrow>{eyebrow}</Eyebrow>
+            </div>
+            <Headline as="h2" size={56} style={{ marginTop: 28, maxWidth: 540 }}>
+              {headline} <em style={{ fontStyle: "italic", fontWeight: 700 }}>{emphasis}</em>
+            </Headline>
+            <p style={{ marginTop: 28, maxWidth: 540, fontFamily: "'Geist', sans-serif", fontSize: 18, lineHeight: 1.65, color: "var(--ink-2)" }}>
+              {body}
+            </p>
+
+            <div style={{ marginTop: 36 }}>
+              <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--coral)" }}>
+                Use cases
+              </div>
+              <ul style={{ marginTop: 18, padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+                {useCases.map((u, i) => (
+                  <li key={i} style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 14, alignItems: "start", listStyle: "none" }}>
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--coral)", marginTop: 8 }} />
+                    <span style={{ fontFamily: "'Geist', sans-serif", fontSize: 16, color: "var(--ink-1)", lineHeight: 1.55 }}>{u}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div style={{ marginTop: 36 }}>
+              <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--coral)" }}>
+                Typical deliverables
+              </div>
+              <div style={{ marginTop: 18, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+                {deliverables.map((d, i) => (
+                  <div key={i} style={{ padding: "14px 16px", border: "1px solid var(--hairline)", borderRadius: 10, background: reverse ? "var(--surface-white)" : "var(--paper-2)" }}>
+                    <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: 600, fontSize: 14, color: "var(--ink-1)" }}>{d.t}</div>
+                    <div style={{ fontFamily: "'Geist', sans-serif", fontSize: 13, color: "var(--ink-3)", marginTop: 4 }}>{d.s}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div style={{ direction: "ltr" }}>
+            {visual}
+          </div>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+// Visuals (lifted/adapted from home Services component)
+function VisualCustomBig() {
+  return (
+    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.14)" }}>
+      <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)", marginBottom: 18 }}>
+        Stack — sits on top, not under
+      </div>
+      <svg viewBox="0 0 360 240" style={{ width: "100%", height: 260 }}>
+        <defs>
+          <linearGradient id="svc-fade" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stopColor="var(--coral)" stopOpacity="0.18" />
+            <stop offset="1" stopColor="var(--coral)" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <rect x="20" y="180" width="320" height="42" rx="8" fill="var(--paper-2)" stroke="var(--hairline)" />
+        <text x="180" y="206" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="10" letterSpacing="2.4" fill="var(--ink-3)">ERP · SYSPRO / SAGE / SAP</text>
+        <rect x="40" y="120" width="280" height="42" rx="8" fill="var(--surface-white)" stroke="var(--hairline)" />
+        <text x="180" y="146" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="10" letterSpacing="2.4" fill="var(--ink-3)">VENDOR LAYER · STANDARD</text>
+        <rect x="60" y="60" width="240" height="42" rx="8" fill="var(--surface-white)" stroke="var(--coral)" />
+        <rect x="60" y="60" width="240" height="42" rx="8" fill="url(#svc-fade)" />
+        <text x="180" y="86" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="10" letterSpacing="2.4" fill="var(--coral)">YOUR VSG LAYER</text>
+        <rect x="80" y="14" width="200" height="28" rx="8" fill="var(--ink-1)" />
+        <text x="180" y="32" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="10" letterSpacing="2.4" fill="var(--paper)">YOUR USERS</text>
+      </svg>
+      <div style={{ marginTop: 8, fontFamily: "'Geist', sans-serif", fontSize: 13, color: "var(--ink-3)", lineHeight: 1.5 }}>
+        Your team interacts with a clean surface. The ERP keeps doing the boring stuff it's good at. No replacement, no migration.
+      </div>
+    </div>
+  );
+}
+
+function VisualAutomationBig() {
+  return (
+    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.14)" }}>
+      <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)", marginBottom: 18 }}>
+        A typical automation pipeline
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 0, position: "relative" }}>
+        <div aria-hidden="true" style={{ position: "absolute", left: 17, top: 22, bottom: 22, width: 1.5, background: "var(--hairline)" }} />
+        {[
+          { t: "Trigger", s: "PDF lands in supplier@yourco" },
+          { t: "Extract", s: "ACE parses PO number, lines, prices, terms" },
+          { t: "Reconcile", s: "Match against ERP open orders. Confidence 96%." },
+          { t: "Decide", s: "Auto-confirm under R 50k, route exceptions to human" },
+          { t: "Post", s: "GRN drafted in SysPro, email confirmation queued" },
+          { t: "Log", s: "Every step signed, replayable, exportable" },
+        ].map((e, i) => (
+          <div key={i} style={{ display: "grid", gridTemplateColumns: "36px 1fr", gap: 16, alignItems: "center", padding: "14px 0", position: "relative" }}>
+            <span style={{ width: 16, height: 16, borderRadius: "50%", background: "var(--paper)", border: `2px solid ${i === 3 ? "var(--coral)" : "var(--ink-1)"}`, justifySelf: "center", zIndex: 1 }} />
+            <div>
+              <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: 600, fontSize: 14, color: "var(--ink-1)" }}>{e.t}</div>
+              <div style={{ fontFamily: "'Geist', sans-serif", fontSize: 13, color: "var(--ink-3)", marginTop: 2 }}>{e.s}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function VisualBespokeBig() {
+  return (
+    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.14)" }}>
+      <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)", marginBottom: 18 }}>
+        Engagement shape · weeks
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "120px 1fr 1fr 1fr", gap: 8, alignItems: "center", marginBottom: 8 }}>
+        <span></span>
+        {["1–3", "4–8", "9–12"].map((w, i) => (
+          <span key={i} style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--ink-4)" }}>{w}</span>
+        ))}
+      </div>
+      {[
+        { name: "Discovery", spans: [1, 0, 0] },
+        { name: "Prototype", spans: [0, 1, 0] },
+        { name: "Production", spans: [0, 0, 1] },
+        { name: "Operator pairing", spans: [1, 1, 0] },
+        { name: "Handover", spans: [0, 0, 1] },
+      ].map((row, i) => (
+        <div key={i} style={{ display: "grid", gridTemplateColumns: "120px 1fr 1fr 1fr", gap: 8, alignItems: "center", marginTop: 6 }}>
+          <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 500, fontSize: 13, color: "var(--ink-1)" }}>{row.name}</span>
+          {row.spans.map((s, j) => (
+            <div key={j} style={{ height: 22, borderRadius: 4, background: s ? (i === 1 ? "var(--coral)" : "var(--ink-1)") : "transparent", border: s ? 0 : "1px dashed var(--hairline)" }} />
+          ))}
+        </div>
+      ))}
+      <div style={{ marginTop: 22, padding: "14px 16px", background: "var(--paper-2)", borderRadius: 10, fontFamily: "'Geist', sans-serif", fontSize: 13, color: "var(--ink-2)" }}>
+        <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--coral)", marginRight: 6 }}>Week 4</span>
+        First working prototype on real data. Not a deck.
+      </div>
+    </div>
+  );
+}
+
+// ---------- Engagement model section ----------
+function EngagementModel() {
+  return (
+    <Section>
+      <Container>
+        <Reveal>
+          <div style={{ maxWidth: 720 }}>
+            <Eyebrow>How we work</Eyebrow>
+            <Headline as="h2" size={56} style={{ marginTop: 32 }}>
+              Three engagement shapes. <em style={{ fontStyle: "italic", fontWeight: 700 }}>No retainer trap.</em>
+            </Headline>
+          </div>
+        </Reveal>
+
+        <div style={{ marginTop: 56, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          {[
+            { tag: "Sprint", price: "From R 180k", scope: "Two-week sprint. Fixed scope, fixed price. Output: a working prototype, a roadmap, or a costed plan you can take anywhere." },
+            { tag: "Project", price: "Scope-priced", scope: "8–16 weeks. Discovery → prototype → production. Fixed price per phase, with a real gate between each. We don't extend without your sign-off." },
+            { tag: "Partner", price: "Annual", scope: "Ongoing engineering capacity, treated like an in-house team. Set quarterly objectives together. Walk away with 30 days' notice." },
+          ].map((c, i) => (
+            <Reveal key={i} delay={i * 80}>
+              <div style={{ padding: "32px 28px", border: "1px solid var(--hairline)", borderRadius: 20, height: "100%", display: "flex", flexDirection: "column", gap: 18, background: i === 1 ? "var(--paper-2)" : "transparent" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <Eyebrow>{c.tag}</Eyebrow>
+                  <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)" }}>
+                    {c.price}
+                  </span>
+                </div>
+                <p style={{ fontFamily: "'Geist', sans-serif", fontSize: 16, lineHeight: 1.6, color: "var(--ink-2)", margin: 0 }}>
+                  {c.scope}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={240}>
+          <div style={{ marginTop: 32, padding: "28px 32px", border: "1px solid var(--hairline)", borderRadius: 20, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 32, flexWrap: "wrap", background: "var(--paper)" }}>
+            <div>
+              <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--ink-4)" }}>
+                What you actually get
+              </div>
+              <div style={{ marginTop: 8, fontFamily: "'Geist', sans-serif", fontWeight: 500, fontSize: 20, color: "var(--ink-1)", letterSpacing: "-0.015em", maxWidth: 720 }}>
+                Source code. Documentation. The phone number of the engineer who built it. No vendor lock-in clause. No "transformation roadmap" that goes nowhere.
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </Container>
+    </Section>
+  );
+}
+
+function ServicesCTA({ onBookDemo }) {
+  return (
+    <section style={{ position: "relative", background: "var(--paper)", padding: "144px 0", borderTop: "1px solid var(--hairline)", overflow: "hidden" }}>
+      <div
+        aria-hidden="true"
+        style={{ position: "absolute", bottom: "-40%", left: "50%", transform: "translateX(-50%)", width: 1300, height: 1300, background: "radial-gradient(circle at center, rgba(201,99,58,0.16), rgba(201,99,58,0) 55%)", pointerEvents: "none" }}
+      />
+      <Container>
+        <Reveal>
+          <div style={{ textAlign: "center", maxWidth: 880, margin: "0 auto", position: "relative" }}>
+            <Eyebrow>Start something</Eyebrow>
+            <h2 style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 80, lineHeight: 1.0, letterSpacing: "-0.035em", color: "var(--ink-1)", margin: "32px 0 0", textWrap: "balance" }}>
+              Tell us what's <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>getting in the way.</em>
+            </h2>
+            <p style={{ marginTop: 28, fontFamily: "'Geist', sans-serif", fontSize: 20, lineHeight: 1.55, color: "var(--ink-2)", maxWidth: 580, marginLeft: "auto", marginRight: "auto" }}>
+              30 minutes with Stephan. Bring the spreadsheet, the bottleneck, or the ask the vendor wouldn't quote. He'll come back with a fit, a no, or a number.
+            </p>
+            <div style={{ marginTop: 40, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+              <PrimaryButton onClick={onBookDemo} size="lg">Talk to Stephan</PrimaryButton>
+              <OutlineButton as="a" href="contact.html" size="lg">hello@vsg.tech</OutlineButton>
+            </div>
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+function ServicesPage({ onBookDemo }) {
+  return (
+    <React.Fragment>
+      <ServicesHero onBookDemo={onBookDemo} />
+      <ServiceDeepDive
+        id="sprints"
+        num="A"
+        eyebrow="AI Sprints"
+        headline="Discover, prototype,"
+        emphasis="in two weeks."
+        body="A two-week sprint, fixed scope, fixed price. Output: a working AI prototype running on your real data, a roadmap you can take anywhere, or a costed plan signed by an engineer. Not a slide deck. Not a workshop. A working thing."
+        useCases={[
+          "Discovery for a future product or automation project",
+          "AI-powered proof-of-concept on your actual data",
+          "Costed plan for a larger build — take it to anyone",
+          "Independent technical audit of a vendor's AI claim",
+        ]}
+        deliverables={[
+          { t: "Format",   s: "Two-week sprint · fixed price" },
+          { t: "Output",   s: "Working prototype or costed plan" },
+          { t: "Data",     s: "On your real operation, not a sandbox" },
+          { t: "Hand-off", s: "Roadmap signed by an engineer" },
+        ]}
+        visual={<VisualBespokeBig />}
+      />
+      <ServiceDeepDive
+        id="automation"
+        num="B"
+        eyebrow="AI Workflow Automation"
+        headline="Automate your"
+        emphasis="highest-value workflows."
+        body="Some workflows in your business are too important to run on someone re-typing data, following a 12-step manual process, or chasing approvals over WhatsApp. The customer onboarding flow. The credit-check sequence. The supplier-statement reconciliation. The exception-routing decisions someone makes 40 times a week. VSG builds AI workflow automation that takes those workflows over — automating what should be automated, surfacing the decisions that need humans, and getting smarter every week as VSG ACE learns your patterns."
+        useCases={[
+          "Customer onboarding and credit-check sequences",
+          "Supplier-statement reconciliation across 200+ accounts",
+          "Quote-to-order handoffs between sales and operations",
+          "Exception-routing decisions made 40 times a week",
+        ]}
+        deliverables={[
+          { t: "Custom-built",   s: "Around YOUR business — not a template" },
+          { t: "AI decisions",   s: "Not just data movement" },
+          { t: "Human-in-loop",  s: "Where it matters; autonomy where it doesn't" },
+          { t: "Audit trail",    s: "Every decision the AI makes, logged" },
+        ]}
+        visual={<VisualAutomationBig />}
+        reverse
+      />
+      <ServiceDeepDive
+        id="bespoke"
+        num="C"
+        eyebrow="Bespoke Software"
+        headline="Software built for the problem"
+        emphasis="only YOU have."
+        body="Every business has a problem that no off-the-shelf software solves. The workflow that's unique to how YOU operate. The internal tool that would save your team 20 hours a week — if anyone built it. The customer portal that does the specific thing your customers actually want. The dashboard that pulls together the data nobody else thinks belongs together. We design, build, and ship that software. Yours. In your repository. With the engineer's phone number on the back of your laptop."
+        useCases={[
+          "Customer self-service portal that does what YOUR customers ask for",
+          "Internal tool that saves your team 20 hours a week",
+          "Daily ops dashboard the GM can read in two minutes",
+          "Integration layer between systems no vendor will quote",
+        ]}
+        deliverables={[
+          { t: "First slice", s: "Working in two weeks" },
+          { t: "Production",  s: "Live in eight" },
+          { t: "Source code", s: "Yours, in your repo" },
+          { t: "Hand-over",   s: "Docs + the engineer's phone number" },
+        ]}
+        visual={<VisualCustomBig />}
+      />
+      <EngagementModel />
+      <ServicesCTA onBookDemo={onBookDemo} />
+    </React.Fragment>
+  );
+}
+
+requestAnimationFrame(() => {
+  ReactDOM.createRoot(document.getElementById("app")).render(
+    <PageShell current="services">
+      <ServicesPage />
+    </PageShell>
+  );
+});
