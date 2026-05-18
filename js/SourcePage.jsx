@@ -546,7 +546,7 @@ function SourceHero({ onBookDemo }) {
               lineHeight: 1.55,
               color: HERO_INK_2,
             }}>
-              A standalone AI procurement platform for South African manufacturers and distributors. Forward planning, AI-driven supplier sourcing, multi-level approvals, exception handling, and a supplier portal — all powered by VSG ACE, the AI that learns YOUR specific suppliers, terminology, and rules.
+              A standalone AI procurement platform for South African manufacturers and distributors. Forward planning, house-voice supplier replies, multi-level approvals, exception handling, and a supplier portal — all powered by VSG ACE, the AI that learns YOUR specific suppliers, terminology, and rules.
             </p>
           </Reveal>
 
@@ -628,7 +628,7 @@ function SourceHero({ onBookDemo }) {
               <span style={{ width: 3, height: 3, borderRadius: "50%", background: HERO_HAIRLINE, alignSelf: "center" }} />
               <span>SysPro · SAP B1 · Pastel — native</span>
               <span style={{ width: 3, height: 3, borderRadius: "50%", background: HERO_HAIRLINE, alignSelf: "center" }} />
-              <span>B-BBEE · FICA · POPIA built-in</span>
+              <span>Buyer keeps full review control</span>
             </div>
           </Reveal>
         </div>
@@ -787,14 +787,14 @@ function SourceBenefits() {
       body: "Per-SKU, per-supplier, per-customer. Forward planning grid with buy-up cash alerts, local-vs-import split, customer-share drilldown, and per-class stock-month targets your team can edit live.",
     },
     {
-      tag: "Source",
-      title: "AI-driven RFQ Auctioneer.",
-      body: "Broadcast to 5 suppliers in 30 seconds. Quotes parsed automatically. Scored on price, lead time, B-BBEE level, and reliability — against YOUR rules, not a generic formula.",
+      tag: "Draft",
+      title: "House-voice supplier replies.",
+      body: "Every inbound supplier email classified and queued. ACE drafts the reply in your terminology, with your reference codes and the courtesy your team uses with each supplier. Buyer reviews. One tap to send.",
     },
     {
       tag: "Execute",
       title: "Approvals + exceptions + supplier portal.",
-      body: "Multi-level approvals learned from your actual history. Exception handling flags variances with evidence. Suppliers see their own RFQs and POs through a self-service portal.",
+      body: "Multi-level approvals learned from your actual history. Exception handling flags variances with evidence. Suppliers see their own POs and disputes through a self-service portal.",
     },
   ];
   return (
@@ -906,53 +906,6 @@ function VizPlanning() {
   );
 }
 
-function VizSourcing() {
-  const quotes = [
-    { name: "Falcon Steel",       price: "R 142,200", lead: "5d",  bbbee: "Lv1", rel: 96, winner: true },
-    { name: "Pinnacle Metals",    price: "R 138,400", lead: "12d", bbbee: "Lv2", rel: 84 },
-    { name: "Westcape Stainless", price: "R 145,800", lead: "4d",  bbbee: "Lv1", rel: 91 },
-    { name: "Atlantic Tubing",    price: "R 136,200", lead: "18d", bbbee: "Lv4", rel: 72 },
-  ];
-  return (
-    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 24, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.16)" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-        <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-          RFQ · SS304-12 · 4t
-        </div>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--coral)" }}>
-          <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--coral)", animation: "vsg-pulse 2s ease-in-out infinite" }} />
-          Auctioneer scoring
-        </span>
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 0.7fr 0.6fr 0.7fr", gap: 8, fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-        <span>Supplier</span><span>Quote</span><span>Lead</span><span>B-BBEE</span><span>Rel.</span>
-      </div>
-      <div style={{ marginTop: 8, display: "flex", flexDirection: "column", gap: 6 }}>
-        {quotes.map((q, i) => (
-          <div key={i} style={{
-            display: "grid", gridTemplateColumns: "1.6fr 1fr 0.7fr 0.6fr 0.7fr", gap: 8, alignItems: "center",
-            padding: "12px 14px", borderRadius: 10,
-            background: q.winner ? "var(--coral-soft)" : "var(--paper-2)",
-            border: q.winner ? "1px solid var(--coral)" : "1px solid var(--hairline)"
-          }}>
-            <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: q.winner ? 600 : 500, fontSize: 13, color: "var(--ink-1)" }}>
-              {q.winner && <span style={{ color: "var(--coral)", marginRight: 6 }}>★</span>}{q.name}
-            </span>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: 12, color: "var(--ink-1)" }}>{q.price}</span>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: 12, color: "var(--ink-2)" }}>{q.lead}</span>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: 11, color: q.bbbee === "Lv1" ? "var(--success)" : "var(--ink-3)" }}>{q.bbbee}</span>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: 11, color: "var(--ink-2)" }}>{q.rel}%</span>
-          </div>
-        ))}
-      </div>
-      <div style={{ marginTop: 14, fontFamily: "'Geist', sans-serif", fontSize: 13, color: "var(--ink-2)", lineHeight: 1.5 }}>
-        <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--coral)", marginRight: 6 }}>Why Falcon</span>
-        Lv1 + 96% reliability over last 6 POs + lead time fits Oct-26 plan. Not the cheapest. The right one for THIS order.
-      </div>
-    </div>
-  );
-}
-
 function VizExecute() {
   return (
     <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.16)" }}>
@@ -1000,30 +953,16 @@ const TABS = [
     viz: <VizPlanning />,
   },
   {
-    id: "sourcing",
-    eyebrow: "Feature · Sourcing",
-    label: "Sourcing",
-    title: "The RFQ Auctioneer — picks the right supplier, not the cheapest.",
-    body: "Send a request to five suppliers in thirty seconds. They respond via the supplier portal or by email. ACE auto-parses email quotes into structured data, then scores them on price, lead time, supplier history, B-BBEE level, and reliability — against YOUR rules, not a generic formula. The buyer doesn't email eight people manually any more.",
-    bullets: [
-      "Broadcast RFQ to your supplier panel in 30 seconds",
-      "Email quotes auto-parsed into structured data",
-      "Scored on price + lead + B-BBEE + last 6 POs reliability",
-      "EvidenceButton on every winner — see WHY ACE picked them",
-    ],
-    viz: <VizSourcing />,
-  },
-  {
     id: "execute",
     eyebrow: "Feature · Execute",
     label: "Execution",
     title: "Approvals, exceptions, audit trail.",
-    body: "Multi-level approval chains learned from your actual history — not a template. Mobile PWA for CFO approve-on-the-go. Exception handling flags variances with the evidence behind every flag. Every AI decision is replayable, signed, POPIA-compliant. CFO-ready, defensible, never a black-box answer.",
+    body: "Multi-level approval chains learned from your actual history — not a template. Mobile PWA for CFO approve-on-the-go. Exception handling flags variances with the evidence behind every flag. Every AI decision is replayable and signed. CFO-ready, defensible, never a black-box answer.",
     bullets: [
       "Approval rules learned from YOUR history",
       "Mobile PWA: swipe to approve with evidence",
       "Auto-exception handling with EvidenceButton",
-      "Full audit trail · POPIA-compliant · SARS-aligned",
+      "Full audit trail · signed and replayable",
     ],
     viz: <VizExecute />,
   },
@@ -1146,7 +1085,7 @@ function ToolsGrid() {
       eyebrow: "Mobile PWA",
       title: "CFO approves from a phone.",
       body: "Mobile-first approval interface. Each pending order is a card with the SKU, qty, cash impact, AI risk badge, and EvidenceButton. Swipe to approve, tap for evidence.",
-      tags: ["iOS · Android", "Offline-capable", "POPIA-signed"],
+      tags: ["iOS · Android", "Offline-capable", "Audit-signed"],
     },
     {
       eyebrow: "VSG ACE",
@@ -1157,8 +1096,8 @@ function ToolsGrid() {
     {
       eyebrow: "Audit Trail",
       title: "Every decision, signed and replayable.",
-      body: "Every AI proposal, every approval, every ERP write — logged with the inputs that produced it. POPIA-compliant retention, SARS-aligned VAT handling.",
-      tags: ["POPIA", "SARS", "B-BBEE", "FICA"],
+      body: "Every AI proposal, every approval, every ERP write — logged with the inputs that produced it. Immutable retention, every decision replayable.",
+      tags: ["Auditable", "Immutable", "Replayable", "Signed"],
     },
   ];
   return (
@@ -1264,7 +1203,7 @@ function SourceRoles() {
       gets: [
         "4-month planning grid open by 7:30am, fully refreshed",
         "12 ACE-drafted replies waiting for one-tap approval",
-        "Auctioneer rankings for every active RFQ",
+        "Single-source risk heatmap across your supplier panel",
         "Direct line to suppliers via the portal — no email tag",
       ],
     },
@@ -1272,19 +1211,19 @@ function SourceRoles() {
       n: "02",
       name: "Finance / CFO",
       lede: "Mobile approve-on-the-go with full evidence.",
-      body: "Every pending order is a card on the CFO's phone with the SKU, quantity, cash impact, AI risk badge, and EvidenceButton. Swipe to approve, tap for the supporting evidence chain. The full POPIA-compliant audit trail writes itself — every approval, signed and replayable.",
+      body: "Every pending order is a card on the CFO's phone with the SKU, quantity, cash impact, AI risk badge, and EvidenceButton. Swipe to approve, tap for the supporting evidence chain. The full audit trail writes itself — every approval, signed and replayable.",
       gets: [
         "Mobile PWA: swipe-approve with one thumb",
         "EvidenceButton on every AI recommendation",
         "Cash-impact forecast 4 months forward",
-        "POPIA audit trail · SARS-aligned VAT handling",
+        "Full audit trail on every approval, signed and replayable",
       ],
     },
     {
       n: "03",
       name: "Ops / GM",
       lede: "One screen with the signals that move the floor.",
-      body: "Late raw materials. Single-source risk. Supplier price moves. B-BBEE level changes. Quality dispute trends. Every signal that could shake your production schedule, surfaced the day it happens — not the week after it bit. Linked back to the production line it affects.",
+      body: "Late raw materials. Single-source risk. Supplier price moves. Quality dispute trends. Lead-time variance. Every signal that could shake your production schedule, surfaced the day it happens — not the week after it bit. Linked back to the production line it affects.",
       gets: [
         "Single-source risk heatmap across your supplier panel",
         "Lead-time variance alerts vs. plan",
@@ -1419,16 +1358,16 @@ function SourceCapabilities() {
       ],
     },
     {
-      tag: "Sourcing & RFQ Auctioneer",
+      tag: "Inbox & supplier email automation",
       items: [
-        "Broadcast RFQ to your supplier panel in 30 seconds",
-        "Inbound quotes auto-parsed into structured data (email or portal)",
-        "Scored on price + lead time + B-BBEE level + last 6 PO reliability",
-        "Scoring weights tunable per category — your rules, not a template",
-        "EvidenceButton on every winner — see WHY ACE picked them",
-        "Reverse auction mode for repeat-buy categories",
+        "ACE drafts replies in your house voice (references, codes, courtesy)",
+        "POs, ASNs, statements, disputes — classified and ranked by lead-time risk",
+        "Multi-language: English, Afrikaans, isiZulu (per-supplier per-buyer)",
         "Single-source risk warnings when a supplier dominates a SKU",
-        "RFQ history per SKU — full price-move and lead-time tracking",
+        "Dispute resolution thread per PO — searchable, signed, exportable",
+        "Confidence + EvidenceButton on every draft — never a black-box answer",
+        "Buyer keeps full review control through shadow mode + per-supplier thresholds",
+        "Supplier portal: counterparts see their own POs, GRNs, disputes self-service",
       ],
     },
     {
@@ -1441,20 +1380,7 @@ function SourceCapabilities() {
         "Native connectors: SysPro, SAP Business One, Sage X3, Sage Pastel",
         "Bespoke connectors for Acumatica, Odoo, and custom ERPs on request",
         "Audit log on every AI decision, every approval, every ERP write",
-        "POPIA-compliant retention · SARS-aligned VAT (14%, zero-rated, exempt)",
-      ],
-    },
-    {
-      tag: "Supplier portal & inbox automation",
-      items: [
-        "Suppliers see their own RFQs, POs, GRNs, and disputes self-service",
-        "ACE drafts replies in your house voice (references, codes, courtesy)",
-        "POs, ASNs, statements, disputes — classified and ranked by lead-time risk",
-        "Multi-language: English, Afrikaans, isiZulu (per-supplier per-buyer)",
-        "Live B-BBEE Verification Agency lookups on new suppliers",
-        "CIPC + banking-detail FICA checks for supplier onboarding",
-        "Dispute resolution thread per PO — searchable, signed, exportable",
-        "Native PayShap / EFT / debit-order payment rails",
+        "Immutable retention — every decision replayable, any day",
       ],
     },
   ];
@@ -1567,7 +1493,7 @@ function SourceRollout() {
       body: "ACE drafts every supplier reply — but only your team sees them. We review the misses together, tune the prompts, tune the auctioneer weights. Your buyer starts trusting the drafts. Nothing has been sent yet.",
       deliverables: [
         "ACE shadow-drafting 100% of inbox",
-        "Auctioneer scoring weights locked",
+        "Confidence thresholds locked per supplier",
         "Approval thresholds set",
       ],
     },
@@ -1739,24 +1665,24 @@ function SourceSecurity() {
       body: "Each tenant is a discrete ACE instance. Your supplier list, your decisions, your edge cases — not shared, not pooled, not used to train cross-customer models. Even inference is per-tenant.",
     },
     {
-      tag: "POPIA-compliant audit trail",
+      tag: "Immutable audit trail",
       title: "Every action, signed and replayable.",
-      body: "Every AI proposal, every approval, every ERP write is logged with the inputs that produced it. POPIA-compliant retention. Your auditors can replay any decision, on any day, in the original context.",
+      body: "Every AI proposal, every approval, every ERP write is logged with the inputs that produced it. Your auditors can replay any decision, on any day, in the original context — searchable, signed, exportable.",
     },
     {
-      tag: "SARS-aligned tax handling",
-      title: "VAT, zero-rated, exempt — native.",
-      body: "All SARS-compliant VAT codes built in. Native PayShap, EFT, and debit-order rails. Multi-currency (ZAR, USD, EUR, GBP) with the latest SARB exchange rates synced daily.",
+      tag: "Encryption",
+      title: "AES-256 at rest. TLS 1.3 in transit.",
+      body: "Per-tenant encryption keys, customer-rotatable. Every byte that touches Source is encrypted on disk and on the wire. No exceptions, no plaintext logs.",
     },
     {
-      tag: "B-BBEE Verification",
-      title: "Live agency lookups, on every supplier.",
-      body: "Direct API integration with B-BBEE Verification Agencies. Live level lookups on every supplier onboarding and at every RFQ scoring run. Procurement spend by B-BBEE level dashboards built in.",
+      tag: "Access control",
+      title: "SSO via your IdP. Per-action RBAC.",
+      body: "Connect Azure AD, Okta, or Google. Per-role permissions on every action. SCIM provisioning for joiners and leavers. Audit log records who approved what, when, and with which evidence.",
     },
     {
-      tag: "FICA · supplier onboarding",
-      title: "CIPC + banking checks, automated.",
-      body: "Every new supplier triggers a CIPC company-status check and banking-detail FICA verification. Failed checks block onboarding with a clear remediation trail. No more guessing on supplier legitimacy.",
+      tag: "Portable on exit",
+      title: "Export the whole memory. No lock-in.",
+      body: "If you ever leave, you take your ACE memory in a documented, readable format. The audit log too. We'd rather you stay because the product earns it — not because we trapped your data.",
     },
   ];
   return (
@@ -1764,13 +1690,13 @@ function SourceSecurity() {
       <Container>
         <Reveal>
           <div style={{ maxWidth: 760 }}>
-            <Eyebrow>Security & compliance</Eyebrow>
+            <Eyebrow>Security & data</Eyebrow>
             <Headline as="h2" size={56} style={{ marginTop: 32 }}>
               Built to pass an audit{" "}
               <em style={{ fontStyle: "italic", fontWeight: 700 }}>in any boardroom.</em>
             </Headline>
             <p style={{ marginTop: 24, maxWidth: 620, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              Six commitments your CFO, your auditor, and your IT lead can verify on day one.
+              Six commitments your IT lead can verify on day one.
             </p>
           </div>
         </Reveal>
@@ -1975,12 +1901,11 @@ function SourceCTA({ onBookDemo }) {
 // ============================================================
 
 const SOURCE_FAQS = [
-  { q: "Is VSG Source an add-on to my ERP?",         a: "No. VSG Source is a standalone AI procurement product with its own workflows — 4-month forward planning, RFQ auctioneer, multi-level approvals, supplier portal. It connects to SysPro, SAP Business One, and Sage Pastel through first-class native integrations, the same way Procurify connects to NetSuite. Your ERP keeps doing what it's good at." },
+  { q: "Is VSG Source an add-on to my ERP?",         a: "No. VSG Source is a standalone AI procurement platform with its own workflows — 4-month forward planning, multi-level approvals, supplier portal. It connects to SysPro, SAP Business One, and Sage Pastel through first-class native integrations, the same way Procurify connects to NetSuite. Your ERP keeps doing what it's good at." },
   { q: "What does ACE need to get started?",          a: "Read access to your ERP (we provide the SQL scripts), supplier contact information, and 8 months of historical sales data — which lives in your ERP already. We provision your tenant, load the data, and ACE starts producing the planning grid in week one." },
-  { q: "How does the RFQ Auctioneer actually score suppliers?", a: "On YOUR rules. We tune the scoring weights together in week three — price, lead time, B-BBEE level, last 6 PO reliability, single-sourcing risk. The Auctioneer is fully explainable: every winner ships with the WHY behind the choice. EvidenceButton on every recommendation." },
-  { q: "Can our CFO approve from a phone?",           a: "Yes — mobile PWA. Each pending order is a card with the SKU, qty, cash impact, AI risk badge, and EvidenceButton. Swipe to approve, tap for evidence. Full POPIA audit trail on every action." },
-  { q: "What about B-BBEE / FICA / POPIA / SARS?",   a: "All built in. Live B-BBEE Verification Agency lookups, CIPC + banking detail FICA checks for new suppliers, POPIA-compliant audit retention, SARS-aligned VAT handling (14%, zero-rated, exempt), and native PayShap / EFT / debit-order rails. English and Afrikaans UI, per-user toggle." },
-  { q: "How is Source priced?",                       a: "A base subscription plus per-active-user. No per-seat surprises. Implementation is included in year one. Eurosteel pilot pricing is confidential — contact us for your number." },
+  { q: "Can our CFO approve from a phone?",           a: "Yes — mobile PWA. Each pending order is a card with the SKU, quantity, cash impact, AI risk badge, and EvidenceButton. Swipe to approve, tap for evidence. Full audit trail on every action." },
+  { q: "Who decides what Source actually posts?",     a: "Your team. The default for the first 30 days is shadow mode — every ACE-drafted action is reviewed by your buyer before it leaves the tenant. After that, you set per-supplier thresholds for what ACE may act on autonomously." },
+  { q: "How is Source priced?",                       a: "A base subscription plus per-active-user. No per-seat surprises. Implementation is included in year one. Talk to us for your number — Stephan replies personally within one working day." },
 ];
 
 function SourceFAQ() {

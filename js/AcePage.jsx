@@ -154,7 +154,7 @@ function AceHero({ onBookDemo }) {
               <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(245,240,232,0.18)", alignSelf: "center" }} />
               <span>No cross-customer training</span>
               <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(245,240,232,0.18)", alignSelf: "center" }} />
-              <span>POPIA-compliant · ZA-hosted</span>
+              <span>ZA-hosted</span>
               <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(245,240,232,0.18)", alignSelf: "center" }} />
               <span>Model-agnostic</span>
             </div>
@@ -248,7 +248,7 @@ function AceKnows() {
     },
     {
       tag: "Your audit lineage",
-      ex: "Every PO above R100k requires B-BBEE evidence attached. Every supplier first-time order requires CIPC + bank check. Every disputed invoice triggers a 14-day SLA. ACE enforces the audit trail you'd otherwise have to chase.",
+      ex: "Every PO above R100k requires supporting evidence attached. Every supplier first-time order needs a banking-detail check. Every disputed invoice triggers a 14-day SLA. ACE enforces the audit trail you would otherwise have to chase.",
     },
   ];
 
@@ -354,7 +354,7 @@ function AceDoes() {
       icon: "◉",
       tag: "Explains",
       title: "EvidenceButton on every action.",
-      body: "Why ACE picked Falcon over Westcape: scoring breakdown, last 6 POs, B-BBEE level, lead-time variance. Why this PO routed to Sarah: amount band, supplier tier, single-source flag. Never a black-box answer. CFO-ready, defensible.",
+      body: "Why ACE chose this supplier for this order: scoring breakdown, last 6 POs reliability, lead-time variance, single-source risk. Why this PO routed to Sarah: amount band, supplier tier. Never a black-box answer. CFO-ready, defensible.",
     },
     {
       icon: "↻",
@@ -473,13 +473,13 @@ function AceLearningCurve() {
       t: "Month 3",
       label: "Trusted",
       accept: "89%",
-      detail: "1,400+ exception patterns learned. Auctioneer weights tuned to your category. Approval chain routing matches your CFO's actual habits. The mobile PWA is the CFO's preferred approval surface.",
+      detail: "1,400+ exception patterns learned. Confidence thresholds tuned per supplier. Approval chain routing matches your CFO actual habits. The mobile PWA is the CFO preferred approval surface.",
     },
     {
       t: "Month 12",
       label: "Compounding",
       accept: "94%",
-      detail: "5,800+ tuning events. ACE handles seasonal patterns (quarter-end, holiday, loadshedding). New supplier onboarding is one-click + FICA + B-BBEE auto-checked. Your last buyer's quirks are now organisational memory.",
+      detail: "5,800+ tuning events. ACE handles seasonal patterns (quarter-end, holiday, loadshedding). New supplier onboarding is one-click with banking + credit detail auto-checked. Your last buyer's quirks are now organisational memory.",
     },
     {
       t: "Month 24",
@@ -625,7 +625,7 @@ function AceComparison() {
     {
       dim: "Compliance posture",
       cross: "Your data lives somewhere — often the US, often pooled.",
-      vsg: "POPIA-isolated, ZA-hosted, on-prem-capable. Zero cross-tenant exposure.",
+      vsg: "Per-tenant isolation, ZA-hosted, on-prem-capable. Zero cross-tenant exposure.",
     },
     {
       dim: "Lock-in risk",
@@ -848,7 +848,7 @@ function AceModelLayer() {
     { task: "Drafting supplier replies", model: "Claude Sonnet 4.5", why: "Highest quality at house-voice nuance + Afrikaans/isiZulu handling." },
     { task: "Email classification + routing", model: "Claude Haiku 4", why: "Fast, cheap, accurate enough for triage at inbox scale." },
     { task: "Quote extraction (OCR + structure)", model: "Gemini 2.0 Pro Vision", why: "Best-in-class for scanned PDFs and noisy quote layouts." },
-    { task: "Auctioneer scoring + reasoning", model: "Claude Sonnet 4.5", why: "Explainable chain-of-thought + EvidenceButton output." },
+    { task: "Supplier-pick reasoning + EvidenceButton output", model: "Claude Sonnet 4.5", why: "Explainable chain-of-thought + EvidenceButton output." },
     { task: "Embeddings (your memory)", model: "self-hosted (pgvector)", why: "Your supplier vectors never leave your tenant." },
     { task: "Guardrails + safety", model: "VSG-built rules engine", why: "Your validation rules, your hard limits. Not the model's defaults." },
   ];
@@ -922,11 +922,11 @@ function AceInProducts() {
       status: "Live",
       statusBg: "rgba(14,122,90,0.12)",
       statusColor: "var(--success)",
-      headline: "ACE drafts supplier replies, runs the RFQ Auctioneer, scores the planning grid.",
+      headline: "ACE drafts supplier replies, classifies the inbox, and scores the planning grid against your rules.",
       uses: [
         "Inbox triage: ACE classifies 100% of inbound supplier email",
         "House-voice drafts on every PO confirmation, quote acceptance, dispute reply",
-        "Auctioneer scoring on every RFQ — your weights, your evidence",
+        "EvidenceButton on every AI recommendation — your weights, your evidence",
         "Planning grid alerts when ACE forecasts stock-out vs. supplier lead-time",
       ],
       href: "source.html",
