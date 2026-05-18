@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" role="img" aria-label="VSG Tech Solutions">
+  
+  
+  <text x="0" y="38" class="wordmark wordmark--vsg">VSG</text>
+  <circle cx="76" cy="34" r="2.4" class="wordmark--dot"></circle>
+  <text x="86" y="38" class="wordmark wordmark--tech">Tech Solutions</text>
+</svg>

@@ -1,32 +1,13 @@
 {
-  "name": "vsg-site",
-  "version": "0.1.0",
+  "name": "vsg-website",
+  "version": "2.0.0",
   "private": true,
+  "description": "VSG Tech Solutions — vsgtech.co.za. Static HTML + React-in-browser site with a single Vercel serverless function for lead delivery.",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "npx http-server -p 5500 -c-1 --cors",
+    "build": "echo 'Static site — nothing to build.'"
   },
   "dependencies": {
-    "@vercel/analytics": "^2.0.1",
-    "@vercel/speed-insights": "^2.0.0",
-    "clsx": "^2.1.1",
-    "framer-motion": "^12.38.0",
-    "lucide-react": "^1.9.0",
-    "next": "16.2.4",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "tailwind-merge": "^3.5.0"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.4",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "resend": "^4.0.0"
   }
 }

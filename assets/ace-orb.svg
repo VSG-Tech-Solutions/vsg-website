@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="VSG ACE">
+  
+  <defs>
+    <radialGradient id="ace-core" cx="50%" cy="48%" r="50%">
+      <stop offset="0%" stop-color="#C9633A" stop-opacity="0.95"></stop>
+      <stop offset="55%" stop-color="#C9633A" stop-opacity="0.35"></stop>
+      <stop offset="100%" stop-color="#C9633A" stop-opacity="0"></stop>
+    </radialGradient>
+    <radialGradient id="ace-halo" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" stop-color="#C9633A" stop-opacity="0"></stop>
+      <stop offset="100%" stop-color="#C9633A" stop-opacity="0.10"></stop>
+    </radialGradient>
+  </defs>
+  <circle cx="100" cy="100" r="96" fill="url(#ace-halo)"></circle>
+  <circle cx="100" cy="100" r="68" fill="url(#ace-core)"></circle>
+  <circle cx="100" cy="100" r="28" fill="#C9633A"></circle>
+  <circle cx="92" cy="92" r="8" fill="#F5F0E8" opacity="0.55"></circle>
+</svg>
