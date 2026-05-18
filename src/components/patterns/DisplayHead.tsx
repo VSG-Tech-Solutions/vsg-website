@@ -47,7 +47,8 @@ export const DisplayHead: React.FC<DisplayHeadProps> = ({
   accent,
   className = "",
 }) => {
-  const Tag = level as React.ElementType;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Tag = level as any;
   return (
     <Tag
       className={`font-extrabold ${sizeMap[level]} ${className}`}

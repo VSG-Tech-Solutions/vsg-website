@@ -134,7 +134,7 @@ export const PilotContactForm: React.FC = () => {
             className="mt-4 text-base leading-relaxed"
             style={{ color: "var(--muted)", fontFamily: "var(--font-body)" }}
           >
-            No SDR, no qualification script, no marketing automation sequence.
+            No sales rep, no qualification script, no marketing automation sequence.
             This form drops straight into the founder&apos;s inbox. Reply within
             one working day or it&apos;s on us.
           </p>

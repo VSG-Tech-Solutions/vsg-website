@@ -27,6 +27,7 @@ import {
   Boxes,
   Layers,
   Cpu,
+  Brain,
   Lock,
   // Process
   FileSearch,
@@ -66,6 +67,7 @@ export const iconRegistry = {
   Boxes,
   Layers,
   Cpu,
+  Brain,
   Lock,
   FileSearch,
   PenTool,

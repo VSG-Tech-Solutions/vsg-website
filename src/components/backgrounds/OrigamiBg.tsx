@@ -237,7 +237,7 @@ export const OrigamiBg: React.FC = () => {
         }}
       />
 
-      {/* Haiku-style vertical dots — tranquil rhythm */}
+      {/* Vertical dots — tranquil rhythm */}
       <div
         className="absolute"
         style={{ top: "30%", left: "46%" }}

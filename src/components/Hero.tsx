@@ -6,14 +6,7 @@ import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { HeroBackground } from "./backgrounds/HeroBackground";
 import { BookingButton } from "./BookingButton";
-import { LiveModuleTicker } from "./patterns/LiveModuleTicker";
-
-const TICKER_LINES = [
-  "Procurement AI · drafted 24 supplier quotes today",
-  "Exception AI · classified 117 inbound items today",
-  "Approval AI · surfaced 3 edge cases today",
-  "Compliance AI · flagged 6 expiring certificates today",
-];
+import { LiveDashboardMockup } from "./patterns/LiveDashboardMockup";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -71,21 +64,6 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <HeroBackground />
       </div>
-
-      {/* Top-left tagline (small lockup, persistent) */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease, delay: 0.05 }}
-        className="absolute top-6 left-6 z-20 hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] pointer-events-none"
-        style={{
-          color: "var(--muted-2)",
-          fontFamily: "var(--font-body)",
-        }}
-      >
-        <span style={{ color: "var(--accent-2)" }}>/</span>
-        <span>Cape Town · Operations platform</span>
-      </motion.div>
 
       {/* Centered hero content */}
       <motion.div
@@ -170,59 +148,35 @@ export const Hero: React.FC = () => {
             </Link>
           </motion.div>
 
-          {/* Live module ticker */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, ease, delay: 1.2 }}
-            className="mt-10"
-          >
-            <LiveModuleTicker lines={TICKER_LINES} interval={4} />
-          </motion.div>
+          {/* Live product mockup — show, don't tell */}
+          <div className="mt-16 sm:mt-20 w-full">
+            <LiveDashboardMockup />
+          </div>
         </div>
       </motion.div>
 
-      {/* Bottom-left: 3-line tagline lockup (STR8FIRE pattern) */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease, delay: 1.3 }}
-        className="absolute bottom-6 left-6 z-20 max-w-xs hidden sm:block"
-      >
-        <p
-          className="text-[10px] uppercase tracking-[0.18em] leading-[1.6]"
-          style={{
-            color: "var(--muted-2)",
-            fontFamily: "var(--font-body)",
-          }}
-        >
-          Two founders. Five-week pilots.
-          <br />
-          POPIA-aligned. Direct line to the people
-          <br />
-          building the product.
-        </p>
-      </motion.div>
-
-      {/* Bottom-right: SCROLL DOWN affordance */}
+      {/* SCROLL DOWN — bottom-center, single subtle affordance */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease, delay: 1.4 }}
-        className="absolute bottom-6 right-6 z-20 hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.22em]"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden sm:flex flex-col items-center gap-2 text-[10px] uppercase tracking-[0.22em] pointer-events-none"
         style={{
           color: "var(--muted-2)",
           fontFamily: "var(--font-body)",
         }}
       >
-        <span>Scroll down</span>
+        <span>Scroll</span>
         <motion.span
           aria-hidden
-          animate={{ y: [0, 4, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-        >
-          ↓
-        </motion.span>
+          className="block w-px h-8"
+          animate={{ scaleY: [0.4, 1, 0.4] }}
+          transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+          style={{
+            background: "var(--accent-2)",
+            transformOrigin: "top",
+          }}
+        />
       </motion.div>
     </section>
   );

@@ -11,14 +11,13 @@ import { Eyebrow } from "@/components/patterns/Eyebrow";
 import { DisplayHead } from "@/components/patterns/DisplayHead";
 import { NumberedSequence } from "@/components/patterns/NumberedSequence";
 import { TickerLockup } from "@/components/patterns/TickerLockup";
-import { InstrumentRow } from "@/components/patterns/InstrumentRow";
 import { EndCTA } from "@/components/patterns/EndCTA";
 import { PilotContactForm } from "@/components/PilotContactForm";
 
 export const metadata = {
-  title: "Pilot cohort — First 5 clients · 40% off setup",
+  title: "Pilot cohort — First 5 clients · 50% off setup",
   description:
-    "VSG is hand-picking five pilot clients for Vantage. 40% off setup, free founder-led support for the life of the pilot, and no per-user fees. First workflow live in five weeks.",
+    "VSG is hand-picking five pilot clients for Vantage. 50% off setup, free founder-led support for the life of the pilot, and no per-user fees. First workflow live in five weeks.",
 };
 
 export default function PilotPage() {
@@ -42,7 +41,7 @@ export default function PilotPage() {
             run Vantage in production. In exchange for working with us
             while the product is young, you get{" "}
             <span style={{ color: "var(--fg)", fontWeight: 600 }}>
-              40% off setup, free founder-led support, and no per-user
+              50% off setup, free founder-led support, and no per-user
               monthly fees
             </span>{" "}
             — for the life of your pilot engagement.
@@ -63,13 +62,13 @@ export default function PilotPage() {
         <TickerLockup
           stats={[
             {
-              value: 3,
+              value: 1,
               suffix: "/5",
               label: "Pilots booked",
-              description: "Two slots remain in the launch cohort.",
+              description: "Four slots remain in the launch cohort.",
             },
             {
-              value: 40,
+              value: 50,
               suffix: "%",
               label: "Off setup",
               description: "Cohort pricing — locked in writing day one.",
@@ -84,8 +83,8 @@ export default function PilotPage() {
         />
       </Section>
 
-      {/* Pilot phases */}
-      <Section>
+      {/* Pilot phases — light-tone break for the 5-week timeline cards. */}
+      <Section tone="light">
         <NumberedSequence
           eyebrow="The five-week pilot"
           title="From scoping call"
@@ -141,7 +140,7 @@ export default function PilotPage() {
             items={[
               "Both founders on every working session.",
               "First workflow live in production by week six.",
-              "40% off setup, locked in writing on day one.",
+              "50% off setup, locked in writing on day one.",
               "Free founder-led support for the life of the pilot.",
               "No per-user fees during the pilot.",
               "Custom modules scoped if the standard library doesn't fit.",
@@ -153,12 +152,12 @@ export default function PilotPage() {
             kind="out"
             items={[
               "Vapourware demos, sandbox tours, slide decks.",
-              "SDR / qualification scripts. You email a founder, you talk to a founder.",
+              "Sales reps and qualification scripts. You email a founder, you talk to a founder.",
               "Six-month sales cycles. We scope on a 30-min call.",
               "Per-user pricing creep during the pilot.",
               "Vague success metrics. We sign the metric in writing.",
               "Black-box AI. Every rule auditable, every override logged.",
-              "Replacing your ERP. Vantage runs alongside, never on top.",
+              "Replacing your ERP. Vantage runs alongside it — never replaces it.",
             ]}
           />
         </div>
@@ -177,36 +176,10 @@ export default function PilotPage() {
         <PilotContactForm />
       </Section>
 
-      {/* Trust */}
-      <Section>
-        <InstrumentRow
-          items={[
-            {
-              icon: "Calendar",
-              label: "Timeline",
-              claim: "Live in five weeks.",
-              proof: "Operators using Vantage in production by day 36 — on your real data, not a sandbox.",
-            },
-            {
-              icon: "Coins",
-              label: "Pricing",
-              claim: "Cohort terms locked day one.",
-              proof: "40% off setup, free support, no per-user fees during pilot. Public price sheet starts after cohort closes.",
-            },
-            {
-              icon: "Headset",
-              label: "Support",
-              claim: "Founder-led for life of pilot.",
-              proof: "Both founders on every working session and every cut-over call. No relay, no junior CS rep.",
-            },
-          ]}
-        />
-      </Section>
-
       {/* End CTA */}
       <Section spacious>
         <EndCTA
-          eyebrow="Two slots remain"
+          eyebrow="Four slots remain"
           title="Apply to the cohort."
           accent="Twenty-minute call."
           body="A 30-minute scoping call to pick the first workflow, agree the success metric, and set the five-week timeline. If it's a fit, we kick off within two weeks."

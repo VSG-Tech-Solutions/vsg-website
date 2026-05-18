@@ -3,11 +3,11 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { X, Sparkles, ArrowRight } from "lucide-react";
+import { X, Flame, ArrowRight } from "lucide-react";
 
 // Site-wide promo bar for the Pilot Cohort.
 // First 5 pilot clients get:
-//   · 40% off setup
+//   · 50% off setup
 //   · free support for the life of the pilot
 //   · no per-user monthly fees
 //
@@ -53,20 +53,13 @@ export const PilotPromoBanner: React.FC = () => {
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           className="sticky top-0 z-[60] w-full overflow-hidden"
           style={{
-            background:
-              "linear-gradient(90deg, color-mix(in oklab, var(--accent-2) 55%, var(--bg)) 0%, color-mix(in oklab, var(--accent) 65%, var(--bg)) 50%, color-mix(in oklab, var(--accent-2) 55%, var(--bg)) 100%)",
-            borderBottom: "1px solid color-mix(in oklab, var(--accent-2) 70%, var(--card-border))",
-            boxShadow: "0 6px 24px color-mix(in oklab, var(--accent) 35%, transparent)",
+            // Matte slab — etched dark surface with a 1px white rim along the
+            // bottom edge so it reads as a distinct strip without screaming.
+            background: "var(--card-bg)",
+            borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+            boxShadow: "0 1px 0 rgba(255, 255, 255, 0.04) inset",
           }}
         >
-          {/* Ambient glow */}
-          <div
-            className="pointer-events-none absolute inset-0 opacity-60"
-            style={{
-              background:
-                "radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 70%)",
-            }}
-          />
 
           <div className="relative mx-auto max-w-7xl px-3 sm:px-6 py-2 sm:py-3">
             {/* Single-row layout on every breakpoint — never wraps. Mobile
@@ -82,7 +75,7 @@ export const PilotPromoBanner: React.FC = () => {
                     boxShadow: "0 0 14px var(--accent-glow)",
                   }}
                 >
-                  <Sparkles
+                  <Flame
                     className="w-3.5 h-3.5"
                     style={{ color: "var(--bg)" }}
                     strokeWidth={2.4}
@@ -118,14 +111,14 @@ export const PilotPromoBanner: React.FC = () => {
                       className="w-1.5 h-1.5 rounded-full animate-pulse shrink-0"
                       style={{ background: "var(--accent)" }}
                     />
-                    <strong style={{ fontWeight: 700 }}>40% off</strong>{" "}
+                    <strong style={{ fontWeight: 700 }}>50% off</strong>{" "}
                     pilot setup
                   </span>
 
                   {/* Desktop full */}
                   <span className="hidden sm:inline">
                     <span className="hidden md:inline">Launch cohort: </span>
-                    <strong style={{ fontWeight: 700 }}>40% off</strong> setup
+                    <strong style={{ fontWeight: 700 }}>50% off</strong> setup
                     {" "}·{" "}
                     <strong style={{ fontWeight: 700 }}>free support</strong>
                     {" "}·{" "}

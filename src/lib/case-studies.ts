@@ -85,7 +85,7 @@ export const caseStudies: CaseStudy[] = [
     stage: "Live in production",
     published: true,
     summary:
-      "A bespoke .NET 8 + MariaDB app on AWS Lambda, built across 11 sequential work orders. Counter staff scan parts on arrival, customers self-register from the website, and the same codebase is now growing into the company's financial-management hub.",
+      "A bespoke retail and stripping platform built across 11 sequential work orders. Counter staff scan parts on arrival, customers self-register from the website, and the same codebase is now growing into the company's financial-management hub.",
     client: "Denver Auto Spares (Port Elizabeth, South Africa).",
     clientUrl: "https://denverautospares.co.za",
     engagement: "June 2025 – April 2026 · ongoing.",
@@ -95,20 +95,20 @@ export const caseStudies: CaseStudy[] = [
       "Stock counts dragged at the end of every shift. Counter staff captured customer details on paper, then re-typed them into the system, costing roughly twenty minutes per new customer and introducing typos that resurfaced months later on invoices.",
     ],
     approach: [
-      "Denver Auto Spares brought us a written spec broken into numbered work orders — WO1 through WO11 — and asked us for a bespoke build rather than an automation layer. We worked through the work orders sequentially against a single .NET 8 codebase rather than starting greenfield each time, so every release built on the last.",
-      "The app is a custom ASP.NET Core MVC application running on one AWS Lambda function fronted by API Gateway, with MariaDB for storage. The front-end is server-rendered Razor with vanilla JavaScript per page — no SPA framework. Where third-party libraries earned their place, we used them: QuestPDF for invoices, quotes and credit notes; QRCoder for printable part labels with a batch print queue; SixLabors.ImageSharp to resize and thumbnail every part photo on upload; Twilio for the staff PIN login.",
-      "We built the public customer-registration form to write directly into MariaDB with input validation and bot protection, removing the paper-and-retype step at the counter. The bank-statement CSV import ships with duplicate detection so a re-uploaded month does not double-book.",
+      "Denver Auto Spares brought us a written spec broken into numbered work orders — WO1 through WO11 — and asked us for a bespoke build rather than an automation layer. We worked through the work orders sequentially against a single owned codebase rather than starting greenfield each time, so every release built on the last.",
+      "The app is a custom web platform on serverless infrastructure with a managed database. Server-rendered pages — fast loads, low overhead for a 10-person shop. Where features earned their place, we built them: PDF invoices, quotes and credit notes; QR-coded printable part labels with a batch print queue; automatic photo resizing and thumbnailing on upload; SMS-based PIN login for staff at the counter.",
+      "We built the public customer-registration form to write straight into the system with input validation and bot protection, removing the paper-and-retype step at the counter. The bank-statement CSV import ships with duplicate detection so a re-uploaded month does not double-book.",
     ],
     delivered: [
-      "Custom ASP.NET Core MVC app on a single AWS Lambda + API Gateway, with MariaDB for storage.",
-      "Server-rendered Razor + vanilla JavaScript per page — no SPA framework, low overhead for a 10-person shop.",
+      "Custom web platform on serverless infrastructure with a managed database — no servers for the shop to operate.",
+      "Server-rendered pages with light per-page interactivity — fast loads, low overhead for a 10-person shop.",
       "Per-part tracking with photos, pricing and status (available, in cart, sold, damaged, lost) — a stripped car becomes a structured inventory list.",
-      "QR-coded printable part labels (QRCoder) with a batch print queue.",
-      "QuestPDF invoices, quotes and credit notes.",
-      "Twilio-driven staff PIN login.",
-      "Public customer-registration form writing straight into MariaDB with input validation and bot protection.",
+      "QR-coded printable part labels with a batch print queue.",
+      "PDF invoices, quotes and credit notes generated on demand.",
+      "SMS-based staff PIN login at the counter.",
+      "Public customer-registration form writing straight into the system with input validation and bot protection.",
       "Bank-statement CSV import with duplicate detection so re-uploaded months don't double-book.",
-      "SixLabors.ImageSharp resizing and thumbnailing every part photo on upload.",
+      "Automatic photo resizing and thumbnailing on upload.",
     ],
     outcome: [
       "Stock counting ten times faster, in the owner's words — manual counts replaced by scan-in on arrival, with periodic audits instead of every-shift counts.",
@@ -120,7 +120,7 @@ export const caseStudies: CaseStudy[] = [
       "Steady expansion of the same codebase into Denver Auto Spares' financial-management hub — accounts, reporting and adjacent workflows landing on the existing platform rather than as bolted-on tools.",
     ],
     currentStatus:
-      "Live in production, in active use across all in-store stations. Continued releases ship against the same .NET 8 codebase as the financial-hub scope grows.",
+      "Live in production, in active use across all in-store stations. Continued releases ship against the same owned codebase as the financial-hub scope grows.",
     quote: {
       text: "You guys are on fire.",
       attribution: "Owner, Denver Auto Spares — standing line on delivery pace.",
@@ -135,7 +135,7 @@ export const caseStudies: CaseStudy[] = [
     stage: "Delivered — phase 2 ongoing",
     published: true,
     summary:
-      "Replaced the spreadsheets and WhatsApp threads that ran a six-tier sales force with a single .NET 8 + React platform on Azure. Every agent has their own login. Onboarding, comms, commission and payroll all live on one audit trail.",
+      "Replaced the spreadsheets and WhatsApp threads that ran a six-tier sales force with a single self-service platform. Every agent has their own login. Onboarding, comms, commission and payroll all live on one audit trail.",
     client: "SME funeral insurance distributor, South Africa (published anonymously at client's request).",
     size: "900+ active agents nationwide, organised in a six-tier sales hierarchy (L1 Agents through L6 National Manager) across multiple partner silos.",
     problem: [
@@ -144,16 +144,16 @@ export const caseStudies: CaseStudy[] = [
       "Commission workings sat in separate workbooks. There was no single place to see which agents were dormant, which were awaiting a verified email, or which had never submitted a first policy.",
     ],
     approach: [
-      "We built a centralised sales-force platform in .NET 8 and React on Azure, modelling the six-level hierarchy directly in SQL Server so L1–L6 relationships, agent re-allocations, and partner-scoped permissions became data rather than spreadsheet conventions.",
-      "Every agent and distributor has their own login — cookie-based auth and five enforced access levels mean an L1 Agent sees their own commissions, status, documents and stats; an L6 National Manager sees everything across every partner; admin sees the operational control surface.",
-      "For communications we wrote a Hangfire-driven pipeline with per-message de-duplication, dispatched through BulkSMS for SMS and SMTP for email, with every send timestamped and stored under the recipient. The three-email onboarding sequence and status-change notifications fire automatically the moment an agent moves out of Under-Review.",
+      "We built a centralised sales-force platform on cloud infrastructure, modelling the six-level hierarchy directly in the database so L1–L6 relationships, agent re-allocations, and partner-scoped permissions became data rather than spreadsheet conventions.",
+      "Every agent and distributor has their own login, with five enforced access levels — an L1 Agent sees their own commissions, status, documents and stats; an L6 National Manager sees everything across every partner; admin sees the operational control surface.",
+      "For communications we wrote a background pipeline with per-message de-duplication, dispatched over SMS and email, every send timestamped and stored under the recipient. The three-email onboarding sequence and status-change notifications fire automatically the moment an agent moves out of Under-Review.",
       "On top of that we automated the money side: commission calculations run on the platform against ingested policy data, and payroll is prepared and managed from the same system — so every agent's journey from onboarding to earnings to payout lives on one audit trail.",
     ],
     delivered: [
-      "Centralised .NET 8 + React platform on Azure (App Service, Azure SQL, Key Vault).",
-      "Six-tier sales hierarchy modelled in SQL with partner-scoped permissions.",
+      "Centralised self-service platform on cloud infrastructure with managed secrets and managed database.",
+      "Six-tier sales hierarchy modelled in the database with partner-scoped permissions.",
       "Per-agent self-service login with five enforced access levels (L1 Agent through L6 National Manager + admin).",
-      "Hangfire-driven communications pipeline — three-email onboarding sequence + status-change notifications, BulkSMS for SMS, SMTP for email, every send timestamped.",
+      "Background communications pipeline — three-email onboarding sequence + status-change notifications, SMS and email, every send timestamped.",
       "Commission automation against ingested policy data.",
       "Payroll preparation and management on the same audit trail.",
     ],
@@ -170,7 +170,7 @@ export const caseStudies: CaseStudy[] = [
       "Operational dashboards on top of the platform base.",
     ],
     currentStatus:
-      "Phase 1 delivered and in production on Azure. Phase 2 — POL360 integration, approval workflow and dashboards — is in active build.",
+      "Phase 1 delivered and in production on the client's cloud. Phase 2 — POL360 integration, approval workflow and dashboards — is in active build.",
     pendingQuote: true,
     screenshots: [
       {

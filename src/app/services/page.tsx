@@ -17,9 +17,9 @@ import { Eyebrow } from "@/components/patterns/Eyebrow";
 import { DisplayHead } from "@/components/patterns/DisplayHead";
 import { BentoModule } from "@/components/patterns/BentoModule";
 import { NumberedSequence } from "@/components/patterns/NumberedSequence";
-import { InstrumentRow } from "@/components/patterns/InstrumentRow";
 import { EndCTA } from "@/components/patterns/EndCTA";
 import { ServicesContactForm } from "@/components/ServicesContactForm";
+import { ServicesTracks } from "@/components/ServicesTracks";
 
 export const metadata = {
   title: "Services — Custom software, AI, workflow automation",
@@ -55,39 +55,14 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      {/* Service tracks */}
-      <Section>
-        <BentoModule
-          eyebrow="Three tracks"
-          title="What we build"
-          accent="when Vantage isn't the answer."
-          description="Some problems need a product. Some need a custom build. We're honest about which is which — and we won't sell you Vantage if a 6-week custom engagement is the right thing."
-          cards={[
-            {
-              icon: "Code2",
-              eyebrow: "Featured",
-              title: "Bespoke software",
-              body: "Production-grade .NET 8 + React platforms. Multi-tenant SaaS, internal tools, customer-facing apps. Built like Vantage was — with the same senior bench, the same audit-trail discipline, the same fixed-price cadence.",
-              featured: true,
-            },
-            {
-              icon: "Cpu",
-              eyebrow: "Track",
-              title: "Custom AI systems",
-              body: "Module-specific AI on your operational data. RAG over your docs. Agentic workflows. Integrated into your existing stack, not parachuted in as a separate tool.",
-            },
-            {
-              icon: "Workflow",
-              eyebrow: "Track",
-              title: "Workflow automation",
-              body: "End-to-end automation from intake to handover. Email and chat capture, classification, routing, escalation, audit log. The pieces Vantage assembles, ready to deploy on your stack.",
-            },
-          ]}
-        />
+      {/* Service tracks — three equal-height cards with animated visuals.
+          On a LIGHT tone section so the dark cards pop (Apple/Stripe rhythm). */}
+      <Section id="offerings" tone="light">
+        <ServicesTracks />
       </Section>
 
       {/* Engagement model */}
-      <Section>
+      <Section id="process">
         <NumberedSequence
           eyebrow="Engagement model"
           title="Scope first."
@@ -135,13 +110,13 @@ export default function ServicesPage() {
               icon: "PenTool",
               eyebrow: "02",
               title: "Fixed price in writing",
-              body: "What we quote is what you pay. No T&M creep, no surprise change-orders, no junior team upselling premium.",
+              body: "What we quote is what you pay. No time-and-materials creep, no surprise change-orders, no junior team upselling premium.",
             },
             {
               icon: "Hammer",
               eyebrow: "03",
               title: "Senior engineers from day one",
-              body: ".NET 8, React, Postgres, Azure. Same team that ships Vantage. No agency layer, no offshore handoff.",
+              body: "Same team that ships Vantage, same engineering bar, same audit discipline. No agency layer, no offshore handoff, no junior templating.",
             },
             {
               icon: "CheckSquare",
@@ -188,32 +163,6 @@ export default function ServicesPage() {
           </div>
         </div>
         <ServicesContactForm />
-      </Section>
-
-      {/* Trust */}
-      <Section>
-        <InstrumentRow
-          items={[
-            {
-              icon: "Code2",
-              label: "Stack",
-              claim: ".NET 8 + React + Postgres + Azure.",
-              proof: "Production stacks, not greenfield experiments. Same tech we ship Vantage on, same patterns, same audit discipline.",
-            },
-            {
-              icon: "Cpu",
-              label: "AI",
-              claim: "Trained on your data.",
-              proof: "RAG, agents, classifiers. Integrated into your stack, not parachuted in as a separate tool.",
-            },
-            {
-              icon: "Coins",
-              label: "Pricing",
-              claim: "Fixed-price in writing.",
-              proof: "What we quote is what you pay. No T&M creep, no surprise change-orders, no junior up-sell.",
-            },
-          ]}
-        />
       </Section>
 
       {/* End CTA */}

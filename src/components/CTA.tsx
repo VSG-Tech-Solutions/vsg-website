@@ -52,7 +52,7 @@ const copy: Record<
     eyebrow: "Founder direct · no gatekeeping",
     headline: "Skip the relay.",
     highlight: "Talk to Stephan.",
-    sub: "No SDR, no discovery deck, no qualification script. A direct line to the founder for a real conversation about whether VSG is the right fit.",
+    sub: "No sales rep, no discovery deck, no qualification script. A direct line to the founder for a real conversation about whether VSG is the right fit.",
     primaryCta: "Message Stephan",
     secondaryCta: "Book 20 minutes",
   },

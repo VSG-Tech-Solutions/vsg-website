@@ -128,7 +128,7 @@ export default function OGImage() {
         >
           <span>Pilot cohort · first 5 clients</span>
           <span style={{ color: "#14b8a6" }}>·</span>
-          <span>40% off setup · free support</span>
+          <span>50% off setup · free support</span>
           <span style={{ color: "#14b8a6" }}>·</span>
           <span>POPIA · Cape Town</span>
         </div>

@@ -1495,7 +1495,7 @@ const DocumentsView: React.FC = () => {
             className="mt-1 text-[12px]"
             style={{ color: "var(--muted-2)", fontFamily: "var(--font-body)" }}
           >
-            AI-powered document extraction, classification, and review
+            Reads scanned invoices, GRNs and supplier emails — auto-populates the right fields, flags what doesn&rsquo;t match
           </p>
         </div>
         <button
@@ -1707,7 +1707,7 @@ const InsightsView: React.FC = () => {
             className="mt-1 text-[12px]"
             style={{ color: "var(--muted-2)", fontFamily: "var(--font-body)" }}
           >
-            AI-powered forecasting, risk scoring, and scenario modelling
+            Forecasts exception volume by week and team, and flags supplier and SKU risk before it bites
           </p>
         </div>
         <button

@@ -45,7 +45,8 @@ export const Reveal: React.FC<RevealProps> = ({
   const prefersReduce = useReducedMotion();
 
   if (prefersReduce) {
-    const Tag = as as React.ElementType;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const Tag = as as any;
     return (
       <Tag className={className} style={style}>
         {children}
@@ -115,7 +116,8 @@ export const RevealItem: React.FC<RevealItemProps> = ({
 }) => {
   const prefersReduce = useReducedMotion();
   if (prefersReduce) {
-    const Tag = as as React.ElementType;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const Tag = as as any;
     return (
       <Tag className={className} style={style}>
         {children}

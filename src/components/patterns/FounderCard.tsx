@@ -1,15 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, ExternalLink } from "lucide-react";
 import type { ReactNode } from "react";
 
 /**
  * FounderCard — flat editorial card sitting in a 1px hairline grid.
  *
- * Used on /about. Avatar initials, role lockup, bio paragraphs as
- * children, mailto + optional LinkedIn. No accent halo, no tinted
- * background — sits flat on the canvas with hairline neighbours.
+ * Used on /about. Photo (if provided) or initials avatar, role lockup,
+ * bio paragraphs as children, mailto + optional LinkedIn. No accent
+ * halo, no tinted background — sits flat on the canvas with hairline
+ * neighbours.
  */
 type FounderCardProps = {
   name: string;
@@ -18,6 +20,10 @@ type FounderCardProps = {
   email: string;
   linkedin: string;
   linkedinLabel: string;
+  /** Optional founder portrait — when provided, renders a square photo
+   *  in place of the initials avatar. Path relative to /public, e.g.
+   *  "/founders/stephan.jpg". */
+  photo?: string;
   children: ReactNode;
 };
 
@@ -28,22 +34,42 @@ export const FounderCard: React.FC<FounderCardProps> = ({
   email,
   linkedin,
   linkedinLabel,
+  photo,
   children,
 }) => (
   <div className="p-8 sm:p-10 lg:p-12" style={{ background: "var(--bg)" }}>
     <div className="flex items-center gap-5">
-      <div
-        className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold tracking-tight shrink-0 border"
-        style={{
-          background: "rgba(255,255,255,0.02)",
-          borderColor:
-            "color-mix(in oklab, var(--accent-2) 40%, var(--card-border))",
-          color: "var(--accent-2)",
-          fontFamily: "var(--font-display)",
-        }}
-      >
-        {initials}
-      </div>
+      {photo ? (
+        <div
+          className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shrink-0 border"
+          style={{
+            borderColor:
+              "color-mix(in oklab, var(--accent-2) 40%, var(--card-border))",
+          }}
+        >
+          <Image
+            src={photo}
+            alt={`${name} — ${role}, VSG Tech Solutions`}
+            fill
+            sizes="(min-width: 640px) 80px, 64px"
+            className="object-cover"
+            priority={false}
+          />
+        </div>
+      ) : (
+        <div
+          className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold tracking-tight shrink-0 border"
+          style={{
+            background: "rgba(255,255,255,0.02)",
+            borderColor:
+              "color-mix(in oklab, var(--accent-2) 40%, var(--card-border))",
+            color: "var(--accent-2)",
+            fontFamily: "var(--font-display)",
+          }}
+        >
+          {initials}
+        </div>
+      )}
       <div className="min-w-0">
         <div
           className="text-[10px] uppercase tracking-[0.22em]"

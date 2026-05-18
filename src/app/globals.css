@@ -1,238 +1,146 @@
 @import "tailwindcss";
 
+/**
+ * VSG 2026 — Dark portfolio system.
+ *
+ * Forced dark, no toggle. HSL custom properties (no hsl() wrapper —
+ * Tailwind's color-mix utilities and inline hsl() consumers add it).
+ * Two type families: Inter (body) + Instrument Serif italic (display).
+ *
+ * Single accent: cool-blue gradient #89AACC → #4E85BF — used on the
+ * logo ring, hover borders, and the loading-screen progress bar.
+ * Everything else is grayscale.
+ */
+
 :root {
-  /* Holo Black — redesign-experiment branch. Values mirror themes.ts
-     "holoblack" so there is no flash-of-unstyled-theme before ThemeProvider
-     hydrates. Ocean Deep remains in the registry for instant rollback. */
-  --bg: #040408;
-  --bg-elev: #0A0A0F;
-  --fg: #F4F4F7;
-  --muted: rgba(244, 244, 247, 0.58);
-  --muted-2: rgba(244, 244, 247, 0.36);
-  --accent: #14B8A6;
-  --accent-2: #67E8F9;
-  --accent-soft: rgba(20, 184, 166, 0.08);
-  --accent-glow: rgba(103, 232, 249, 0.10);
-  --card-bg: rgba(255, 255, 255, 0.02);
-  --card-border: rgba(255, 255, 255, 0.07);
-  --ring: rgba(20, 184, 166, 0.4);
-
-  --font-display: var(--font-space-grotesk);
-  --font-body: var(--font-inter);
+  --bg: 0 0% 4%;            /* near-black canvas */
+  --surface: 0 0% 8%;       /* cards, nav pill, hover */
+  --text: 0 0% 96%;         /* off-white body */
+  --muted: 0 0% 53%;        /* secondary text, eyebrows */
+  --stroke: 0 0% 12%;       /* hairline borders */
+  --accent: 0 0% 96%;       /* default accent (white) */
 }
 
-/* Holo-style display headline — heavy weight, tight tracking, near-pure
-   white. Use on hero H1 and major section H2s. */
-.display-tight {
-  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.02;
-  color: var(--fg);
+@theme {
+  --color-bg: hsl(var(--bg));
+  --color-surface: hsl(var(--surface));
+  --color-text-primary: hsl(var(--text));
+  --color-muted: hsl(var(--muted));
+  --color-stroke: hsl(var(--stroke));
+  --color-accent: hsl(var(--accent));
+
+  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  /* Display now points at the SAME font as body (Geist). Site-wide
+     consistency — one type family doing everything. */
+  --font-display: var(--font-body), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Holo-style pill button — solid teal CTA, white text, rounded-full.
-   Shadow is barely-there by default; lifts subtly on hover. No glow. */
-.pill-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1.5rem;
-  border-radius: 9999px;
-  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: -0.005em;
-  color: #ffffff;
-  background: linear-gradient(
-    135deg,
-    var(--accent),
-    color-mix(in oklab, var(--accent) 80%, black)
-  );
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset,
-    0 4px 12px rgba(0, 0, 0, 0.35);
-  transition: transform 200ms ease, filter 200ms ease;
-  cursor: pointer;
-}
-.pill-cta:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.04);
+/* The single brand accent — cool-blue gradient. Apply via .accent-gradient. */
+.accent-gradient {
+  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
 }
 
-/* Holo-style ghost pill — hairline border, glass surface, white text. */
-.pill-ghost {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1.5rem;
-  border-radius: 9999px;
-  border: 1px solid var(--card-border);
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--fg);
-  transition: background-color 200ms ease, border-color 200ms ease,
-    transform 200ms ease;
-  cursor: pointer;
-}
-.pill-ghost:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.16);
-  transform: translateY(-1px);
+/* Tasteful animated border — wraps a button or pill in a hairline that
+   shifts the gradient on hover. Use as an absolute span behind the
+   element with inset:-2px. */
+.accent-border-anim {
+  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 50%, #89AACC 100%);
+  background-size: 200% 100%;
+  animation: gradient-shift 6s ease infinite;
 }
 
-/* Holo-style eyebrow — small gradient-stroke pill above the hero H1. */
-.eyebrow-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.85rem;
-  border-radius: 9999px;
-  border: 1px solid var(--card-border);
-  background: rgba(255, 255, 255, 0.025);
-  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--muted);
-  text-transform: uppercase;
+/* ------------------------------------------------------------------ *
+ * Animations
+ * ------------------------------------------------------------------ */
+
+@keyframes scroll-down {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
 }
-.eyebrow-pill::before {
-  content: "";
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  border-radius: 9999px;
-  background: var(--accent-2);
-  animation: eyebrow-pulse 2.4s ease-in-out infinite;
-}
-@keyframes eyebrow-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+.animate-scroll-down {
+  animation: scroll-down 1.5s ease-in-out infinite;
 }
 
-@theme inline {
-  --color-bg: var(--bg);
-  --color-fg: var(--fg);
-  --color-accent: var(--accent);
-  --font-orbitron: var(--font-orbitron);
-  --font-exo2: var(--font-exo2);
-  --font-inter: var(--font-inter);
-  --font-space-grotesk: var(--font-space-grotesk);
-  --font-space-mono: var(--font-space-mono);
-  --font-fraunces: var(--font-fraunces);
+@keyframes role-fade-in {
+  0%   { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-role-fade-in {
+  animation: role-fade-in 0.4s ease-out;
 }
 
-html {
-  scroll-behavior: smooth;
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* GSAP entrance prep — class hooks the timeline targets. The default
+   state is invisible; GSAP animates them in. SSR-safe (no flash) via
+   visibility:hidden until JS hydrates. */
+.name-reveal,
+.blur-in {
+  opacity: 0;
+}
+
+/* ------------------------------------------------------------------ *
+ * Body baseline
+ * ------------------------------------------------------------------ */
+
+html, body {
+  background: hsl(var(--bg));
+  color: hsl(var(--text));
 }
 
 body {
-  background: var(--bg);
-  color: var(--fg);
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  transition: background-color 300ms ease, color 300ms ease;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar — follows theme */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--card-border);
-  border-radius: 10px;
-  border: 2px solid var(--bg);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+/* Tabular numerals for big counters, prices, stats */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
 
-/* Radial gradient utility */
-.bg-gradient-radial {
-  background-image: radial-gradient(var(--tw-gradient-stops));
-}
+/* ------------------------------------------------------------------ *
+ * Utility classes for the new system
+ * ------------------------------------------------------------------ */
 
-/* Brand lockup — persistent teal/cyan halo on the petal mark, amplified on
-   hover. Filter animation is GPU-accelerated; transform is a micro-scale so
-   the whole lockup feels alive without shifting layout. */
-.brand-lockup:hover .brand-logo-glow {
-  filter: drop-shadow(0 0 6px var(--accent-soft)) !important;
-  transform: scale(1.03);
-}
-
-/* Brutalist flourish — harder edges when active */
-html[data-theme="brutalist"] .themed-rounded {
-  border-radius: 0 !important;
-}
-
-/* Light-mode: dashboard previews + dark-only elements need to flip */
-html[data-mode="light"] .dark-only {
-  display: none;
-}
-html[data-mode="dark"] .light-only {
-  display: none;
-}
-
-/* Legal page prose */
-.legal-prose {
-  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  line-height: 1.7;
-  font-size: 15px;
-}
-.legal-prose .lead {
-  font-size: 17px;
-  color: var(--muted);
-  margin-bottom: 2rem;
-}
-.legal-prose h2 {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: 2.5rem;
-  margin-bottom: 0.75rem;
-  color: var(--fg);
+/* The standard editorial italic display element — used for the cycling
+   role word, accent words inside headlines, etc. */
+.display-italic {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
   letter-spacing: -0.01em;
 }
-.legal-prose p,
-.legal-prose li {
-  color: var(--muted);
-}
-.legal-prose ul {
-  list-style: disc;
-  padding-left: 1.25rem;
-  margin: 0.5rem 0 1rem;
-}
-.legal-prose li {
-  margin-bottom: 0.4rem;
-}
-.legal-prose a {
-  color: var(--accent-2);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.legal-prose strong {
-  color: var(--fg);
-  font-weight: 600;
-}
-.legal-prose .draft-notice {
-  border: 1px solid var(--ring);
-  background: var(--accent-soft);
-  padding: 1rem 1.1rem;
-  border-radius: 0.75rem;
-  margin: 1.5rem 0 2rem;
-  font-size: 14px;
-  color: var(--fg);
+
+/* Eyebrow — tiny uppercase muted label used above section headers. */
+.eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: hsl(var(--muted));
 }
 
+/* Pill button base — used by nav links, inline CTAs. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  transition:
+    color 200ms ease,
+    background 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+/* Reduced motion — disable looped animations + scale transforms. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -240,6 +148,9 @@ html[data-mode="dark"] .light-only {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  }
+  .animate-scroll-down,
+  .animate-role-fade-in {
+    animation: none !important;
   }
 }

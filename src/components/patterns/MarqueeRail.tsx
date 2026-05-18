@@ -1,12 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 /**
  * MarqueeRail — full-width slow-scrolling typography ticker.
  *
  * Used to communicate the BREADTH of Vantage's modules / topics as a
- * peripheral signal. 60s loop, edge-fade gradient, hairline top + bottom.
+ * peripheral signal. Default 60s loop, edge-fade, hairline top + bottom.
+ *
+ * Mouse interaction: hovering the rail accelerates it (loop drops from
+ * `duration` → `duration / 3`). On leave it eases back to default speed.
+ *
  * Does NOT loop on prefers-reduced-motion.
  */
 
@@ -22,14 +27,16 @@ export const MarqueeRail: React.FC<MarqueeRailProps> = ({
   duration = 60,
 }) => {
   const prefersReduce = useReducedMotion();
+  const [hover, setHover] = useState(false);
 
   // Duplicate the items so the seamless loop has content to slide into.
   const stream = [...items, ...items];
 
   return (
     <div
-      className="relative w-full overflow-hidden border-t border-b py-6"
-      style={{ borderColor: "var(--card-border)" }}
+      className="relative w-full overflow-hidden py-6"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
       {/* Edge fade masks */}
       <div
@@ -71,13 +78,17 @@ export const MarqueeRail: React.FC<MarqueeRailProps> = ({
           }}
           animate={{ x: ["0%", "-50%"] }}
           transition={{
-            duration,
+            duration: hover ? duration / 3 : duration,
             ease: "linear",
             repeat: Infinity,
           }}
         >
           {stream.map((it, i) => (
-            <li key={i} className="flex items-center gap-12">
+            <li
+              key={i}
+              className="flex items-center gap-12 transition-colors duration-300"
+              style={{ color: hover ? "var(--accent-2)" : undefined }}
+            >
               <span>{it}</span>
               <span
                 aria-hidden

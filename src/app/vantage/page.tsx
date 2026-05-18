@@ -1,107 +1,82 @@
-import {
-  ShoppingCart,
-  AlertOctagon,
-  CheckCircle2,
-  ShieldCheck,
-  FileText,
-  Link2,
-  CreditCard,
-  Wallet,
-  FileSignature,
-  ClipboardCheck,
-  Megaphone,
-  Truck,
-  Layers,
-  Cpu,
-  Lock,
-} from "lucide-react";
 import { SiteShell } from "@/components/SiteShell";
 import { Section } from "@/components/patterns/Section";
 import { Eyebrow } from "@/components/patterns/Eyebrow";
 import { DisplayHead } from "@/components/patterns/DisplayHead";
-import { SplitFrame } from "@/components/patterns/SplitFrame";
-import { BentoModule } from "@/components/patterns/BentoModule";
-import { TerminalBlock } from "@/components/patterns/TerminalBlock";
 import { NumberedSequence } from "@/components/patterns/NumberedSequence";
-import { PullQuoteFrame } from "@/components/patterns/PullQuoteFrame";
-import { InstrumentRow } from "@/components/patterns/InstrumentRow";
 import { EndCTA } from "@/components/patterns/EndCTA";
+import { VantageHero } from "@/components/VantageHero";
+import { VantageMetricsStrip } from "@/components/VantageMetricsStrip";
+import { VantageUseCases } from "@/components/VantageUseCases";
+import { VantagePrototype } from "@/components/VantagePrototype";
+import { VantageArchitecture } from "@/components/VantageArchitecture";
+import { VantageIntelligence } from "@/components/VantageIntelligence";
+import { VantageModuleShowcase } from "@/components/VantageModuleShowcase";
+import { VantagePlatformShowcase } from "@/components/VantagePlatformShowcase";
+import { VantageCustomisable } from "@/components/VantageCustomisable";
+import { VantageConfigurator } from "@/components/VantageConfigurator";
+import { VantageProblem } from "@/components/VantageProblem";
+import { VantageFlow } from "@/components/VantageFlow";
 
 export const metadata = {
-  title: "Vantage — Operational layer for the ERP",
+  title: "Vantage — The AI operational control platform for ERP",
   description:
-    "Vantage centralises everything around the ERP transaction onto one platform, then adds module-specific AI trained on your operational data. Procurement AI drafts supplier quotes from live stock levels. First workflow live in five weeks.",
+    "Vantage runs the work. Your ERP keeps the records. Your operator opens a Module, eight named AI specialists pull from the ERP and draft the next move — orders, quotes, variances, exceptions — and the operator decides. 100+ features in production. Six Modules, one Core. First workflow live in five weeks.",
 };
 
 export default function VantagePage() {
   return (
     <SiteShell>
-      {/* Hero — page-specific */}
-      <Section compact divider={false} className="pt-32 sm:pt-44">
-        <Eyebrow variant="dot">Flagship SaaS product</Eyebrow>
-        <div className="mt-7 max-w-4xl">
-          <DisplayHead level="h1" accent="around the ERP transaction.">
-            The operational layer
-          </DisplayHead>
-          <p
-            className="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed"
-            style={{
-              color: "var(--muted)",
-              fontFamily: "var(--font-body)",
-            }}
-          >
-            Your ERP handles the transaction. Vantage handles the work
-            around it — approvals, procurement, supplier exceptions,
-            compliance — that today lives scattered across spreadsheets,
-            email, WhatsApp and phone calls. One platform, full audit
-            trail, routing logic you own in plain English. With{" "}
-            <span style={{ color: "var(--fg)", fontWeight: 600 }}>
-              module-specific AI trained on your operational data
-            </span>
-            .
-          </p>
-        </div>
+      {/*
+        Page narrative arc — keep this order. Each act builds on the last.
+
+        ACT 1 — Why this exists
+          1. Hero — positioning hook
+          2. The problem — ERP records, work scatters
+
+        ACT 2 — How it works
+          3. The flow — Open Module → AI drafts → Core handles exception → ERP records
+          4. The architecture — modules orbiting one Core (visual)
+
+        ACT 3 — How good it is (the depth)
+          5. The intelligence inside — 8 named AI specialists + 12 traits
+          6. The full platform — 12 capability categories, 100+ features
+
+        ACT 4 — See it running
+          7. The product shell — interactive prototype
+
+        ACT 5 — Make it yours
+          8. Customisable — anything you need
+          9. Configurator — build your pilot
+
+        ACT 6 — Get started
+         10. The 5-week pilot — timeline
+         11. Trust — three architectural promises
+         12. End CTA
+      */}
+
+      {/* Hero */}
+      <VantageHero />
+
+      {/* Quantified-credibility strip — Stripe-style trust before the buyer scrolls */}
+      <VantageMetricsStrip />
+
+      {/* ACT 1 — The problem */}
+      <Section>
+        <VantageProblem />
       </Section>
 
-      {/* The problem space */}
-      <Section>
-        <SplitFrame
-          eyebrow="The problem"
-          title="Everything around the transaction"
-          accent="is scattered."
-          description="Modern ERPs are excellent at recording the transaction. They were never built for the work that wraps every transaction — and that's where mid-market operators lose 15–25 days a month."
-          items={[
-            {
-              label: "Email",
-              title: "Approvals lost in inboxes",
-              body: "Out-of-office replies, missed CCs, threads that fork into three. No audit trail. No SLA timer. No way to know who's holding what.",
-            },
-            {
-              label: "Excel",
-              title: "Spreadsheets pretending to be systems",
-              body: "Procurement workings, exception logs, compliance trackers — copies emailed around, no version control, the truth depends on who you ask.",
-            },
-            {
-              label: "Chat",
-              title: "WhatsApp threads carrying critical comms",
-              body: "Supplier confirmations, status changes, escalations. None of it logged against a record. Search is impossible. New staff start blind.",
-            },
-            {
-              label: "Phone",
-              title: "Decisions on calls nobody recorded",
-              body: "When the auditor asks why the override happened, you ask the team to remember a conversation from six months ago.",
-            },
-          ]}
-        />
+      {/* ACT 2 — How it works (4-step flow) */}
+      <Section id="how-it-works">
+        <VantageFlow />
       </Section>
 
-      {/* Terminal — Vantage in action */}
-      <Section>
-        <div className="max-w-3xl mb-12">
-          <Eyebrow variant="slash">One inbound exception</Eyebrow>
+      {/* ACT 2 — The architecture diagram (the SHAPE) */}
+      <Section id="architecture">
+        <div className="max-w-3xl mb-10 sm:mb-14">
+          <Eyebrow variant="rule">Architecture</Eyebrow>
           <div className="mt-6">
-            <DisplayHead level="h2" accent="end-to-end.">
-              From scattered to settled,
+            <DisplayHead level="h2" accent="one Core for every exception.">
+              One Module per area,
             </DisplayHead>
           </div>
           <p
@@ -111,138 +86,83 @@ export default function VantagePage() {
               fontFamily: "var(--font-body)",
             }}
           >
-            What it looks like when Vantage catches a real exception.
-            Below — a single supplier short-ship, classified, routed and
-            closed without any operator chasing the trail.
+            Each Module is the operational layer for one part of the
+            business — Procurement, Receiving, AP, Quality, more on the
+            way. The Module&rsquo;s AI does the draft, your operator
+            decides, every override teaches the AI your way next time.
+            When something can&rsquo;t close cleanly, the{" "}
+            <span style={{ color: "var(--fg)", fontWeight: 600 }}>
+              Vantage Core takes over the exception
+            </span>{" "}
+            — routing, approval chains, escalation, audit trail — and
+            walks it to resolution. Click any module to see what it does
+            for the person at the desk.
           </p>
         </div>
-        <TerminalBlock
-          label="Vantage · Supplier exceptions"
-          lines={[
-            { kind: "system", text: "10:14:02  Inbound email · supplier@acme.co.za · subject `Short-ship · PO 8842`" },
-            { kind: "ok", text: "10:14:03  Exception AI · classified `short-ship`, severity `medium`, confidence 0.94" },
-            { kind: "system", text: "10:14:03  Linked to Syspro PO 8842 · GRN 14118 · buyer Themba N." },
-            { kind: "event", text: "10:14:04  Procurement AI · drafted credit-note request to supplier with delta lines" },
-            { kind: "event", text: "10:14:04  Approval AI · routed to buyer + finance · SLA 4h running" },
-            { kind: "system", text: "10:32:18  Buyer approved · supplier acknowledged via email reply (auto-logged)" },
-            { kind: "ok", text: "11:08:47  Closed · `audit trail complete` · 54m end-to-end · zero spreadsheets" },
-          ]}
-        />
+        <VantageArchitecture />
       </Section>
 
-      {/* Modules — bento grid */}
+      {/* ACT 3 — See it running (interactive prototype — MOVED UP from after platform showcase) */}
+      <Section id="prototype">
+        <div className="max-w-3xl mb-10 sm:mb-14">
+          <Eyebrow variant="rule">See it running</Eyebrow>
+          <div className="mt-6">
+            <DisplayHead level="h2" accent="running on representative data.">
+              The real product shell,
+            </DisplayHead>
+          </div>
+          <p
+            className="mt-6 text-base sm:text-lg leading-relaxed"
+            style={{
+              color: "var(--muted)",
+              fontFamily: "var(--font-body)",
+            }}
+          >
+            Click anywhere — every sidebar link is live. Dashboard, Work
+            Queue, Receive, Purchase, Documents, Insights, AI Routing, Ask
+            History, Reports, Benchmarking, Supplier Portal, Settings.
+            This is the shell your operators land in on day 36 of the
+            pilot, running on representative data so you can see the
+            workflow before you sign anything.
+          </p>
+        </div>
+        <VantagePrototype />
+      </Section>
+
+      {/* Vantage in action — three editorial story cards (buyer / dock / auditor)
+          On a LIGHT cream section so the dark cards pop (Apple / Stripe break-rhythm). */}
+      <Section id="usecases" tone="light">
+        <VantageUseCases />
+      </Section>
+
+      {/* ACT 4 — Module Showcase (the FUNCTION — what each Module can do) */}
       <Section id="modules">
-        <BentoModule
-          eyebrow="Module library"
-          title="Twelve modules ship today."
-          accent="One platform."
-          description="Each module is its own trained AI, sharing one platform, one audit trail, one set of operators. Need logic beyond the library? We build custom modules directly on your Vantage instance — same instance, same engine, scoped in 1–2 weeks."
-          cards={[
-            {
-              icon: "ShoppingCart",
-              eyebrow: "Featured",
-              title: "Procurement",
-              body: "AI drafts supplier quotes from live stock levels and historical pricing. Suggests POs based on lead times and reorder points. Learns supplier preferences over time.",
-              featured: true,
-            },
-            {
-              icon: "AlertOctagon",
-              eyebrow: "Module",
-              title: "Supplier exceptions",
-              body: "Short-ships, damaged stock, wrong-SKU. AI classifies and routes to the buyer with SLA timers running.",
-            },
-            {
-              icon: "CheckCircle2",
-              eyebrow: "Module",
-              title: "Approvals",
-              body: "AI learns your routing rules and surfaces edge cases. Never decides — proposes, with the rule and evidence.",
-            },
-            {
-              icon: "ShieldCheck",
-              eyebrow: "Module",
-              title: "Compliance",
-              body: "BEE certificates, vendor docs, expiry dates. Flags before the gap, not after.",
-            },
-            {
-              icon: "FileText",
-              eyebrow: "Module",
-              title: "Bordereaux & claims",
-              body: "Specialty insurance front door — capture, classify, route to adjuster with regulator-ready audit trail.",
-            },
-            {
-              icon: "Link2",
-              eyebrow: "Module",
-              title: "GRN-to-invoice reconciliation",
-              body: "Three-way match exceptions surfaced and routed before the invoice ages.",
-            },
-            {
-              icon: "CreditCard",
-              eyebrow: "Module",
-              title: "Customer credit overrides",
-              body: "Limit breaches caught at quote stage; finance approves with full context, every time.",
-            },
-            {
-              icon: "Wallet",
-              eyebrow: "Module",
-              title: "Expense exceptions",
-              body: "Out-of-policy spend caught on submission, not at month-end.",
-            },
-            {
-              icon: "FileSignature",
-              eyebrow: "Module",
-              title: "Contract & renewal gates",
-              body: "Renewal dates surfaced 60 days out; approvals routed before auto-renew.",
-            },
-            {
-              icon: "ClipboardCheck",
-              eyebrow: "Module",
-              title: "BEE & vendor compliance",
-              body: "Refresh cycles tracked per supplier, evidence stored against the record.",
-            },
-            {
-              icon: "Megaphone",
-              eyebrow: "Module",
-              title: "Customer requests",
-              body: "Quotes, complaints, support — one intake, one approval ladder, one status board per client.",
-            },
-            {
-              icon: "Truck",
-              eyebrow: "Module",
-              title: "Onboarding (vendor + customer)",
-              body: "Document capture, verification and welcome comms — fully digital, end-to-end.",
-            },
-          ]}
-        />
+        <VantageModuleShowcase />
       </Section>
 
-      {/* Custom modules CTA */}
+      {/* ACT 4 — The intelligence inside (the AI) */}
+      <Section id="intelligence">
+        <VantageIntelligence />
+      </Section>
+
+      {/* ACT 4 — The Vantage platform (whole-platform outcome pillars) */}
+      <Section id="platform">
+        <VantagePlatformShowcase />
+      </Section>
+
+      {/* ACT 5 — Make it yours (customisable)
+          Second LIGHT-tone break — gives the page a strong dark→light→dark
+          rhythm so the visual cadence doesn't go flat after 12 dark sections. */}
+      <Section tone="light">
+        <VantageCustomisable />
+      </Section>
+
+      {/* ACT 5 — Configurator (build your pilot quote) */}
       <Section>
-        <SplitFrame
-          eyebrow="Custom modules"
-          title="The library covers most. The rest"
-          accent="we build on your instance."
-          description="When the standard library doesn't fit, we ship custom modules directly into your Vantage tenant — same engine, same audit trail, same operators. No separate platform, no vendor juggling. Scoped in 1–2 weeks, fixed-price, delivered by the team that built Vantage."
-          items={[
-            {
-              label: "Scope",
-              title: "1–2 weeks discovery",
-              body: "We sit with your operators, watch the work, agree the success metric. Fixed-scope brief in writing before any build.",
-            },
-            {
-              label: "Build",
-              title: "Same Vantage instance",
-              body: "Custom logic ships to your tenant. Same rules engine, same audit trail, same reporting surface. No extra vendor on the bill.",
-            },
-            {
-              label: "Live",
-              title: "Production handover",
-              body: "Module live in your hands with the same five-week cadence as a standard pilot. Iterate from there.",
-            },
-          ]}
-        />
+        <VantageConfigurator />
       </Section>
 
-      {/* Pilot phases */}
+      {/* ACT 6 — The 5-week pilot timeline */}
       <Section>
         <NumberedSequence
           eyebrow="The five-week pilot"
@@ -279,43 +199,7 @@ export default function VantagePage() {
         />
       </Section>
 
-      {/* Pull quote */}
-      <Section>
-        <PullQuoteFrame
-          text="Stock counts ten times faster, and the new customer onboarding form has saved us hours every week."
-          attribution="Owner, Denver Auto Spares — Port Elizabeth"
-          cite="/case-studies/denver-auto-spares"
-          citeLabel="Read the Denver case study"
-        />
-      </Section>
-
-      {/* Architectural trust */}
-      <Section>
-        <InstrumentRow
-          items={[
-            {
-              icon: "Layers",
-              label: "Architecture",
-              claim: "Runs alongside, never replaces.",
-              proof: "Vantage reads from Syspro, SAP, Sage, NetSuite or internal systems. The ERP stays the source of truth; we wrap the work around it.",
-            },
-            {
-              icon: "Cpu",
-              label: "AI",
-              claim: "Per-module, on your data.",
-              proof: "Procurement AI sees procurement data. Approval AI learns your ladder. No generic chatbot, no shared tenant model.",
-            },
-            {
-              icon: "Lock",
-              label: "Compliance",
-              claim: "POPIA-aligned by default.",
-              proof: "Customer data stays on infrastructure you choose. Full audit trail. Every action tied to an authenticated operator.",
-            },
-          ]}
-        />
-      </Section>
-
-      {/* End CTA */}
+      {/* ACT 6 — End CTA */}
       <Section spacious>
         <EndCTA
           eyebrow="See Vantage on your stack"

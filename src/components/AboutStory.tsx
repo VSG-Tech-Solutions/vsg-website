@@ -372,8 +372,8 @@ export const AboutStory: React.FC = () => {
             >
               VSG is built by two founders with a small bench of senior
               engineers we&apos;ve worked with for years. There&apos;s no
-              SDR, no account-manager relay, no junior CS rep on a script.
-              You email a founder, you talk to a founder.
+              sales rep, no account-manager relay, no junior CS rep on a
+              script. You email a founder, you talk to a founder.
             </p>
           </motion.div>
 

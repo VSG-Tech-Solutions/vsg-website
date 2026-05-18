@@ -2,12 +2,20 @@ import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { PilotPromoBanner } from "./PilotPromoBanner";
 import { ScrollProgress } from "./ScrollProgress";
+import { ThemePicker } from "./ThemePicker";
 
 /**
- * Shared site chrome — promo banner + Navbar on top, Footer at bottom, page
- * content in between. The OceanBg lives inside the Hero of each page (or the
- * page-level hero banner), so every page can set its own density of ambient
- * depth.
+ * SiteShell — global chrome.
+ *
+ * Matte mono direction: solid var(--bg) background, no global aura layer,
+ * no cursor glow. Single saturated element on the page is the white CTA pill;
+ * everything else is grayscale.
+ *
+ * Lenis (SmoothScrollProvider) is INTENTIONALLY OFF for now — it was
+ * intercepting wheel events and causing the scroll to feel locked, especially
+ * after hot-reloads in dev. Native scroll is faster, less code, and never
+ * fights useScroll/whileInView observers. Re-enable later only if there's a
+ * specific section that needs scroll-pinned momentum.
  */
 export const SiteShell: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -22,6 +30,7 @@ export const SiteShell: React.FC<{ children: React.ReactNode }> = ({
       <Navbar />
       {children}
       <Footer />
+      <ThemePicker />
     </main>
   );
 };

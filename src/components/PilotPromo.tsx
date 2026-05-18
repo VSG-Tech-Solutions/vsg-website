@@ -34,9 +34,9 @@ type Benefit = {
 const BENEFITS: Benefit[] = [
   {
     icon: Sparkles,
-    badge: "40% off",
-    title: "Setup at 40% off",
-    body: "Pilot clients pay 40% less on the one-time setup — the integration, the first workflow live on your data, your rule set written in plain English. Nothing in the delivery shrinks.",
+    badge: "50% off",
+    title: "Setup at 50% off",
+    body: "Pilot clients pay 50% less on the one-time setup — the integration, the first workflow live on your data, your rule set written in plain English. Nothing in the delivery shrinks.",
   },
   {
     icon: Headphones,
@@ -54,7 +54,7 @@ const BENEFITS: Benefit[] = [
 
 const PROMISES: string[] = [
   "First workflow live in 5 weeks on your real data",
-  "Founder on every working session — no SDR, no handoff",
+  "Founder on every working session — no sales rep, no handoff",
   "Named success outcome, contracted on day one",
   "Month-to-month after go-live · pause or exit anytime",
 ];
@@ -125,7 +125,7 @@ export const PilotPromo: React.FC = () => {
           >
             We&apos;re hand-picking the first five businesses to run Vantage in
             production. In exchange for working with us while the product is
-            young, you get <strong style={{ color: "var(--fg)" }}>40% off setup</strong>,{" "}
+            young, you get <strong style={{ color: "var(--fg)" }}>50% off setup</strong>,{" "}
             <strong style={{ color: "var(--fg)" }}>free support</strong> from
             the people who built it, and{" "}
             <strong style={{ color: "var(--fg)" }}>no per-user fees</strong>{" "}
