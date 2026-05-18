@@ -27,7 +27,6 @@ function PageShell({ current, children }) {
       {enhancedChildren}
       <Footer />
       <DemoModal open={demoOpen} onClose={close} />
-      {typeof window.ThemeSwitcher === "function" && <ThemeSwitcher />}
     </React.Fragment>
   );
 }

@@ -16,3 +16,5 @@ node_modules/
 # Build artifacts (none for this static site, but just in case)
 .next/
 dist/
+.vercel
+.env*.local

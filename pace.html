@@ -18,27 +18,6 @@
     }
     ::selection { background: var(--coral-soft); color: var(--ink-1); }
   </style>
-  <script>
-    (function() {
-      try {
-        var saved = localStorage.getItem("vsg-theme");
-        if (!saved || saved === "cream") return;
-        var T = {
-          slate:    {"--paper":"#1A1612","--paper-2":"#221E18","--surface-white":"#2A2520","--ink-1":"#F5F0E8","--ink-2":"#DCD2C0","--ink-3":"#A39B8C","--ink-4":"#6B6358","--hairline":"rgba(245,240,232,0.10)","--divider-strong":"rgba(245,240,232,0.22)","--coral":"#E58D62","--coral-soft":"rgba(229,141,98,0.14)"},
-          midnight: {"--paper":"#0B0F1A","--paper-2":"#11162A","--surface-white":"#1A2138","--ink-1":"#EFF1F6","--ink-2":"#C6CCDA","--ink-3":"#8B93A8","--ink-4":"#5A6178","--hairline":"rgba(239,241,246,0.10)","--divider-strong":"rgba(239,241,246,0.22)","--coral":"#F2A481","--coral-soft":"rgba(242,164,129,0.14)"},
-          forest:   {"--paper":"#0F1A14","--paper-2":"#152922","--surface-white":"#1C322B","--ink-1":"#EFF4EE","--ink-2":"#C5D2C7","--ink-3":"#8B9D8F","--ink-4":"#5A6E60","--hairline":"rgba(239,244,238,0.10)","--divider-strong":"rgba(239,244,238,0.22)","--coral":"#E8B340","--coral-soft":"rgba(232,179,64,0.14)"},
-          lab:      {"--paper":"#F7F8FB","--paper-2":"#EEF1F7","--surface-white":"#FFFFFF","--ink-1":"#0A0E1A","--ink-2":"#1F2839","--ink-3":"#5A6378","--ink-4":"#94A0B5","--hairline":"#DBE0EC","--divider-strong":"#BAC2D2","--coral":"#2563EB","--coral-soft":"rgba(37,99,235,0.10)"},
-          mono:     {"--paper":"#FFFFFF","--paper-2":"#F2F2F2","--surface-white":"#FFFFFF","--ink-1":"#000000","--ink-2":"#1E1E1E","--ink-3":"#535353","--ink-4":"#8B8B8B","--hairline":"#E0E0E0","--divider-strong":"#BFBFBF","--coral":"#FF3D00","--coral-soft":"rgba(255,61,0,0.10)"},
-          linen:    {"--paper":"#FBFAF7","--paper-2":"#F4F2EC","--surface-white":"#FFFFFF","--ink-1":"#0E0B08","--ink-2":"#2E2A24","--ink-3":"#5C554B","--ink-4":"#9A9286","--hairline":"#E8E3D8","--divider-strong":"#CFC8BB","--coral":"#C9633A","--coral-soft":"rgba(201,99,58,0.10)"}
-        };
-        var vars = T[saved];
-        if (!vars) return;
-        var root = document.documentElement;
-        Object.keys(vars).forEach(function(k) { root.style.setProperty(k, vars[k]); });
-        root.setAttribute("data-theme", saved);
-      } catch (e) {}
-    })();
-  </script>
 </head>
 <body>
   <div id="app"></div>
@@ -52,7 +31,6 @@
   <script type="text/babel" src="js/Products.jsx"></script>
   <script type="text/babel" src="js/Footer.jsx"></script>
   <script type="text/babel" src="js/DemoModal.jsx"></script>
-  <script type="text/babel" src="js/ThemeSwitcher.jsx"></script>
   <script type="text/babel" src="js/PageShell.jsx"></script>
   <script type="text/babel" src="js/PacePage.jsx"></script>
 </body>
