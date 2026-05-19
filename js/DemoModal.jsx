@@ -6,7 +6,7 @@ function DemoModal({ open, onClose }) {
   const [sent, setSent] = React.useState(false);
   const [submitting, setSubmitting] = React.useState(false);
   const [error, setError] = React.useState("");
-  const [form, setForm] = React.useState({ name: "", email: "", company: "", note: "" });
+  const [form, setForm] = React.useState({ name: "", email: "", company: "", phone: "" });
 
   React.useEffect(() => {
     if (!open) {
@@ -112,7 +112,8 @@ function DemoModal({ open, onClose }) {
                       name: form.name,
                       email: form.email,
                       company: form.company,
-                      message: form.note || "Demo request — no extra context provided.",
+                      phone: form.phone,
+                      message: form.phone ? `Demo request — phone: ${form.phone}` : "Demo request — no phone provided.",
                       source: "demo-modal",
                     }),
                   });
@@ -151,11 +152,12 @@ function DemoModal({ open, onClose }) {
                 value={form.company}
                 onChange={(e) => setForm({ ...form, company: e.target.value })}
               />
-              <textarea
-                style={{ ...inputStyle, minHeight: 90, resize: "vertical", fontFamily: "'Geist', sans-serif" }}
-                placeholder="What's getting in the way? (Optional)"
-                value={form.note}
-                onChange={(e) => setForm({ ...form, note: e.target.value })}
+              <input
+                style={inputStyle}
+                type="tel"
+                placeholder="Phone (optional)"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
               />
               <div style={{ marginTop: 8 }}>
                 <PrimaryButton as="button" size="lg" disabled={submitting} style={{ width: "100%", justifyContent: "center", opacity: submitting ? 0.7 : 1 }}>

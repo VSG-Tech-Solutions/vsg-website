@@ -21,13 +21,8 @@ const STEPS = [
   },
   {
     week: "Week 5",
-    title: "First send",
-    body: "The first ACE-drafted email goes to a real supplier, reviewed by your team. Then ten. Then fifty. You set the pace.",
-  },
-  {
-    week: "Week 6",
     title: "Live",
-    body: "ACE is replying for the inboxes you've approved. Your team handles exceptions, not throughput. We stay on standby.",
+    body: "The first ACE-drafted email goes to a real supplier, reviewed by your team. Then ten. Then fifty. By the end of the week, ACE is replying for the inboxes you've approved — your team handles exceptions, not throughput. We stay on standby.",
   },
   {
     week: "Then",

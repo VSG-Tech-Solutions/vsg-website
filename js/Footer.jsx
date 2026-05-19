@@ -76,7 +76,7 @@ function Footer() {
                 color: "var(--ink-4)",
               }}
             >
-              hello@vsg.tech
+              hello@vsgtech.co.za
             </div>
           </div>
           {cols.map((col, i) => (

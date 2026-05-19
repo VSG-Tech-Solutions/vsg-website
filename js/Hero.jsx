@@ -211,7 +211,7 @@ function Hero({ onBookDemo }) {
               fontWeight: 400,
             }}
           >
-            We build AI systems for manufacturing and distribution operations. It's our niche — and the only one we build for. South African mid-market, founder-led, made in Cape Town.
+            We build AI products for manufacturing, retail, and distribution operations. It's our niche — and the only one we build for. South African mid-market, founder-led, made in Cape Town.
           </p>
         </Reveal>
 

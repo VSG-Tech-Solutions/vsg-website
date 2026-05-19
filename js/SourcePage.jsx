@@ -546,7 +546,7 @@ function SourceHero({ onBookDemo }) {
               lineHeight: 1.55,
               color: HERO_INK_2,
             }}>
-              A standalone AI procurement platform for South African manufacturers and distributors. Forward planning, house-voice supplier replies, multi-level approvals, exception handling, and a supplier portal — all powered by VSG ACE, the AI that learns YOUR specific suppliers, terminology, and rules.
+              A standalone AI procurement platform for South African manufacturers, retailers, and distributors. Forward planning, house-voice supplier replies, multi-level approvals, exception handling, and a supplier portal — all powered by VSG ACE, the AI that learns YOUR specific suppliers, terminology, and rules.
             </p>
           </Reveal>
 
@@ -1905,7 +1905,7 @@ const SOURCE_FAQS = [
   { q: "What does ACE need to get started?",          a: "Read access to your ERP (we provide the SQL scripts), supplier contact information, and 8 months of historical sales data — which lives in your ERP already. We provision your tenant, load the data, and ACE starts producing the planning grid in week one." },
   { q: "Can our CFO approve from a phone?",           a: "Yes — mobile PWA. Each pending order is a card with the SKU, quantity, cash impact, AI risk badge, and EvidenceButton. Swipe to approve, tap for evidence. Full audit trail on every action." },
   { q: "Who decides what Source actually posts?",     a: "Your team. The default for the first 30 days is shadow mode — every ACE-drafted action is reviewed by your buyer before it leaves the tenant. After that, you set per-supplier thresholds for what ACE may act on autonomously." },
-  { q: "How is Source priced?",                       a: "A base subscription plus per-active-user. No per-seat surprises. Implementation is included in year one. Talk to us for your number — Stephan replies personally within one working day." },
+  { q: "How is Source priced?",                       a: "Talk to us. Every engagement is quoted upfront before any work starts — no surprise overages, no retainer trap. Stephan replies personally within one working day with a number you can sign or walk away from." },
 ];
 
 function SourceFAQ() {

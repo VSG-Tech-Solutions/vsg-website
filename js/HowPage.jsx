@@ -147,7 +147,7 @@ function HowCTA({ onBookDemo }) {
             </h2>
             <div style={{ marginTop: 40, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
               <PrimaryButton onClick={onBookDemo} size="lg">Book the kick-off</PrimaryButton>
-              <OutlineButton as="a" href="contact.html" size="lg">hello@vsg.tech</OutlineButton>
+              <OutlineButton as="a" href="contact.html" size="lg">hello@vsgtech.co.za</OutlineButton>
             </div>
           </div>
         </Reveal>

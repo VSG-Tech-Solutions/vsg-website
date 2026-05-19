@@ -61,7 +61,7 @@ function CTAFinal({ onBookDemo }) {
             </p>
             <div style={{ marginTop: 48, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
               <PrimaryButton onClick={onBookDemo} size="lg">Book a demo</PrimaryButton>
-              <OutlineButton as="a" href="mailto:hello@vsg.tech" size="lg">hello@vsg.tech</OutlineButton>
+              <OutlineButton as="a" href="mailto:hello@vsgtech.co.za" size="lg">hello@vsgtech.co.za</OutlineButton>
             </div>
             <div
               style={{

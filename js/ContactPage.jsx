@@ -163,7 +163,7 @@ function ContactForm() {
                   On its way to Stephan.
                 </h3>
                 <p style={{ marginTop: 18, fontFamily: "'Geist', sans-serif", fontSize: 17, color: "var(--ink-2)", lineHeight: 1.65, maxWidth: 460, marginLeft: "auto", marginRight: "auto" }}>
-                  You'll have a reply within one working day, from a real person, with three time slots to choose from. Or you can email him directly at hello@vsg.tech if you want a faster track.
+                  You'll have a reply within one working day, from a real person, with three time slots to choose from. Or you can email him directly at hello@vsgtech.co.za if you want a faster track.
                 </p>
               </div>
             )}
@@ -175,7 +175,7 @@ function ContactForm() {
                 <Eyebrow>Direct</Eyebrow>
                 <div style={{ marginTop: 18, display: "flex", flexDirection: "column", gap: 14 }}>
                   {[
-                    { l: "Email", v: "hello@vsg.tech", h: "mailto:hello@vsg.tech" },
+                    { l: "Email", v: "hello@vsgtech.co.za", h: "mailto:hello@vsgtech.co.za" },
                     { l: "Phone", v: "+27 21 000 0000", h: "tel:+27210000000" },
                     { l: "LinkedIn", v: "@vsg-tech", h: "#" },
                   ].map((c, i) => (

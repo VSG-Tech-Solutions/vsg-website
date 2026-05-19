@@ -168,7 +168,7 @@ function Office() {
               <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 8 }}>
                 {[
                   { l: "Address", v: "5th Floor · Roeland Square · Cape Town · 8001" },
-                  { l: "Email", v: "hello@vsg.tech" },
+                  { l: "Email", v: "hello@vsgtech.co.za" },
                   { l: "Hours", v: "Mon–Fri · 08:00–18:00 SAST" },
                 ].map((r, i) => (
                   <div key={i} style={{ display: "grid", gridTemplateColumns: "100px 1fr", gap: 16, paddingTop: 10, borderTop: i === 0 ? "1px solid var(--hairline)" : "none", paddingTop: i === 0 ? 14 : 0 }}>

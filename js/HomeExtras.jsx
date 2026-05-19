@@ -13,10 +13,10 @@ function WhatWeAre() {
   const isThis = [
     "Standalone AI-native products — procurement, scheduling, more coming",
     "First-class connectors to SysPro, Sage, SAP B1, Pastel, Acumatica, Odoo",
-    "Built specifically for SA mid-market manufacturers and distributors",
+    "Built specifically for SA mid-market manufacturers, retailers, and distributors",
     "Per-customer AI memory — your context, never shared, never cross-trained",
     "Live in five weeks. Stephan replies personally.",
-    "Flat per-product pricing. No per-seat, no per-token, no overages.",
+    "Quoted upfront before any work starts — no surprise overages, no retainer trap.",
   ];
   const isNot = [
     "An ERP add-on, plugin, module, or 'gap-filler'",

@@ -28,7 +28,7 @@ function ServicesHero({ onBookDemo }) {
         </Reveal>
         <Reveal delay={120}>
           <p style={{ marginTop: 32, maxWidth: 720, fontFamily: "'Geist', sans-serif", fontSize: 21, lineHeight: 1.55, color: "var(--ink-2)" }}>
-            Beyond our standalone products, three engagement shapes for the same audience: SA mid-market manufacturers and distributors. All on the same VSG ACE core, all priced before we start.
+            Beyond our standalone products, three engagement shapes for the same audience: SA mid-market manufacturers, retailers, and distributors. All on the same VSG ACE core, all priced before we start.
           </p>
         </Reveal>
         <Reveal delay={200}>
@@ -308,7 +308,7 @@ function ServicesCTA({ onBookDemo }) {
             </p>
             <div style={{ marginTop: 40, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
               <PrimaryButton onClick={onBookDemo} size="lg">Talk to Stephan</PrimaryButton>
-              <OutlineButton as="a" href="contact.html" size="lg">hello@vsg.tech</OutlineButton>
+              <OutlineButton as="a" href="contact.html" size="lg">hello@vsgtech.co.za</OutlineButton>
             </div>
           </div>
         </Reveal>

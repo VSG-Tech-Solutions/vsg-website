@@ -361,7 +361,7 @@ function Products({ onBookDemo }) {
             name="VSG Source"
             headline="AI procurement that thinks"
             emphasis="four months ahead."
-            body="A standalone AI procurement platform for South African manufacturers and distributors. Forward stock planning, house-voice supplier replies, multi-level approval chains, automatic exception handling, and a supplier portal — all powered by VSG ACE, the AI that learns your specific suppliers and rules."
+            body="A standalone AI procurement platform for South African manufacturers, retailers, and distributors. Forward stock planning, house-voice supplier replies, multi-level approval chains, automatic exception handling, and a supplier portal — all powered by VSG ACE, the AI that learns your specific suppliers and rules."
             bullets={[
               { t: "4-month forward planning grid", b: "Per-SKU, per-supplier, per-customer. See what to order and when." },
               { t: "Inbox triage + house-voice drafts", b: "Every supplier email classified, ranked by lead-time risk, and replied to in your terminology." },

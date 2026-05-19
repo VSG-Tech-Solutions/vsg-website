@@ -4,6 +4,10 @@
 
 const FAQS = [
   {
+    q: "Do you have customers using this today?",
+    a: "Yes. VSG Source is in active deployment with South African mid-market customers (names available on the discovery call). VSG Pace begins beta deployments Q3 2026. Workflow automation sprints are running every month.",
+  },
+  {
     q: "Where does our data sit?",
     a: "In your own ACE tenant, on South African infrastructure. Never trained across customers. On-prem deployment is available for regulated operations.",
   },
@@ -17,7 +21,7 @@ const FAQS = [
   },
   {
     q: "How is this priced?",
-    a: "A flat monthly per product, scaled to your supplier count. No per-seat. No per-message. No surprise overages. Services are quoted scope-by-scope.",
+    a: "Talk to us. Every engagement is quoted upfront before any work starts — no surprise overages, no retainer trap. Stephan replies personally within one working day with a number you can sign or walk away from.",
   },
   {
     q: "What if we leave?",
@@ -119,7 +123,7 @@ function FAQ() {
                 The questions a CFO <em style={{ fontStyle: "italic", fontWeight: 700 }}>actually asks.</em>
               </Headline>
               <p style={{ marginTop: 28, maxWidth: 380, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-                If something here is missing, write to <a href="mailto:hello@vsg.tech">hello@vsg.tech</a>. Stephan will reply.
+                If something here is missing, write to <a href="mailto:hello@vsgtech.co.za">hello@vsgtech.co.za</a>. Stephan will reply.
               </p>
             </div>
           </Reveal>
