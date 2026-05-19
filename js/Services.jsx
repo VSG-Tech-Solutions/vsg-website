@@ -1,87 +1,77 @@
 /* global React */
 
-/* Services — the second pillar of the business.
-   Three offerings, each rendered as a card with a custom SVG diagram + bullets. */
+/* Services — three engagement shapes for the cashflow line of VSG.
+   Each card links to a dedicated deep page. No pricing on the cards. */
 
-// ----- Small SVG visuals, one per service -----
+// ---------- Visuals ----------
 
 function VisualCustom() {
-  // stacked layers — extending what you already run
   return (
-    <svg viewBox="0 0 200 140" style={{ width: "100%", height: "100%" }} aria-hidden="true">
+    <svg viewBox="0 0 220 120" style={{ width: "100%", height: "100%", display: "block" }}>
       <defs>
-        <linearGradient id="vc-fade" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="var(--coral)" stopOpacity="0.18" />
+        <linearGradient id="svc-custom-fade" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stopColor="var(--coral)" stopOpacity="0.22" />
           <stop offset="1" stopColor="var(--coral)" stopOpacity="0" />
         </linearGradient>
       </defs>
-      <rect x="22" y="86" width="156" height="32" rx="6" fill="var(--paper-2)" stroke="var(--hairline)" />
-      <rect x="34" y="56" width="132" height="32" rx="6" fill="var(--surface-white)" stroke="var(--hairline)" />
-      <rect x="46" y="26" width="108" height="32" rx="6" fill="var(--surface-white)" stroke="var(--coral)" />
-      <rect x="46" y="26" width="108" height="32" rx="6" fill="url(#vc-fade)" />
-      <text x="100" y="46" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="2.2" fill="var(--coral)">YOUR LAYER</text>
-      <text x="100" y="76" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="2.2" fill="var(--ink-3)">VSG / VENDOR</text>
-      <text x="100" y="106" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="2.2" fill="var(--ink-3)">ERP</text>
+      <rect x="10" y="92" width="200" height="20" rx="4" fill="var(--paper)" stroke="var(--hairline)" />
+      <text x="110" y="106" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="2.2" fill="var(--ink-3)">ERP / DATA LAYER</text>
+      <rect x="26" y="62" width="168" height="20" rx="4" fill="var(--surface-white)" stroke="var(--hairline)" />
+      <text x="110" y="76" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="2.2" fill="var(--ink-3)">VENDOR · STANDARD</text>
+      <rect x="42" y="32" width="136" height="20" rx="4" fill="var(--surface-white)" stroke="var(--coral)" />
+      <rect x="42" y="32" width="136" height="20" rx="4" fill="url(#svc-custom-fade)" />
+      <text x="110" y="46" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="2.2" fill="var(--coral)">YOUR BESPOKE LAYER</text>
+      <rect x="62" y="6" width="96" height="16" rx="4" fill="var(--ink-1)" />
+      <text x="110" y="17" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="2.2" fill="var(--paper)">YOUR USERS</text>
     </svg>
   );
 }
 
 function VisualAutomation() {
-  // flow with three nodes and arrows
   return (
-    <svg viewBox="0 0 200 140" style={{ width: "100%", height: "100%" }} aria-hidden="true">
-      {/* nodes */}
-      {[30, 100, 170].map((x, i) => (
-        <g key={i}>
-          <circle cx={x} cy="70" r="22" fill="var(--surface-white)" stroke="var(--hairline)" />
-          <circle cx={x} cy="70" r="6" fill={i === 1 ? "var(--coral)" : "var(--ink-1)"} />
-          {i === 1 && (
-            <circle cx={x} cy="70" r="22" fill="none" stroke="var(--coral)" strokeOpacity="0.4">
-              <animate attributeName="r" from="22" to="34" dur="2.4s" repeatCount="indefinite" />
-              <animate attributeName="opacity" from="0.5" to="0" dur="2.4s" repeatCount="indefinite" />
-            </circle>
-          )}
-        </g>
-      ))}
-      {/* arrows */}
-      <path d="M 56 70 L 72 70" stroke="var(--ink-3)" strokeWidth="1.5" markerEnd="url(#vsg-arrow)" />
-      <path d="M 126 70 L 142 70" stroke="var(--ink-3)" strokeWidth="1.5" markerEnd="url(#vsg-arrow)" />
-      <defs>
-        <marker id="vsg-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-          <path d="M 0 0 L 8 5 L 0 10 z" fill="var(--ink-3)" />
-        </marker>
-      </defs>
-      <text x="30" y="110" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="2" fill="var(--ink-4)">TRIGGER</text>
-      <text x="100" y="110" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="2" fill="var(--coral)">ACE</text>
-      <text x="170" y="110" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="2" fill="var(--ink-4)">ACTION</text>
+    <svg viewBox="0 0 220 120" style={{ width: "100%", height: "100%", display: "block" }}>
+      <circle cx="30" cy="60" r="10" fill="var(--ink-1)" />
+      <text x="30" y="92" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="1.8" fill="var(--ink-4)">TRIGGER</text>
+      <line x1="40" y1="60" x2="92" y2="60" stroke="var(--ink-3)" strokeWidth="1.4" strokeDasharray="3 3" />
+      <path d="M 90 56 L 96 60 L 90 64" fill="none" stroke="var(--ink-3)" strokeWidth="1.4" />
+      <circle cx="110" cy="60" r="22" fill="var(--coral)" />
+      <text x="110" y="64" textAnchor="middle" fontFamily="Geist, sans-serif" fontWeight="700" fontSize="14" fill="var(--paper)">ACE</text>
+      <text x="110" y="100" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="1.8" fill="var(--ink-4)">DECISION</text>
+      <line x1="132" y1="60" x2="180" y2="60" stroke="var(--ink-3)" strokeWidth="1.4" strokeDasharray="3 3" />
+      <path d="M 178 56 L 184 60 L 178 64" fill="none" stroke="var(--ink-3)" strokeWidth="1.4" />
+      <rect x="180" y="50" width="30" height="20" rx="4" fill="var(--ink-1)" />
+      <text x="195" y="64" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="1.8" fill="var(--paper)">ACT</text>
     </svg>
   );
 }
 
 function VisualBespoke() {
-  // blueprint grid with a fitted shape
   return (
-    <svg viewBox="0 0 200 140" style={{ width: "100%", height: "100%" }} aria-hidden="true">
+    <svg viewBox="0 0 220 120" style={{ width: "100%", height: "100%", display: "block" }}>
       <defs>
-        <pattern id="vb-grid" width="16" height="16" patternUnits="userSpaceOnUse">
-          <path d="M 16 0 L 0 0 0 16" fill="none" stroke="var(--hairline)" strokeWidth="1" />
+        <pattern id="svc-bes-grid" width="14" height="14" patternUnits="userSpaceOnUse">
+          <path d="M 14 0 L 0 0 0 14" fill="none" stroke="var(--hairline)" strokeWidth="0.8" />
         </pattern>
       </defs>
-      <rect x="0" y="0" width="200" height="140" fill="url(#vb-grid)" />
-      <path d="M 30 100 L 30 50 L 70 50 L 70 30 L 130 30 L 130 70 L 170 70 L 170 100 Z" fill="var(--coral-soft)" stroke="var(--coral)" strokeWidth="1.5" />
-      <circle cx="30" cy="100" r="3" fill="var(--coral)" />
-      <circle cx="170" cy="100" r="3" fill="var(--coral)" />
-      <circle cx="70" cy="30" r="3" fill="var(--ink-1)" />
-      <circle cx="130" cy="30" r="3" fill="var(--ink-1)" />
-      <text x="100" y="124" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="2.2" fill="var(--ink-4)">YOUR SHAPE · NOT OURS</text>
+      <rect x="0" y="0" width="220" height="120" fill="url(#svc-bes-grid)" />
+      <path d="M 30 92 L 60 62 L 90 80 L 130 36 L 170 56 L 200 28"
+            fill="none" stroke="var(--coral)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="60" cy="62" r="3" fill="var(--coral)" />
+      <circle cx="130" cy="36" r="3" fill="var(--coral)" />
+      <circle cx="200" cy="28" r="3" fill="var(--coral)" />
+      <text x="110" y="110" textAnchor="middle" fontFamily="Geist Mono, monospace" fontSize="9" letterSpacing="1.8" fill="var(--ink-4)">YOUR SHAPE — NOT OURS</text>
     </svg>
   );
 }
 
-function ServiceCard({ num, name, headline, emphasis, body, bullets, visual, bestFor }) {
+// ---------- ServiceCard (links to a deep page when href is set) ----------
+
+function ServiceCard({ num, name, headline, emphasis, body, bullets, visual, bestFor, href }) {
   const [hover, setHover] = React.useState(false);
+  const Wrapper = href ? "a" : "div";
   return (
-    <div
+    <Wrapper
+      href={href}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
@@ -92,8 +82,11 @@ function ServiceCard({ num, name, headline, emphasis, body, bullets, visual, bes
         display: "flex",
         flexDirection: "column",
         gap: 22,
-        transition: "border-color 220ms cubic-bezier(.2,0,0,1)",
+        transition: "border-color 220ms cubic-bezier(.2,0,0,1), transform 220ms",
         height: "100%",
+        textDecoration: "none",
+        color: "inherit",
+        transform: hover && href ? "translateY(-3px)" : "translateY(0)",
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
@@ -148,9 +141,17 @@ function ServiceCard({ num, name, headline, emphasis, body, bullets, visual, bes
           </div>
         </div>
       )}
-    </div>
+
+      {href && (
+        <div style={{ paddingTop: 14, fontFamily: "'Geist', sans-serif", fontSize: 14, fontWeight: 600, color: "var(--coral)" }}>
+          See {name} →
+        </div>
+      )}
+    </Wrapper>
   );
 }
+
+// ---------- Main Services section ----------
 
 function Services({ onBookDemo }) {
   return (
@@ -161,13 +162,13 @@ function Services({ onBookDemo }) {
             <div>
               <Eyebrow>02 — Services</Eyebrow>
               <Headline as="h2" size={64} style={{ marginTop: 32 }}>
-                Three more ways to <em style={{ fontStyle: "italic", fontWeight: 700 }}>work with us.</em>
+                Three ways to <em style={{ fontStyle: "italic", fontWeight: 700 }}>work with us.</em>
               </Headline>
             </div>
           </Reveal>
           <Reveal delay={80}>
             <p style={{ fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 560 }}>
-              Some operational problems are too specific for a product. Our services line is built for the same audience as our products — SA mid-market operators — with the same standards: fixed-scope, source code in your hands, an engineer's phone number.
+              We build the AI products you saw above. We also build the workflows that drain your team's week. Three formats. Each one fixed-scope. Each one starts in two weeks.
             </p>
           </Reveal>
         </div>
@@ -176,50 +177,53 @@ function Services({ onBookDemo }) {
           <div style={{ marginTop: 80, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
             <ServiceCard
               num="A"
+              name="AI Workflow Automation"
+              headline="Automate the workflows that"
+              emphasis="drain your team."
+              body="Invoice matching. Supplier statement reconciliation. DSO collections. Stock-take variance investigation. The high-value operational workflows your team rebuilds every week, every month, forever. We hand those over to AI. Fixed scope. Two to four weeks. Live in production."
+              visual={<VisualAutomation />}
+              bullets={[
+                "Invoice matching automation (AP three-way match)",
+                "Supplier statement reconciliation",
+                "DSO reduction with risk-scored collections",
+                "Stock-take variance + shrinkage investigation",
+                "Custom workflows — talk to us, scope-and-quote",
+              ]}
+              bestFor={'"We have a workflow that takes 15 hours a week and follows the same pattern every time." That workflow becomes 30 minutes of approval.'}
+              href="automation.html"
+            />
+            <ServiceCard
+              num="B"
               name="AI Sprints"
               headline="Discover, prototype,"
               emphasis="in two weeks."
-              body="A two-week sprint, fixed scope, fixed price. Output: a working AI prototype running on your real data, a roadmap you can take anywhere, or a costed plan signed by an engineer. Not a slide deck. Not a workshop. A working thing."
+              body="A two-week sprint, fixed scope, fixed timeline. Output: a working AI prototype running on your real data, a roadmap you can take anywhere, or a costed plan signed by an engineer. Not a slide deck. Not a workshop. A working thing."
               visual={<VisualBespoke />}
               bullets={[
-                "Two-week format · fixed price · fixed deliverable",
+                "Two-week format · fixed scope · fixed deliverable",
                 "On your real data — not a sandbox",
                 "Discovery, prototype, or proof-of-concept",
                 "Roadmap + costed plan to take to production",
               ]}
-              bestFor='"We think AI could help with X but we don\u2019t know if it\u2019s real." Two weeks to find out.'
-            />
-            <ServiceCard
-              num="B"
-              name="AI Workflow Automation"
-              headline="Automate your"
-              emphasis="highest-value workflows."
-              body="Customer onboarding. Credit-check sequences. Supplier-statement reconciliation. The exception-routing decisions someone makes 40 times a week. VSG builds AI workflow automation that takes those flows over — and gets smarter every week as VSG ACE learns your patterns."
-              visual={<VisualAutomation />}
-              bullets={[
-                "Custom-built around YOUR business — not a template, not Zapier-with-extra-steps",
-                "AI that handles decisions, not just data movement",
-                "Human-in-the-loop where it matters; full autonomy where it doesn\u2019t",
-                "VSG ACE learns your patterns and improves the workflow every week",
-                "Audit trail on every decision the AI makes",
-              ]}
-              bestFor='"We have a critical workflow that takes 15 hours a week and follows the same pattern every time." That workflow becomes 30 minutes of approval — and gets smarter every month.'
+              bestFor={'"We think AI could help with X but we don’t know if it’s real." Two weeks to find out.'}
+              href="sprints.html"
             />
             <ServiceCard
               num="C"
               name="Bespoke Software"
               headline="Software built for the problem"
               emphasis="only YOU have."
-              body="Every business has a problem no off-the-shelf software solves. The workflow that\u2019s unique to how YOU operate. The internal tool that would save your team 20 hours a week — if anyone built it. We design, build, and ship that software. Yours. In your repository."
+              body="Every business has a problem no off-the-shelf software solves. The workflow that's unique to how YOU operate. The internal tool that would save your team 20 hours a week if anyone built it. We design, build, and ship that software. Yours. In your repository."
               visual={<VisualCustom />}
               bullets={[
                 "Production-grade software built around YOUR specific business problem",
                 "Web apps, portals, dashboards, internal tools, integration layers",
                 "Two-week first slice. In production in eight weeks. Not eighteen months.",
-                "Full handover with docs, code, and the engineer\u2019s phone number",
+                "Full handover with docs, code, and the engineer's phone number",
                 "Optional ongoing retainer or full handover — your call",
               ]}
-              bestFor='"We have a unique problem that no software solves, and the consultant\u2019s answer is R3 million over eighteen months." We solve it in eight weeks for a fraction of that.'
+              bestFor={'"We have a unique problem that no software solves, and the consultant’s answer is eighteen months and millions." We solve it in eight weeks.'}
+              href="bespoke.html"
             />
           </div>
         </Reveal>

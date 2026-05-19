@@ -148,6 +148,125 @@ function NavDropdown({ current, onBookDemo }) {
   );
 }
 
+function NavServicesDropdown({ current }) {
+  const [open, setOpen] = React.useState(false);
+  const ref = React.useRef(null);
+
+  React.useEffect(() => {
+    if (!open) return;
+    const onDoc = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", onDoc);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDoc);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  const active = current === "services" || current === "automation" || current === "sprints" || current === "bespoke";
+
+  const items = [
+    {
+      href: "automation.html",
+      title: "AI Workflow Automation",
+      sub: "The revenue engine. Two-to-four weeks, fixed scope.",
+      slug: "automation",
+    },
+    {
+      href: "sprints.html",
+      title: "AI Sprints",
+      sub: "Two-week proof. Working prototype on your real data.",
+      slug: "sprints",
+    },
+    {
+      href: "bespoke.html",
+      title: "Bespoke Software",
+      sub: "Custom software for the problem only YOU have.",
+      slug: "bespoke",
+    },
+  ];
+
+  return (
+    <div
+      ref={ref}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+      style={{ position: "relative", display: "inline-flex", alignItems: "center" }}
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 6,
+          fontFamily: "'Geist', sans-serif",
+          fontWeight: 500,
+          fontSize: 14,
+          color: active ? "var(--ink-1)" : "var(--ink-2)",
+          background: "transparent",
+          border: 0,
+          cursor: "pointer",
+          padding: "8px 0",
+          letterSpacing: "-0.005em",
+        }}
+      >
+        Services
+        <svg width="10" height="10" viewBox="0 0 10 10" style={{ transition: "transform 220ms cubic-bezier(.2,0,0,1)", transform: open ? "rotate(180deg)" : "rotate(0)" }}>
+          <path d="M 1.5 3.5 L 5 7 L 8.5 3.5" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+
+      <div
+        style={{
+          position: "absolute",
+          top: "calc(100% + 8px)",
+          left: "-24px",
+          minWidth: 380,
+          background: "var(--surface-white)",
+          border: "1px solid var(--hairline)",
+          borderRadius: 16,
+          boxShadow: "0 20px 50px -16px rgba(26,22,18,0.18)",
+          padding: 12,
+          opacity: open ? 1 : 0,
+          transform: open ? "translateY(0)" : "translateY(-6px)",
+          pointerEvents: open ? "auto" : "none",
+          transition: "opacity 180ms cubic-bezier(.2,0,0,1), transform 180ms cubic-bezier(.2,0,0,1)",
+          zIndex: 60,
+        }}
+      >
+        {items.map((p) => {
+          const isActive = current === p.slug;
+          return (
+            <a
+              key={p.slug}
+              href={p.href}
+              style={{
+                display: "block",
+                padding: "14px 16px",
+                borderRadius: 10,
+                textDecoration: "none",
+                background: isActive ? "var(--paper-2)" : "transparent",
+                transition: "background 140ms cubic-bezier(.2,0,0,1)",
+              }}
+              onMouseEnter={(e) => { if (!isActive) e.currentTarget.style.background = "var(--paper-2)"; }}
+              onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.background = "transparent"; }}
+            >
+              <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: 600, fontSize: 15, color: "var(--ink-1)", letterSpacing: "-0.01em" }}>
+                {p.title}
+              </div>
+              <div style={{ marginTop: 4, fontFamily: "'Geist', sans-serif", fontSize: 13, color: "var(--ink-3)", lineHeight: 1.45 }}>
+                {p.sub}
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function Nav({ onBookDemo, current = "" }) {
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
@@ -158,7 +277,6 @@ function Nav({ onBookDemo, current = "" }) {
   }, []);
 
   const links = [
-    { href: "services.html", label: "Services", slug: "services" },
     { href: "ace.html", label: "VSG ACE", slug: "ace" },
     { href: "how-it-works.html", label: "How it works", slug: "how" },
     { href: "about.html", label: "About", slug: "about" },
@@ -223,6 +341,7 @@ function Nav({ onBookDemo, current = "" }) {
 
         <nav style={{ display: "flex", gap: 28, alignItems: "center" }}>
           <NavDropdown current={current} onBookDemo={onBookDemo} />
+          <NavServicesDropdown current={current} />
           {links.map((l) => {
             const isActive = current === l.slug;
             return (
