@@ -360,10 +360,10 @@ function Products({ onBookDemo }) {
             statusVariant="live"
             name="VSG Source"
             headline="AI procurement that thinks"
-            emphasis="four months ahead."
+            emphasis="ahead of demand."
             body="A standalone AI procurement platform for South African manufacturers, retailers, and distributors. Forward stock planning, house-voice supplier replies, multi-level approval chains, automatic exception handling, and a supplier portal — all powered by VSG ACE, the AI that learns your specific suppliers and rules."
             bullets={[
-              { t: "4-month forward planning grid", b: "Per-SKU, per-supplier, per-customer. See what to order and when." },
+              { t: "Forward planning grid", b: "Per-SKU, per-supplier, per-customer. See what to order and when." },
               { t: "Inbox triage + house-voice drafts", b: "Every supplier email classified, ranked by lead-time risk, and replied to in your terminology." },
               { t: "Multi-level approval chains", b: "Approval rules learned from your actual history — not a template." },
               { t: "Native SysPro · SAP B1 · Sage Pastel", b: "Reads and writes through first-class connectors. Live in 5 weeks." },

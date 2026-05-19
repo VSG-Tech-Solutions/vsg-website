@@ -530,7 +530,7 @@ function SourceHero({ onBookDemo }) {
             }}>
               AI procurement that thinks{" "}
               <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>
-                four months ahead.
+                ahead of demand.
               </em>
             </h1>
           </Reveal>
@@ -783,7 +783,7 @@ function SourceBenefits() {
   const benefits = [
     {
       tag: "Plan",
-      title: "4-month forward stock visibility.",
+      title: "Forward stock visibility.",
       body: "Per-SKU, per-supplier, per-customer. Forward planning grid with buy-up cash alerts, local-vs-import split, customer-share drilldown, and per-class stock-month targets your team can edit live.",
     },
     {
@@ -870,7 +870,7 @@ function VizPlanning() {
     <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 24, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.16)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
         <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-          Planning grid · 4-month forward
+          Planning grid · Forward outlook
         </div>
         <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--coral)" }}>
           Peak Oct-26
@@ -943,7 +943,7 @@ const TABS = [
     eyebrow: "Feature · Planning",
     label: "Planning",
     title: "Forward visibility, before the month starts.",
-    body: "The 4-month planning grid is the hero of VSG Source. Per SKU, per supplier, per class — current on-hand, committed POs, planned orders, and projected closing stock for the next four months. Excel-faithful math, NETWORKDAYS prorate, Dec/Jan half-trade convention. Built from the spreadsheet your buyer already uses.",
+    body: "The forward planning grid is the hero of VSG Source. Per SKU, per supplier, per class — current on-hand, committed POs, planned orders, and projected closing stock months ahead. Excel-faithful math, NETWORKDAYS prorate, Dec/Jan half-trade convention. Built from the spreadsheet your buyer already uses.",
     bullets: [
       "Per-class months-stock targets (editable inline)",
       "Buy-up cash factor — surfaces the worst month",
@@ -1199,9 +1199,9 @@ function SourceRoles() {
       n: "01",
       name: "Buyer",
       lede: "Gets the morning back.",
-      body: "The planning grid shows the next four months at a glance. ACE drafts the routine inbox traffic and queues it for review. The buyer stops re-typing supplier responses and focuses on the conversations that actually move price — supplier negotiation, single-source de-risking, exception handling.",
+      body: "The planning grid shows months ahead at a glance. ACE drafts the routine inbox traffic and queues it for review. The buyer stops re-typing supplier responses and focuses on the conversations that actually move price — supplier negotiation, single-source de-risking, exception handling.",
       gets: [
-        "4-month planning grid open by 7:30am, fully refreshed",
+        "Forward planning grid open by 7:30am, fully refreshed",
         "12 ACE-drafted replies waiting for one-tap approval",
         "Single-source risk heatmap across your supplier panel",
         "Direct line to suppliers via the portal — no email tag",
@@ -1347,7 +1347,7 @@ function SourceCapabilities() {
     {
       tag: "Planning & forecasting",
       items: [
-        "4-month forward planning grid (per-SKU, per-supplier, per-customer)",
+        "Forward planning grid (per-SKU, per-supplier, per-customer)",
         "Per-class stock-month targets, editable inline by the buyer",
         "Buy-up cash factor — surfaces the worst cash-month at a glance",
         "Local vs import split for diversification & FX exposure decisions",
@@ -1901,7 +1901,7 @@ function SourceCTA({ onBookDemo }) {
 // ============================================================
 
 const SOURCE_FAQS = [
-  { q: "Is VSG Source an add-on to my ERP?",         a: "No. VSG Source is a standalone AI procurement platform with its own workflows — 4-month forward planning, multi-level approvals, supplier portal. It connects to SysPro, SAP Business One, and Sage Pastel through first-class native integrations, the same way Procurify connects to NetSuite. Your ERP keeps doing what it's good at." },
+  { q: "Is VSG Source an add-on to my ERP?",         a: "No. VSG Source is a standalone AI procurement platform with its own workflows — forward planning, multi-level approvals, supplier portal. It connects to SysPro, SAP Business One, and Sage Pastel through first-class native integrations, the same way Procurify connects to NetSuite. Your ERP keeps doing what it's good at." },
   { q: "What does ACE need to get started?",          a: "Read access to your ERP (we provide the SQL scripts), supplier contact information, and 8 months of historical sales data — which lives in your ERP already. We provision your tenant, load the data, and ACE starts producing the planning grid in week one." },
   { q: "Can our CFO approve from a phone?",           a: "Yes — mobile PWA. Each pending order is a card with the SKU, quantity, cash impact, AI risk badge, and EvidenceButton. Swipe to approve, tap for evidence. Full audit trail on every action." },
   { q: "Who decides what Source actually posts?",     a: "Your team. The default for the first 30 days is shadow mode — every ACE-drafted action is reviewed by your buyer before it leaves the tenant. After that, you set per-supplier thresholds for what ACE may act on autonomously." },
