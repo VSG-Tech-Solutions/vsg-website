@@ -207,28 +207,126 @@ function FourWorkflows() {
 // ============================================================
 
 function CustomWorkflows({ onBookDemo }) {
+  const alsoBuilt = [
+    "Supplier onboarding + verification flows",
+    "B-BBEE procurement tracking + reporting",
+    "WSP/ATR auto-compilation from HRIS",
+    "Crime-incident → insurance claim workflows",
+    "POD-to-invoice closure + dispute escalation",
+    "Customer credit-risk scoring + auto-hold",
+    "Sales-order to ERP entry from email or PDF",
+    "Internal approval chains with mobile sign-off",
+  ];
+  const promptItems = [
+    { k: "What the workflow does", v: "The step-by-step that someone on your team repeats every week or month." },
+    { k: "What's slow or painful", v: "Where the bottleneck sits today. Where errors creep in. What it costs you when it goes wrong." },
+    { k: "What 'good' looks like", v: "If this workflow ran itself, what would you do with the time? What would change for your team?" },
+  ];
+
   return (
     <Section>
       <Container>
         <Reveal>
+          <div style={{ maxWidth: 760, marginBottom: 48 }}>
+            <Eyebrow>Or anything else</Eyebrow>
+            <Headline as="h2" size={56} style={{ marginTop: 32 }}>
+              These four aren't the limit.{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 700 }}>It's AI Workflow Automation.</em>
+            </Headline>
+            <p style={{
+              marginTop: 24, fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.65,
+              color: "var(--ink-2)", maxWidth: 640,
+            }}>
+              The four workflows above are the ones we ship most often. They are not the catalog. Any high-volume operational workflow that follows the same pattern week after week is a candidate. If yours isn't on the list above, that's the normal case — tell us about it and we'll scope and build.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={80}>
           <div style={{
-            background: "var(--surface-white)", border: "1px solid var(--hairline)",
-            borderRadius: 20, padding: "48px 56px",
-            display: "grid", gridTemplateColumns: "1fr auto", gap: 48, alignItems: "center",
+            display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: 24, alignItems: "stretch",
           }}>
-            <div>
-              <Eyebrow>Custom workflows</Eyebrow>
-              <Headline as="h2" size={42} style={{ marginTop: 22 }}>
-                Have a different workflow in mind?
-              </Headline>
-              <p style={{
-                marginTop: 22, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65,
-                color: "var(--ink-2)", maxWidth: 720,
+            {/* Left — what else we've built */}
+            <div style={{
+              background: "var(--surface-white)", border: "1px solid var(--hairline)",
+              borderRadius: 20, padding: 36,
+            }}>
+              <div style={{
+                fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10,
+                letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--coral)",
+                marginBottom: 18, paddingBottom: 18, borderBottom: "1px solid var(--hairline)",
               }}>
-                Tell us about it. We've automated supplier onboarding flows, B-BBEE procurement tracking, WSP/ATR auto-compilation from HRIS, crime-incident-to-insurance workflows, POD-to-invoice closure, and more. If a workflow follows the same pattern 40+ times a week, there's a sprint for it.
-              </p>
+                Other workflows we've automated
+              </div>
+              <ul style={{ padding: 0, margin: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                {alsoBuilt.map((it, i) => (
+                  <li key={i} style={{
+                    listStyle: "none", display: "grid", gridTemplateColumns: "auto 1fr",
+                    gap: 10, alignItems: "start",
+                    fontFamily: "'Geist', sans-serif", fontSize: 14, color: "var(--ink-2)", lineHeight: 1.5,
+                  }}>
+                    <span style={{
+                      width: 16, height: 16, borderRadius: "50%", background: "var(--coral-soft)",
+                      color: "var(--coral)", fontSize: 11, fontWeight: 700, display: "flex",
+                      alignItems: "center", justifyContent: "center", marginTop: 1, flexShrink: 0,
+                    }}>✓</span>
+                    <span>{it}</span>
+                  </li>
+                ))}
+              </ul>
+              <div style={{
+                marginTop: 22, paddingTop: 18, borderTop: "1px solid var(--hairline)",
+                fontFamily: "'Geist', sans-serif", fontSize: 13.5, color: "var(--ink-3)", lineHeight: 1.55,
+                fontStyle: "italic",
+              }}>
+                The pattern: if it happens 40+ times a week, the same way every time, AI workflow automation has a shape for it.
+              </div>
             </div>
-            <PrimaryButton onClick={onBookDemo} size="lg">Book a discovery call</PrimaryButton>
+
+            {/* Right — "tell us what you'd want built" */}
+            <div style={{
+              background: "var(--ink-1)", color: "var(--paper)",
+              borderRadius: 20, padding: 36, display: "flex", flexDirection: "column",
+            }}>
+              <div style={{
+                fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10,
+                letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--coral)",
+                marginBottom: 18,
+              }}>
+                Tell us yours
+              </div>
+              <div style={{
+                fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 22, lineHeight: 1.3,
+                letterSpacing: "-0.015em", marginBottom: 22,
+              }}>
+                In 45 minutes Stephan will know if a sprint fits — and quote it if it does.
+              </div>
+              <ul style={{ padding: 0, margin: "0 0 22px", display: "flex", flexDirection: "column", gap: 14, flex: 1 }}>
+                {promptItems.map((p, i) => (
+                  <li key={i} style={{ listStyle: "none" }}>
+                    <div style={{
+                      fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10,
+                      letterSpacing: "0.22em", textTransform: "uppercase",
+                      color: "rgba(245,240,232,0.55)", marginBottom: 4,
+                    }}>{p.k}</div>
+                    <div style={{
+                      fontFamily: "'Geist', sans-serif", fontSize: 13.5, lineHeight: 1.55,
+                      color: "rgba(245,240,232,0.85)",
+                    }}>{p.v}</div>
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={onBookDemo}
+                style={{
+                  background: "var(--coral)", color: "var(--paper)", border: "none", borderRadius: 999,
+                  height: 50, padding: "0 26px", fontFamily: "'Geist', sans-serif", fontSize: 15,
+                  fontWeight: 600, cursor: "pointer", marginTop: "auto", alignSelf: "flex-start",
+                }}
+              >
+                Tell us about your workflow →
+              </button>
+            </div>
           </div>
         </Reveal>
       </Container>
