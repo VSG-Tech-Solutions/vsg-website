@@ -13,7 +13,6 @@ function Footer() {
       title: "Services",
       links: [
         { l: "AI Workflow Automation", h: "automation.html" },
-        { l: "AI Sprints", h: "sprints.html" },
         { l: "Bespoke Software", h: "bespoke.html" },
         { l: "Book a discovery", h: "contact.html" },
       ],

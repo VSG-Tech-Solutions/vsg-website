@@ -174,7 +174,7 @@ function Services({ onBookDemo }) {
         </div>
 
         <Reveal delay={160}>
-          <div style={{ marginTop: 80, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          <div style={{ marginTop: 80, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
             <ServiceCard
               num="A"
               name="AI Workflow Automation"
@@ -194,22 +194,6 @@ function Services({ onBookDemo }) {
             />
             <ServiceCard
               num="B"
-              name="AI Sprints"
-              headline="Discover, prototype,"
-              emphasis="in two weeks."
-              body="A two-week sprint, fixed scope, fixed timeline. Output: a working AI prototype running on your real data, a roadmap you can take anywhere, or a costed plan signed by an engineer. Not a slide deck. Not a workshop. A working thing."
-              visual={<VisualBespoke />}
-              bullets={[
-                "Two-week format · fixed scope · fixed deliverable",
-                "On your real data — not a sandbox",
-                "Discovery, prototype, or proof-of-concept",
-                "Roadmap + costed plan to take to production",
-              ]}
-              bestFor={'"We think AI could help with X but we don’t know if it’s real." Two weeks to find out.'}
-              href="sprints.html"
-            />
-            <ServiceCard
-              num="C"
               name="Bespoke Software"
               headline="Software built for the problem"
               emphasis="only YOU have."

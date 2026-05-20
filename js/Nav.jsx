@@ -7,6 +7,7 @@
 function NavDropdown({ current, onBookDemo }) {
   const [open, setOpen] = React.useState(false);
   const ref = React.useRef(null);
+  const closeTimerRef = React.useRef(null);
 
   React.useEffect(() => {
     if (!open) return;
@@ -22,13 +23,26 @@ function NavDropdown({ current, onBookDemo }) {
     };
   }, [open]);
 
+  React.useEffect(() => () => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+  }, []);
+
+  const handleEnter = () => {
+    if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; }
+    setOpen(true);
+  };
+  const handleLeave = () => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => setOpen(false), 180);
+  };
+
   const active = current === "source" || current === "pace" || current === "products";
 
   return (
     <div
       ref={ref}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
       style={{ position: "relative", display: "inline-flex", alignItems: "center" }}
     >
       <button
@@ -151,6 +165,7 @@ function NavDropdown({ current, onBookDemo }) {
 function NavServicesDropdown({ current }) {
   const [open, setOpen] = React.useState(false);
   const ref = React.useRef(null);
+  const closeTimerRef = React.useRef(null);
 
   React.useEffect(() => {
     if (!open) return;
@@ -164,7 +179,21 @@ function NavServicesDropdown({ current }) {
     };
   }, [open]);
 
-  const active = current === "services" || current === "automation" || current === "sprints" || current === "bespoke";
+  // Cleanup any pending close timer on unmount
+  React.useEffect(() => () => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+  }, []);
+
+  const handleEnter = () => {
+    if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; }
+    setOpen(true);
+  };
+  const handleLeave = () => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => setOpen(false), 180);
+  };
+
+  const active = current === "services" || current === "automation" || current === "bespoke";
 
   const items = [
     {
@@ -172,12 +201,6 @@ function NavServicesDropdown({ current }) {
       title: "AI Workflow Automation",
       sub: "The revenue engine. Two-to-four weeks, fixed scope.",
       slug: "automation",
-    },
-    {
-      href: "sprints.html",
-      title: "AI Sprints",
-      sub: "Two-week proof. Working prototype on your real data.",
-      slug: "sprints",
     },
     {
       href: "bespoke.html",
@@ -190,8 +213,8 @@ function NavServicesDropdown({ current }) {
   return (
     <div
       ref={ref}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
       style={{ position: "relative", display: "inline-flex", alignItems: "center" }}
     >
       <button
@@ -262,6 +285,26 @@ function NavServicesDropdown({ current }) {
             </a>
           );
         })}
+        <div style={{ height: 1, background: "var(--hairline)", margin: "8px 12px" }} />
+        <a
+          href="contact.html"
+          style={{
+            display: "block",
+            padding: "10px 16px",
+            borderRadius: 10,
+            textDecoration: "none",
+            fontFamily: "'Geist', sans-serif",
+            fontSize: 13,
+            color: "var(--ink-3)",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = "var(--paper-2)")}
+          onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+        >
+          <span style={{ color: "var(--coral)", fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", marginRight: 8 }}>
+            Or
+          </span>
+          Workflow not listed? Tell us what to build →
+        </a>
       </div>
     </div>
   );

@@ -42,9 +42,8 @@ function ServicesHero({ onBookDemo }) {
         <Reveal delay={280}>
           <div style={{ marginTop: 56, display: "flex", gap: 0, borderTop: "1px solid var(--hairline)", borderBottom: "1px solid var(--hairline)" }}>
             {[
-              { h: "#sprints", n: "A", l: "AI Sprints" },
-              { h: "#automation", n: "B", l: "AI Workflow Automation" },
-              { h: "#bespoke", n: "C", l: "Bespoke Software" },
+              { h: "#automation", n: "A", l: "AI Workflow Automation" },
+              { h: "#bespoke", n: "B", l: "Bespoke Software" },
             ].map((a, i) => (
               <a
                 key={i}
@@ -322,29 +321,8 @@ function ServicesPage({ onBookDemo }) {
     <React.Fragment>
       <ServicesHero onBookDemo={onBookDemo} />
       <ServiceDeepDive
-        id="sprints"
-        num="A"
-        eyebrow="AI Sprints"
-        headline="Discover, prototype,"
-        emphasis="in two weeks."
-        body="A two-week sprint, fixed scope, fixed price. Output: a working AI prototype running on your real data, a roadmap you can take anywhere, or a costed plan signed by an engineer. Not a slide deck. Not a workshop. A working thing."
-        useCases={[
-          "Discovery for a future product or automation project",
-          "AI-powered proof-of-concept on your actual data",
-          "Costed plan for a larger build — take it to anyone",
-          "Independent technical audit of a vendor's AI claim",
-        ]}
-        deliverables={[
-          { t: "Format",   s: "Two-week sprint · fixed price" },
-          { t: "Output",   s: "Working prototype or costed plan" },
-          { t: "Data",     s: "On your real operation, not a sandbox" },
-          { t: "Hand-off", s: "Roadmap signed by an engineer" },
-        ]}
-        visual={<VisualBespokeBig />}
-      />
-      <ServiceDeepDive
         id="automation"
-        num="B"
+        num="A"
         eyebrow="AI Workflow Automation"
         headline="Automate your"
         emphasis="highest-value workflows."
@@ -366,7 +344,7 @@ function ServicesPage({ onBookDemo }) {
       />
       <ServiceDeepDive
         id="bespoke"
-        num="C"
+        num="B"
         eyebrow="Bespoke Software"
         headline="Software built for the problem"
         emphasis="only YOU have."
