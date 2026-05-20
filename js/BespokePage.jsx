@@ -4,80 +4,69 @@
    Hero → what we build → how we work → what you DON'T get → final CTA. */
 
 function BespokeHero({ onBookDemo }) {
-  const HERO_BG = "#13100C";
-  const HERO_INK = "#F5F0E8";
-  const HERO_INK_2 = "rgba(245,240,232,0.78)";
-  const HERO_INK_3 = "rgba(245,240,232,0.50)";
-  const HERO_INK_4 = "rgba(245,240,232,0.35)";
-
   return (
-    <section style={{ position: "relative", background: HERO_BG, paddingTop: 72, paddingBottom: 96, overflow: "hidden" }}>
+    <section style={{
+      position: "relative", background: "var(--paper)",
+      paddingTop: 96, paddingBottom: 96, overflow: "hidden",
+    }}>
       <div aria-hidden="true" style={{
-        position: "absolute", inset: 0,
-        background: "radial-gradient(ellipse 110% 55% at 50% 100%, rgba(201,99,58,0.28), rgba(201,99,58,0) 70%)",
+        position: "absolute", top: "-10%", left: "50%", transform: "translateX(-50%)",
+        width: 1400, height: 900,
+        background: "radial-gradient(ellipse at center, rgba(201,99,58,0.08), rgba(201,99,58,0) 60%)",
         pointerEvents: "none",
       }} />
       <Container style={{ position: "relative" }}>
-        <div style={{
-          display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
-          fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11,
-          letterSpacing: "0.22em", textTransform: "uppercase", color: HERO_INK_4, marginBottom: 36,
-        }}>
-          <a href="index.html" style={{ color: HERO_INK_4, textDecoration: "none" }}>← VSG Tech</a>
-          <span>/</span>
-          <a href="services.html" style={{ color: HERO_INK_4, textDecoration: "none" }}>Services</a>
-          <span>/</span>
-          <span style={{ color: HERO_INK }}>Bespoke Software</span>
-        </div>
+        <Reveal>
+          <div style={{
+            display: "flex", alignItems: "center", gap: 10,
+            fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11,
+            letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)",
+            marginBottom: 32,
+          }}>
+            <a href="index.html" style={{ color: "var(--ink-4)", textDecoration: "none" }}>← VSG Tech</a>
+            <span>/</span>
+            <a href="services.html" style={{ color: "var(--ink-4)", textDecoration: "none" }}>Services</a>
+            <span>/</span>
+            <span style={{ color: "var(--ink-1)" }}>Bespoke Software</span>
+          </div>
+        </Reveal>
 
-        <div style={{ textAlign: "center", maxWidth: 980, margin: "0 auto" }}>
-          <Reveal>
-            <span style={{
-              display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 28,
-              fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11,
-              letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--coral)",
-            }}>
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--coral)" }} />
-              Service · Bespoke Software
-            </span>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1 style={{
-              fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 88, lineHeight: 1.0,
-              letterSpacing: "-0.04em", color: HERO_INK, margin: 0, textWrap: "balance",
-            }}>
-              Software built for the problem{" "}
-              <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>only YOU have.</em>
-            </h1>
-          </Reveal>
-          <Reveal delay={160}>
-            <p style={{
-              marginTop: 32, maxWidth: 720, marginLeft: "auto", marginRight: "auto",
-              fontFamily: "'Geist', sans-serif", fontSize: 20, lineHeight: 1.55, color: HERO_INK_2,
-            }}>
-              Every business has a problem no off-the-shelf software solves. The workflow unique to how YOU operate. The internal tool that would save your team 20 hours a week if anyone built it. We design, build, and ship that software. Yours. In your repository.
-            </p>
-          </Reveal>
-          <Reveal delay={240}>
-            <div style={{ marginTop: 40, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <button onClick={onBookDemo} style={{
-                background: "var(--coral)", color: HERO_INK, border: "none", borderRadius: 999,
-                height: 56, padding: "0 32px", fontFamily: "'Geist', sans-serif", fontSize: 15,
-                fontWeight: 600, cursor: "pointer", boxShadow: "0 12px 32px -12px rgba(201,99,58,0.55)",
-              }}>
-                Get a scoping call
-              </button>
-              <a href="#what-we-build" style={{
-                background: "transparent", color: HERO_INK, border: `1px solid ${HERO_INK_3}`,
-                borderRadius: 999, height: 56, padding: "0 32px", fontFamily: "'Geist', sans-serif",
-                fontSize: 15, fontWeight: 600, textDecoration: "none",
-                display: "inline-flex", alignItems: "center",
-              }}>
-                See what we build
-              </a>
-            </div>
-          </Reveal>
-        </div>
+        <Reveal delay={80}>
+          <div style={{
+            fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11,
+            letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--coral)",
+            marginBottom: 24,
+          }}>
+            Service · Bespoke Software
+          </div>
+        </Reveal>
+
+        <Reveal delay={140}>
+          <h1 style={{
+            fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 96, lineHeight: 0.98,
+            letterSpacing: "-0.045em", color: "var(--ink-1)", margin: 0,
+            maxWidth: 1080, textWrap: "balance",
+          }}>
+            Software built for the problem{" "}
+            <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>only YOU have.</em>
+          </h1>
+        </Reveal>
+
+        <Reveal delay={200}>
+          <p style={{
+            marginTop: 36, maxWidth: 760,
+            fontFamily: "'Geist', sans-serif", fontSize: 21, lineHeight: 1.55, color: "var(--ink-2)",
+          }}>
+            Every business has a problem no off-the-shelf software solves. The workflow unique to how YOU operate. The internal tool that would save your team 20 hours a week if anyone built it. We design, build, and ship that software. Yours. In your repository.
+          </p>
+        </Reveal>
+
+        <Reveal delay={260}>
+          <div style={{ marginTop: 44, display: "flex", gap: 16, flexWrap: "wrap" }}>
+            <PrimaryButton onClick={onBookDemo} size="lg">Get a scoping call</PrimaryButton>
+            <OutlineButton as="a" href="#what-we-build" size="lg">See what we build</OutlineButton>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );
