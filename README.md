@@ -102,3 +102,5 @@ Per repo policy: production deploys are gated — review the preview URL on a
 feature branch before merging to main.
 
 <!-- auto-deploy webhook test: 2026-05-18T14:53Z -->
+
+<!-- auto-deploy webhook test: 2026-05-20T11:00Z -->
