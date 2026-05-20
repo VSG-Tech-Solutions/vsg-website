@@ -253,7 +253,6 @@ function AboutPage({ onBookDemo }) {
       <AboutHero />
       <OriginStory />
       <Principles />
-      <TeamSection />
       <Office />
       <AboutCTA onBookDemo={onBookDemo} />
     </React.Fragment>
