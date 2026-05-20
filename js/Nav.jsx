@@ -199,7 +199,7 @@ function NavServicesDropdown({ current }) {
     {
       href: "automation.html",
       title: "AI Workflow Automation",
-      sub: "The revenue engine. Two-to-four weeks, fixed scope.",
+      sub: "Two-to-four week sprints. Fixed scope. Live in production.",
       slug: "automation",
     },
     {
