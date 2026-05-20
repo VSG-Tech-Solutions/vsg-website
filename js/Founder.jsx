@@ -43,10 +43,10 @@ function Founder() {
             <div>
               <Eyebrow>05 — Who we are</Eyebrow>
               <Headline as="h2" size={56} style={{ marginTop: 32, maxWidth: 460 }}>
-                A four-person team in <em style={{ fontStyle: "italic", fontWeight: 700 }}>Cape Town.</em>
+                Founder-led, built <em style={{ fontStyle: "italic", fontWeight: 700 }}>in Cape Town.</em>
               </Headline>
               <p style={{ marginTop: 28, maxWidth: 480, fontFamily: "'Geist', sans-serif", fontSize: 18, lineHeight: 1.7, color: "var(--ink-2)" }}>
-                We started VSG because the AI products built for the Fortune 500 don't fit a 200-person factory in Atlantis, and the local consultancies aren't building AI. We're the team in between.
+                We started VSG because the AI products built for the Fortune 500 don't fit a 200-person factory in Atlantis, and the local consultancies aren't building AI. We sit in the gap between.
               </p>
               <p style={{ marginTop: 18, maxWidth: 480, fontFamily: "'Geist', sans-serif", fontSize: 18, lineHeight: 1.7, color: "var(--ink-2)" }}>
                 Stephan replies to every demo request personally, within one working day. If you sign with us, you'll have his number.
