@@ -62,43 +62,63 @@ function Essay() {
     <Section alt>
       <Container>
         <Reveal>
-          <div style={{ maxWidth: 760, margin: "0 auto" }}>
+          <div style={{ maxWidth: 880, margin: "0 auto", textAlign: "center" }}>
             <div style={{
               fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11,
               letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--ink-4)",
-              marginBottom: 28, textAlign: "center",
+              marginBottom: 36,
             }}>
               The story · Why VSG exists
             </div>
 
             <p style={{
-              fontFamily: "'Geist', sans-serif", fontWeight: 500, fontSize: 30,
-              lineHeight: 1.4, letterSpacing: "-0.015em", color: "var(--ink-1)",
+              fontFamily: "'Geist', sans-serif", fontWeight: 500, fontSize: 36,
+              lineHeight: 1.3, letterSpacing: "-0.02em", color: "var(--ink-1)",
               margin: 0, textWrap: "balance",
             }}>
-              The AI products built for the Fortune 500 don't fit a 200-person factory in Atlantis. And the local consultancies aren't building AI — they're selling time-and-materials and decks that go nowhere.
+              Three things were missing from South African AI.
             </p>
 
-            <div style={{ marginTop: 40, display: "flex", flexDirection: "column", gap: 22 }}>
-              <p style={{
-                fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.75,
-                color: "var(--ink-2)", margin: 0,
-              }}>
-                The South African mid-market runs serious operations — R20m to R500m in revenue, real factories, real warehouses, real distribution — on ERPs that were chosen ten years ago and Excel sheets that someone rebuilds every Monday.
-              </p>
-              <p style={{
-                fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.75,
-                color: "var(--ink-2)", margin: 0,
-              }}>
-                Those teams know exactly what AI should be doing for them. They just don't have anyone building it for them. The global SaaS vendors won't quote. The Big 4 wants R3 million over eighteen months. The local SI is selling time and materials.
-              </p>
-              <p style={{
-                fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.75,
-                color: "var(--ink-2)", margin: 0,
-              }}>
-                That's the gap VSG fills. Fixed-scope AI software, quoted upfront, ZA-hosted, live in five weeks, with the engineer's phone number on the back of your laptop.
-              </p>
+            <div style={{
+              marginTop: 48,
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: 32,
+              textAlign: "left",
+            }}>
+              {[
+                { n: "01", t: "Someone who quotes upfront." },
+                { n: "02", t: "Someone who ships in weeks, not quarters." },
+                { n: "03", t: "Someone who picks up the phone." },
+              ].map((b, i) => (
+                <div key={i} style={{
+                  paddingTop: 24,
+                  borderTop: "1px solid var(--coral)",
+                }}>
+                  <div style={{
+                    fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11,
+                    letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--coral)",
+                    marginBottom: 14,
+                  }}>
+                    {b.n}
+                  </div>
+                  <div style={{
+                    fontFamily: "'Geist', sans-serif", fontWeight: 600, fontSize: 22,
+                    lineHeight: 1.3, letterSpacing: "-0.015em", color: "var(--ink-1)",
+                  }}>
+                    {b.t}
+                  </div>
+                </div>
+              ))}
             </div>
+
+            <p style={{
+              marginTop: 56, maxWidth: 720, marginLeft: "auto", marginRight: "auto",
+              fontFamily: "'Geist', sans-serif", fontSize: 22, lineHeight: 1.55,
+              color: "var(--ink-2)",
+            }}>
+              VSG is those three things — for the mid-market manufacturers, retailers, and distributors the global vendors won't build for.
+            </p>
           </div>
         </Reveal>
       </Container>
