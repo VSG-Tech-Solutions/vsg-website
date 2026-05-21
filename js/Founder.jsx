@@ -28,7 +28,7 @@ function MonogramAvatar({ size = 180 }) {
         }}
       />
       <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: size * 0.42, color: "var(--ink-1)", letterSpacing: "-0.04em", position: "relative" }}>
-        Sv
+        Se
       </span>
     </div>
   );
@@ -56,7 +56,7 @@ function Founder() {
                 <MonogramAvatar size={64} />
                 <div>
                   <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: 600, fontSize: 16, color: "var(--ink-1)" }}>
-                    Stephan van Vuuren
+                    Stephan Esterhuizen
                   </div>
                   <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)", marginTop: 4 }}>
                     Founder · VSG Tech

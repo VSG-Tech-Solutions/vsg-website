@@ -34,9 +34,9 @@ function AboutHero() {
             lineHeight: 0.98, letterSpacing: "-0.045em", color: "var(--ink-1)",
             margin: 0, maxWidth: 1180, textWrap: "balance",
           }}>
-            We build the AI software that{" "}
+            VSG Tech is a{" "}
             <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>
-              the global vendors won't quote.
+              South African AI software company.
             </em>
           </h1>
         </Reveal>
@@ -224,7 +224,7 @@ function FounderNote() {
               lineHeight: 1.4, letterSpacing: "-0.02em", color: "var(--ink-1)",
               margin: 0, textWrap: "balance",
             }}>
-              The thing I'm proudest of is what we don't do. We don't sell time-and-materials. We don't pitch transformations. We don't roadmap features we haven't built. We quote upfront, ship in weeks, and keep your data yours.
+              What I want for every customer is simple: the software outlives me. They own the code, they own the AI memory, they own the audit trail. If they leave tomorrow, they leave with everything. That's the only promise that matters.
             </p>
             <div style={{
               marginTop: 40, display: "inline-flex", alignItems: "center", gap: 14,
@@ -236,14 +236,14 @@ function FounderNote() {
                 fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 14,
                 letterSpacing: "-0.02em",
               }}>
-                SV
+                SE
               </div>
               <div style={{ textAlign: "left" }}>
                 <div style={{
                   fontFamily: "'Geist', sans-serif", fontWeight: 600, fontSize: 15,
                   color: "var(--ink-1)",
                 }}>
-                  Stephan van Vuuren
+                  Stephan Esterhuizen
                 </div>
                 <div style={{
                   fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10,
