@@ -312,6 +312,8 @@ function NavServicesDropdown({ current }) {
 
 function Nav({ onBookDemo, current = "" }) {
   const [scrolled, setScrolled] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -319,10 +321,35 @@ function Nav({ onBookDemo, current = "" }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll while the mobile menu is open
+  React.useEffect(() => {
+    if (mobileOpen) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      const onKey = (e) => { if (e.key === "Escape") setMobileOpen(false); };
+      document.addEventListener("keydown", onKey);
+      return () => {
+        document.body.style.overflow = prev;
+        document.removeEventListener("keydown", onKey);
+      };
+    }
+  }, [mobileOpen]);
+
   const links = [
     { href: "ace.html", label: "VSG ACE", slug: "ace" },
     { href: "how-it-works.html", label: "How it works", slug: "how" },
     { href: "about.html", label: "About", slug: "about" },
+  ];
+
+  const mobileLinks = [
+    { href: "source.html", label: "VSG Source", group: "Products" },
+    { href: "pace.html", label: "VSG Pace", group: "Products" },
+    { href: "automation.html", label: "AI Workflow Automation", group: "Services" },
+    { href: "bespoke.html", label: "Bespoke Software", group: "Services" },
+    { href: "ace.html", label: "VSG ACE", group: "Company" },
+    { href: "how-it-works.html", label: "How it works", group: "Company" },
+    { href: "about.html", label: "About", group: "Company" },
+    { href: "contact.html", label: "Contact", group: "Company" },
   ];
 
   return (
@@ -382,7 +409,7 @@ function Nav({ onBookDemo, current = "" }) {
           />
         </a>
 
-        <nav style={{ display: "flex", gap: 28, alignItems: "center" }}>
+        <nav className="vsg-nav-desktop" style={{ display: "flex", gap: 28, alignItems: "center" }}>
           <NavDropdown current={current} onBookDemo={onBookDemo} />
           <NavServicesDropdown current={current} />
           {links.map((l) => {
@@ -425,6 +452,7 @@ function Nav({ onBookDemo, current = "" }) {
 
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
           <a
+            className="vsg-nav-desktop"
             href="contact.html"
             style={{
               fontFamily: "'Geist', sans-serif",
@@ -438,6 +466,7 @@ function Nav({ onBookDemo, current = "" }) {
           </a>
           <button
             onClick={onBookDemo}
+            className="vsg-nav-cta"
             style={{
               height: 40,
               padding: "0 18px",
@@ -456,8 +485,122 @@ function Nav({ onBookDemo, current = "" }) {
           >
             Book a demo
           </button>
+
+          {/* Mobile hamburger — hidden on desktop via CSS */}
+          <button
+            className="vsg-nav-burger"
+            onClick={() => setMobileOpen(true)}
+            aria-label="Open menu"
+            style={{
+              display: "none",
+              width: 40, height: 40, borderRadius: 10,
+              background: "transparent", border: "1px solid var(--hairline)",
+              cursor: "pointer", padding: 0,
+              alignItems: "center", justifyContent: "center",
+            }}
+          >
+            <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true">
+              <line x1="0" y1="1" x2="18" y2="1" stroke="currentColor" strokeWidth="1.6" />
+              <line x1="0" y1="7" x2="18" y2="7" stroke="currentColor" strokeWidth="1.6" />
+              <line x1="0" y1="13" x2="18" y2="13" stroke="currentColor" strokeWidth="1.6" />
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Mobile menu overlay */}
+      {mobileOpen && (
+        <div style={{
+          position: "fixed", inset: 0, zIndex: 200,
+          background: "var(--paper)",
+          display: "flex", flexDirection: "column",
+          overflowY: "auto",
+        }}>
+          {/* Top bar: logo + close */}
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+            padding: "14px 20px",
+            borderBottom: "1px solid var(--hairline)",
+          }}>
+            <a href="index.html" style={{ textDecoration: "none", display: "inline-flex", alignItems: "baseline", gap: 5 }}>
+              <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 800, fontSize: 24, color: "var(--ink-1)", letterSpacing: "-0.04em", lineHeight: 1 }}>VSG</span>
+              <span aria-hidden="true" style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: "var(--coral)", marginBottom: 2 }} />
+            </a>
+            <button
+              onClick={() => setMobileOpen(false)}
+              aria-label="Close menu"
+              style={{
+                width: 40, height: 40, borderRadius: 10,
+                background: "transparent", border: "1px solid var(--hairline)",
+                cursor: "pointer", padding: 0,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 18, color: "var(--ink-1)",
+              }}
+            >
+              ×
+            </button>
+          </div>
+
+          {/* Grouped links */}
+          <div style={{ padding: "24px 20px 32px", flex: 1 }}>
+            {["Products", "Services", "Company"].map((group) => (
+              <div key={group} style={{ marginBottom: 28 }}>
+                <div style={{
+                  fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11,
+                  letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--coral)",
+                  marginBottom: 12,
+                }}>
+                  {group}
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+                  {mobileLinks.filter((l) => l.group === group).map((l) => (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      onClick={() => setMobileOpen(false)}
+                      style={{
+                        fontFamily: "'Geist', sans-serif", fontWeight: 600, fontSize: 22,
+                        color: "var(--ink-1)", textDecoration: "none",
+                        letterSpacing: "-0.015em",
+                        padding: "14px 0",
+                        borderBottom: "1px solid var(--hairline)",
+                      }}
+                    >
+                      {l.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Sticky CTA at bottom */}
+          <div style={{
+            padding: "20px",
+            borderTop: "1px solid var(--hairline)",
+            background: "var(--paper)",
+          }}>
+            <button
+              onClick={() => { setMobileOpen(false); onBookDemo && onBookDemo(); }}
+              style={{
+                width: "100%", height: 52, borderRadius: 999,
+                background: "var(--ink-1)", color: "var(--paper)",
+                fontFamily: "'Geist', sans-serif", fontWeight: 600, fontSize: 15,
+                border: 0, cursor: "pointer",
+              }}
+            >
+              Book a demo
+            </button>
+            <div style={{
+              marginTop: 14, textAlign: "center",
+              fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10,
+              letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--ink-4)",
+            }}>
+              hello@vsgtech.co.za
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

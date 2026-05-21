@@ -258,3 +258,194 @@ h1 + p, h2 + p, h3 + p,
 
 /* Selection */
 ::selection { background: var(--coral-soft); color: var(--ink-1); }
+
+
+/* =====================================================================
+   RESPONSIVE — mobile / tablet overrides for inline-styled JSX
+   ─────────────────────────────────────────────────────────────────────
+   The JSX uses inline `style={{...}}` everywhere, which has the highest
+   CSS specificity (except for !important). To override layouts on small
+   viewports we use attribute selectors targeting the rendered DOM style
+   attribute + `!important`.
+   ===================================================================== */
+
+/* ── TABLET (≤ 1024px) ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  /* Collapse 3-col grids to 2-col on tablet */
+  [style*="grid-template-columns: repeat(3, 1fr)"],
+  [style*="grid-template-columns: repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  /* Side-by-side flex layouts that need to wrap */
+  [style*="display: grid"][style*="gridTemplateColumns: 1fr 1.4fr"],
+  [style*="display: grid"][style*="grid-template-columns: 1fr 1.4fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Trim outsized gaps */
+  [style*="gap: 80px"]   { gap: 48px !important; }
+  [style*="gap: 64px"]   { gap: 40px !important; }
+  /* Container side padding */
+  [style*="padding: 18px 48px"] { padding-left: 28px !important; padding-right: 28px !important; }
+}
+
+/* ── MOBILE (≤ 768px) ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* HARD RULE: every multi-column grid collapses to a single column */
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce all big gaps */
+  [style*="gap: 80px"], [style*="gap: 64px"], [style*="gap: 48px"] {
+    gap: 24px !important;
+  }
+  [style*="gap: 32px"] { gap: 18px !important; }
+
+  /* Body section padding */
+  section { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* Header / nav internal padding */
+  [style*="padding: 18px 48px"] { padding: 14px 20px !important; }
+
+  /* Containers with max-width fit naturally with the section padding */
+
+  /* Hero typography down-sizes — affects every h1/h2/h3 with inline font-size */
+  h1[style*="font-size: 112px"],
+  h1[style*="font-size: 104px"],
+  h1[style*="font-size: 96px"],
+  h1[style*="font-size: 88px"] {
+    font-size: clamp(40px, 11vw, 56px) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  h1[style*="font-size: 80px"],
+  h2[style*="font-size: 80px"] {
+    font-size: clamp(36px, 10vw, 48px) !important;
+    line-height: 1.08 !important;
+  }
+
+  h2[style*="font-size: 72px"],
+  h2[style*="font-size: 64px"],
+  h2[style*="font-size: 56px"] {
+    font-size: clamp(32px, 9vw, 42px) !important;
+    line-height: 1.1 !important;
+  }
+
+  h2[style*="font-size: 48px"],
+  h3[style*="font-size: 48px"],
+  h2[style*="font-size: 42px"],
+  h3[style*="font-size: 42px"] {
+    font-size: clamp(26px, 7vw, 32px) !important;
+    line-height: 1.15 !important;
+  }
+
+  h3[style*="font-size: 36px"],
+  h3[style*="font-size: 32px"],
+  h3[style*="font-size: 28px"],
+  h3[style*="font-size: 26px"],
+  h3[style*="font-size: 24px"],
+  h3[style*="font-size: 22px"] {
+    font-size: clamp(18px, 5vw, 22px) !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Body / large paragraphs */
+  p[style*="font-size: 22px"],
+  p[style*="font-size: 21px"],
+  p[style*="font-size: 20px"],
+  p[style*="font-size: 19px"] {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Pull-quote big paragraphs (Essay opener, founder note) */
+  p[style*="font-size: 36px"],
+  p[style*="font-size: 32px"],
+  p[style*="font-size: 30px"] {
+    font-size: clamp(20px, 5.6vw, 26px) !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Trim huge vertical padding on hero sections */
+  section[style*="padding-top: 144px"] { padding-top: 72px !important; }
+  section[style*="padding-top: 120px"] { padding-top: 64px !important; }
+  section[style*="padding-top: 96px"]  { padding-top: 56px !important; }
+  section[style*="padding-bottom: 144px"] { padding-bottom: 72px !important; }
+  section[style*="padding-bottom: 96px"]  { padding-bottom: 56px !important; }
+  section[style*="padding: 144px 0"]      { padding: 72px 20px !important; }
+  section[style*="padding: 96px 0 80px"]  { padding: 56px 20px 48px !important; }
+
+  /* Section component shared padding (uses --sp-* tokens with large values) */
+  .section { padding-top: var(--sp-8) !important; padding-bottom: var(--sp-8) !important; }
+
+  /* CTA button row — stack buttons full-width on phone */
+  [style*="display: flex"][style*="gap: 16"][style*="flex-wrap: wrap"] > a,
+  [style*="display: flex"][style*="gap: 16"][style*="flex-wrap: wrap"] > button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Stack the founder note avatar block neatly */
+  [style*="inline-flex"][style*="gap: 14"] {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Nav: hide desktop links + top-right contact on phones, show hamburger.
+     The full mobile menu (full-screen overlay) is rendered by Nav.jsx
+     and triggered by the hamburger. */
+  .vsg-nav-desktop { display: none !important; }
+  .vsg-nav-cta     { display: none !important; }
+  .vsg-nav-burger  { display: inline-flex !important; }
+
+  /* Source-page hero mockup overlapping into the next section overflows
+     on mobile — undo the negative margin */
+  [style*="margin-bottom: -140px"] { margin-bottom: 0 !important; }
+  [style*="margin-bottom: -120px"] { margin-bottom: 0 !important; }
+
+  /* Source page mockup max-width should be 100% on mobile */
+  [style*="maxWidth: 1100"] { max-width: 100% !important; }
+  [style*="maxWidth: 980"]  { max-width: 100% !important; }
+  [style*="maxWidth: 920"]  { max-width: 100% !important; }
+  [style*="maxWidth: 880"]  { max-width: 100% !important; }
+  [style*="maxWidth: 800"]  { max-width: 100% !important; }
+  [style*="maxWidth: 760"]  { max-width: 100% !important; }
+  [style*="maxWidth: 720"]  { max-width: 100% !important; }
+
+  /* Reduce card padding */
+  [style*="padding: 56px 64px"] { padding: 32px 24px !important; }
+  [style*="padding: 48px 56px"] { padding: 28px 22px !important; }
+  [style*="padding: 36px"]      { padding: 24px !important; }
+  [style*="padding: 32px"]      { padding: 20px !important; }
+
+  /* Mockups that have fixed pixel widths/heights */
+  [style*="height: 460"], [style*="height: 540"] { height: auto !important; min-height: 320px; }
+}
+
+/* ── SMALL PHONE (≤ 480px) ─────────────────────────────────────────── */
+@media (max-width: 480px) {
+  /* Tighten body text */
+  body { font-size: 15px; }
+
+  /* Tighten massive hero h1 even further */
+  h1[style*="font-size"] {
+    font-size: clamp(32px, 9vw, 40px) !important;
+    letter-spacing: -0.025em !important;
+  }
+  h2[style*="font-size"] {
+    font-size: clamp(26px, 7.5vw, 34px) !important;
+  }
+
+  /* Even smaller section padding */
+  section { padding-left: 16px !important; padding-right: 16px !important; }
+  section[style*="padding-top"] { padding-top: 48px !important; }
+  section[style*="padding-bottom"] { padding-bottom: 48px !important; }
+
+  /* Hide breadcrumb on very small screens */
+  [style*="textTransform: uppercase"][style*="letter-spacing: 0.22em"]:has(a[href*=".html"]) { display: none !important; }
+}
+
+/* ── PREVENT HORIZONTAL OVERFLOW ───────────────────────────────────── */
+html, body { overflow-x: hidden; }
+img, svg, video { max-width: 100%; height: auto; }
