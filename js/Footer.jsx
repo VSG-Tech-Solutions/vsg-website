@@ -120,9 +120,9 @@ function Footer() {
             © 2026 VSG Tech Solutions (Pty) Ltd · Cape Town, ZA
           </div>
           <div style={{ display: "flex", gap: 28, fontFamily: "'Geist', sans-serif", fontSize: 13, color: "var(--ink-3)" }}>
-            <a href="#" style={{ color: "var(--ink-3)", textDecoration: "none" }}>Privacy</a>
-            <a href="#" style={{ color: "var(--ink-3)", textDecoration: "none" }}>Terms</a>
-            <a href="#" style={{ color: "var(--ink-3)", textDecoration: "none" }}>Security</a>
+            <a href="privacy.html" style={{ color: "var(--ink-3)", textDecoration: "none" }}>Privacy</a>
+            <a href="privacy.html#s11" style={{ color: "var(--ink-3)", textDecoration: "none" }}>Security</a>
+            <a href="mailto:hello@vsgtech.co.za" style={{ color: "var(--ink-3)", textDecoration: "none" }}>Contact</a>
           </div>
         </div>
       </Container>
