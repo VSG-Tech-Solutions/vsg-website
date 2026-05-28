@@ -141,7 +141,7 @@ function PolicyBody() {
               VSG Tech Solutions (Pty) Ltd ("VSG Tech", "we", "us", "our") is a private company registered in South Africa. We build AI products and bespoke AI software for the South African mid-market. Our registered office is in Cape Town.
             </P>
             <P>
-              For any privacy-related question, email <strong>privacy@vsgtech.co.za</strong> or <strong>hello@vsgtech.co.za</strong>. We're the Responsible Party under the Protection of Personal Information Act, 2013 (POPIA) for the personal information we collect through this website and our products.
+              For any privacy-related question, email <strong>hello@vsgtech.co.za</strong>. We're the Responsible Party under the Protection of Personal Information Act, 2013 (POPIA) for the personal information we collect through this website and our products.
             </P>
           </PolicySection>
 
@@ -229,7 +229,7 @@ function PolicyBody() {
               "Lodge a complaint with the Information Regulator of South Africa.",
             ]} />
             <P>
-              To exercise any of these rights, email <strong>privacy@vsgtech.co.za</strong>. We'll respond within 30 days. There is no charge for reasonable requests.
+              To exercise any of these rights, email <strong>hello@vsgtech.co.za</strong>. We'll respond within 30 days. There is no charge for reasonable requests.
             </P>
             <P>
               The Information Regulator can be reached at <strong>complaints.IR@justice.gov.za</strong> or via <strong>justice.gov.za/inforeg</strong>.
@@ -273,7 +273,7 @@ function PolicyBody() {
             <P>
               <strong>VSG Tech Solutions (Pty) Ltd</strong><br />
               Cape Town, South Africa<br />
-              <strong>privacy@vsgtech.co.za</strong> · <strong>hello@vsgtech.co.za</strong>
+              <strong>hello@vsgtech.co.za</strong>
             </P>
           </PolicySection>
 
@@ -315,8 +315,8 @@ function PrivacyContactStrip({ onBookDemo }) {
             </p>
           </div>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "flex-end" }}>
-            <PrimaryButton as="a" href="mailto:privacy@vsgtech.co.za">
-              Email privacy@
+            <PrimaryButton as="a" href="mailto:hello@vsgtech.co.za">
+              Email hello@
             </PrimaryButton>
             <OutlineButton onClick={onBookDemo}>
               Book a call
