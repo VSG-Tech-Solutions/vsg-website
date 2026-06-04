@@ -10,11 +10,12 @@ function Footer() {
       ],
     },
     {
-      title: "Services",
+      title: "What we build",
       links: [
+        { l: "AI Systems & Integration", h: "ai-systems.html" },
         { l: "AI Workflow Automation", h: "automation.html" },
         { l: "Bespoke Software", h: "bespoke.html" },
-        { l: "Book a discovery", h: "contact.html" },
+        { l: "Custom CRM", h: "crm.html" },
       ],
     },
     {
@@ -62,7 +63,7 @@ function Footer() {
               />
             </div>
             <p style={{ marginTop: 18, maxWidth: 320, fontFamily: "'Geist', sans-serif", fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)" }}>
-              We build AI products for the South African mid-market. A founder-led team in Cape Town.
+              Operational Intelligence software for the South African mid-market — custom software, AI systems, and products. A founder-led team in Cape Town.
             </p>
             <div
               style={{

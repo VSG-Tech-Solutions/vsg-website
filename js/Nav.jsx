@@ -197,6 +197,12 @@ function NavServicesDropdown({ current }) {
 
   const items = [
     {
+      href: "ai-systems.html",
+      title: "AI Systems & Integration",
+      sub: "Add AI to the systems you already run.",
+      slug: "ai-systems",
+    },
+    {
       href: "automation.html",
       title: "AI Workflow Automation",
       sub: "Two-to-four week sprints. Fixed scope. Live in production.",
@@ -207,6 +213,12 @@ function NavServicesDropdown({ current }) {
       title: "Bespoke Software",
       sub: "Custom software for the problem only YOU have.",
       slug: "bespoke",
+    },
+    {
+      href: "crm.html",
+      title: "Custom CRM",
+      sub: "A CRM shaped around how you actually sell.",
+      slug: "crm",
     },
   ];
 
@@ -344,8 +356,10 @@ function Nav({ onBookDemo, current = "" }) {
   const mobileLinks = [
     { href: "source.html", label: "VSG Source", group: "Products" },
     { href: "pace.html", label: "VSG Pace", group: "Products" },
-    { href: "automation.html", label: "AI Workflow Automation", group: "Services" },
-    { href: "bespoke.html", label: "Bespoke Software", group: "Services" },
+    { href: "ai-systems.html", label: "AI Systems & Integration", group: "What we build" },
+    { href: "automation.html", label: "AI Workflow Automation", group: "What we build" },
+    { href: "bespoke.html", label: "Bespoke Software", group: "What we build" },
+    { href: "crm.html", label: "Custom CRM", group: "What we build" },
     { href: "ace.html", label: "VSG ACE", group: "Company" },
     { href: "how-it-works.html", label: "How it works", group: "Company" },
     { href: "about.html", label: "About", group: "Company" },
@@ -543,7 +557,7 @@ function Nav({ onBookDemo, current = "" }) {
 
           {/* Grouped links */}
           <div style={{ padding: "24px 20px 32px", flex: 1 }}>
-            {["Products", "Services", "Company"].map((group) => (
+            {["Products", "What we build", "Company"].map((group) => (
               <div key={group} style={{ marginBottom: 28 }}>
                 <div style={{
                   fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11,

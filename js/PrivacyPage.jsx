@@ -138,7 +138,7 @@ function PolicyBody() {
 
           <PolicySection n={1} title="Who we are">
             <P>
-              VSG Tech Solutions (Pty) Ltd ("VSG Tech", "we", "us", "our") is a private company registered in South Africa. We build AI products and bespoke AI software for the South African mid-market. Our registered office is in Cape Town.
+              VSG Tech Solutions (Pty) Ltd ("VSG Tech", "we", "us", "our") is a private company registered in South Africa. We build custom software, AI systems, and products for the South African mid-market. Our registered office is in Cape Town.
             </P>
             <P>
               For any privacy-related question, email <strong>hello@vsgtech.co.za</strong>. We're the Responsible Party under the Protection of Personal Information Act, 2013 (POPIA) for the personal information we collect through this website and our products.

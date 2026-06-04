@@ -105,7 +105,7 @@ function ContactForm() {
                 <div>
                   <label style={labelStyle}>Reason for getting in touch</label>
                   <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 4 }}>
-                    {["VSG Source", "VSG Pace", "Book a demo", "AI Workflow Automation", "Bespoke Software", "Press / other"].map((t) => {
+                    {["Not sure where to start", "AI Systems & Integration", "AI Workflow Automation", "Bespoke Software", "Custom CRM", "VSG Source", "VSG Pace", "Book a demo", "Press / other"].map((t) => {
                       const sel = form.topic === t;
                       return (
                         <button
@@ -176,10 +176,9 @@ function ContactForm() {
                 <div style={{ marginTop: 18, display: "flex", flexDirection: "column", gap: 14 }}>
                   {[
                     { l: "Email", v: "hello@vsgtech.co.za", h: "mailto:hello@vsgtech.co.za" },
-                    { l: "Phone", v: "+27 21 000 0000", h: "tel:+27210000000" },
-                    { l: "LinkedIn", v: "@vsg-tech", h: "#" },
-                  ].map((c, i) => (
-                    <a key={i} href={c.h} style={{ display: "grid", gridTemplateColumns: "70px 1fr", gap: 14, padding: "10px 0", textDecoration: "none", color: "var(--ink-1)", borderBottom: i === 2 ? "none" : "1px solid var(--hairline)" }}>
+                    { l: "Website", v: "vsgtech.co.za", h: "https://www.vsgtech.co.za" },
+                  ].map((c, i, arr) => (
+                    <a key={i} href={c.h} style={{ display: "grid", gridTemplateColumns: "70px 1fr", gap: 14, padding: "10px 0", textDecoration: "none", color: "var(--ink-1)", borderBottom: i === arr.length - 1 ? "none" : "1px solid var(--hairline)" }}>
                       <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)" }}>{c.l}</span>
                       <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 500, fontSize: 16, color: "var(--ink-1)" }}>{c.v}</span>
                     </a>

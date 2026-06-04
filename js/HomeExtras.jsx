@@ -11,8 +11,8 @@
 // ============================================================
 function WhatWeAre() {
   const isThis = [
-    "Standalone AI-native products — procurement, scheduling, more coming",
-    "First-class connectors to SysPro, Sage, SAP B1, Pastel, Acumatica, Odoo",
+    "Custom software, AI systems, and products — built around how you actually run",
+    "Connects to the tools you already use — SysPro, Sage, SAP B1, Pastel, and more",
     "Built specifically for SA mid-market manufacturers, retailers, and distributors",
     "Per-customer AI memory — your context, never shared, never cross-trained",
     "Live in five weeks. Stephan replies personally.",
@@ -233,7 +233,7 @@ function Pricing({ onBookDemo }) {
     {
       name: "Source",
       sub: "VSG Source — Procurement",
-      from: "From R 24k / mo",
+      from: "Flat monthly",
       blurb: "Per-mailbox flat fee. Scales with active supplier volume. Implementation included in year one.",
       bullets: ["VSG ACE tenant included", "First-class ERP connector", "Quarterly tuning, no extra charge", "Cancel with 60 days' notice"],
       cta: "See Source",
@@ -242,7 +242,7 @@ function Pricing({ onBookDemo }) {
     {
       name: "Source + Pace",
       sub: "Both products, bundled",
-      from: "From R 38k / mo",
+      from: "Bundle",
       blurb: "Both products on the same ACE tenant. Source feeds inbound risk signals straight into Pace's plan.",
       bullets: ["Both products on one tenant", "Bundle discount applied", "Priority on Pace early access", "Design-partner conversion"],
       cta: "Talk to us",
@@ -252,7 +252,7 @@ function Pricing({ onBookDemo }) {
     {
       name: "Services",
       sub: "Custom · Automation · Bespoke",
-      from: "From R 180k",
+      from: "Fixed scope",
       blurb: "Fixed-price sprints, fixed-price projects, or annual partnership. No retainer trap.",
       bullets: ["Two-week sprint format", "Scope-priced projects", "Source code, in your repo", "Phone number, not a portal"],
       cta: "Explore services",

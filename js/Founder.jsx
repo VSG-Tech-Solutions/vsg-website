@@ -42,14 +42,14 @@ function Founder() {
           <Reveal>
             <div>
               <Eyebrow>05 — Who we are</Eyebrow>
-              <Headline as="h2" size={56} style={{ marginTop: 32, maxWidth: 460 }}>
-                Founder-led, built <em style={{ fontStyle: "italic", fontWeight: 700 }}>in Cape Town.</em>
+              <Headline as="h2" size={56} style={{ marginTop: 32, maxWidth: 480 }}>
+                A small team that <em style={{ fontStyle: "italic", fontWeight: 700 }}>actually builds.</em>
               </Headline>
               <p style={{ marginTop: 28, maxWidth: 480, fontFamily: "'Geist', sans-serif", fontSize: 18, lineHeight: 1.7, color: "var(--ink-2)" }}>
-                We started VSG because the AI products built for the Fortune 500 don't fit a 200-person factory in Atlantis, and the local consultancies aren't building AI. We sit in the gap between.
+                I started VSG because the software built for the Fortune 500 doesn't fit a 200-person factory in Atlantis — and the consultancies that could build it locally aren't building with AI. We sit in that gap. Real software, real AI, made for how South African operations actually run.
               </p>
               <p style={{ marginTop: 18, maxWidth: 480, fontFamily: "'Geist', sans-serif", fontSize: 18, lineHeight: 1.7, color: "var(--ink-2)" }}>
-                Stephan replies to every demo request personally, within one working day. If you sign with us, you'll have his number.
+                Start small with us — one problem, one system. If it earns the next step, we go further. I reply to every message personally, within a working day. Sign with us and you'll have my number.
               </p>
 
               <div style={{ marginTop: 36, display: "flex", alignItems: "center", gap: 18 }}>
@@ -106,10 +106,10 @@ function Founder() {
                   textWrap: "pretty",
                 }}
               >
-                The first week, our buyer was sceptical. The fourth week, she was using the drafts. The eighth week, she was the one telling us which suppliers she wanted ACE to handle next.
+                We're early, and I won't pretend otherwise. Here's what I can promise: we start with one real problem, build something that works, and only go further once you've seen it. No eighteen-month decks. No retainer trap.
               </p>
               <div style={{ marginTop: 28, fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-                Operations director · FMCG manufacturer · 320 staff
+                Stephan Esterhuizen · Founder
               </div>
 
               <hr style={{ border: 0, borderTop: "1px solid var(--hairline)", margin: "32px 0" }} />

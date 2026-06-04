@@ -10,12 +10,12 @@ function HowHero() {
         <Reveal>
           <Eyebrow>The rollout</Eyebrow>
           <h1 style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 96, lineHeight: 1.0, letterSpacing: "-0.04em", color: "var(--ink-1)", margin: "32px 0 0", maxWidth: 1000, textWrap: "balance" }}>
-            From kick-off to live in <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>six weeks.</em>
+            From kick-off to live in <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>weeks, not quarters.</em>
           </h1>
         </Reveal>
         <Reveal delay={120}>
           <p style={{ marginTop: 32, maxWidth: 680, fontFamily: "'Geist', sans-serif", fontSize: 21, lineHeight: 1.55, color: "var(--ink-2)" }}>
-            No platform migration. No three-month integration project. No "transformation" deck. Just a clean five-week rollout you'd recognise from any sensible vendor.
+            No platform migration. No three-month integration project. No "transformation" deck. Just a clean rollout — small first, proven fast, widened once you've seen it work. The same approach whether it's a workflow, a system, a custom build, or one of our products.
           </p>
         </Reveal>
       </Container>
@@ -34,7 +34,7 @@ function WhatYouOwn() {
               What you own. <em style={{ fontStyle: "italic", fontWeight: 700 }}>What we own.</em>
             </Headline>
             <p style={{ marginTop: 28, maxWidth: 540, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              No surprises in week five. Here's exactly who's holding each piece of the rollout.
+              No surprises later. Here's exactly who's holding each piece of the rollout.
             </p>
           </div>
         </Reveal>
@@ -49,11 +49,11 @@ function WhatYouOwn() {
               </div>
               <ul style={{ marginTop: 22, padding: 0, display: "flex", flexDirection: "column", gap: 14 }}>
                 {[
-                  "Decide which inboxes / lines / suppliers go first",
-                  "Approve every reply ACE drafts in the first month",
-                  "Set the threshold for when ACE may act on its own",
-                  "Sign off the audit log monthly",
-                  "Own the data, the memory, the export",
+                  "Decide what we tackle first",
+                  "Review the work before it touches anything live",
+                  "Set where AI may act on its own — and where it can't",
+                  "Sign off the audit log",
+                  "Own the data, the code, and the export",
                 ].map((s, i) => (
                   <li key={i} style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 12, alignItems: "start", listStyle: "none" }}>
                     <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--ink-1)", marginTop: 9 }} />
@@ -73,11 +73,11 @@ function WhatYouOwn() {
               </div>
               <ul style={{ marginTop: 22, padding: 0, display: "flex", flexDirection: "column", gap: 14 }}>
                 {[
-                  "Provision your ACE tenant, on the region you specify",
-                  "Connect to your ERP, your inbox, your file shares",
-                  "Tune prompts and rules to your terminology",
-                  "Run shadow-mode evaluation and fix the misses",
-                  "Stand by every send for the first ninety days",
+                  "Build on the region and stack you specify",
+                  "Connect to your ERP, your tools, your data",
+                  "Tune it to your terminology and your rules",
+                  "Run it in shadow mode and fix what's wrong",
+                  "Stand by through the first ninety days",
                 ].map((s, i) => (
                   <li key={i} style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 12, alignItems: "start", listStyle: "none" }}>
                     <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--coral)", marginTop: 9 }} />
@@ -99,7 +99,7 @@ function AfterRollout() {
       <Container>
         <Reveal>
           <div style={{ maxWidth: 720 }}>
-            <Eyebrow>After week six</Eyebrow>
+            <Eyebrow>After go-live</Eyebrow>
             <Headline as="h2" size={48} style={{ marginTop: 32 }}>
               We don't disappear. <em style={{ fontStyle: "italic", fontWeight: 700 }}>We don't overstay.</em>
             </Headline>
@@ -110,8 +110,8 @@ function AfterRollout() {
         </Reveal>
         <div style={{ marginTop: 48, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {[
-            { d: "First 90 days", t: "Daily standby", b: "We sit in your channel, watch the misses, and tune. SLA on every flag." },
-            { d: "Quarterly", t: "Tuning review", b: "Together we look at what ACE got wrong, what your team caught, what could go next. No retainer hours, no extra invoice." },
+            { d: "First 90 days", t: "Daily standby", b: "We sit in your channel, watch what's off, and tune. SLA on every flag." },
+            { d: "Quarterly", t: "Tuning review", b: "Together we look at what's working, what your team caught, and what's next. No retainer hours, no extra invoice." },
             { d: "Anytime", t: "Stephan's number", b: "If you signed with us, you have his number. He picks up. So do the engineers." },
           ].map((c, i) => (
             <Reveal key={i} delay={i * 80}>
@@ -143,7 +143,7 @@ function HowCTA({ onBookDemo }) {
           <div style={{ textAlign: "center", maxWidth: 880, margin: "0 auto", position: "relative" }}>
             <Eyebrow>Ready when you are</Eyebrow>
             <h2 style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 80, lineHeight: 1.0, letterSpacing: "-0.035em", color: "var(--ink-1)", margin: "32px 0 0", textWrap: "balance" }}>
-              The next six weeks <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>start with a 30-minute call.</em>
+              It all <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>starts with a 30-minute call.</em>
             </h2>
             <div style={{ marginTop: 40, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
               <PrimaryButton onClick={onBookDemo} size="lg">Book the kick-off</PrimaryButton>

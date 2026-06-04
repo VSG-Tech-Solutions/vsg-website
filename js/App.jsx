@@ -12,7 +12,6 @@ function HomePageContent({ onBookDemo }) {
       <Services onBookDemo={onBookDemo} />
       <Ace />
       <HowItWorks />
-      <Founder />
       <FAQ />
       <CTAFinal onBookDemo={onBookDemo} />
     </React.Fragment>

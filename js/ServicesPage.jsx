@@ -21,14 +21,14 @@ function ServicesHero({ onBookDemo }) {
       />
       <Container style={{ position: "relative" }}>
         <Reveal>
-          <Eyebrow>Services</Eyebrow>
+          <Eyebrow>What we build</Eyebrow>
           <h1 style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 96, lineHeight: 1.0, letterSpacing: "-0.04em", color: "var(--ink-1)", margin: "32px 0 0", maxWidth: 960, textWrap: "balance" }}>
-            Three ways to <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>work with us.</em>
+            Software and AI, built <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>around how you work.</em>
           </h1>
         </Reveal>
         <Reveal delay={120}>
           <p style={{ marginTop: 32, maxWidth: 720, fontFamily: "'Geist', sans-serif", fontSize: 21, lineHeight: 1.55, color: "var(--ink-2)" }}>
-            Beyond our standalone products, three engagement shapes for the same audience: SA mid-market manufacturers, retailers, and distributors. All on the same VSG ACE core, all priced before we start.
+            Custom software, AI systems, automation, and CRMs — for SA mid-market manufacturers, retailers, and distributors. At the end of the day, all software is custom. Start with one problem; grow from there. Every engagement quoted upfront before we start.
           </p>
         </Reveal>
         <Reveal delay={200}>
@@ -42,8 +42,10 @@ function ServicesHero({ onBookDemo }) {
         <Reveal delay={280}>
           <div style={{ marginTop: 56, display: "flex", gap: 0, borderTop: "1px solid var(--hairline)", borderBottom: "1px solid var(--hairline)" }}>
             {[
-              { h: "#automation", n: "A", l: "AI Workflow Automation" },
-              { h: "#bespoke", n: "B", l: "Bespoke Software" },
+              { h: "#ai-systems", n: "A", l: "AI Systems & Integration" },
+              { h: "#automation", n: "B", l: "AI Workflow Automation" },
+              { h: "#bespoke", n: "C", l: "Bespoke Software" },
+              { h: "#crm", n: "D", l: "Custom CRM" },
             ].map((a, i) => (
               <a
                 key={i}
@@ -54,7 +56,7 @@ function ServicesHero({ onBookDemo }) {
                   alignItems: "center",
                   gap: 14,
                   padding: "22px 24px",
-                  borderRight: i < 2 ? "1px solid var(--hairline)" : "none",
+                  borderRight: i < 3 ? "1px solid var(--hairline)" : "none",
                   textDecoration: "none",
                   color: "var(--ink-1)",
                   transition: "background 220ms cubic-bezier(.2,0,0,1)",
@@ -235,6 +237,38 @@ function VisualBespokeBig() {
   );
 }
 
+function VisualCRMBig() {
+  return (
+    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.14)" }}>
+      <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)", marginBottom: 18 }}>
+        Your pipeline · your stages
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
+        {[
+          { stage: "Lead", n: 12 },
+          { stage: "Qualified", n: 7 },
+          { stage: "Proposal", n: 4 },
+          { stage: "Won", n: 2, hot: true },
+        ].map((col, i) => (
+          <div key={i} style={{ border: "1px solid var(--hairline)", borderRadius: 10, padding: 12, background: "var(--paper-2)" }}>
+            <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ink-4)" }}>{col.stage}</div>
+            <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 22, color: "var(--ink-1)", marginTop: 6, letterSpacing: "-0.02em" }}>{col.n}</div>
+            <div style={{ marginTop: 10, display: "flex", flexDirection: "column", gap: 6 }}>
+              {Array.from({ length: Math.min(col.n, 3) }).map((_, j) => (
+                <div key={j} style={{ height: 16, borderRadius: 4, background: col.hot && j === 0 ? "var(--coral)" : "var(--surface-white)", border: col.hot && j === 0 ? 0 : "1px solid var(--hairline)" }} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style={{ marginTop: 18, padding: "14px 16px", background: "var(--paper-2)", borderRadius: 10, fontFamily: "'Geist', sans-serif", fontSize: 13, color: "var(--ink-2)" }}>
+        <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--coral)", marginRight: 6 }}>Built for you</span>
+        Not another CRM nobody opens.
+      </div>
+    </div>
+  );
+}
+
 // ---------- Engagement model section ----------
 function EngagementModel() {
   return (
@@ -251,7 +285,7 @@ function EngagementModel() {
 
         <div style={{ marginTop: 56, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {[
-            { tag: "Sprint", price: "From R 180k", scope: "Two-week sprint. Fixed scope, fixed price. Output: a working prototype, a roadmap, or a costed plan you can take anywhere." },
+            { tag: "Sprint", price: "Fixed price", scope: "Two-week sprint. Fixed scope, fixed price. Output: a working prototype, a roadmap, or a plan you can take anywhere. Quoted upfront before we start." },
             { tag: "Project", price: "Scope-priced", scope: "8–16 weeks. Discovery → prototype → production. Fixed price per phase, with a real gate between each. We don't extend without your sign-off." },
             { tag: "Partner", price: "Annual", scope: "Ongoing engineering capacity, treated like an in-house team. Set quarterly objectives together. Walk away with 30 days' notice." },
           ].map((c, i) => (
@@ -321,8 +355,33 @@ function ServicesPage({ onBookDemo }) {
     <React.Fragment>
       <ServicesHero onBookDemo={onBookDemo} />
       <ServiceDeepDive
-        id="automation"
+        id="ai-systems"
         num="A"
+        eyebrow="AI Systems & Integration"
+        headline="Put AI to work inside"
+        emphasis="the systems you run."
+        body="Most businesses don't need another piece of software. They need the systems they already run to start thinking for themselves. That's what AI integration does: we take the tools you use every day — your ERP, your spreadsheets, your inbox, your shared drives — and add a layer of intelligence on top. It reads the documents your team would otherwise re-key. It drafts the replies they'd write from scratch. It classifies, reconciles, predicts, and flags the handful of things that genuinely need a person. The rest just gets handled. We're also honest about where AI doesn't belong — part of the job is telling you which parts of your operation AI will quietly transform, and which parts are better left exactly as they are. If you know AI could help somewhere but have no idea where to start, that's the most common place to begin — and the best one."
+        useCases={[
+          "Reading and extracting data from invoices, POs, contracts, and emails",
+          "Drafting replies and documents in your team's own voice",
+          "Classifying and routing high-volume inboxes automatically",
+          "Reconciling and matching against your ERP and records",
+          "Predicting risk early — late deliveries, slow payers, stock-outs",
+          "Surfacing the few exceptions that need a human, hiding the noise",
+        ]}
+        deliverables={[
+          { t: "Into your stack", s: "AI added to the tools you already use" },
+          { t: "No replacement",  s: "Your systems stay where they are" },
+          { t: "Honest scoping",  s: "We tell you where AI won't help, too" },
+          { t: "Start with one",  s: "One process, proven, then expand" },
+          { t: "Human-in-loop",   s: "AI acts where you allow it, flags the rest" },
+          { t: "Audit trail",     s: "Every action logged and explainable" },
+        ]}
+        visual={<VisualCustomBig />}
+      />
+      <ServiceDeepDive
+        id="automation"
+        num="B"
         eyebrow="AI Workflow Automation"
         headline="Automate your"
         emphasis="highest-value workflows."
@@ -344,7 +403,7 @@ function ServicesPage({ onBookDemo }) {
       />
       <ServiceDeepDive
         id="bespoke"
-        num="B"
+        num="C"
         eyebrow="Bespoke Software"
         headline="Software built for the problem"
         emphasis="only YOU have."
@@ -361,7 +420,33 @@ function ServicesPage({ onBookDemo }) {
           { t: "Source code", s: "Yours, in your repo" },
           { t: "Hand-over",   s: "Docs + the engineer's phone number" },
         ]}
-        visual={<VisualCustomBig />}
+        visual={<VisualBespokeBig />}
+      />
+      <ServiceDeepDive
+        id="crm"
+        num="D"
+        eyebrow="Custom CRM"
+        headline="A CRM shaped around"
+        emphasis="how you actually sell."
+        body="Here's the open secret about CRM: most businesses pay a fortune for a big-name system and use barely 10% of it. The other 90% is built for someone else's business — getting in the way of yours. So the team quietly drifts back to spreadsheets, and the CRM you're paying for every month becomes an expensive address book. We build the opposite. A CRM shaped around how YOU actually sell — your pipeline, your stages, your data, your team. Connected to the systems you already run, and only as deep as the people using it will genuinely use. No 90% you pay for and ignore. It chases follow-ups, updates records, and reports in plain language — so the people who run the business can read it in two minutes. Start lean, and grow it as you grow."
+        useCases={[
+          "A pipeline that matches how your deals really move — not a generic funnel",
+          "Connected to your ERP, your quotes, and your existing data",
+          "Only the fields and steps your team will actually fill in",
+          "Automations that chase, remind, and update without anyone re-typing",
+          "Reporting the people who run the business can read in two minutes",
+          "Replaces the big-name CRM you pay for and barely use",
+        ]}
+        deliverables={[
+          { t: "Your process",  s: "Built around how you sell, not a template" },
+          { t: "Connected",     s: "Talks to your existing tools and data" },
+          { t: "Actually used", s: "Simple enough that people open it daily" },
+          { t: "No bloat",      s: "None of the 90% you'd never touch" },
+          { t: "Grows with you", s: "Start lean, add as you need it" },
+          { t: "Yours",         s: "Source code, in your repo" },
+        ]}
+        visual={<VisualCRMBig />}
+        reverse
       />
       <EngagementModel />
       <ServicesCTA onBookDemo={onBookDemo} />

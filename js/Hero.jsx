@@ -211,7 +211,7 @@ function Hero({ onBookDemo }) {
               fontWeight: 400,
             }}
           >
-            We build AI products for manufacturing, retail, and distribution operations. It's our niche — and the only one we build for. South African mid-market, founder-led, made in Cape Town.
+            We're an Operational Intelligence software company in Cape Town. We build the custom software, AI systems, and products that make South African operations run smarter. Start with one problem — grow from there. Founder-led.
           </p>
         </Reveal>
 

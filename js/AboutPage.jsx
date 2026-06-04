@@ -34,9 +34,9 @@ function AboutHero() {
             lineHeight: 0.98, letterSpacing: "-0.045em", color: "var(--ink-1)",
             margin: 0, maxWidth: 1180, textWrap: "balance",
           }}>
-            VSG Tech is a{" "}
+            VSG Tech is a South African{" "}
             <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>
-              South African AI software company.
+              Operational Intelligence software company.
             </em>
           </h1>
         </Reveal>
@@ -45,7 +45,7 @@ function AboutHero() {
             marginTop: 40, maxWidth: 760, fontFamily: "'Geist', sans-serif",
             fontSize: 22, lineHeight: 1.55, color: "var(--ink-2)",
           }}>
-            VSG Tech is a Cape Town AI software company. We build standalone AI products and bespoke AI software for South African mid-market manufacturers, retailers, and distributors.
+            We're a Cape Town team that builds custom software, AI systems, and products that make operations run smarter — for South African mid-market manufacturers, retailers, and distributors. Start with one problem; grow from there.
           </p>
         </Reveal>
       </Container>
@@ -76,7 +76,7 @@ function Essay() {
               lineHeight: 1.3, letterSpacing: "-0.02em", color: "var(--ink-1)",
               margin: 0, textWrap: "balance",
             }}>
-              Three things were missing from South African AI.
+              Three things were missing from South African software.
             </p>
 
             <div style={{

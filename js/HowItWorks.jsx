@@ -5,29 +5,29 @@
 
 const STEPS = [
   {
-    week: "Week 1",
+    week: "Step 1",
     title: "Discovery",
-    body: "We sit with your procurement lead, your finance person, your floor supervisor. Read your inbox, walk your line, list the suppliers that actually matter.",
+    body: "We sit with the people who actually do the work. We map how it flows today, find where it breaks, and pick the one problem worth solving first.",
   },
   {
-    week: "Week 2 – 3",
-    title: "Tenant set-up",
-    body: "Your ACE instance is provisioned. We load your suppliers, your terminology, your ERP connection. Nothing leaves your tenant.",
+    week: "Step 2",
+    title: "First working slice",
+    body: "We build something real on your actual data — not a mockup, not a deck. Connected to the systems you already run, so it fits how you actually work.",
   },
   {
-    week: "Week 4",
-    title: "Shadow mode",
-    body: "ACE drafts replies — but only your team sees them. Every draft is reviewed. We watch the misses together and tune the prompts.",
+    week: "Step 3",
+    title: "Shadow & tune",
+    body: "You and your team use it alongside how you work today. We watch what's right, what's wrong, and tune it together before it touches anything live.",
   },
   {
-    week: "Week 5",
-    title: "Live",
-    body: "The first ACE-drafted email goes to a real supplier, reviewed by your team. Then ten. Then fifty. By the end of the week, ACE is replying for the inboxes you've approved — your team handles exceptions, not throughput. We stay on standby.",
+    week: "Step 4",
+    title: "Go live",
+    body: "It goes live on the real work, with your team in control. We start small, prove it, and widen from there. We stay on standby.",
   },
   {
     week: "Then",
-    title: "Quarterly tuning",
-    body: "Every quarter we sit again, look at what ACE got wrong, what your team caught, what could go next. No retainer, no hours billed.",
+    title: "Grow from there",
+    body: "Once it's earned the next step, we look at what's next — a bigger build, another workflow, the next system. No retainer, no hours billed for the catch-up.",
   },
 ];
 
@@ -39,10 +39,10 @@ function HowItWorks() {
           <div style={{ maxWidth: 780 }}>
             <Eyebrow>04 — How it works</Eyebrow>
             <Headline as="h2" size={64} style={{ marginTop: 32 }}>
-              From kick-off to live in <em style={{ fontStyle: "italic", fontWeight: 700 }}>six weeks.</em>
+              From kick-off to live in <em style={{ fontStyle: "italic", fontWeight: 700 }}>weeks, not quarters.</em>
             </Headline>
             <p style={{ marginTop: 28, maxWidth: 580, fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              No platform migration. No three-month integration project. No "transformation" deck. Just a clean five-week rollout you'd recognise from any sensible vendor.
+              No platform migration. No three-month integration project. No "transformation" deck. Just a clean rollout — small first, proven fast, widened once you've seen it work. Same approach whether it's a workflow, a system, a custom build, or one of our products.
             </p>
           </div>
         </Reveal>
