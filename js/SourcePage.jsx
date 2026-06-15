@@ -1846,10 +1846,10 @@ function SourceQuote() {
               color: "var(--ink-1)",
               textWrap: "balance",
             }}>
-              The first week, our buyer was sceptical. The fourth week, she was using the drafts. The eighth week, she was the one telling us which suppliers she wanted ACE to handle next.
+              Month one, the team is usually sceptical. By week four, they're using the drafts. By week eight, they're the ones telling ACE which suppliers to handle next. That's the curve we see.
             </p>
             <div style={{ marginTop: 36, fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-              Operations director · FMCG manufacturer · 320 staff
+              How adoption actually goes
             </div>
           </div>
         </Reveal>

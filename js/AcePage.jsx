@@ -845,11 +845,11 @@ function AceArchitecture() {
 
 function AceModelLayer() {
   const models = [
-    { task: "Drafting supplier replies", model: "Claude Sonnet 4.5", why: "Highest quality at house-voice nuance + Afrikaans/isiZulu handling." },
-    { task: "Email classification + routing", model: "Claude Haiku 4", why: "Fast, cheap, accurate enough for triage at inbox scale." },
-    { task: "Quote extraction (OCR + structure)", model: "Gemini 2.0 Pro Vision", why: "Best-in-class for scanned PDFs and noisy quote layouts." },
-    { task: "Supplier-pick reasoning + EvidenceButton output", model: "Claude Sonnet 4.5", why: "Explainable chain-of-thought + EvidenceButton output." },
-    { task: "Embeddings (your memory)", model: "self-hosted (pgvector)", why: "Your supplier vectors never leave your tenant." },
+    { task: "Drafting supplier replies", model: "Frontier reasoning model", why: "Highest quality at house-voice nuance + Afrikaans/isiZulu handling." },
+    { task: "Email classification + routing", model: "Fast classification model", why: "Quick, low-cost, accurate enough for triage at inbox scale." },
+    { task: "Quote extraction (OCR + structure)", model: "Vision model", why: "Best-in-class for scanned PDFs and noisy quote layouts." },
+    { task: "Supplier-pick reasoning + evidence", model: "Frontier reasoning model", why: "Explainable reasoning, with the evidence attached to every call." },
+    { task: "Embeddings (your memory)", model: "Self-hosted, in your tenant", why: "Your supplier vectors never leave your tenant." },
     { task: "Guardrails + safety", model: "VSG-built rules engine", why: "Your validation rules, your hard limits. Not the model's defaults." },
   ];
   return (
@@ -867,7 +867,7 @@ function AceModelLayer() {
                 Different jobs want different models. We use the best available foundation model for each task — and swap when something better ships. Your memory (the part that matters) stays put.
               </p>
               <div style={{ marginTop: 28, padding: "16px 20px", background: "var(--coral-soft)", border: "1px solid rgba(201,99,58,0.22)", borderRadius: 12, fontFamily: "'Geist', sans-serif", fontSize: 13.5, color: "var(--ink-2)", lineHeight: 1.55 }}>
-                <strong style={{ color: "var(--coral)", fontWeight: 600 }}>Why this matters:</strong> when Claude 5 ships, we wire it in. You inherit the upgrade. You don't have to re-train your AI from scratch.
+                <strong style={{ color: "var(--coral)", fontWeight: 600 }}>Why this matters:</strong> when the next generation of models ships, we wire it in. You inherit the upgrade. You don't have to re-train your AI from scratch.
               </div>
             </div>
             <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, overflow: "hidden" }}>
@@ -1083,7 +1083,7 @@ function AceSecurity() {
               {[
                 { k: "Data residency", v: "South African region by default. On-prem available for regulated or air-gapped operations." },
                 { k: "Encryption", v: "AES-256 at rest. TLS 1.3 in transit. Per-tenant encryption keys, customer-rotatable." },
-                { k: "Access control", v: "SSO via your IdP (Azure AD, Okta, Google). Per-action RBAC. SCIM for provisioning." },
+                { k: "Access control", v: "SSO via your identity provider (Microsoft, Okta, Google). Per-action role-based access. Automated user provisioning." },
                 { k: "Training data", v: "Your data is never used to train shared models. Period. Cross-tenant inference is impossible by design." },
                 { k: "Backups", v: "Daily encrypted snapshots. 30-day retention by default. Customer-extendable to 7 years." },
                 { k: "Audit & evidence", v: "Immutable audit log, exportable. Per-event evidence retrieval. Replay any decision, any day." },
@@ -1111,12 +1111,12 @@ function AceSecurity() {
 
 const ACE_FAQS = [
   {
-    q: "Is ACE Claude / GPT / Gemini under the hood?",
-    a: "All three, depending on the task. ACE uses Claude Sonnet 4.5 for drafting and reasoning, Claude Haiku for fast classification, and Gemini Vision for OCR on scanned quotes. We hold the model choice and swap when a better model ships. Your memory and context are yours alone — that's the part that makes ACE work, not the model.",
+    q: "Which AI models power ACE?",
+    a: "Best-in-class foundation models, matched to each task — a frontier reasoning model for drafting and decisions, a fast model for classification, a vision model for reading scanned quotes. We hold the model choice and swap when a better one ships. Your memory and context are yours alone — that's the part that makes ACE work, not the model.",
   },
   {
     q: "What if you change the foundation model? Will my AI 'forget'?",
-    a: "No. Your memory (suppliers, terminology, decisions, audit lineage) lives in your tenant — in pgvector embeddings, structured tables, and replayable event logs. We can swap the foundation model under ACE and your tenant inherits the upgrade. The model is interchangeable. The memory isn't.",
+    a: "No. Your memory (suppliers, terminology, decisions, audit lineage) lives in your tenant — in vector embeddings, structured tables, and replayable event logs. We can swap the foundation model under ACE and your tenant inherits the upgrade. The model is interchangeable. The memory isn't.",
   },
   {
     q: "How is ACE different from a chatbot?",
