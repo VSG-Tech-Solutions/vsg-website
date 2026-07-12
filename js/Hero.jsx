@@ -5,10 +5,11 @@
    No product mockup; this is the company-level moment. */
 
 const HERO_PHRASES = [
-  "the work.",
-  "the floor.",
-  "procurement.",
-  "the schedule.",
+  "your business",
+  "your operations",
+  "your back office",
+  "your quoting",
+  "your month-end",
 ];
 
 function CycleEm({ phrases, interval = 2600 }) {
@@ -123,7 +124,7 @@ function Hero({ onBookDemo }) {
         {/* announcement bar */}
         <Reveal>
           <a
-            href="#products"
+            href="automation.html"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -163,7 +164,7 @@ function Hero({ onBookDemo }) {
                 fontWeight: 500,
               }}
             >
-              VSG Pace — production scheduling — early access for Q3 2026
+              Finance &amp; back-office automation — invoices, reconciliation, month-end
             </span>
             <span
               style={{
@@ -177,7 +178,7 @@ function Hero({ onBookDemo }) {
         </Reveal>
 
         <Reveal delay={80}>
-          <Eyebrow>Operational Intelligence · VSG Tech</Eyebrow>
+          <Eyebrow>VSG Tech · An AI company for operations</Eyebrow>
         </Reveal>
 
         <Reveal delay={140}>
@@ -195,7 +196,7 @@ function Hero({ onBookDemo }) {
               textWrap: "balance",
             }}
           >
-            Intelligence that runs <CycleEm phrases={HERO_PHRASES} />
+            Streamline <CycleEm phrases={HERO_PHRASES} /> with AI.
           </h1>
         </Reveal>
 
@@ -211,7 +212,23 @@ function Hero({ onBookDemo }) {
               fontWeight: 400,
             }}
           >
-            We're an Operational Intelligence software company in Cape Town. We build the custom software, AI systems, and products that make South African operations run smarter. Start with one problem — grow from there. Founder-led.
+            We're an AI company in Cape Town that specializes in operations. We build AI systems, automate your processes and integrate AI into the way your business runs — so everything gets faster, leaner and smarter. Start with one problem — grow from there. Founder-led.
+          </p>
+        </Reveal>
+
+        <Reveal delay={250}>
+          <p
+            style={{
+              marginTop: 18,
+              maxWidth: 640,
+              fontFamily: "'Geist', sans-serif",
+              fontSize: 16,
+              lineHeight: 1.6,
+              color: "var(--ink-3)",
+              fontWeight: 400,
+            }}
+          >
+            Every part of your business is an operation — sales, finance, production, admin. We put AI wherever it makes the business run better.
           </p>
         </Reveal>
 

@@ -6,7 +6,6 @@ function Footer() {
       title: "Products",
       links: [
         { l: "VSG Source", h: "source.html" },
-        { l: "VSG Pace", h: "pace.html" },
       ],
     },
     {
@@ -63,7 +62,7 @@ function Footer() {
               />
             </div>
             <p style={{ marginTop: 18, maxWidth: 320, fontFamily: "'Geist', sans-serif", fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)" }}>
-              Operational Intelligence software for the South African mid-market — custom software, AI systems, and products. A founder-led team in Cape Town.
+              An AI company that specializes in operations — we build AI systems and integrate AI into the way businesses run. A founder-led team in Cape Town.
             </p>
             <div
               style={{

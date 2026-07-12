@@ -344,10 +344,10 @@ function Products({ onBookDemo }) {
           <div style={{ maxWidth: 780 }}>
             <Eyebrow>01 — Products</Eyebrow>
             <Headline as="h2" size={64} style={{ marginTop: 32 }}>
-              Two products today. <em style={{ fontStyle: "italic", fontWeight: 700 }}>One AI.</em>
+              Built products. <em style={{ fontStyle: "italic", fontWeight: 700 }}>Proven AI.</em>
             </Headline>
             <p style={{ marginTop: 28, maxWidth: 620, fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              Each product is sold standalone. The intelligence — your context, your suppliers, your terminology — is shared across all of them.
+              VSG Source is live with South African mid-market customers. The intelligence behind it — your context, your suppliers, your terminology — is the same engine we bring to every build.
             </p>
           </div>
         </Reveal>
@@ -373,28 +373,6 @@ function Products({ onBookDemo }) {
             secondaryCta="Book a demo"
             onSecondary={onBookDemo}
             mockup={<SourceMockup />}
-          />
-          <ProductRow
-            idx={1}
-            id="pace"
-            status="Q3 2026"
-            statusVariant="upcoming"
-            name="VSG Pace"
-            headline="Production scheduling that solves"
-            emphasis="the real math."
-            body="A standalone AI production scheduling product for South African manufacturers. Real mathematical optimization across every machine in your factory — not LLM guesswork. Loadshedding-aware re-scheduling, setup-time reduction, due-date prioritization, and plain-language explanations of every schedule decision."
-            bullets={[
-              { t: "Real OR optimization, not LLM guesswork", b: "Constraint programming across every machine, shift, and material constraint." },
-              { t: "Loadshedding-aware re-scheduling", b: "EskomSePush integration. When the lights go, the schedule heals itself." },
-              { t: "Setup-time optimisation — −30%", b: "Sequences similar jobs together. Cuts changeover hours measurably." },
-              { t: "AI explanation layer (VSG ACE)", b: "‘Why is this on Mill 2 on Tuesday?’ — answered in plain language." },
-            ]}
-            primaryCta="See VSG Pace"
-            primaryHref="pace.html"
-            secondaryCta="Join the waitlist"
-            onSecondary={onBookDemo}
-            mockup={<PaceMockup />}
-            reverse
           />
         </div>
       </Container>

@@ -242,7 +242,7 @@ function Services({ onBookDemo }) {
               name="AI Workflow Automation"
               headline="Automate the workflows that"
               emphasis="drain your team."
-              body="Invoice matching. Supplier statement reconciliation. DSO collections. Stock-take variance investigation. The high-value operational workflows your team rebuilds every week, every month, forever. We hand those over to AI. Fixed scope. Two to four weeks. Live in production."
+              body="Finance and the back office first: invoice matching, supplier statement reconciliation, month-end, collections. Then every workflow your team rebuilds every week, forever. We hand those over to AI — with a saving you can cost and a payback you can date. Fixed scope. Two to four weeks. Live in production."
               visual={<VisualAutomation />}
               bullets={[
                 "Invoice matching automation (AP three-way match)",

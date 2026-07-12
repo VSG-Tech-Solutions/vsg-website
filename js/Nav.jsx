@@ -97,14 +97,6 @@ function NavDropdown({ current, onBookDemo }) {
             variant: "live",
             slug: "source",
           },
-          {
-            href: "pace.html",
-            title: "VSG Pace",
-            sub: "Production scheduling that thinks ahead.",
-            status: "Q3 2026",
-            variant: "upcoming",
-            slug: "pace",
-          },
         ].map((p) => {
           const isActive = current === p.slug;
           return (
@@ -355,7 +347,6 @@ function Nav({ onBookDemo, current = "" }) {
 
   const mobileLinks = [
     { href: "source.html", label: "VSG Source", group: "Products" },
-    { href: "pace.html", label: "VSG Pace", group: "Products" },
     { href: "ai-systems.html", label: "AI Systems & Integration", group: "What we build" },
     { href: "automation.html", label: "AI Workflow Automation", group: "What we build" },
     { href: "bespoke.html", label: "Bespoke Software", group: "What we build" },

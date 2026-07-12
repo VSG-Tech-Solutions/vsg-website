@@ -36,7 +36,7 @@ function AboutHero() {
           }}>
             VSG Tech is a South African{" "}
             <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>
-              Operational Intelligence software company.
+              AI company that specializes in operations.
             </em>
           </h1>
         </Reveal>
@@ -45,7 +45,7 @@ function AboutHero() {
             marginTop: 40, maxWidth: 760, fontFamily: "'Geist', sans-serif",
             fontSize: 22, lineHeight: 1.55, color: "var(--ink-2)",
           }}>
-            We're a Cape Town team that builds custom software, AI systems, and products that make operations run smarter — for South African mid-market manufacturers, retailers, and distributors. Start with one problem; grow from there.
+            We're a Cape Town team that builds AI systems and integrates AI into the way businesses run — for South African mid-market manufacturers, retailers, and distributors. Every part of a business is an operation: sales, finance, production, admin. We put AI wherever it makes the business run better. We call this discipline Operational Intelligence. Start with one problem; grow from there.
           </p>
         </Reveal>
       </Container>

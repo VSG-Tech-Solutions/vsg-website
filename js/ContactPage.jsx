@@ -105,7 +105,7 @@ function ContactForm() {
                 <div>
                   <label style={labelStyle}>Reason for getting in touch</label>
                   <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 4 }}>
-                    {["Not sure where to start", "AI Systems & Integration", "AI Workflow Automation", "Bespoke Software", "Custom CRM", "VSG Source", "VSG Pace", "Book a demo", "Press / other"].map((t) => {
+                    {["Not sure where to start", "AI Systems & Integration", "AI Workflow Automation", "Bespoke Software", "Custom CRM", "VSG Source", "Book a demo", "Press / other"].map((t) => {
                       const sel = form.topic === t;
                       return (
                         <button

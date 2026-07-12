@@ -931,20 +931,6 @@ function AceInProducts() {
       ],
       href: "source.html",
     },
-    {
-      name: "VSG Pace",
-      status: "Q3 2026",
-      statusBg: "var(--coral-soft)",
-      statusColor: "var(--coral)",
-      headline: "ACE will explain every schedule decision in plain language — the explanation layer for OR-driven production scheduling.",
-      uses: [
-        "\"Why is this job on Mill 2 on Tuesday?\" — answered in operator language",
-        "Loadshedding-aware re-scheduling explanations",
-        "Setup-time optimisation rationale per sequence change",
-        "Due-date risk warnings with the constraint that caused them",
-      ],
-      href: "pace.html",
-    },
   ];
   return (
     <Section alt>

@@ -5,7 +5,7 @@
 const FAQS = [
   {
     q: "Do you have customers using this today?",
-    a: "Yes. VSG Source is in active deployment with South African mid-market customers (names available on the discovery call). VSG Pace begins beta deployments Q3 2026. Workflow automation sprints are running every month.",
+    a: "Yes. VSG Source is in active deployment with South African mid-market customers (names available on the discovery call). Workflow automation sprints are running every month.",
   },
   {
     q: "Where does our data sit?",
