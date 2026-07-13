@@ -7,31 +7,14 @@
 const HERO_PHRASES = [
   "your business",
   "your operations",
-  "your back office",
-  "your quoting",
   "your month-end",
 ];
 
+/* The cycling word owns its own LINE (block-level, fixed height): every phrase
+   is stacked in the same grid cell and crossfades in place, so the headline is
+   always exactly three lines and nothing on the page ever reflows. */
 function CycleEm({ phrases, interval = 3200 }) {
   const [i, setI] = React.useState(0);
-  const [w, setW] = React.useState(null);
-  const spans = React.useRef([]);
-
-  // width of the active phrase — the container glides to it instead of jumping
-  const measure = React.useCallback((idx) => {
-    const el = spans.current[idx];
-    if (el) setW(el.offsetWidth);
-  }, []);
-
-  React.useEffect(() => {
-    measure(i);
-  }, [i, measure]);
-
-  React.useEffect(() => {
-    const onResize = () => measure(i);
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, [i, measure]);
 
   React.useEffect(() => {
     const id = setInterval(() => setI((v) => (v + 1) % phrases.length), interval);
@@ -39,31 +22,19 @@ function CycleEm({ phrases, interval = 3200 }) {
   }, [phrases.length, interval]);
 
   return (
-    <span
-      style={{
-        display: "inline-grid",
-        verticalAlign: "baseline",
-        whiteSpace: "nowrap",
-        width: w == null ? "auto" : w,
-        transition: "width 600ms cubic-bezier(.16,1,.3,1)",
-      }}
-    >
+    <span style={{ display: "grid", justifyItems: "start" }}>
       {phrases.map((p, idx) => (
         <em
           key={p}
-          ref={(el) => { spans.current[idx] = el; }}
           aria-hidden={idx !== i}
           style={{
             gridArea: "1 / 1",
-            justifySelf: "start",
             fontStyle: "italic",
             fontWeight: 700,
             color: "var(--coral)",
             whiteSpace: "nowrap",
             opacity: idx === i ? 1 : 0,
-            transform: idx === i ? "translateY(0)" : "translateY(0.18em)",
-            transition:
-              "opacity 520ms cubic-bezier(.16,1,.3,1), transform 520ms cubic-bezier(.16,1,.3,1)",
+            transition: "opacity 520ms cubic-bezier(.16,1,.3,1)",
           }}
         >
           {p}
@@ -224,7 +195,9 @@ function Hero({ onBookDemo }) {
               textWrap: "balance",
             }}
           >
-            Streamline <CycleEm phrases={HERO_PHRASES} /> with AI.
+            <span style={{ display: "block" }}>Streamline</span>
+            <CycleEm phrases={HERO_PHRASES} />
+            <span style={{ display: "block" }}>with AI.</span>
           </h1>
         </Reveal>
 
