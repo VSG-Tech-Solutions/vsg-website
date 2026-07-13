@@ -12,36 +12,64 @@ const HERO_PHRASES = [
   "your month-end",
 ];
 
-function CycleEm({ phrases, interval = 2600 }) {
+function CycleEm({ phrases, interval = 3200 }) {
   const [i, setI] = React.useState(0);
-  const [fade, setFade] = React.useState(true);
+  const [w, setW] = React.useState(null);
+  const spans = React.useRef([]);
+
+  // width of the active phrase — the container glides to it instead of jumping
+  const measure = React.useCallback((idx) => {
+    const el = spans.current[idx];
+    if (el) setW(el.offsetWidth);
+  }, []);
+
   React.useEffect(() => {
-    let timeoutId;
-    const tick = () => {
-      setFade(false);
-      timeoutId = setTimeout(() => {
-        setI((v) => (v + 1) % phrases.length);
-        setFade(true);
-      }, 280);
-    };
-    const id = setInterval(tick, interval);
-    return () => { clearInterval(id); clearTimeout(timeoutId); };
+    measure(i);
+  }, [i, measure]);
+
+  React.useEffect(() => {
+    const onResize = () => measure(i);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [i, measure]);
+
+  React.useEffect(() => {
+    const id = setInterval(() => setI((v) => (v + 1) % phrases.length), interval);
+    return () => clearInterval(id);
   }, [phrases.length, interval]);
+
   return (
-    <em
+    <span
       style={{
-        fontStyle: "italic",
-        fontWeight: 700,
-        color: "var(--coral)",
-        display: "inline-block",
-        opacity: fade ? 1 : 0,
-        transform: fade ? "translateY(0)" : "translateY(6px)",
-        transition: "opacity 280ms cubic-bezier(.16,1,.3,1), transform 280ms cubic-bezier(.16,1,.3,1)",
+        display: "inline-grid",
+        verticalAlign: "baseline",
         whiteSpace: "nowrap",
+        width: w == null ? "auto" : w,
+        transition: "width 600ms cubic-bezier(.16,1,.3,1)",
       }}
     >
-      {phrases[i]}
-    </em>
+      {phrases.map((p, idx) => (
+        <em
+          key={p}
+          ref={(el) => { spans.current[idx] = el; }}
+          aria-hidden={idx !== i}
+          style={{
+            gridArea: "1 / 1",
+            justifySelf: "start",
+            fontStyle: "italic",
+            fontWeight: 700,
+            color: "var(--coral)",
+            whiteSpace: "nowrap",
+            opacity: idx === i ? 1 : 0,
+            transform: idx === i ? "translateY(0)" : "translateY(0.18em)",
+            transition:
+              "opacity 520ms cubic-bezier(.16,1,.3,1), transform 520ms cubic-bezier(.16,1,.3,1)",
+          }}
+        >
+          {p}
+        </em>
+      ))}
+    </span>
   );
 }
 
