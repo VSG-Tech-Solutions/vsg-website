@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1080" height="1080" viewBox="0 0 1080 1080"
+     shape-rendering="geometricPrecision">
+
+  <!-- background (rounded square — most platforms square-crop OR circle-crop, this works for both) -->
+  <rect width="1080" height="1080" rx="220" fill="#C9633A"/>
+
+  <!-- V· mark, scaled and centered inside the safe circle -->
+  <g transform="translate(107.33538461538467, 100.57500000000007) scale(3.3801923076923073)">
+    <!-- V chevron -->
+    <path d="M 40 60 L 108 200 L 176 60"
+          fill="none" stroke="#F5F0E8" stroke-width="32"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    
+  </g>
+</svg>
