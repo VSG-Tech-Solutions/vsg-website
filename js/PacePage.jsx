@@ -458,7 +458,7 @@ function PaceIntegrations() {
         </Reveal>
         <div style={{ marginTop: 56, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
           {[
-            { name: "VSG Source", note: "Inbound material signals · ETAs · risk flags." },
+            { name: "VSG ICT", note: "Inbound material signals · ETAs · risk flags." },
             { name: "SysPro · Sage · SAP B1", note: "BOM, routings, work orders, capacity." },
             { name: "MES (optional)", note: "Real-time line status, downtime, scrap." },
             { name: "Excel today", note: "Yes — Pace will read your current planner sheet." },

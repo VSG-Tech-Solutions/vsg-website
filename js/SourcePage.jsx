@@ -1,6 +1,6 @@
 /* global React, ReactDOM */
 
-/* VSG Source — full product page.
+/* VSG ICT — full product page.
    Layout follows the proven Procurify-style SaaS pattern:
    text hero → social proof → AI feature spotlight w/ animated cursor →
    3-pillar benefits → tabbed product showcase → 4-card tools grid →
@@ -471,7 +471,7 @@ function SourceHero({ onBookDemo }) {
           }}>
             <a href="index.html" style={{ color: HERO_INK_4, textDecoration: "none" }}>← VSG Tech</a>
             <span>/</span>
-            <span style={{ color: HERO_INK }}>VSG Source</span>
+            <span style={{ color: HERO_INK }}>VSG ICT</span>
           </div>
         </Reveal>
 
@@ -747,7 +747,7 @@ function AIFeatureSpotlight() {
                 lineHeight: 1.65,
                 color: "var(--ink-2)",
               }}>
-                Every supplier email lands in your VSG Source inbox. ACE reads it, classifies it, drafts the response in your house voice, and queues it for your buyer to approve. The buyer reviews. ACE sends. The audit trail writes itself.
+                Every supplier email lands in your VSG ICT inbox. ACE reads it, classifies it, drafts the response in your house voice, and queues it for your buyer to approve. The buyer reviews. ACE sends. The audit trail writes itself.
               </p>
               <ul style={{ marginTop: 28, padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
                 {[
@@ -807,7 +807,7 @@ function SourceBenefits() {
               Three things — done <em style={{ fontStyle: "italic", fontWeight: 700 }}>well.</em>
             </Headline>
             <p style={{ marginTop: 28, maxWidth: 560, fontFamily: "'Geist', sans-serif", fontSize: 18, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              VSG Source is a complete procurement product with its own workflows — from forward planning to RFQ to approval. Powered by VSG ACE, the per-customer AI that learns YOUR business.
+              VSG ICT is a complete procurement product with its own workflows — from forward planning to RFQ to approval. Powered by VSG ACE, the per-customer AI that learns YOUR business.
             </p>
           </div>
         </Reveal>
@@ -943,7 +943,7 @@ const TABS = [
     eyebrow: "Feature · Planning",
     label: "Planning",
     title: "Forward visibility, before the month starts.",
-    body: "The forward planning grid is the hero of VSG Source. Per SKU, per supplier, per class — current on-hand, committed POs, planned orders, and projected closing stock months ahead. Excel-faithful math, NETWORKDAYS prorate, Dec/Jan half-trade convention. Built from the spreadsheet your buyer already uses.",
+    body: "The forward planning grid is the hero of VSG ICT. Per SKU, per supplier, per class — current on-hand, committed POs, planned orders, and projected closing stock months ahead. Excel-faithful math, NETWORKDAYS prorate, Dec/Jan half-trade convention. Built from the spreadsheet your buyer already uses.",
     bullets: [
       "Per-class months-stock targets (editable inline)",
       "Buy-up cash factor — surfaces the worst month",
@@ -1243,7 +1243,7 @@ function SourceRoles() {
               <em style={{ fontStyle: "italic", fontWeight: 700 }}>on day one.</em>
             </Headline>
             <p style={{ marginTop: 24, maxWidth: 580, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              VSG Source ships value to three roles immediately. Below: what each one actually gets, the morning after go-live.
+              VSG ICT ships value to three roles immediately. Below: what each one actually gets, the morning after go-live.
             </p>
           </div>
         </Reveal>
@@ -1878,12 +1878,12 @@ function SourceCTA({ onBookDemo }) {
       <Container>
         <Reveal>
           <div style={{ textAlign: "center", maxWidth: 880, margin: "0 auto", position: "relative" }}>
-            <Eyebrow>Try VSG Source</Eyebrow>
+            <Eyebrow>Try VSG ICT</Eyebrow>
             <h2 style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 80, lineHeight: 1.0, letterSpacing: "-0.035em", color: "var(--ink-1)", margin: "32px 0 0", textWrap: "balance" }}>
               Bring us your <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>planning spreadsheet.</em>
             </h2>
             <p style={{ marginTop: 28, fontFamily: "'Geist', sans-serif", fontSize: 20, lineHeight: 1.55, color: "var(--ink-2)", maxWidth: 580, marginLeft: "auto", marginRight: "auto" }}>
-              30 minutes, no deck. We'll show you the same SKUs in the VSG Source planning grid — with the cash factor, the supplier risk lanes, and ACE's reorder suggestions on top.
+              30 minutes, no deck. We'll show you the same SKUs in the VSG ICT planning grid — with the cash factor, the supplier risk lanes, and ACE's reorder suggestions on top.
             </p>
             <div style={{ marginTop: 40, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
               <PrimaryButton onClick={onBookDemo} size="lg">Book a Source demo</PrimaryButton>
@@ -1901,7 +1901,7 @@ function SourceCTA({ onBookDemo }) {
 // ============================================================
 
 const SOURCE_FAQS = [
-  { q: "Is VSG Source an add-on to my ERP?",         a: "No. VSG Source is a standalone AI procurement platform with its own workflows — forward planning, multi-level approvals, supplier portal. It connects to SysPro, SAP Business One, and Sage Pastel through first-class native integrations, the same way Procurify connects to NetSuite. Your ERP keeps doing what it's good at." },
+  { q: "Is VSG ICT an add-on to my ERP?",         a: "No. VSG ICT is a standalone AI procurement platform with its own workflows — forward planning, multi-level approvals, supplier portal. It connects to SysPro, SAP Business One, and Sage Pastel through first-class native integrations, the same way Procurify connects to NetSuite. Your ERP keeps doing what it's good at." },
   { q: "What does ACE need to get started?",          a: "Read access to your ERP (we provide the SQL scripts), supplier contact information, and 8 months of historical sales data — which lives in your ERP already. We provision your tenant, load the data, and ACE starts producing the planning grid in week one." },
   { q: "Can our CFO approve from a phone?",           a: "Yes — mobile PWA. Each pending order is a card with the SKU, quantity, cash impact, AI risk badge, and EvidenceButton. Swipe to approve, tap for evidence. Full audit trail on every action." },
   { q: "Who decides what Source actually posts?",     a: "Your team. The default for the first 30 days is shadow mode — every ACE-drafted action is reviewed by your buyer before it leaves the tenant. After that, you set per-supplier thresholds for what ACE may act on autonomously." },

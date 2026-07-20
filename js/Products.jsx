@@ -3,7 +3,7 @@
 /* Products — the centerpiece. Two products today, one AI.
    Each product gets a big alternating horizontal moment with a live-feeling mockup. */
 
-// ---------- VSG Source: animated inbox + AI draft ----------
+// ---------- VSG ICT: animated inbox + AI draft ----------
 const SOURCE_MSGS = [
   { f: "Falcon Steel", subj: "PO-22014 dispatch confirmation", body: "Confirming dispatch on the 12mm bar order. Tracking attached.", ai: true, time: "08:42" },
   { f: "Pinnacle Plastics", subj: "Quote: HDPE 35t — Aug", body: "Pricing valid 14 days. Lead time 3 weeks ex-works.", ai: true, time: "07:18" },
@@ -347,7 +347,7 @@ function Products({ onBookDemo }) {
               Built products. <em style={{ fontStyle: "italic", fontWeight: 700 }}>Proven AI.</em>
             </Headline>
             <p style={{ marginTop: 28, maxWidth: 620, fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              VSG Source is live with South African mid-market customers. The intelligence behind it — your context, your suppliers, your terminology — is the same engine we bring to every build.
+              VSG ICT is live with South African mid-market customers. The intelligence behind it — your context, your suppliers, your terminology — is the same engine we bring to every build.
             </p>
           </div>
         </Reveal>
@@ -358,7 +358,7 @@ function Products({ onBookDemo }) {
             id="source"
             status="Live"
             statusVariant="live"
-            name="VSG Source"
+            name="VSG ICT"
             headline="AI procurement that thinks"
             emphasis="ahead of demand."
             body="A standalone AI procurement platform for South African manufacturers, retailers, and distributors. Forward stock planning, house-voice supplier replies, multi-level approval chains, automatic exception handling, and a supplier portal — all powered by VSG ACE, the AI that learns your specific suppliers and rules."
@@ -368,7 +368,7 @@ function Products({ onBookDemo }) {
               { t: "Multi-level approval chains", b: "Approval rules learned from your actual history — not a template." },
               { t: "Native SysPro · SAP B1 · Sage Pastel", b: "Reads and writes through first-class connectors. Live in 5 weeks." },
             ]}
-            primaryCta="See VSG Source"
+            primaryCta="See VSG ICT"
             primaryHref="source.html"
             secondaryCta="Book a demo"
             onSecondary={onBookDemo}

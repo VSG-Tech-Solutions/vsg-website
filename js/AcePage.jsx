@@ -918,7 +918,7 @@ function AceModelLayer() {
 function AceInProducts() {
   const products = [
     {
-      name: "VSG Source",
+      name: "VSG ICT",
       status: "Live",
       statusBg: "rgba(14,122,90,0.12)",
       statusColor: "var(--success)",

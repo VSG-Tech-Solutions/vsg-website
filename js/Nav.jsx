@@ -91,7 +91,7 @@ function NavDropdown({ current, onBookDemo }) {
         {[
           {
             href: "source.html",
-            title: "VSG Source",
+            title: "VSG ICT",
             sub: "Procurement that replies for you.",
             status: "Live",
             variant: "live",
@@ -346,7 +346,7 @@ function Nav({ onBookDemo, current = "" }) {
   ];
 
   const mobileLinks = [
-    { href: "source.html", label: "VSG Source", group: "Products" },
+    { href: "source.html", label: "VSG ICT", group: "Products" },
     { href: "ai-systems.html", label: "AI Systems & Integration", group: "What we build" },
     { href: "automation.html", label: "AI Workflow Automation", group: "What we build" },
     { href: "bespoke.html", label: "Bespoke Software", group: "What we build" },

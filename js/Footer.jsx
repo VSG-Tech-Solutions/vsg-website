@@ -5,7 +5,7 @@ function Footer() {
     {
       title: "Products",
       links: [
-        { l: "VSG Source", h: "source.html" },
+        { l: "VSG ICT", h: "source.html" },
       ],
     },
     {

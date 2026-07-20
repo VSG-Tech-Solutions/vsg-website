@@ -152,10 +152,10 @@ function ROICalculator() {
             <div>
               <Eyebrow>Quick estimate</Eyebrow>
               <Headline as="h2" size={56} style={{ marginTop: 32 }}>
-                What VSG Source might save <em style={{ fontStyle: "italic", fontWeight: 700 }}>your team.</em>
+                What VSG ICT might save <em style={{ fontStyle: "italic", fontWeight: 700 }}>your team.</em>
               </Headline>
               <p style={{ marginTop: 28, maxWidth: 480, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-                Most procurement teams spend a week's worth of work per month on the planning grid, supplier follow-up, and RFQ admin VSG Source handles automatically. Move the sliders to match your operation.
+                Most procurement teams spend a week's worth of work per month on the planning grid, supplier follow-up, and RFQ admin VSG ICT handles automatically. Move the sliders to match your operation.
               </p>
             </div>
           </Reveal>
@@ -232,7 +232,7 @@ function Pricing({ onBookDemo }) {
   const tiers = [
     {
       name: "Source",
-      sub: "VSG Source — Procurement",
+      sub: "VSG ICT — Procurement",
       from: "Flat monthly",
       blurb: "Per-mailbox flat fee. Scales with active supplier volume. Implementation included in year one.",
       bullets: ["VSG ACE tenant included", "First-class ERP connector", "Quarterly tuning, no extra charge", "Cancel with 60 days' notice"],
