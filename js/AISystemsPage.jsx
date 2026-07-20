@@ -240,7 +240,7 @@ function WhereAIFits({ onBookDemo }) {
               <em style={{ fontStyle: "italic", fontWeight: 700 }}>and where it doesn't.</em>
             </Headline>
             <p style={{ marginTop: 24, fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 640 }}>
-              Half the value of working with us is honesty. Plenty of "AI projects" should never have been AI projects. Part of our job is telling you which parts of your operation AI will quietly transform — and which parts are better left exactly as they are.
+              Half the value of working with us is honesty. Plenty of "AI projects" should never have been AI projects. Sometimes the fix is AI; often it's making one decision sharper by putting the right numbers in front of it at the right moment. We'll always tell you which is which — and which parts of your operation are better left exactly as they are.
             </p>
           </div>
         </Reveal>

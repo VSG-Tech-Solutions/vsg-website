@@ -163,6 +163,16 @@ function Principles() {
               Four rules.{" "}
               <em style={{ fontStyle: "italic", fontWeight: 700 }}>No exceptions.</em>
             </Headline>
+            <p style={{
+              marginTop: 28, fontFamily: "'Geist', sans-serif", fontSize: 19,
+              lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 640,
+            }}>
+              We work with you to find where the real bottleneck sits, then build the
+              system that removes it. Sometimes that's AI. Often it's taking repetitive
+              work off your people, or making one decision sharper by putting the right
+              numbers in front of it at the right moment. We'll always tell you which
+              is which.
+            </p>
           </div>
         </Reveal>
         <div style={{ display: "flex", flexDirection: "column" }}>
