@@ -688,8 +688,8 @@ function SocialProofStrip() {
               lineHeight: 1.6,
             }}>
               In production with{" "}
-              <span style={{ color: "var(--ink-1)", fontWeight: 700 }}>6 SA manufacturers</span>
-              {" "}— connects natively to the ERPs they already run:
+              <span style={{ color: "var(--ink-1)", fontWeight: 700 }}>SA manufacturers</span>
+              {" "}— connects to the ERPs they already run:
             </div>
             <div style={{
               display: "flex",
@@ -1782,7 +1782,7 @@ function ROIStats() {
         </Reveal>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
           {[
-            { label: "In production with", val: 6, suffix: " SA mfrs" },
+            { label: "In production with", val: 3, suffix: " SA clients" },
             { label: "Supplier emails / month", val: 42000, suffix: "+" },
             { label: "Avg. drafts approved", val: 91, suffix: "%" },
             { label: "Hours back / buyer / week", val: 11, suffix: " hrs" },
