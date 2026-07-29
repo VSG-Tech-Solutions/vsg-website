@@ -229,7 +229,7 @@ function Hero({ onBookDemo }) {
               fontWeight: 400,
             }}
           >
-            Every part of your business is an operation — sales, finance, production, admin. We put AI wherever it makes the business run better.
+            Every part of your business is an operation — finance, production, supply chain, sales. We put AI wherever it makes the business run better.
           </p>
         </Reveal>
 
