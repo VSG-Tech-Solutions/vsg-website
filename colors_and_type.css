@@ -449,3 +449,11 @@ h1 + p, h2 + p, h3 + p,
 /* ── PREVENT HORIZONTAL OVERFLOW ───────────────────────────────────── */
 html, body { overflow-x: hidden; }
 img, svg, video { max-width: 100%; height: auto; }
+
+/* Solutions coverage grid — responsive columns (attribute selector, kebab-safe) */
+@media (max-width: 1080px) {
+  [data-vsg-solutions-grid] { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 560px) {
+  [data-vsg-solutions-grid] { grid-template-columns: 1fr !important; }
+}

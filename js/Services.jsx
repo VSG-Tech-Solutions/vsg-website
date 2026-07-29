@@ -213,7 +213,7 @@ function Services({ onBookDemo }) {
           </Reveal>
           <Reveal delay={80}>
             <p style={{ fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 560 }}>
-              At the end of the day, all software is custom. We add AI to the systems you already run, automate the workflows that drain your team, and build the bespoke software and CRMs that off-the-shelf tools never quite fit. Start with one problem. Grow from there.
+              We add AI to the systems you already run, automate the workflows that drain your team, and build the software off-the-shelf tools never quite manage — planning boards, portals, CRMs. Start with one problem. Grow from there.
             </p>
           </Reveal>
         </div>
@@ -310,7 +310,7 @@ function Services({ onBookDemo }) {
                 Starting your AI journey?
               </div>
               <div style={{ marginTop: 8, fontFamily: "'Geist', sans-serif", fontWeight: 500, fontSize: 22, color: "var(--ink-1)", letterSpacing: "-0.015em", maxWidth: 640 }}>
-                Not sure where AI fits — or whether it fits at all? That's the best place to begin. Tell Stephan what your operation looks like. He'll show you where AI would genuinely help, and where it wouldn't.
+                Not sure where AI fits — or whether it fits at all? That's the best place to begin. Get in touch with Stephan directly: describe how your operation runs, and he'll show you where AI would genuinely help — and where it wouldn't.
               </div>
             </div>
             <PrimaryButton onClick={onBookDemo}>Ask where to start</PrimaryButton>

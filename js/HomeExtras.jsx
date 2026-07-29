@@ -33,10 +33,10 @@ function WhatWeAre() {
           <div style={{ maxWidth: 760 }}>
             <Eyebrow>Where we stand</Eyebrow>
             <Headline as="h2" size={64} style={{ marginTop: 32 }}>
-              The shape of the thing — <em style={{ fontStyle: "italic", fontWeight: 700 }}>and what it isn't.</em>
+              What we are — <em style={{ fontStyle: "italic", fontWeight: 700 }}>and what we're not.</em>
             </Headline>
             <p style={{ marginTop: 28, maxWidth: 580, fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              The clearest way to explain VSG is to draw the line. Same product category, very different shape.
+              The clearest way to explain VSG is to draw the line — what we build for you, and what we'll never be.
             </p>
           </div>
         </Reveal>

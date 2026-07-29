@@ -7,6 +7,7 @@ function HomePageContent({ onBookDemo }) {
     <React.Fragment>
       <Hero onBookDemo={onBookDemo} />
       <TrustStrip />
+      <HomeSolutionsGrid />
       <Products onBookDemo={onBookDemo} />
       <WhatWeAre />
       <Services onBookDemo={onBookDemo} />
