@@ -3,7 +3,41 @@
 /* Products — the centerpiece. Two products today, one AI.
    Each product gets a big alternating horizontal moment with a live-feeling mockup. */
 
-// ---------- VSG ICT: animated inbox + AI draft ----------
+// ---------- VSG ICT: planning-grid visual (truthful — cover projection) ----------
+function ICTGridMock() {
+  const rows = [
+    ["FLT-2050-3", "1.8", "1.2", "0.6", "#C9633A"],
+    ["ANG-5040-6", "3.4", "2.9", "2.3", "#B8933A"],
+    ["CHS-1010-2", "5.1", "4.6", "4.0", "#5E8C61"],
+    ["RND-0812-6", "2.2", "1.5", "0.9", "#C9633A"],
+  ];
+  const cell = { fontFamily: "'Geist Mono', monospace", fontSize: 11, color: "var(--ink-2)", padding: "6px 8px", borderBottom: "1px solid var(--hairline)", textAlign: "right" };
+  return (
+    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 14, overflow: "hidden" }}>
+      <div style={{ padding: "9px 12px", borderBottom: "1px solid var(--hairline)", background: "var(--paper-2)", fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 9.5, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--ink-4)" }}>
+        Months of cover · projected →
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr" }}>
+        {["SKU", "Now", "+1 mo", "+2 mo"].map((h, i) => (
+          <div key={h} style={{ ...cell, textAlign: i === 0 ? "left" : "right", color: "var(--ink-4)", fontSize: 9.5, letterSpacing: "0.12em", textTransform: "uppercase" }}>{h}</div>
+        ))}
+        {rows.map(([sku, a, b, c, flag]) => (
+          <React.Fragment key={sku}>
+            <div style={{ ...cell, textAlign: "left", color: "var(--ink-1)", fontWeight: 500 }}>
+              <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: flag, marginRight: 6, verticalAlign: "middle" }} />
+              {sku}
+            </div>
+            <div style={cell}>{a}</div>
+            <div style={cell}>{b}</div>
+            <div style={{ ...cell, color: parseFloat(c) < 1 ? "#C9633A" : "var(--ink-2)", fontWeight: parseFloat(c) < 1 ? 700 : 400 }}>{c}</div>
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ---------- (legacy) animated inbox — no longer rendered ----------
 const SOURCE_MSGS = [
   { f: "Falcon Steel", subj: "PO-22014 dispatch confirmation", body: "Confirming dispatch on the 12mm bar order. Tracking attached.", ai: true, time: "08:42" },
   { f: "Pinnacle Plastics", subj: "Quote: HDPE 35t — Aug", body: "Pricing valid 14 days. Lead time 3 weeks ex-works.", ai: true, time: "07:18" },
@@ -347,7 +381,7 @@ function Products({ onBookDemo }) {
               Built products. <em style={{ fontStyle: "italic", fontWeight: 700 }}>Proven AI.</em>
             </Headline>
             <p style={{ marginTop: 28, maxWidth: 620, fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              VSG ICT is live with South African mid-market customers. The intelligence behind it — your context, your suppliers, your terminology — is the same engine we bring to every build.
+              VSG ICT is in production with South African mid-market customers — built the same way we build everything: around your live data, your suppliers, and the way your operation already runs.
             </p>
           </div>
         </Reveal>
@@ -359,20 +393,20 @@ function Products({ onBookDemo }) {
             status="Live"
             statusVariant="live"
             name="VSG ICT"
-            headline="AI procurement that thinks"
-            emphasis="ahead of demand."
-            body="A standalone AI procurement platform for South African manufacturers, retailers, and distributors. Forward stock planning, house-voice supplier replies, multi-level approval chains, automatic exception handling, and a supplier portal — all powered by VSG ACE, the AI that learns your specific suppliers and rules."
+            headline="AI-assisted procurement that thinks"
+            emphasis="months ahead."
+            body="A procurement-planning system for SYSPRO-running manufacturers and distributors. It reads your live stock and sales data and turns it into a clear buying decision — what to buy, how much, and from which supplier at the lowest true landed cost — ending in a SYSPRO-ready purchase order. In production at a South African steel distributor."
             bullets={[
-              { t: "Forward planning grid", b: "Per-SKU, per-supplier, per-customer. See what to order and when." },
-              { t: "Inbox triage + house-voice drafts", b: "Every supplier email classified, ranked by lead-time risk, and replied to in your terminology." },
-              { t: "Multi-level approval chains", b: "Approval rules learned from your actual history — not a template." },
-              { t: "Native SysPro · SAP B1 · Sage Pastel", b: "Reads and writes through first-class connectors. Live in 5 weeks." },
+              { t: "Forward planning grid", b: "Per-SKU projected stock and cover, five months ahead, from your own sales history." },
+              { t: "True landed-cost comparison", b: "Supplier quotes compared on delivered cost — duty, clearing, freight and FX included." },
+              { t: "SYSPRO-ready purchase orders", b: "The plan ends as a PO in SYSPRO's exact import format, with quote traceability." },
+              { t: "Read-only · on-premise", b: "Reads your SYSPRO data without ever writing to it. Nothing leaves the building." },
             ]}
             primaryCta="See VSG ICT"
             primaryHref="source.html"
             secondaryCta="Book a demo"
             onSecondary={onBookDemo}
-            mockup={<SourceMockup />}
+            mockup={<ICTGridMock />}
           />
         </div>
       </Container>

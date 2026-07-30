@@ -1,847 +1,151 @@
 /* global React, ReactDOM */
 
-/* VSG ICT — full product page.
-   Layout follows the proven Procurify-style SaaS pattern:
-   text hero → social proof → AI feature spotlight w/ animated cursor →
-   3-pillar benefits → tabbed product showcase → 4-card tools grid →
-   ROI stats → testimonial → CTA → FAQ.
-   All copy is VSG's. */
+/* VSG ICT — product page. GROUND TRUTH: vault 02-products/ict/WEBSITE-BUILD-CONTEXT.md
+   Everything in the main sections is SHIPPED AND TRUE. Future capability lives ONLY in
+   the Today/Roadmap section, clearly labelled. "AI-assisted", never "AI-powered".
+   No invented metrics, no fake clients ("a South African steel distributor" only). */
 
 // ============================================================
-// 1) Animated cursor demo — virtual mouse moves through the inbox
+// STATIC PLANNING-GRID MOCKUP (illustrative UI, real feature shape)
 // ============================================================
 
-/* Choreographed timeline (15s loop):
-   t=0.0–2.0s   : cursor enters from top-right, hovers Pinnacle Plastics row
-   t=2.0–2.4s   : click (scale-down pulse)
-   t=2.4–4.0s   : draft area opens
-   t=4.0–10.0s  : draft types out (typewriter)
-   t=10.0–12.0s : cursor glides to Send button
-   t=12.0–12.4s : click Send (scale-down + flash)
-   t=12.4–15.0s : success state, fade
-   t=15.0       : loop
-*/
+const GRID_ROWS = [
+  { sku: "FLT-2050-3", now: "1.8", m1: "1.2", m2: "0.6", m3: "0.2", flag: "#C9633A" },
+  { sku: "ANG-5040-6", now: "3.4", m1: "2.9", m2: "2.3", m3: "1.7", flag: "#B8933A" },
+  { sku: "CHS-1010-2", now: "5.1", m1: "4.6", m2: "4.0", m3: "3.5", flag: "#5E8C61" },
+  { sku: "RND-0812-6", now: "2.2", m1: "1.5", m2: "0.9", m3: "0.4", flag: "#C9633A" },
+  { sku: "SHT-3MM-2500", now: "4.0", m1: "3.3", m2: "2.8", m3: "2.1", flag: "#5E8C61" },
+];
 
-const DRAFT_TEXT =
-  "Hi Mandla, thanks. Confirming PO-22014 on the 12mm bar — please ship to Bay 3, Epping. Reference VSG-IN-44211. Cheers, Naledi.";
-
-function AnimatedCursorMockup() {
-  const [phase, setPhase] = React.useState("idle"); // idle | hovering | typing | sending | sent
-  const [typed, setTyped] = React.useState(0);
-  const [sentFlash, setSentFlash] = React.useState(false);
-
-  // Master clock — drives the demo
-  React.useEffect(() => {
-    let cancelled = false;
-    let typeInterval;
-
-    const runCycle = async () => {
-      if (cancelled) return;
-      // Reset
-      setPhase("idle"); setTyped(0); setSentFlash(false);
-      await wait(1500);
-      if (cancelled) return;
-      // Hover email
-      setPhase("hovering");
-      await wait(2200);
-      if (cancelled) return;
-      // Start typing
-      setPhase("typing");
-      let i = 0;
-      typeInterval = setInterval(() => {
-        i++;
-        setTyped(i);
-        if (i >= DRAFT_TEXT.length) clearInterval(typeInterval);
-      }, 32);
-      await wait(DRAFT_TEXT.length * 32 + 800);
-      if (cancelled) return;
-      // Move to send
-      setPhase("sending");
-      await wait(1800);
-      if (cancelled) return;
-      // Flash sent
-      setSentFlash(true);
-      setPhase("sent");
-      await wait(2200);
-      if (cancelled) return;
-      // Loop
-      runCycle();
-    };
-    runCycle();
-    return () => { cancelled = true; if (typeInterval) clearInterval(typeInterval); };
-  }, []);
-
-  // Cursor position based on phase
-  const cursorStyle = (() => {
-    const base = { transition: "transform 900ms cubic-bezier(.6,.05,.3,1), opacity 320ms" };
-    switch (phase) {
-      case "idle":     return { ...base, transform: "translate(360px, -20px) scale(1)", opacity: 0 };
-      case "hovering": return { ...base, transform: "translate(228px, 168px) scale(1)", opacity: 1 };
-      case "typing":   return { ...base, transform: "translate(420px, 320px) scale(1)", opacity: 1 };
-      case "sending":  return { ...base, transform: "translate(478px, 462px) scale(1)", opacity: 1 };
-      case "sent":     return { ...base, transform: "translate(478px, 462px) scale(0.85)", opacity: 1 };
-      default:         return base;
-    }
-  })();
-
-  const emailActive = phase !== "idle";
-
+function GridMockup() {
+  const cell = {
+    fontFamily: "'Geist Mono', monospace", fontSize: 11, color: "var(--ink-2)",
+    padding: "7px 10px", borderBottom: "1px solid var(--hairline)", textAlign: "right",
+  };
   return (
-    <div
-      style={{
-        position: "relative",
-        background: "var(--surface-white)",
-        border: "1px solid var(--hairline)",
-        borderRadius: 20,
-        overflow: "hidden",
-        boxShadow:
-          "0 32px 80px -32px rgba(26,22,18,0.22), 0 1px 0 rgba(255,255,255,0.6) inset",
-        height: 540,
-      }}
-    >
-      {/* Top tab bar (browser chrome stub) */}
+    <div style={{
+      background: "var(--surface-white)", border: "1px solid var(--hairline)",
+      borderRadius: 16, overflow: "hidden", boxShadow: "0 24px 60px rgba(26,26,26,0.08)",
+    }}>
       <div style={{
-        height: 36,
-        display: "flex",
-        alignItems: "center",
-        gap: 8,
-        padding: "0 14px",
-        borderBottom: "1px solid var(--hairline)",
-        background: "var(--paper-2)",
+        display: "flex", justifyContent: "space-between", alignItems: "center",
+        padding: "12px 16px", borderBottom: "1px solid var(--hairline)", background: "var(--paper-2)",
       }}>
-        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#E25C5C", opacity: 0.55 }} />
-        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#E8A23A", opacity: 0.55 }} />
-        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#5BB97A", opacity: 0.55 }} />
-        <span style={{
-          marginLeft: 14,
-          fontFamily: "'Geist Mono', monospace",
-          fontSize: 10,
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: "var(--ink-4)",
-        }}>
-          source.vsg.tech — supplier inbox
+        <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)" }}>
+          Analysis · months of cover per SKU
+        </span>
+        <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--coral)" }}>
+          projected →
         </span>
       </div>
-
-      {/* Layout: sidebar | email list | detail */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "150px 1fr 1.05fr",
-        height: "calc(100% - 36px)",
-      }}>
-        {/* Sidebar */}
-        <div style={{
-          borderRight: "1px solid var(--hairline)",
-          padding: "16px 14px",
-          background: "var(--paper-2)",
-        }}>
-          <div className="mono-caps" style={{
-            fontFamily: "'Geist Mono', monospace",
-            fontSize: 10,
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            color: "var(--ink-4)",
-            marginBottom: 14,
-          }}>
-            Inbox
-          </div>
-          {[
-            ["Suppliers", "24", true],
-            ["Quotes", "8"],
-            ["POs", "12"],
-            ["Disputes", "2"],
-          ].map(([l, n, active], i) => (
-            <div key={i} style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "6px 0",
-              fontFamily: "'Geist', sans-serif",
-              fontSize: 12,
-              fontWeight: active ? 600 : 400,
-              color: active ? "var(--ink-1)" : "var(--ink-3)",
-            }}>
-              <span>{l}</span>
-              <span style={{
-                fontFamily: "'Geist Mono', monospace",
-                fontSize: 10,
-                color: active ? "var(--coral)" : "var(--ink-4)",
-              }}>
-                {n}
-              </span>
-            </div>
+      <div role="table" aria-label="Illustration of the VSG ICT planning grid">
+        <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr 1fr" }}>
+          {["SKU", "Now", "+1 mo", "+2 mo", "+3 mo"].map((h, i) => (
+            <div key={h} style={{ ...cell, textAlign: i === 0 ? "left" : "right", color: "var(--ink-4)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase" }}>{h}</div>
           ))}
-          <div style={{ height: 1, background: "var(--hairline)", margin: "16px 0" }} />
-          <div style={{
-            fontFamily: "'Geist Mono', monospace",
-            fontSize: 10,
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            color: "var(--ink-4)",
-            marginBottom: 10,
-          }}>
-            ACE context
-          </div>
-          {["140 suppliers", "Pastel + Sage", "ZAR, USD, EUR"].map((t, i) => (
-            <div key={i} style={{
-              fontFamily: "'Geist', sans-serif",
-              fontSize: 11.5,
-              color: "var(--ink-3)",
-              lineHeight: 1.6,
-            }}>
-              {t}
-            </div>
-          ))}
-        </div>
-
-        {/* Email list */}
-        <div style={{ borderRight: "1px solid var(--hairline)", overflow: "hidden" }}>
-          <div style={{ padding: "14px 16px 10px", borderBottom: "1px solid var(--hairline)" }}>
-            <div style={{
-              fontFamily: "'Geist', sans-serif",
-              fontWeight: 600,
-              fontSize: 13,
-              color: "var(--ink-1)",
-            }}>Supplier email · 41</div>
-            <div style={{
-              marginTop: 4,
-              fontFamily: "'Geist Mono', monospace",
-              fontSize: 9.5,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "var(--coral)",
-            }}>
-              12 drafted by ACE
-            </div>
-          </div>
-          {[
-            { f: "Falcon Steel", s: "PO-22014 dispatch confirmation", t: "08:42", draft: true },
-            { f: "Pinnacle Plastics", s: "Quote: HDPE 35t — Aug", t: "07:18", draft: true, isActive: true },
-            { f: "Westcape Bearings", s: "Lead time update — SKF 6205", t: "Yesterday" },
-            { f: "Atlantic Fasteners", s: "Re: outstanding statement", t: "Yesterday", draft: true },
-          ].map((m, i) => {
-            const isHighlighted = m.isActive && emailActive;
-            return (
-              <div key={i} style={{
-                padding: "11px 16px",
-                borderBottom: "1px solid var(--hairline)",
-                borderLeft: isHighlighted ? "2px solid var(--coral)" : "2px solid transparent",
-                background: isHighlighted ? "var(--coral-soft)" : "transparent",
-                transition: "background 220ms, border-color 220ms",
-              }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{
-                    fontFamily: "'Geist', sans-serif",
-                    fontWeight: isHighlighted ? 700 : 600,
-                    fontSize: 12,
-                    color: "var(--ink-1)",
-                  }}>{m.f}</span>
-                  <span style={{
-                    fontFamily: "'Geist Mono', monospace",
-                    fontSize: 9,
-                    color: "var(--ink-4)",
-                    letterSpacing: "0.1em",
-                  }}>{m.t}</span>
-                </div>
-                <div style={{
-                  marginTop: 4,
-                  fontFamily: "'Geist', sans-serif",
-                  fontSize: 11,
-                  color: "var(--ink-3)",
-                  lineHeight: 1.35,
-                }}>{m.s}</div>
-                {m.draft && (
-                  <div style={{
-                    marginTop: 4,
-                    fontFamily: "'Geist Mono', monospace",
-                    fontSize: 8.5,
-                    letterSpacing: "0.2em",
-                    textTransform: "uppercase",
-                    color: "var(--coral)",
-                  }}>
-                    ● Draft ready
-                  </div>
-                )}
+          {GRID_ROWS.map((r) => (
+            <React.Fragment key={r.sku}>
+              <div style={{ ...cell, textAlign: "left", color: "var(--ink-1)", fontWeight: 500 }}>
+                <span style={{ display: "inline-block", width: 7, height: 7, borderRadius: "50%", background: r.flag, marginRight: 8, verticalAlign: "middle" }} />
+                {r.sku}
               </div>
-            );
-          })}
-        </div>
-
-        {/* Detail + draft */}
-        <div style={{ padding: "16px", display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 8 }}>
-            <div style={{
-              fontFamily: "'Geist', sans-serif",
-              fontWeight: 700,
-              fontSize: 15,
-              color: "var(--ink-1)",
-              lineHeight: 1.2,
-            }}>
-              Pinnacle<br />Plastics
-            </div>
-            <span style={{
-              fontFamily: "'Geist Mono', monospace",
-              fontSize: 10,
-              color: "var(--ink-4)",
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-            }}>
-              07:18
-            </span>
-          </div>
-          <div style={{
-            fontFamily: "'Geist', sans-serif",
-            fontSize: 11.5,
-            color: "var(--ink-2)",
-            lineHeight: 1.55,
-            marginBottom: 14,
-          }}>
-            <strong style={{ color: "var(--ink-1)" }}>Quote: HDPE 35t — Aug</strong>
-            <br />
-            Pricing valid 14 days. Lead time 3 weeks ex-works. Need confirmation by Friday.
-          </div>
-
-          {/* Draft callout */}
-          <div style={{
-            background: "var(--coral-soft)",
-            border: "1px solid rgba(201,99,58,0.28)",
-            borderRadius: 10,
-            padding: "12px 12px 10px",
-            marginBottom: 12,
-            minHeight: 130,
-          }}>
-            <div style={{
-              fontFamily: "'Geist Mono', monospace",
-              fontSize: 9,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "var(--coral)",
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: 8,
-            }}>
-              <span>ACE · Confidence</span>
-              <span>Draft 92%</span>
-            </div>
-            <div style={{
-              fontFamily: "'Geist', sans-serif",
-              fontSize: 11.5,
-              color: "var(--ink-2)",
-              lineHeight: 1.55,
-              minHeight: 80,
-            }}>
-              {DRAFT_TEXT.slice(0, typed)}
-              {(phase === "typing" || phase === "sending" || phase === "sent") && (
-                <span aria-hidden="true" style={{
-                  display: "inline-block",
-                  width: 1.5,
-                  height: 12,
-                  background: "var(--coral)",
-                  marginLeft: 2,
-                  verticalAlign: "text-bottom",
-                  animation: "vsg-caret-blink 1s steps(1) infinite",
-                  opacity: phase === "typing" ? 1 : 0,
-                }} />
-              )}
-            </div>
-          </div>
-
-          {/* Action buttons */}
-          <div style={{ display: "flex", gap: 8, marginTop: "auto" }}>
-            <button type="button" style={{
-              background: sentFlash ? "var(--success)" : "var(--ink-1)",
-              color: "var(--paper)",
-              border: "none",
-              borderRadius: 999,
-              padding: "8px 18px",
-              fontFamily: "'Geist', sans-serif",
-              fontSize: 11.5,
-              fontWeight: 600,
-              cursor: "pointer",
-              transition: "background 320ms",
-              outline: phase === "sending" ? "2px solid var(--coral)" : "none",
-              outlineOffset: "2px",
-            }}>
-              {sentFlash ? "Sent ✓" : "Send"}
-            </button>
-            <button type="button" style={{
-              background: "transparent",
-              color: "var(--ink-1)",
-              border: "1px solid var(--hairline)",
-              borderRadius: 999,
-              padding: "8px 18px",
-              fontFamily: "'Geist', sans-serif",
-              fontSize: 11.5,
-              fontWeight: 600,
-              cursor: "pointer",
-            }}>
-              Edit
-            </button>
-            <button type="button" style={{
-              background: "transparent",
-              color: "var(--ink-3)",
-              border: "1px solid var(--hairline)",
-              borderRadius: 999,
-              padding: "8px 14px",
-              fontFamily: "'Geist', sans-serif",
-              fontSize: 11.5,
-              fontWeight: 600,
-              cursor: "pointer",
-              opacity: 0.75,
-            }}>
-              Decline
-            </button>
-          </div>
+              <div style={cell}>{r.now}</div>
+              <div style={cell}>{r.m1}</div>
+              <div style={cell}>{r.m2}</div>
+              <div style={{ ...cell, color: parseFloat(r.m3) < 1 ? "#C9633A" : "var(--ink-2)", fontWeight: parseFloat(r.m3) < 1 ? 700 : 400 }}>{r.m3}</div>
+            </React.Fragment>
+          ))}
         </div>
       </div>
-
-      {/* Cursor overlay */}
-      <div style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: 20,
-        height: 24,
-        pointerEvents: "none",
-        zIndex: 20,
-        ...cursorStyle,
-      }}>
-        <svg viewBox="0 0 16 20" width="18" height="22" style={{
-          filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.25))",
-        }}>
-          <path d="M1 1 L1 15 L5 11 L8 18 L10 17 L7 10 L13 10 Z"
-                fill="var(--ink-1)" stroke="var(--paper)" strokeWidth="1" />
-        </svg>
+      <div style={{ padding: "10px 16px", fontFamily: "'Geist', sans-serif", fontSize: 12, color: "var(--ink-3)", background: "var(--paper-2)", borderTop: "1px solid var(--hairline)" }}>
+        Illustrative data. Red = cover falls below target before your next order would land.
       </div>
     </div>
   );
 }
 
-function wait(ms) {
-  return new Promise((r) => setTimeout(r, ms));
-}
-
 // ============================================================
-// 2) HERO — text-centered, no mockup
+// HERO
 // ============================================================
 
 function SourceHero({ onBookDemo }) {
-  // Hardcoded dark palette so the hero stays dark across any theme switch
-  const HERO_BG = "#13100C";   // darker than before so the sunrise pops
-  const HERO_INK = "#F5F0E8";
-  const HERO_INK_2 = "rgba(245,240,232,0.78)";
-  const HERO_INK_3 = "rgba(245,240,232,0.50)";
-  const HERO_INK_4 = "rgba(245,240,232,0.35)";
-  const HERO_HAIRLINE = "rgba(245,240,232,0.12)";
-
   return (
-    <section style={{
-      position: "relative",
-      background: HERO_BG,
-      paddingTop: 72,
-      paddingBottom: 0, // mockup will sit at the bottom of this section
-      overflow: "hidden",
-    }}>
-      {/* Sunrise — coral horizon rising from the bottom edge.
-          Wide ellipse anchored to bottom-centre so the coral spills around
-          the floating mockup like a silhouette against dawn. */}
-      <div aria-hidden="true" style={{
-        position: "absolute",
-        inset: 0,
-        background: "radial-gradient(ellipse 110% 55% at 50% 100%, rgba(201,99,58,0.28), rgba(201,99,58,0) 70%)",
-        pointerEvents: "none",
-      }} />
-
-      <Container style={{ position: "relative", zIndex: 1 }}>
-        {/* Breadcrumb */}
-        <Reveal>
-          <div style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 10,
-            fontFamily: "'Geist Mono', monospace",
-            fontWeight: 500,
-            fontSize: 11,
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            color: HERO_INK_4,
-            marginBottom: 36,
-          }}>
-            <a href="index.html" style={{ color: HERO_INK_4, textDecoration: "none" }}>← VSG Tech</a>
-            <span>/</span>
-            <span style={{ color: HERO_INK }}>VSG ICT</span>
-          </div>
-        </Reveal>
-
-        {/* Centered text */}
-        <div style={{ textAlign: "center", maxWidth: 980, margin: "0 auto" }}>
-          <Reveal>
-            <div style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 12,
-              marginBottom: 26,
-              flexWrap: "wrap",
-            }}>
-              <span style={{
-                fontFamily: "'Geist Mono', monospace",
-                fontWeight: 500,
-                fontSize: 11,
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-                color: "var(--coral)",
-              }}>
-                AI Procurement Platform
-              </span>
-              <span style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 6,
-                padding: "5px 11px",
-                borderRadius: 999,
-                background: "rgba(14,122,90,0.18)",
-                border: "1px solid rgba(14,122,90,0.45)",
-                color: "#5BDFA8",
-                fontFamily: "'Geist Mono', monospace",
-                fontWeight: 500,
-                fontSize: 10,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-              }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#5BDFA8" }} />
-                Live
-              </span>
-            </div>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <h1 style={{
-              fontFamily: "'Geist', sans-serif",
-              fontWeight: 700,
-              fontSize: 96,
-              lineHeight: 1.0,
-              letterSpacing: "-0.045em",
-              color: HERO_INK,
-              margin: 0,
-              textWrap: "balance",
-            }}>
-              AI procurement that thinks{" "}
-              <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>
-                ahead of demand.
-              </em>
-            </h1>
-          </Reveal>
-
-          <Reveal delay={160}>
-            <p style={{
-              marginTop: 32,
-              maxWidth: 720,
-              marginLeft: "auto",
-              marginRight: "auto",
-              fontFamily: "'Geist', sans-serif",
-              fontSize: 20,
-              lineHeight: 1.55,
-              color: HERO_INK_2,
-            }}>
-              A standalone AI procurement platform for South African manufacturers, retailers, and distributors. Forward planning, house-voice supplier replies, multi-level approvals, exception handling, and a supplier portal — all powered by VSG ACE, the AI that learns YOUR specific suppliers, terminology, and rules.
-            </p>
-          </Reveal>
-
-          <Reveal delay={240}>
-            <div style={{
-              marginTop: 40,
-              display: "flex",
-              gap: 16,
-              alignItems: "center",
-              justifyContent: "center",
-              flexWrap: "wrap",
-            }}>
-              {/* Inverted primary (coral) — pops on dark */}
-              <button
-                onClick={onBookDemo}
-                style={{
-                  background: "var(--coral)",
-                  color: HERO_INK,
-                  border: "none",
-                  borderRadius: 999,
-                  height: 56,
-                  padding: "0 32px",
-                  fontFamily: "'Geist', sans-serif",
-                  fontSize: 15,
-                  fontWeight: 600,
-                  cursor: "pointer",
-                  letterSpacing: "-0.01em",
-                  transition: "transform 200ms, box-shadow 200ms",
-                  boxShadow: "0 12px 32px -12px rgba(201,99,58,0.55)",
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 16px 36px -12px rgba(201,99,58,0.65)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 12px 32px -12px rgba(201,99,58,0.55)"; }}
-              >
-                Book a Source demo
-              </button>
-              {/* Outlined secondary on dark */}
-              <a
-                href="#tour"
-                style={{
-                  background: "transparent",
-                  color: HERO_INK,
-                  border: `1px solid ${HERO_INK_3}`,
-                  borderRadius: 999,
-                  height: 56,
-                  padding: "0 32px",
-                  fontFamily: "'Geist', sans-serif",
-                  fontSize: 15,
-                  fontWeight: 600,
-                  cursor: "pointer",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  textDecoration: "none",
-                  letterSpacing: "-0.01em",
-                  transition: "background 200ms, border-color 200ms",
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(245,240,232,0.06)"; e.currentTarget.style.borderColor = HERO_INK_2; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = HERO_INK_3; }}
-              >
-                Take a tour
-              </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={320}>
-            <div style={{
-              marginTop: 28,
-              fontFamily: "'Geist Mono', monospace",
-              fontWeight: 500,
-              fontSize: 11,
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              color: HERO_INK_4,
-              display: "flex",
-              gap: 18,
-              flexWrap: "wrap",
-              justifyContent: "center",
-            }}>
-              <span>Live in 5 weeks</span>
-              <span style={{ width: 3, height: 3, borderRadius: "50%", background: HERO_HAIRLINE, alignSelf: "center" }} />
-              <span>SysPro · SAP B1 · Pastel — native</span>
-              <span style={{ width: 3, height: 3, borderRadius: "50%", background: HERO_HAIRLINE, alignSelf: "center" }} />
-              <span>Buyer keeps full review control</span>
-            </div>
-          </Reveal>
-        </div>
-
-        {/* Animated cursor mockup — sits at the bottom of the hero, overlapping the next section */}
-        <Reveal delay={400}>
-          <div id="tour" style={{
-            marginTop: 80,
-            position: "relative",
-            zIndex: 2,
-            marginBottom: -140, // overlap into the next section
-            maxWidth: 1100,
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}>
-            <AnimatedCursorMockup />
-          </div>
-        </Reveal>
-      </Container>
-
-      {/* Bottom spacer so the overlap has somewhere to land */}
-      <div style={{ height: 80 }} />
-    </section>
-  );
-}
-
-// ============================================================
-// 3) SOCIAL PROOF STRIP
-// ============================================================
-
-function SocialProofStrip() {
-  const erps = ["SysPro", "Sage X3", "SAP B1", "Sage Pastel", "Acumatica", "Odoo"];
-  return (
-    <section style={{
-      background: "var(--paper-2)",
-      borderBottom: "1px solid var(--hairline)",
-      // Top padding accommodates the hero mockup's negative margin-bottom (~140px overlap)
-      padding: "200px 0 44px",
-    }}>
+    <section style={{ position: "relative", background: "var(--paper)", paddingTop: 96, paddingBottom: 88, overflow: "hidden" }}>
       <Container>
-        <Reveal>
-          <div style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 48,
-            flexWrap: "wrap",
-          }}>
-            <div style={{
-              fontFamily: "'Geist Mono', monospace",
-              fontWeight: 500,
-              fontSize: 11,
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              color: "var(--ink-3)",
-              maxWidth: 260,
-              lineHeight: 1.6,
-            }}>
-              In production with{" "}
-              <span style={{ color: "var(--ink-1)", fontWeight: 700 }}>SA manufacturers</span>
-              {" "}— connects to the ERPs they already run:
-            </div>
-            <div style={{
-              display: "flex",
-              gap: 32,
-              alignItems: "center",
-              flexWrap: "wrap",
-              justifyContent: "center",
-            }}>
-              {erps.map((e, i) => (
-                <span key={i} style={{
-                  fontFamily: "'Geist', sans-serif",
-                  fontWeight: 600,
-                  fontSize: 18,
-                  color: "var(--ink-2)",
-                  letterSpacing: "-0.01em",
-                  opacity: 0.85,
-                }}>
-                  {e}
-                </span>
-              ))}
-            </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 64, alignItems: "center" }}>
+          <div>
+            <Reveal>
+              <Eyebrow>VSG ICT · AI-assisted procurement · In production</Eyebrow>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 style={{
+                fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 72,
+                lineHeight: 1.0, letterSpacing: "-0.04em", color: "var(--ink-1)",
+                margin: "28px 0 0", textWrap: "balance",
+              }}>
+                Procurement that thinks{" "}
+                <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>months ahead.</em>
+              </h1>
+            </Reveal>
+            <Reveal delay={160}>
+              <p style={{ marginTop: 28, maxWidth: 560, fontFamily: "'Geist', sans-serif", fontSize: 20, lineHeight: 1.6, color: "var(--ink-2)" }}>
+                VSG ICT reads your live SYSPRO data and turns it into a clear buying
+                decision: what to buy, how much, and from which supplier at the lowest
+                true landed cost — ending in a SYSPRO-ready purchase order. In production
+                today at a South African steel distributor.
+              </p>
+            </Reveal>
+            <Reveal delay={220}>
+              <div style={{ marginTop: 28, display: "flex", flexWrap: "wrap", gap: 10 }}>
+                {["Built for SYSPRO", "Read-only against your ERP", "On-premise — nothing leaves the building", "One file, no installer"].map((c) => (
+                  <span key={c} style={{
+                    fontFamily: "'Geist', sans-serif", fontSize: 13.5, fontWeight: 500,
+                    color: "var(--ink-2)", background: "var(--surface-white)",
+                    border: "1px solid var(--hairline)", borderRadius: 999, padding: "7px 14px",
+                  }}>
+                    {c}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+            <Reveal delay={280}>
+              <div style={{ marginTop: 36, display: "flex", gap: 14, flexWrap: "wrap" }}>
+                <PrimaryButton onClick={onBookDemo}>Book a 30-minute walkthrough</PrimaryButton>
+                <PrimaryButton as="a" href="#how-it-works" style={{ background: "transparent", color: "var(--ink-1)", border: "1px solid var(--divider-strong)" }}>
+                  See how it works
+                </PrimaryButton>
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
+          <Reveal delay={200}>
+            <GridMockup />
+          </Reveal>
+        </div>
       </Container>
     </section>
   );
 }
 
 // ============================================================
-// 4) AI FEATURE SPOTLIGHT — text left, animated cursor mockup right
+// FACT STRIP — product facts, not performance claims
 // ============================================================
 
-function AIFeatureSpotlight() {
-  return (
-    <Section id="tour">
-      <Container wide>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1.15fr",
-          gap: 80,
-          alignItems: "center",
-        }}>
-          <Reveal>
-            <div>
-              <Eyebrow>VSG ACE · The AI inside Source</Eyebrow>
-              <Headline as="h2" size={56} style={{ marginTop: 28, maxWidth: 460 }}>
-                Watch ACE handle the inbox.{" "}
-                <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>Drafted, reviewed, sent.</em>
-              </Headline>
-              <p style={{
-                marginTop: 28,
-                maxWidth: 480,
-                fontFamily: "'Geist', sans-serif",
-                fontSize: 17,
-                lineHeight: 1.65,
-                color: "var(--ink-2)",
-              }}>
-                Every supplier email lands in your VSG ICT inbox. ACE reads it, classifies it, drafts the response in your house voice, and queues it for your buyer to approve. The buyer reviews. ACE sends. The audit trail writes itself.
-              </p>
-              <ul style={{ marginTop: 28, padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                {[
-                  "Inbox triage — POs, quotes, ASNs, statements, disputes sorted by actual lead-time risk",
-                  "House-voice drafting — references, codes, courtesy your team actually uses",
-                  "Confidence + EvidenceButton on every draft — never a black-box answer",
-                  "One-tap send, one-tap edit, one-tap decline — the buyer stays in control",
-                ].map((b, j) => (
-                  <li key={j} style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 12, alignItems: "start", listStyle: "none" }}>
-                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--coral)", marginTop: 9 }} />
-                    <span style={{ fontFamily: "'Geist', sans-serif", fontSize: 15, color: "var(--ink-2)", lineHeight: 1.55 }}>
-                      {b}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <AnimatedCursorMockup />
-          </Reveal>
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
-// ============================================================
-// 5) THREE-PILLAR BENEFITS (existing, refreshed)
-// ============================================================
-
-function SourceBenefits() {
-  const benefits = [
-    {
-      tag: "Plan",
-      title: "Forward stock visibility.",
-      body: "Per-SKU, per-supplier, per-customer. Forward planning grid with buy-up cash alerts, local-vs-import split, customer-share drilldown, and per-class stock-month targets your team can edit live.",
-    },
-    {
-      tag: "Draft",
-      title: "House-voice supplier replies.",
-      body: "Every inbound supplier email classified and queued. ACE drafts the reply in your terminology, with your reference codes and the courtesy your team uses with each supplier. Buyer reviews. One tap to send.",
-    },
-    {
-      tag: "Execute",
-      title: "Approvals + exceptions + supplier portal.",
-      body: "Multi-level approvals learned from your actual history. Exception handling flags variances with evidence. Suppliers see their own POs and disputes through a self-service portal.",
-    },
+function FactStrip() {
+  const facts = [
+    { v: "5 months", l: "projected ahead, per SKU, with seasonality" },
+    { v: "18 months", l: "of your sales history behind every forecast" },
+    { v: "Read-only", l: "against SYSPRO — it can never change your ERP data" },
+    { v: "1 file", l: "self-contained install — no cloud, no dependencies" },
   ];
   return (
-    <Section id="benefits" alt>
+    <Section alt>
       <Container>
-        <Reveal>
-          <div style={{ maxWidth: 720 }}>
-            <Eyebrow>How it works</Eyebrow>
-            <Headline as="h2" size={56} style={{ marginTop: 32 }}>
-              Three things — done <em style={{ fontStyle: "italic", fontWeight: 700 }}>well.</em>
-            </Headline>
-            <p style={{ marginTop: 28, maxWidth: 560, fontFamily: "'Geist', sans-serif", fontSize: 18, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              VSG ICT is a complete procurement product with its own workflows — from forward planning to RFQ to approval. Powered by VSG ACE, the per-customer AI that learns YOUR business.
-            </p>
-          </div>
-        </Reveal>
-
-        <div style={{ marginTop: 64, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
-          {benefits.map((b, i) => (
-            <Reveal key={i} delay={i * 80}>
-              <div
-                style={{
-                  background: "var(--surface-white)",
-                  border: "1px solid var(--hairline)",
-                  borderRadius: 20,
-                  padding: 32,
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 18,
-                  transition: "border-color 220ms cubic-bezier(.2,0,0,1)",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--divider-strong)")}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--hairline)")}
-              >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <Eyebrow>{`0${i + 1} — ${b.tag}`}</Eyebrow>
-                  <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-                    Step
-                  </span>
-                </div>
-                <h3 style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 24, lineHeight: 1.2, letterSpacing: "-0.02em", color: "var(--ink-1)", margin: 0, textWrap: "balance" }}>
-                  {b.title}
-                </h3>
-                <p style={{ fontFamily: "'Geist', sans-serif", fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)", margin: 0 }}>
-                  {b.body}
-                </p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
+          {facts.map((f, i) => (
+            <Reveal key={f.v} delay={i * 70}>
+              <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 16, padding: 26, height: "100%" }}>
+                <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 30, letterSpacing: "-0.03em", color: "var(--ink-1)" }}>{f.v}</div>
+                <div style={{ marginTop: 8, fontFamily: "'Geist', sans-serif", fontSize: 14.5, lineHeight: 1.5, color: "var(--ink-3)" }}>{f.l}</div>
               </div>
             </Reveal>
           ))}
@@ -852,217 +156,40 @@ function SourceBenefits() {
 }
 
 // ============================================================
-// 6) TABBED PRODUCT SHOWCASE — Planning / Sourcing / Execution
+// HOW IT WORKS — the four screens
 // ============================================================
 
-// Visualizations
-function VizPlanning() {
-  const rows = [
-    { sku: "SS304-12",  cls: "SC304",  oh: "8.4t", m: [{ v: "2.1", s: "ok"   }, { v: "1.4", s: "ok"   }, { v: "0.6", s: "warn" }, { v: "0.0", s: "out"  }] },
-    { sku: "SS304L-25", cls: "SP304L", oh: "11.2t", m: [{ v: "2.6", s: "ok"   }, { v: "2.1", s: "ok"   }, { v: "1.8", s: "ok"   }, { v: "1.2", s: "warn" }] },
-    { sku: "SS316-08",  cls: "SC316",  oh: "3.1t",  m: [{ v: "1.0", s: "warn" }, { v: "0.4", s: "out"  }, { v: "0.0", s: "out"  }, { v: "0.0", s: "out"  }] },
-    { sku: "SS316L-10", cls: "SP316L", oh: "6.8t",  m: [{ v: "1.8", s: "ok"   }, { v: "1.5", s: "ok"   }, { v: "1.2", s: "warn" }, { v: "0.9", s: "warn" }] },
+function FourScreens() {
+  const steps = [
+    { n: "01", t: "Connect", b: "Point it at your SYSPRO data source, choose the product classes and warehouses to load, and connect. A built-in demo mode runs the whole app on sample data — so you can see everything before it touches a single record of yours." },
+    { n: "02", t: "Analyse", b: "The forward planning grid: every SKU's projected stock and months of cover, five months out, flagged red, amber or green against your target. Click any SKU and drill into the evidence — stock lots with per-lot cost, incoming purchase orders, which customers buy it." },
+    { n: "03", t: "Compare", b: "Send suppliers a quote request as a simple file they fill in and return. VSG ICT compares every quote on true landed cost — price plus duty, clearing, freight and exchange rate — and shows how full each supplier's load would be. Award line by line." },
+    { n: "04", t: "Sign off", b: "Export the plan for internal review, re-import it approved, and generate the purchase order — in SYSPRO's exact import format, carrying the quote reference for traceability. Your buyer imports it. The decision stays human; the assembly work doesn't." },
   ];
-  const months = ["Aug", "Sep", "Oct", "Nov"];
-  const color = (s) => s === "ok" ? "var(--success)" : s === "warn" ? "#E8A23A" : "var(--coral)";
-  const bg = (s) => s === "ok" ? "var(--success-soft)" : s === "warn" ? "rgba(232,162,58,0.16)" : "var(--coral-soft)";
   return (
-    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 24, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.16)" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
-        <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-          Planning grid · Forward outlook
-        </div>
-        <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--coral)" }}>
-          Peak Oct-26
-        </span>
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.7fr 0.6fr repeat(4, 1fr)", gap: 8, alignItems: "center", fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-        <span>SKU</span>
-        <span>Class</span>
-        <span>On-hand</span>
-        {months.map((m) => <span key={m}>{m}</span>)}
-      </div>
-      <div style={{ marginTop: 8, display: "flex", flexDirection: "column", gap: 6 }}>
-        {rows.map((r, i) => (
-          <div key={i} style={{ display: "grid", gridTemplateColumns: "1.2fr 0.7fr 0.6fr repeat(4, 1fr)", gap: 8, alignItems: "center", padding: "10px 0", borderBottom: i === rows.length - 1 ? "none" : "1px solid var(--hairline)" }}>
-            <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 600, fontSize: 13, color: "var(--ink-1)" }}>{r.sku}</span>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: 11, color: "var(--ink-3)", letterSpacing: "0.1em" }}>{r.cls}</span>
-            <span style={{ fontFamily: "'Geist', sans-serif", fontSize: 13, color: "var(--ink-2)" }}>{r.oh}</span>
-            {r.m.map((cell, j) => (
-              <div key={j} style={{ height: 26, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 6, background: bg(cell.s), color: color(cell.s), fontFamily: "'Geist Mono', monospace", fontWeight: 600, fontSize: 11 }}>
-                {cell.v}
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-      <div style={{ marginTop: 14, padding: "10px 12px", background: "var(--coral-soft)", border: "1px solid var(--hairline)", borderRadius: 10, fontFamily: "'Geist', sans-serif", fontSize: 12.5, color: "var(--ink-1)" }}>
-        <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--coral)", marginRight: 8 }}>
-          ✦ ACE
-        </span>
-        SS316-08 trends to zero by Oct — Stalcor on 14-week lead. Split the buy or commit 12t this week.
-      </div>
-    </div>
-  );
-}
-
-function VizExecute() {
-  return (
-    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.16)" }}>
-      <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)", marginBottom: 18 }}>
-        EvidenceButton · audit trail
-      </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 0, position: "relative" }}>
-        <div aria-hidden="true" style={{ position: "absolute", left: 13, top: 16, bottom: 16, width: 1.5, background: "var(--hairline)" }} />
-        {[
-          { t: "08:42", l: "ACE proposed reorder", v: "12t SS316-08 · confidence 91%", c: "var(--coral)" },
-          { t: "08:43", l: "Naledi reviewed evidence", v: "8-month history + Stalcor lead", c: "var(--ink-1)" },
-          { t: "08:43", l: "Approval routed",        v: "R 142,200 · CFO band",         c: "var(--ink-1)" },
-          { t: "09:11", l: "CFO approved",            v: "1-tap via mobile · evidence reviewed", c: "var(--success)" },
-          { t: "09:12", l: "Posted to SysPro",        v: "PO-22014 · CONFIRMED · audit signed", c: "var(--success)" },
-        ].map((e, i) => (
-          <div key={i} style={{ display: "grid", gridTemplateColumns: "28px 1fr auto", gap: 16, alignItems: "center", padding: "10px 0", position: "relative" }}>
-            <span style={{ width: 14, height: 14, borderRadius: "50%", background: "var(--paper)", border: `2px solid ${e.c}`, justifySelf: "center", zIndex: 1 }} />
-            <div>
-              <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: 600, fontSize: 14, color: "var(--ink-1)" }}>{e.l}</div>
-              <div style={{ fontFamily: "'Geist', sans-serif", fontSize: 12, color: "var(--ink-3)", marginTop: 2 }}>{e.v}</div>
-            </div>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-              {e.t}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-const TABS = [
-  {
-    id: "planning",
-    eyebrow: "Feature · Planning",
-    label: "Planning",
-    title: "Forward visibility, before the month starts.",
-    body: "The forward planning grid is the hero of VSG ICT. Per SKU, per supplier, per class — current on-hand, committed POs, planned orders, and projected closing stock months ahead. Excel-faithful math, NETWORKDAYS prorate, Dec/Jan half-trade convention. Built from the spreadsheet your buyer already uses.",
-    bullets: [
-      "Per-class months-stock targets (editable inline)",
-      "Buy-up cash factor — surfaces the worst month",
-      "Local vs import split for diversification decisions",
-      "8-month sales history with sparkline + seasonality",
-    ],
-    viz: <VizPlanning />,
-  },
-  {
-    id: "execute",
-    eyebrow: "Feature · Execute",
-    label: "Execution",
-    title: "Approvals, exceptions, audit trail.",
-    body: "Multi-level approval chains learned from your actual history — not a template. Mobile PWA for CFO approve-on-the-go. Exception handling flags variances with the evidence behind every flag. Every AI decision is replayable and signed. CFO-ready, defensible, never a black-box answer.",
-    bullets: [
-      "Approval rules learned from YOUR history",
-      "Mobile PWA: swipe to approve with evidence",
-      "Auto-exception handling with EvidenceButton",
-      "Full audit trail · signed and replayable",
-    ],
-    viz: <VizExecute />,
-  },
-];
-
-function TabbedShowcase() {
-  const [active, setActive] = React.useState(0);
-  const tab = TABS[active];
-  return (
-    <Section id="features">
-      <Container wide>
+    <Section id="how-it-works">
+      <Container>
         <Reveal>
-          <div style={{ maxWidth: 720 }}>
-            <Eyebrow>What it actually does</Eyebrow>
+          <div style={{ maxWidth: 760, marginBottom: 56 }}>
+            <Eyebrow>How it works</Eyebrow>
             <Headline as="h2" size={56} style={{ marginTop: 32 }}>
-              Less spreadsheet. <em style={{ fontStyle: "italic", fontWeight: 700 }}>More buying.</em>
+              Four screens. One buying decision,{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 700 }}>done properly.</em>
             </Headline>
           </div>
         </Reveal>
-
-        {/* Tab nav */}
-        <Reveal delay={80}>
-          <div style={{
-            marginTop: 48,
-            display: "flex",
-            gap: 0,
-            borderBottom: "1px solid var(--hairline)",
-          }}>
-            {TABS.map((t, i) => {
-              const isActive = i === active;
-              return (
-                <button
-                  key={t.id}
-                  type="button"
-                  onClick={() => setActive(i)}
-                  style={{
-                    background: "transparent",
-                    border: "none",
-                    padding: "16px 28px",
-                    fontFamily: "'Geist', sans-serif",
-                    fontWeight: isActive ? 700 : 500,
-                    fontSize: 16,
-                    color: isActive ? "var(--ink-1)" : "var(--ink-4)",
-                    cursor: "pointer",
-                    borderBottom: isActive ? "2px solid var(--coral)" : "2px solid transparent",
-                    marginBottom: -1,
-                    transition: "color 200ms, border-color 200ms",
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  <span style={{
-                    fontFamily: "'Geist Mono', monospace",
-                    fontWeight: 500,
-                    fontSize: 10,
-                    letterSpacing: "0.22em",
-                    textTransform: "uppercase",
-                    color: isActive ? "var(--coral)" : "var(--ink-4)",
-                    marginRight: 10,
-                  }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  {t.label}
-                </button>
-              );
-            })}
-          </div>
-        </Reveal>
-
-        {/* Tab content */}
-        <div style={{
-          marginTop: 56,
-          display: "grid",
-          gridTemplateColumns: "1fr 1.15fr",
-          gap: 80,
-          alignItems: "center",
-        }}>
-          <Reveal key={`copy-${active}`}>
-            <div>
-              <Eyebrow>{tab.eyebrow}</Eyebrow>
-              <Headline as="h3" size={42} style={{ marginTop: 22, maxWidth: 460 }}>
-                {tab.title}
-              </Headline>
-              <p style={{ marginTop: 22, maxWidth: 480, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-                {tab.body}
-              </p>
-              <ul style={{ marginTop: 28, padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                {tab.bullets.map((b, j) => (
-                  <li key={j} style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 12, alignItems: "start", listStyle: "none" }}>
-                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--coral)", marginTop: 9 }} />
-                    <span style={{ fontFamily: "'Geist', sans-serif", fontSize: 15, color: "var(--ink-2)", lineHeight: 1.55 }}>
-                      {b}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-          <Reveal key={`viz-${active}`} delay={80}>
-            {tab.viz}
-          </Reveal>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
+          {steps.map((s, i) => (
+            <Reveal key={s.n} delay={i * 70}>
+              <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 32, height: "100%" }}>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 14 }}>
+                  <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 12, letterSpacing: "0.24em", color: "var(--coral)" }}>{s.n}</span>
+                  <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 24, letterSpacing: "-0.02em", color: "var(--ink-1)" }}>{s.t}</span>
+                </div>
+                <p style={{ marginTop: 14, fontFamily: "'Geist', sans-serif", fontSize: 16, lineHeight: 1.65, color: "var(--ink-2)" }}>{s.b}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </Container>
     </Section>
@@ -1070,116 +197,40 @@ function TabbedShowcase() {
 }
 
 // ============================================================
-// 7) TOOLS GRID — 4-card 2x2
+// THE PLANNING GRID — hero feature deep-dive
 // ============================================================
 
-function ToolsGrid() {
-  const tools = [
-    {
-      eyebrow: "ERP Connectors",
-      title: "Native to the four ERPs SA mid-market runs.",
-      body: "SysPro, Sage X3, SAP Business One, and Sage Pastel — first-class round-trip connectors for sales orders, POs, and GRNs. Acumatica + Odoo too.",
-      tags: ["SysPro", "Sage X3", "SAP B1", "Pastel"],
-    },
-    {
-      eyebrow: "Mobile PWA",
-      title: "CFO approves from a phone.",
-      body: "Mobile-first approval interface. Each pending order is a card with the SKU, qty, cash impact, AI risk badge, and EvidenceButton. Swipe to approve, tap for evidence.",
-      tags: ["iOS · Android", "Offline-capable", "Audit-signed"],
-    },
-    {
-      eyebrow: "VSG ACE",
-      title: "Per-customer AI memory.",
-      body: "ACE learns YOUR suppliers, YOUR terminology, YOUR exception patterns. Never shared, never trained across customers. Isolated, portable, auditable.",
-      tags: ["Per-tenant", "ZA-hosted", "No cross-training"],
-    },
-    {
-      eyebrow: "Audit Trail",
-      title: "Every decision, signed and replayable.",
-      body: "Every AI proposal, every approval, every ERP write — logged with the inputs that produced it. Immutable retention, every decision replayable.",
-      tags: ["Auditable", "Immutable", "Replayable", "Signed"],
-    },
+function PlanningGridSection() {
+  const items = [
+    { t: "Forecast per SKU, five months out", b: "Built from up to 18 months of your own sales history, with seasonality — reduced December and January trade included — and the current month prorated properly." },
+    { t: "Cover flags you can act on", b: "Projected closing stock and months of cover per SKU per month, red, amber or green against your target — so the SKU that runs dry in month three gets bought in month one." },
+    { t: "The money view", b: "SYSPRO valuation-based stock-turn, an upturn score that weighs turn against margin, and a buy-up cash factor that shows where a small extra spend materially improves cover." },
+    { t: "Multi-warehouse, one line", b: "Nets a SKU's stock and usage across the warehouses you select — one honest number instead of four partial ones." },
+    { t: "Evidence one click away", b: "Drill into any SKU: every stock lot with its unit cost and local-vs-import split, every incoming purchase order with price and due date, and which customers actually buy it." },
+    { t: "Filters that keep up with a buyer", b: "By class, warehouse, or SKU wildcard, with per-column filters that understand ranges — plus show and hide any column." },
   ];
   return (
     <Section alt>
       <Container>
         <Reveal>
-          <div style={{ maxWidth: 720 }}>
-            <Eyebrow>What's in the box</Eyebrow>
+          <div style={{ maxWidth: 760, marginBottom: 56 }}>
+            <Eyebrow>The planning grid</Eyebrow>
             <Headline as="h2" size={56} style={{ marginTop: 32 }}>
-              Powerful tools, <em style={{ fontStyle: "italic", fontWeight: 700 }}>actually shipped.</em>
+              The spreadsheet your buyer rebuilds every Monday —{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 700 }}>rebuilt for good.</em>
             </Headline>
+            <p style={{ marginTop: 24, fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 640 }}>
+              This is the heart of VSG ICT: your whole buying picture, per SKU, per
+              supplier, per month — live from SYSPRO instead of assembled by hand.
+            </p>
           </div>
         </Reveal>
-        <div style={{
-          marginTop: 56,
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: 24,
-        }}>
-          {tools.map((t, i) => (
-            <Reveal key={i} delay={i * 60}>
-              <div
-                style={{
-                  background: "var(--surface-white)",
-                  border: "1px solid var(--hairline)",
-                  borderRadius: 20,
-                  padding: 36,
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  transition: "border-color 220ms cubic-bezier(.2,0,0,1)",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--divider-strong)")}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--hairline)")}
-              >
-                <Eyebrow>{t.eyebrow}</Eyebrow>
-                <h3 style={{
-                  fontFamily: "'Geist', sans-serif",
-                  fontWeight: 700,
-                  fontSize: 24,
-                  lineHeight: 1.2,
-                  letterSpacing: "-0.02em",
-                  color: "var(--ink-1)",
-                  margin: "18px 0 14px",
-                  textWrap: "balance",
-                }}>
-                  {t.title}
-                </h3>
-                <p style={{
-                  fontFamily: "'Geist', sans-serif",
-                  fontSize: 15,
-                  lineHeight: 1.6,
-                  color: "var(--ink-3)",
-                  margin: 0,
-                  flex: 1,
-                }}>
-                  {t.body}
-                </p>
-                <div style={{
-                  marginTop: 22,
-                  paddingTop: 18,
-                  borderTop: "1px solid var(--hairline)",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: 8,
-                }}>
-                  {t.tags.map((tag, j) => (
-                    <span key={j} style={{
-                      padding: "4px 10px",
-                      background: "var(--paper-2)",
-                      border: "1px solid var(--hairline)",
-                      borderRadius: 999,
-                      fontFamily: "'Geist Mono', monospace",
-                      fontSize: 10,
-                      letterSpacing: "0.16em",
-                      textTransform: "uppercase",
-                      color: "var(--ink-3)",
-                    }}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+          {items.map((it, i) => (
+            <Reveal key={it.t} delay={i * 60}>
+              <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, height: "100%" }}>
+                <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 18, letterSpacing: "-0.015em", color: "var(--ink-1)", textWrap: "balance" }}>{it.t}</div>
+                <p style={{ marginTop: 10, fontFamily: "'Geist', sans-serif", fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)" }}>{it.b}</p>
               </div>
             </Reveal>
           ))}
@@ -1190,145 +241,227 @@ function ToolsGrid() {
 }
 
 // ============================================================
-// 7b) WHO IT'S FOR — Roles
+// LANDED COST — RFQ round-trip
+// ============================================================
+
+function LandedCostSection() {
+  return (
+    <Section>
+      <Container>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+          <Reveal>
+            <div>
+              <Eyebrow>True landed cost</Eyebrow>
+              <Headline as="h2" size={52} style={{ marginTop: 32 }}>
+                The cheapest quote is often{" "}
+                <em style={{ fontStyle: "italic", fontWeight: 700 }}>the expensive one.</em>
+              </Headline>
+              <p style={{ marginTop: 24, fontFamily: "'Geist', sans-serif", fontSize: 18, lineHeight: 1.65, color: "var(--ink-2)" }}>
+                Sticker price isn't cost. VSG ICT compares every supplier quote on what
+                the stock actually costs delivered — quote price plus import duty,
+                clearing, freight and exchange rate — side by side, line by line.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              {[
+                ["RFQ round-trip", "Export a quote request as a self-contained file. The supplier fills in prices and sends it back. Import it — no portal for them to learn, no retyping for you."],
+                ["Local vs import, handled", "Duty, clearing and currency applied where they belong, so a local and an import quote finally compare fairly."],
+                ["Container fill", "See how full each supplier's load would be before you award — because half-empty containers are landed cost too."],
+                ["Award your way", "Best supplier per line, or a whole column in one move — always on landed cost, never on sticker."],
+              ].map(([t, b], i) => (
+                <div key={t} style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 16, padding: "20px 24px" }}>
+                  <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 16.5, color: "var(--ink-1)" }}>{t}</div>
+                  <div style={{ marginTop: 6, fontFamily: "'Geist', sans-serif", fontSize: 14.5, lineHeight: 1.55, color: "var(--ink-2)" }}>{b}</div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+// ============================================================
+// OUTPUT — the SYSPRO-ready PO
+// ============================================================
+
+function POOutputSection() {
+  return (
+    <Section alt>
+      <Container>
+        <Reveal>
+          <div style={{ maxWidth: 800 }}>
+            <Eyebrow>The output</Eyebrow>
+            <Headline as="h2" size={52} style={{ marginTop: 32 }}>
+              It ends the way your ERP{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 700 }}>wants it to.</em>
+            </Headline>
+            <p style={{ marginTop: 24, fontFamily: "'Geist', sans-serif", fontSize: 18, lineHeight: 1.7, color: "var(--ink-2)" }}>
+              From the awarded quotes — or straight from the planning grid — VSG ICT
+              generates a purchase order in SYSPRO's exact import format, with the
+              landed-cost calculations applied and the originating quote reference
+              carried through for traceability. Your buyer reviews it and imports it.
+            </p>
+            <p style={{ marginTop: 18, fontFamily: "'Geist', sans-serif", fontSize: 18, lineHeight: 1.7, color: "var(--ink-2)" }}>
+              And that's deliberate: <strong style={{ color: "var(--ink-1)" }}>VSG ICT never writes into
+              SYSPRO.</strong> Your ERP stays the system of record, your buyer stays the
+              decision-maker, and every plan can be exported for internal sign-off and
+              kept as a dated snapshot — a paper trail your auditors will actually enjoy.
+            </p>
+          </div>
+        </Reveal>
+      </Container>
+    </Section>
+  );
+}
+
+// ============================================================
+// SECURITY / IT
+// ============================================================
+
+function SourceSecurity() {
+  const rows = [
+    ["Read-only by design", "Connects to SYSPRO read-only. It physically cannot corrupt, change or delete your ERP data."],
+    ["On-premise, no cloud", "Runs on your own PC. No external transmission — your stock, prices and suppliers never leave the building. POPIA-friendly by architecture, not by policy."],
+    ["One self-contained file", "No installer, no dependencies, no agents on your network. IT can inspect exactly what runs."],
+    ["Licensed and protected", "Per-PC activation with a machine-locked key, a clear licence agreement, and a hardened build."],
+    ["Demo mode built in", "The full application runs on built-in sample data — evaluate everything with zero access granted."],
+  ];
+  return (
+    <Section>
+      <Container>
+        <Reveal>
+          <div style={{ maxWidth: 760, marginBottom: 48 }}>
+            <Eyebrow>Built for locked-down IT</Eyebrow>
+            <Headline as="h2" size={52} style={{ marginTop: 32 }}>
+              Your IT manager's favourite{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 700 }}>kind of software.</em>
+            </Headline>
+          </div>
+        </Reveal>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {rows.map(([t, b], i) => (
+            <Reveal key={t} delay={i * 50}>
+              <div style={{
+                display: "grid", gridTemplateColumns: "1fr 1.8fr", gap: 40, padding: "26px 0",
+                borderTop: i === 0 ? "1px solid var(--ink-1)" : "1px solid var(--hairline)",
+              }}>
+                <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 19, color: "var(--ink-1)" }}>{t}</div>
+                <div style={{ fontFamily: "'Geist', sans-serif", fontSize: 16, lineHeight: 1.6, color: "var(--ink-2)" }}>{b}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+// ============================================================
+// TODAY vs ROADMAP — the honest line
+// ============================================================
+
+function TodayRoadmap() {
+  const today = [
+    "Forward planning grid — five months of projected cover per SKU",
+    "Financial stock-turn, upturn scoring and the buy-up cash factor",
+    "Supplier RFQ round-trip with true landed-cost comparison",
+    "Container fill and local-vs-import handling",
+    "SYSPRO-ready purchase order with quote traceability",
+    "Plan export, sign-off re-import and dated snapshots",
+  ];
+  const roadmap = [
+    "Posting approved POs (and later goods receipts) straight into SYSPRO through its official e.net interface — no re-keying",
+    "AI-drafted supplier emails, always with buyer approval before anything sends",
+    "Multi-level approval workflows — buyer, manager, MD, with thresholds",
+    "Machine-learning demand forecasting alongside today's history-based projection",
+    "A plain-language copilot: ask questions of your live inventory",
+    "Deeper inventory intelligence — classification, safety stock, dead-stock and working-capital optimisation",
+  ];
+  return (
+    <Section alt>
+      <Container>
+        <Reveal>
+          <div style={{ maxWidth: 760, marginBottom: 48 }}>
+            <Eyebrow>Today — and where it's going</Eyebrow>
+            <Headline as="h2" size={52} style={{ marginTop: 32 }}>
+              What it does today.{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 700 }}>What's coming next.</em>
+            </Headline>
+            <p style={{ marginTop: 24, fontFamily: "'Geist', sans-serif", fontSize: 18, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 640 }}>
+              We keep a visible line between the two — you should always know exactly
+              what you're buying.
+            </p>
+          </div>
+        </Reveal>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+          <Reveal>
+            <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 36, height: "100%" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 22 }}>
+                <span style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--coral)" }} />
+                <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--coral)" }}>Shipped · in production</span>
+              </div>
+              <ul style={{ margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+                {today.map((s) => (
+                  <li key={s} style={{ listStyle: "none", display: "grid", gridTemplateColumns: "auto 1fr", gap: 12, fontFamily: "'Geist', sans-serif", fontSize: 15.5, lineHeight: 1.55, color: "var(--ink-1)" }}>
+                    <span style={{ color: "var(--coral)", fontWeight: 700 }}>✓</span>{s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div style={{ background: "var(--paper-2)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 36, height: "100%" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 22 }}>
+                <span style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--ink-4)" }} />
+                <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--ink-4)" }}>On the roadmap</span>
+              </div>
+              <ul style={{ margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+                {roadmap.map((s) => (
+                  <li key={s} style={{ listStyle: "none", display: "grid", gridTemplateColumns: "auto 1fr", gap: 12, fontFamily: "'Geist', sans-serif", fontSize: 15.5, lineHeight: 1.55, color: "var(--ink-2)" }}>
+                    <span style={{ color: "var(--ink-4)" }}>→</span>{s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+// ============================================================
+// ROLES — the morning after go-live
 // ============================================================
 
 function SourceRoles() {
   const roles = [
-    {
-      n: "01",
-      name: "Buyer",
-      lede: "Gets the morning back.",
-      body: "The planning grid shows months ahead at a glance. ACE drafts the routine inbox traffic and queues it for review. The buyer stops re-typing supplier responses and focuses on the conversations that actually move price — supplier negotiation, single-source de-risking, exception handling.",
-      gets: [
-        "Forward planning grid open by 7:30am, fully refreshed",
-        "12 ACE-drafted replies waiting for one-tap approval",
-        "Single-source risk heatmap across your supplier panel",
-        "Direct line to suppliers via the portal — no email tag",
-      ],
-    },
-    {
-      n: "02",
-      name: "Finance / CFO",
-      lede: "Mobile approve-on-the-go with full evidence.",
-      body: "Every pending order is a card on the CFO's phone with the SKU, quantity, cash impact, AI risk badge, and EvidenceButton. Swipe to approve, tap for the supporting evidence chain. The full audit trail writes itself — every approval, signed and replayable.",
-      gets: [
-        "Mobile PWA: swipe-approve with one thumb",
-        "EvidenceButton on every AI recommendation",
-        "Cash-impact forecast 4 months forward",
-        "Full audit trail on every approval, signed and replayable",
-      ],
-    },
-    {
-      n: "03",
-      name: "Ops / GM",
-      lede: "One screen with the signals that move the floor.",
-      body: "Late raw materials. Single-source risk. Supplier price moves. Quality dispute trends. Lead-time variance. Every signal that could shake your production schedule, surfaced the day it happens — not the week after it bit. Linked back to the production line it affects.",
-      gets: [
-        "Single-source risk heatmap across your supplier panel",
-        "Lead-time variance alerts vs. plan",
-        "Supplier price-move tracker · 6-month rolling",
-        "Quality dispute dashboard per supplier per SKU",
-      ],
-    },
+    { t: "The buyer", b: "Stops rebuilding the planning spreadsheet every Monday. The grid assembles the picture; the buyer applies judgement, compares suppliers on landed cost, and awards. Hours of assembly become minutes of deciding." },
+    { t: "The financial manager", b: "Sees stock in money terms — valuation-based turn, margin-weighted upturn, and where a small buy-up spend protects cover. Every award is defensible on true delivered cost, with a paper trail." },
+    { t: "The MD", b: "Gets a plan that was reviewed before it was ordered — exported, signed off, snapshotted with a date. What was bought, from whom, at what landed cost, and why: answerable in one place." },
   ];
   return (
     <Section>
       <Container>
         <Reveal>
-          <div style={{ maxWidth: 720 }}>
-            <Eyebrow>Built for</Eyebrow>
-            <Headline as="h2" size={56} style={{ marginTop: 32 }}>
-              The three people who feel it{" "}
-              <em style={{ fontStyle: "italic", fontWeight: 700 }}>on day one.</em>
+          <div style={{ maxWidth: 760, marginBottom: 48 }}>
+            <Eyebrow>Who feels it</Eyebrow>
+            <Headline as="h2" size={52} style={{ marginTop: 32 }}>
+              Three desks, the morning{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 700 }}>after go-live.</em>
             </Headline>
-            <p style={{ marginTop: 24, maxWidth: 580, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              VSG ICT ships value to three roles immediately. Below: what each one actually gets, the morning after go-live.
-            </p>
           </div>
         </Reveal>
-        <div style={{ marginTop: 56, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
           {roles.map((r, i) => (
-            <Reveal key={i} delay={i * 100}>
-              <div style={{
-                background: "var(--surface-white)",
-                border: "1px solid var(--hairline)",
-                borderRadius: 20,
-                padding: 32,
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-              }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-                  <span style={{
-                    width: 36, height: 36, borderRadius: "50%",
-                    background: "var(--coral-soft)",
-                    color: "var(--coral)",
-                    fontFamily: "'Geist Mono', monospace",
-                    fontWeight: 600, fontSize: 12,
-                    letterSpacing: "0.1em",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                  }}>
-                    {r.n}
-                  </span>
-                  <span style={{
-                    fontFamily: "'Geist Mono', monospace",
-                    fontWeight: 500, fontSize: 11,
-                    letterSpacing: "0.28em",
-                    textTransform: "uppercase",
-                    color: "var(--ink-3)",
-                  }}>
-                    {r.name}
-                  </span>
-                </div>
-                <h3 style={{
-                  fontFamily: "'Geist', sans-serif",
-                  fontWeight: 700, fontSize: 22, lineHeight: 1.2,
-                  letterSpacing: "-0.02em",
-                  color: "var(--ink-1)",
-                  margin: 0,
-                  textWrap: "balance",
-                }}>
-                  {r.lede}
-                </h3>
-                <p style={{
-                  marginTop: 16,
-                  fontFamily: "'Geist', sans-serif",
-                  fontSize: 14.5, lineHeight: 1.6,
-                  color: "var(--ink-3)",
-                }}>
-                  {r.body}
-                </p>
-                <div style={{ marginTop: 22, paddingTop: 22, borderTop: "1px solid var(--hairline)" }}>
-                  <div style={{
-                    fontFamily: "'Geist Mono', monospace",
-                    fontWeight: 500, fontSize: 10,
-                    letterSpacing: "0.28em",
-                    textTransform: "uppercase",
-                    color: "var(--ink-4)",
-                    marginBottom: 12,
-                  }}>
-                    What they get
-                  </div>
-                  <ul style={{ padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
-                    {r.gets.map((g, j) => (
-                      <li key={j} style={{
-                        listStyle: "none",
-                        display: "grid",
-                        gridTemplateColumns: "auto 1fr",
-                        gap: 10,
-                        alignItems: "start",
-                        fontFamily: "'Geist', sans-serif",
-                        fontSize: 13.5,
-                        color: "var(--ink-2)",
-                        lineHeight: 1.5,
-                      }}>
-                        <span style={{ color: "var(--coral)", fontWeight: 600, marginTop: 1 }}>·</span>
-                        <span>{g}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <Reveal key={r.t} delay={i * 70}>
+              <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 30, height: "100%" }}>
+                <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 20, color: "var(--ink-1)" }}>{r.t}</div>
+                <p style={{ marginTop: 12, fontFamily: "'Geist', sans-serif", fontSize: 15.5, lineHeight: 1.6, color: "var(--ink-2)" }}>{r.b}</p>
               </div>
             </Reveal>
           ))}
@@ -1339,635 +472,83 @@ function SourceRoles() {
 }
 
 // ============================================================
-// 7c) COMPLETE CAPABILITIES — categorized feature inventory
-// ============================================================
-
-function SourceCapabilities() {
-  const categories = [
-    {
-      tag: "Planning & forecasting",
-      items: [
-        "Forward planning grid (per-SKU, per-supplier, per-customer)",
-        "Per-class stock-month targets, editable inline by the buyer",
-        "Buy-up cash factor — surfaces the worst cash-month at a glance",
-        "Local vs import split for diversification & FX exposure decisions",
-        "Customer-share drilldown per SKU (who's buying what, when)",
-        "8-month sales history with sparkline + seasonality flags",
-        "NETWORKDAYS prorate · Dec/Jan half-trade convention built in",
-        "Excel export of any view — for the buyer who still wants the sheet",
-      ],
-    },
-    {
-      tag: "Inbox & supplier email automation",
-      items: [
-        "ACE drafts replies in your house voice (references, codes, courtesy)",
-        "POs, ASNs, statements, disputes — classified and ranked by lead-time risk",
-        "Multi-language: English, Afrikaans, isiZulu (per-supplier per-buyer)",
-        "Single-source risk warnings when a supplier dominates a SKU",
-        "Dispute resolution thread per PO — searchable, signed, exportable",
-        "Confidence + EvidenceButton on every draft — never a black-box answer",
-        "Buyer keeps full review control through shadow mode + per-supplier thresholds",
-        "Supplier portal: counterparts see their own POs, GRNs, disputes self-service",
-      ],
-    },
-    {
-      tag: "Approvals, exceptions & ERP I/O",
-      items: [
-        "Multi-level approval chains learned from your actual history",
-        "Mobile PWA: CFO approves with a swipe + EvidenceButton context",
-        "Auto-exception handling — variances flagged with the evidence trail",
-        "Two-way ERP sync: POs out, GRNs back, every status update logged",
-        "Native connectors: SysPro, SAP Business One, Sage X3, Sage Pastel",
-        "Bespoke connectors for Acumatica, Odoo, and custom ERPs on request",
-        "Audit log on every AI decision, every approval, every ERP write",
-        "Immutable retention — every decision replayable, any day",
-      ],
-    },
-  ];
-  return (
-    <Section alt>
-      <Container>
-        <Reveal>
-          <div style={{ maxWidth: 760 }}>
-            <Eyebrow>Complete capability map</Eyebrow>
-            <Headline as="h2" size={56} style={{ marginTop: 32 }}>
-              Everything Source does,{" "}
-              <em style={{ fontStyle: "italic", fontWeight: 700 }}>in one list.</em>
-            </Headline>
-            <p style={{ marginTop: 24, maxWidth: 620, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              No mystery features behind a sales call. Four categories, 32 capabilities, all live on day one.
-            </p>
-          </div>
-        </Reveal>
-        <div style={{
-          marginTop: 56,
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: 24,
-        }}>
-          {categories.map((c, i) => (
-            <Reveal key={i} delay={i * 80}>
-              <div style={{
-                background: "var(--surface-white)",
-                border: "1px solid var(--hairline)",
-                borderRadius: 20,
-                padding: 32,
-                height: "100%",
-              }}>
-                <div style={{
-                  fontFamily: "'Geist Mono', monospace",
-                  fontWeight: 500,
-                  fontSize: 11,
-                  letterSpacing: "0.28em",
-                  textTransform: "uppercase",
-                  color: "var(--coral)",
-                  marginBottom: 18,
-                  paddingBottom: 18,
-                  borderBottom: "1px solid var(--hairline)",
-                }}>
-                  {c.tag}
-                </div>
-                <ul style={{ padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 11 }}>
-                  {c.items.map((it, j) => (
-                    <li key={j} style={{
-                      listStyle: "none",
-                      display: "grid",
-                      gridTemplateColumns: "auto 1fr",
-                      gap: 12,
-                      alignItems: "start",
-                      fontFamily: "'Geist', sans-serif",
-                      fontSize: 14.5,
-                      color: "var(--ink-2)",
-                      lineHeight: 1.55,
-                    }}>
-                      <span style={{
-                        width: 16, height: 16, borderRadius: "50%",
-                        background: "var(--coral-soft)",
-                        color: "var(--coral)",
-                        fontSize: 11, fontWeight: 700,
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        marginTop: 1, flexShrink: 0,
-                      }}>✓</span>
-                      <span>{it}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
-// ============================================================
-// 7d) 5-WEEK ROLLOUT TIMELINE
-// ============================================================
-
-function SourceRollout() {
-  const weeks = [
-    {
-      w: "Week 1",
-      title: "Discovery + tenant provisioning",
-      body: "We sit with your procurement lead, your finance person, your floor supervisor. Read your last 6 months of supplier email. Walk your warehouse. List the suppliers that actually matter. Your dedicated ACE tenant is provisioned on ZA infrastructure on day one.",
-      deliverables: [
-        "Supplier panel mapped (top 50)",
-        "Approval chain documented",
-        "Your ACE tenant — live, isolated, on-prem-ready",
-      ],
-    },
-    {
-      w: "Week 2",
-      title: "Data load + ERP connection",
-      body: "We load 8 months of historical sales, supplier master, current open POs, and outstanding GRNs from your ERP. Two-way connector tested. Planning grid populated and reconciled against your latest Excel sheet — line-by-line.",
-      deliverables: [
-        "Historical sales loaded (8mo)",
-        "SysPro/SAP/Sage connector live",
-        "Planning grid reconciled to your Excel",
-      ],
-    },
-    {
-      w: "Week 3",
-      title: "Shadow mode + ACE tuning",
-      body: "ACE drafts every supplier reply — but only your team sees them. We review the misses together, tune the prompts, tune the auctioneer weights. Your buyer starts trusting the drafts. Nothing has been sent yet.",
-      deliverables: [
-        "ACE shadow-drafting 100% of inbox",
-        "Confidence thresholds locked per supplier",
-        "Approval thresholds set",
-      ],
-    },
-    {
-      w: "Week 4",
-      title: "First live drafts + review loop",
-      body: "The first ACE-drafted reply goes to a real supplier — your buyer approved every word. Then ten. Then fifty. Daily standup with us watching the queue together. Confidence climbing.",
-      deliverables: [
-        "First 50 live drafts shipped",
-        "Buyer confidence baseline measured",
-        "Exception cases documented",
-      ],
-    },
-    {
-      w: "Week 5",
-      title: "Go-live + monitoring",
-      body: "ACE is replying for the inboxes you've approved. Your team handles exceptions, not throughput. We stay on standby for the first month. Then a quarterly review — no retainer, no hours billed for the standby.",
-      deliverables: [
-        "Source running production",
-        "Mobile PWA rolled out to CFO",
-        "First quarterly review scheduled",
-      ],
-    },
-  ];
-  return (
-    <Section>
-      <Container>
-        <Reveal>
-          <div style={{ maxWidth: 760 }}>
-            <Eyebrow>Implementation</Eyebrow>
-            <Headline as="h2" size={56} style={{ marginTop: 32 }}>
-              Five weeks from kick-off{" "}
-              <em style={{ fontStyle: "italic", fontWeight: 700 }}>to live.</em>
-            </Headline>
-            <p style={{ marginTop: 24, maxWidth: 620, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              No three-month "transformation" project. No twelve-month migration. The rollout you'd expect from any sensible vendor — with a real engineer on the call, not an account manager.
-            </p>
-          </div>
-        </Reveal>
-        <div style={{ marginTop: 64, position: "relative" }}>
-          {/* Vertical timeline line */}
-          <div aria-hidden="true" style={{
-            position: "absolute",
-            left: 23,
-            top: 14,
-            bottom: 14,
-            width: 1.5,
-            background: "var(--hairline)",
-          }} />
-          {weeks.map((w, i) => (
-            <Reveal key={i} delay={i * 60}>
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: "48px 1fr 1.4fr",
-                gap: 32,
-                alignItems: "start",
-                padding: "28px 0",
-                borderBottom: i === weeks.length - 1 ? "none" : "1px solid var(--hairline)",
-                position: "relative",
-              }}>
-                <span style={{
-                  width: 48, height: 48,
-                  borderRadius: "50%",
-                  background: "var(--paper)",
-                  border: "2px solid var(--coral)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontFamily: "'Geist Mono', monospace",
-                  fontWeight: 600, fontSize: 11,
-                  letterSpacing: "0.06em",
-                  color: "var(--coral)",
-                  position: "relative",
-                  zIndex: 1,
-                }}>
-                  W{i + 1}
-                </span>
-                <div>
-                  <div style={{
-                    fontFamily: "'Geist Mono', monospace",
-                    fontWeight: 500, fontSize: 11,
-                    letterSpacing: "0.28em",
-                    textTransform: "uppercase",
-                    color: "var(--coral)",
-                    marginBottom: 8,
-                  }}>
-                    {w.w}
-                  </div>
-                  <h3 style={{
-                    fontFamily: "'Geist', sans-serif",
-                    fontWeight: 700, fontSize: 22,
-                    lineHeight: 1.25,
-                    letterSpacing: "-0.02em",
-                    color: "var(--ink-1)",
-                    margin: 0,
-                    textWrap: "balance",
-                  }}>
-                    {w.title}
-                  </h3>
-                  <p style={{
-                    marginTop: 14,
-                    fontFamily: "'Geist', sans-serif",
-                    fontSize: 14.5, lineHeight: 1.6,
-                    color: "var(--ink-3)",
-                    maxWidth: 440,
-                  }}>
-                    {w.body}
-                  </p>
-                </div>
-                <div>
-                  <div style={{
-                    fontFamily: "'Geist Mono', monospace",
-                    fontWeight: 500, fontSize: 10,
-                    letterSpacing: "0.28em",
-                    textTransform: "uppercase",
-                    color: "var(--ink-4)",
-                    marginBottom: 14,
-                    marginTop: 4,
-                  }}>
-                    Deliverables
-                  </div>
-                  <ul style={{ padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
-                    {w.deliverables.map((d, j) => (
-                      <li key={j} style={{
-                        listStyle: "none",
-                        display: "grid",
-                        gridTemplateColumns: "auto 1fr",
-                        gap: 10,
-                        alignItems: "start",
-                        fontFamily: "'Geist', sans-serif",
-                        fontSize: 14,
-                        color: "var(--ink-2)",
-                        lineHeight: 1.5,
-                      }}>
-                        <span style={{
-                          width: 14, height: 14, borderRadius: "50%",
-                          background: "var(--success-soft)",
-                          color: "var(--success)",
-                          fontSize: 9, fontWeight: 700,
-                          display: "flex", alignItems: "center", justifyContent: "center",
-                          marginTop: 2, flexShrink: 0,
-                        }}>✓</span>
-                        <span>{d}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
-// ============================================================
-// 7e) SECURITY & COMPLIANCE
-// ============================================================
-
-function SourceSecurity() {
-  const items = [
-    {
-      tag: "Data residency",
-      title: "ZA-hosted by default. On-prem if you need it.",
-      body: "Every customer's ACE tenant runs in South African infrastructure (Cape Town + Johannesburg). For regulated operations or air-gapped sites, ACE can deploy entirely on your own hardware behind your firewall.",
-    },
-    {
-      tag: "Per-customer isolation",
-      title: "Your context never touches another customer.",
-      body: "Each tenant is a discrete ACE instance. Your supplier list, your decisions, your edge cases — not shared, not pooled, not used to train cross-customer models. Even inference is per-tenant.",
-    },
-    {
-      tag: "Immutable audit trail",
-      title: "Every action, signed and replayable.",
-      body: "Every AI proposal, every approval, every ERP write is logged with the inputs that produced it. Your auditors can replay any decision, on any day, in the original context — searchable, signed, exportable.",
-    },
-    {
-      tag: "Encryption",
-      title: "AES-256 at rest. TLS 1.3 in transit.",
-      body: "Per-tenant encryption keys, customer-rotatable. Every byte that touches Source is encrypted on disk and on the wire. No exceptions, no plaintext logs.",
-    },
-    {
-      tag: "Access control",
-      title: "SSO via your IdP. Per-action RBAC.",
-      body: "Connect Azure AD, Okta, or Google. Per-role permissions on every action. SCIM provisioning for joiners and leavers. Audit log records who approved what, when, and with which evidence.",
-    },
-    {
-      tag: "Portable on exit",
-      title: "Export the whole memory. No lock-in.",
-      body: "If you ever leave, you take your ACE memory in a documented, readable format. The audit log too. We'd rather you stay because the product earns it — not because we trapped your data.",
-    },
-  ];
-  return (
-    <Section alt>
-      <Container>
-        <Reveal>
-          <div style={{ maxWidth: 760 }}>
-            <Eyebrow>Security & data</Eyebrow>
-            <Headline as="h2" size={56} style={{ marginTop: 32 }}>
-              Built to pass an audit{" "}
-              <em style={{ fontStyle: "italic", fontWeight: 700 }}>in any boardroom.</em>
-            </Headline>
-            <p style={{ marginTop: 24, maxWidth: 620, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              Six commitments your IT lead can verify on day one.
-            </p>
-          </div>
-        </Reveal>
-        <div style={{
-          marginTop: 56,
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 20,
-        }}>
-          {items.map((it, i) => (
-            <Reveal key={i} delay={i * 60}>
-              <div style={{
-                background: "var(--surface-white)",
-                border: "1px solid var(--hairline)",
-                borderRadius: 18,
-                padding: 28,
-                height: "100%",
-              }}>
-                <div style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: "4px 10px",
-                  background: "var(--coral-soft)",
-                  border: "1px solid rgba(201,99,58,0.22)",
-                  borderRadius: 999,
-                  marginBottom: 18,
-                }}>
-                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--coral)" }} />
-                  <span style={{
-                    fontFamily: "'Geist Mono', monospace",
-                    fontWeight: 500, fontSize: 10,
-                    letterSpacing: "0.22em",
-                    textTransform: "uppercase",
-                    color: "var(--coral)",
-                  }}>
-                    {it.tag}
-                  </span>
-                </div>
-                <h3 style={{
-                  fontFamily: "'Geist', sans-serif",
-                  fontWeight: 700, fontSize: 20,
-                  lineHeight: 1.25,
-                  letterSpacing: "-0.015em",
-                  color: "var(--ink-1)",
-                  margin: 0,
-                  textWrap: "balance",
-                }}>
-                  {it.title}
-                </h3>
-                <p style={{
-                  marginTop: 14,
-                  fontFamily: "'Geist', sans-serif",
-                  fontSize: 14, lineHeight: 1.6,
-                  color: "var(--ink-3)",
-                }}>
-                  {it.body}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
-// ============================================================
-// 8) ROI STATS — 4-col stat cards
-// ============================================================
-
-function ROIStats() {
-  return (
-    <Section>
-      <Container>
-        <Reveal>
-          <div style={{ maxWidth: 720, marginBottom: 56 }}>
-            <Eyebrow>Measurable ROI</Eyebrow>
-            <Headline as="h2" size={48} style={{ marginTop: 32 }}>
-              What changes <em style={{ fontStyle: "italic", fontWeight: 700 }}>in the first month.</em>
-            </Headline>
-          </div>
-        </Reveal>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
-          {[
-            { label: "In production with", val: 3, suffix: " SA clients" },
-            { label: "Supplier emails / month", val: 42000, suffix: "+" },
-            { label: "Avg. drafts approved", val: 91, suffix: "%" },
-            { label: "Hours back / buyer / week", val: 11, suffix: " hrs" },
-          ].map((s, i) => (
-            <Reveal key={i} delay={i * 80}>
-              <div style={{
-                background: "var(--paper-2)",
-                border: "1px solid var(--hairline)",
-                borderRadius: 16,
-                padding: 28,
-                height: "100%",
-              }}>
-                <div style={{
-                  fontFamily: "'Geist Mono', monospace",
-                  fontWeight: 500,
-                  fontSize: 10,
-                  letterSpacing: "0.22em",
-                  textTransform: "uppercase",
-                  color: "var(--ink-4)",
-                  marginBottom: 14,
-                }}>
-                  {s.label}
-                </div>
-                <div style={{
-                  fontFamily: "'Geist', sans-serif",
-                  fontWeight: 700,
-                  fontSize: 36,
-                  color: "var(--ink-1)",
-                  letterSpacing: "-0.025em",
-                  lineHeight: 1,
-                }}>
-                  <CountUp to={s.val} duration={1400} suffix={s.suffix} />
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
-// ============================================================
-// 9) PULL QUOTE
-// ============================================================
-
-function SourceQuote() {
-  return (
-    <Section alt>
-      <Container>
-        <Reveal>
-          <div style={{ maxWidth: 920, margin: "0 auto", textAlign: "center" }}>
-            <span aria-hidden="true" style={{ fontFamily: "'Geist', sans-serif", fontStyle: "italic", fontWeight: 700, fontSize: 120, lineHeight: 0.9, color: "var(--coral)", display: "block" }}>"</span>
-            <p style={{
-              marginTop: 0,
-              fontFamily: "'Geist', sans-serif",
-              fontWeight: 500,
-              fontSize: 36,
-              lineHeight: 1.3,
-              letterSpacing: "-0.02em",
-              color: "var(--ink-1)",
-              textWrap: "balance",
-            }}>
-              Month one, the team is usually sceptical. By week four, they're using the drafts. By week eight, they're the ones telling ACE which suppliers to handle next. That's the curve we see.
-            </p>
-            <div style={{ marginTop: 36, fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-              How adoption actually goes
-            </div>
-          </div>
-        </Reveal>
-      </Container>
-    </Section>
-  );
-}
-
-// ============================================================
-// 10) FINAL CTA
+// CTA
 // ============================================================
 
 function SourceCTA({ onBookDemo }) {
   return (
-    <section style={{ position: "relative", background: "var(--paper)", padding: "144px 0", borderTop: "1px solid var(--hairline)", overflow: "hidden" }}>
-      <div aria-hidden="true" style={{
-        position: "absolute",
-        bottom: "-40%",
-        left: "50%",
-        transform: "translateX(-50%)",
-        width: 1300,
-        height: 1300,
-        background: "radial-gradient(circle at center, rgba(201,99,58,0.16), rgba(201,99,58,0) 55%)",
-        pointerEvents: "none",
-      }} />
+    <Section alt>
       <Container>
         <Reveal>
-          <div style={{ textAlign: "center", maxWidth: 880, margin: "0 auto", position: "relative" }}>
-            <Eyebrow>Try VSG ICT</Eyebrow>
-            <h2 style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 80, lineHeight: 1.0, letterSpacing: "-0.035em", color: "var(--ink-1)", margin: "32px 0 0", textWrap: "balance" }}>
-              Bring us your <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>planning spreadsheet.</em>
-            </h2>
-            <p style={{ marginTop: 28, fontFamily: "'Geist', sans-serif", fontSize: 20, lineHeight: 1.55, color: "var(--ink-2)", maxWidth: 580, marginLeft: "auto", marginRight: "auto" }}>
-              30 minutes, no deck. We'll show you the same SKUs in the VSG ICT planning grid — with the cash factor, the supplier risk lanes, and ACE's reorder suggestions on top.
+          <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
+            <Eyebrow style={{ justifyContent: "center" }}>See it for yourself</Eyebrow>
+            <Headline as="h2" size={56} style={{ marginTop: 32 }}>
+              Thirty minutes.{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 700 }}>No deck.</em>
+            </Headline>
+            <p style={{ marginTop: 24, fontFamily: "'Geist', sans-serif", fontSize: 19, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 620, marginLeft: "auto", marginRight: "auto" }}>
+              We'll walk you through the working application — the planning grid, the
+              landed-cost comparison, the purchase order at the end. It has a built-in
+              demo mode, so you see everything before any access is granted.
             </p>
-            <div style={{ marginTop: 40, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <PrimaryButton onClick={onBookDemo} size="lg">Book a Source demo</PrimaryButton>
-              <OutlineButton as="a" href="contact.html" size="lg">Get in touch</OutlineButton>
+            <div style={{ marginTop: 36 }}>
+              <PrimaryButton onClick={onBookDemo} size="lg">Book the walkthrough</PrimaryButton>
             </div>
           </div>
         </Reveal>
       </Container>
-    </section>
+    </Section>
   );
 }
 
 // ============================================================
-// 11) FAQ
+// FAQ
 // ============================================================
 
 const SOURCE_FAQS = [
-  { q: "Is VSG ICT an add-on to my ERP?",         a: "No. VSG ICT is a standalone AI procurement platform with its own workflows — forward planning, multi-level approvals, supplier portal. It connects to SysPro, SAP Business One, and Sage Pastel through first-class native integrations, the same way Procurify connects to NetSuite. Your ERP keeps doing what it's good at." },
-  { q: "What does ACE need to get started?",          a: "Read access to your ERP (we provide the SQL scripts), supplier contact information, and 8 months of historical sales data — which lives in your ERP already. We provision your tenant, load the data, and ACE starts producing the planning grid in week one." },
-  { q: "Can our CFO approve from a phone?",           a: "Yes — mobile PWA. Each pending order is a card with the SKU, quantity, cash impact, AI risk badge, and EvidenceButton. Swipe to approve, tap for evidence. Full audit trail on every action." },
-  { q: "Who decides what Source actually posts?",     a: "Your team. The default for the first 30 days is shadow mode — every ACE-drafted action is reviewed by your buyer before it leaves the tenant. After that, you set per-supplier thresholds for what ACE may act on autonomously." },
-  { q: "How is Source priced?",                       a: "Talk to us. Every engagement is quoted upfront before any work starts — no surprise overages, no retainer trap. Stephan replies personally within one working day with a number you can sign or walk away from." },
+  { q: "Is VSG ICT an add-on inside SYSPRO?", a: "No — it's a standalone application that runs on your own PC and reads your SYSPRO data directly, read-only. Nothing is installed inside your ERP, and SYSPRO stays the system of record for everything." },
+  { q: "Can it change or corrupt our SYSPRO data?", a: "It can't. The connection is read-only by design — VSG ICT reads stock, sales and purchase data and never writes back. The purchase order it produces is a file in SYSPRO's import format that your buyer reviews and imports." },
+  { q: "We don't run SYSPRO — can we still use it?", a: "VSG ICT is built for SYSPRO today. If you run a different ERP, that becomes a custom build conversation — it's exactly the kind of system we build around other ERPs as bespoke work." },
+  { q: "Where's the AI in it?", a: "Today, the intelligence is the forecasting and the landed-cost mathematics — which is why we call it AI-assisted, not AI-powered. The deeper AI (drafted supplier emails with buyer approval, learning forecasts, a plain-language copilot) is on the roadmap, and we keep a visible line between what's shipped and what's coming." },
+  { q: "What does installation involve?", a: "One self-contained file on one PC — no installer, no server, no cloud account. Setup is choosing your SYSPRO data source, product classes and warehouses. A built-in demo mode runs on sample data with no database access at all." },
+  { q: "How is it priced?", a: "Simply, and in writing — we'll take you through it on the walkthrough call once you've seen the application working." },
 ];
 
 function SourceFAQ() {
-  const [open, setOpen] = React.useState(0);
+  const [open, setOpen] = React.useState(null);
   return (
-    <Section id="faq" alt>
+    <Section>
       <Container>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: 80, alignItems: "start" }}>
-          <Reveal>
-            <div style={{ position: "sticky", top: 120 }}>
-              <Eyebrow>FAQ · Source</Eyebrow>
-              <Headline as="h2" size={48} style={{ marginTop: 32, maxWidth: 380 }}>
-                The questions buyers <em style={{ fontStyle: "italic", fontWeight: 700 }}>always ask.</em>
-              </Headline>
-            </div>
-          </Reveal>
-          <Reveal delay={80}>
-            <div>
-              {SOURCE_FAQS.map((f, i) => (
-                <div key={i} style={{ borderBottom: "1px solid var(--hairline)" }}>
-                  <button
-                    onClick={() => setOpen(open === i ? -1 : i)}
-                    aria-expanded={open === i}
-                    style={{ width: "100%", background: "transparent", border: 0, padding: "24px 0", display: "grid", gridTemplateColumns: "44px 1fr 32px", gap: 20, alignItems: "center", textAlign: "left", cursor: "pointer", fontFamily: "'Geist', sans-serif" }}
-                  >
-                    <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.24em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span style={{ fontWeight: 600, fontSize: 20, color: "var(--ink-1)", letterSpacing: "-0.02em" }}>
-                      {f.q}
-                    </span>
-                    <span style={{
-                      justifySelf: "end",
-                      width: 30,
-                      height: 30,
-                      borderRadius: "50%",
-                      border: "1px solid var(--hairline)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontFamily: "'Geist', sans-serif",
-                      fontWeight: 500,
-                      fontSize: 16,
-                      transition: "transform 220ms cubic-bezier(.2,0,0,1), background 220ms",
-                      transform: open === i ? "rotate(45deg)" : "rotate(0)",
-                      background: open === i ? "var(--ink-1)" : "transparent",
-                      color: open === i ? "var(--paper)" : "var(--ink-1)",
-                    }}>
-                      +
-                    </span>
-                  </button>
-                  <div style={{ display: "grid", gridTemplateRows: open === i ? "1fr" : "0fr", transition: "grid-template-rows 320ms cubic-bezier(.16,1,.3,1)" }}>
-                    <div style={{ overflow: "hidden" }}>
-                      <div style={{ paddingLeft: 64, paddingRight: 52, paddingBottom: 26, fontFamily: "'Geist', sans-serif", fontSize: 16, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 720 }}>
-                        {f.a}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
+        <Reveal>
+          <div style={{ maxWidth: 760, marginBottom: 48 }}>
+            <Eyebrow>Questions</Eyebrow>
+            <Headline as="h2" size={52} style={{ marginTop: 32 }}>
+              Asked before you{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 700 }}>have to ask.</em>
+            </Headline>
+          </div>
+        </Reveal>
+        <div style={{ maxWidth: 860 }}>
+          {SOURCE_FAQS.map((f, i) => (
+            <Reveal key={f.q} delay={i * 40}>
+              <div style={{ borderTop: i === 0 ? "1px solid var(--ink-1)" : "1px solid var(--hairline)" }}>
+                <button
+                  onClick={() => setOpen(open === i ? null : i)}
+                  style={{
+                    width: "100%", textAlign: "left", background: "none", border: "none",
+                    padding: "22px 0", cursor: "pointer", display: "flex",
+                    justifyContent: "space-between", alignItems: "center", gap: 20,
+                  }}
+                >
+                  <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 600, fontSize: 18, color: "var(--ink-1)" }}>{f.q}</span>
+                  <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 400, fontSize: 22, color: "var(--coral)", lineHeight: 1 }}>{open === i ? "−" : "+"}</span>
+                </button>
+                {open === i && (
+                  <p style={{ margin: "0 0 24px", fontFamily: "'Geist', sans-serif", fontSize: 16, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 720 }}>{f.a}</p>
+                )}
+              </div>
+            </Reveal>
+          ))}
         </div>
       </Container>
     </Section>
@@ -1975,23 +556,21 @@ function SourceFAQ() {
 }
 
 // ============================================================
-// PAGE ASSEMBLY
+// PAGE
 // ============================================================
 
 function SourcePage({ onBookDemo }) {
   return (
     <React.Fragment>
       <SourceHero onBookDemo={onBookDemo} />
-      <SocialProofStrip />
-      <SourceBenefits />
-      <TabbedShowcase />
-      <ToolsGrid />
-      <SourceRoles />
-      <SourceCapabilities />
-      <SourceRollout />
+      <FactStrip />
+      <FourScreens />
+      <PlanningGridSection />
+      <LandedCostSection />
+      <POOutputSection />
       <SourceSecurity />
-      <ROIStats />
-      <SourceQuote />
+      <TodayRoadmap />
+      <SourceRoles />
       <SourceCTA onBookDemo={onBookDemo} />
       <SourceFAQ />
     </React.Fragment>

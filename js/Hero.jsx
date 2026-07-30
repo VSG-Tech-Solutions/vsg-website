@@ -277,7 +277,7 @@ function Hero({ onBookDemo }) {
           >
             <MiniMetricCard label="Live since" value="2025" sub="VSG ICT in production" />
             <MiniMetricCard label="Rollout" value="5" suffix="weeks" sub="From kick-off to live" />
-            <MiniMetricCard label="ERPs we connect to" value="6+" sub="SysPro · Sage · SAP B1 · Pastel +" />
+            <MiniMetricCard label="Planning horizon" value="5" suffix="months" sub="Projected stock cover, per SKU" />
             <MiniMetricCard label="Footprint" value="ZA" sub="Cape Town, working continent-wide" />
           </div>
         </Reveal>

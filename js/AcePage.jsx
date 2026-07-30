@@ -346,9 +346,9 @@ function AceDoes() {
     },
     {
       icon: "→",
-      tag: "Acts",
-      title: "Writes to ERP, sends, pays.",
-      body: "Confirmed POs posted to SysPro / SAP B1 / Sage Pastel. Approved replies sent. Payments triggered via PayShap / EFT / debit-order. Every write logged with the input that produced it. The buyer stays in control of what acts when.",
+      tag: "Acts — roadmap",
+      title: "Writes to ERP, sends, pays. Where ACE is heading.",
+      body: "The acting tier is the roadmap: approved POs posted into the ERP, approved replies sent, payments triggered — every write logged with the input that produced it, and always behind explicit human sign-off. Today, ACE recommends and explains; it acts only where a person has approved.",
     },
     {
       icon: "◉",
@@ -845,10 +845,10 @@ function AceArchitecture() {
 
 function AceModelLayer() {
   const models = [
-    { task: "Drafting supplier replies", model: "Frontier reasoning model", why: "Highest quality at house-voice nuance + Afrikaans/isiZulu handling." },
-    { task: "Email classification + routing", model: "Fast classification model", why: "Quick, low-cost, accurate enough for triage at inbox scale." },
-    { task: "Quote extraction (OCR + structure)", model: "Vision model", why: "Best-in-class for scanned PDFs and noisy quote layouts." },
-    { task: "Supplier-pick reasoning + evidence", model: "Frontier reasoning model", why: "Explainable reasoning, with the evidence attached to every call." },
+    { task: "Demand projection + cover flags", model: "Deterministic forecasting engine", why: "Auditable arithmetic on your own history, seasonality included — no black box where maths belongs." },
+    { task: "Landed-cost comparison", model: "Deterministic cost engine", why: "Duty, clearing, freight and FX — exact, repeatable, defensible in front of an auditor." },
+    { task: "Supplier reply drafting (roadmap)", model: "Frontier reasoning model", why: "House-voice nuance + Afrikaans/isiZulu handling — always behind buyer approval." },
+    { task: "Email classification (roadmap)", model: "Fast classification model", why: "Quick, low-cost triage at inbox scale — planned, not shipped." },
     { task: "Embeddings (your memory)", model: "Self-hosted, in your tenant", why: "Your supplier vectors never leave your tenant." },
     { task: "Guardrails + safety", model: "VSG-built rules engine", why: "Your validation rules, your hard limits. Not the model's defaults." },
   ];
@@ -922,12 +922,12 @@ function AceInProducts() {
       status: "Live",
       statusBg: "rgba(14,122,90,0.12)",
       statusColor: "var(--success)",
-      headline: "ACE drafts supplier replies, classifies the inbox, and scores the planning grid against your rules.",
+      headline: "Today: the forecasting and landed-cost engine behind the planning grid. Next: the AI layer on top.",
       uses: [
-        "Inbox triage: ACE classifies 100% of inbound supplier email",
-        "House-voice drafts on every PO confirmation, quote acceptance, dispute reply",
-        "EvidenceButton on every AI recommendation — your weights, your evidence",
-        "Planning grid alerts when ACE forecasts stock-out vs. supplier lead-time",
+        "Per-SKU demand projection from 18 months of your own sales history, seasonality included",
+        "True landed-cost mathematics on every supplier comparison — duty, clearing, freight, FX",
+        "Cover flags when projected stock falls below your target before the next order lands",
+        "On the roadmap: AI-drafted supplier emails with buyer approval, and a plain-language copilot",
       ],
       href: "source.html",
     },
@@ -1106,7 +1106,7 @@ const ACE_FAQS = [
   },
   {
     q: "How is ACE different from a chatbot?",
-    a: "ACE acts. It doesn't just talk. It reads inbound supplier email, drafts replies in your house voice, scores RFQs against your weights, posts confirmed POs to your ERP, triggers payments via PayShap. Every action is logged with the inputs that produced it. A chatbot answers questions. ACE handles workflows.",
+    a: "ACE works inside a product, not in a chat window. Today, inside VSG ICT, it's the forecasting and landed-cost engine behind every recommendation — with the evidence logged for each one. On the roadmap: reading supplier email and drafting house-voice replies for buyer approval, and posting approved orders into the ERP. A chatbot answers questions; ACE is built to carry workflows — with a human sign-off where it matters.",
   },
   {
     q: "Does ACE require us to replace anything?",

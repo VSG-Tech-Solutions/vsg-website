@@ -92,7 +92,7 @@ function NavDropdown({ current, onBookDemo }) {
           {
             href: "source.html",
             title: "VSG ICT",
-            sub: "Procurement that replies for you.",
+            sub: "AI-assisted procurement for SYSPRO.",
             status: "Live",
             variant: "live",
             slug: "source",

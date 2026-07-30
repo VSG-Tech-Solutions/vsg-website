@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     q: "Do we have to replace our ERP?",
-    a: "No. VSG products are standalone — they connect to SysPro, Sage, SAP Business One, Sage Pastel, Acumatica, or Odoo through first-class connectors. Your ERP stays exactly where it is and keeps doing what it's good at.",
+    a: "No. VSG ICT is a standalone system built for SYSPRO — it reads your live SYSPRO data (read-only) and hands back a SYSPRO-ready purchase order. Your ERP stays the system of record and keeps doing what it's good at. Running a different ERP? That's exactly what our custom builds are for.",
   },
   {
     q: "Who reviews what the AI says?",
