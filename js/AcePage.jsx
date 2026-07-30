@@ -98,7 +98,7 @@ function AceHero({ onBookDemo }) {
               fontSize: 21, lineHeight: 1.55,
               color: HERO_INK_2,
             }}>
-              ACE is the part of every VSG product that gets smarter. It learns your suppliers, your terminology, your exception patterns, your house voice, your edge cases. Each customer gets their own. Never shared, never trained across customers, never pooled. The moat that compounds.
+              ACE is the intelligence inside every VSG product. Today that means history-based forecasting and true landed-cost mathematics, computed from your own ERP data — on your hardware. On the roadmap: drafting, approvals, agents. Each customer gets their own instance. Never shared, never trained across customers, never pooled.
             </p>
           </Reveal>
 
@@ -150,13 +150,13 @@ function AceHero({ onBookDemo }) {
               flexWrap: "wrap",
               justifyContent: "center",
             }}>
-              <span>Per-tenant memory</span>
+              <span>Per-customer instance</span>
               <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(245,240,232,0.18)", alignSelf: "center" }} />
               <span>No cross-customer training</span>
               <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(245,240,232,0.18)", alignSelf: "center" }} />
-              <span>ZA-hosted</span>
+              <span>On-premise today</span>
               <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(245,240,232,0.18)", alignSelf: "center" }} />
-              <span>Model-agnostic</span>
+              <span>Read-only ERP access</span>
             </div>
           </Reveal>
         </div>
@@ -171,10 +171,10 @@ function AceHero({ onBookDemo }) {
 
 function AcePrinciples() {
   const principles = [
-    { tag: "Isolated", title: "Your context lives in your tenant. Nowhere else.", body: "Every customer gets a discrete ACE instance. Your supplier list, your decisions, your edge cases — none of it touches another customer's memory, not even at inference time." },
-    { tag: "Portable", title: "Export the whole memory. No lock-in.", body: "If you ever leave, you take your ACE memory with you in a documented, readable format. The audit log too. We'd rather you stay because the product earns it." },
-    { tag: "Auditable", title: "Every action, signed and replayable.", body: "Every classification, every draft, every ERP write is logged with the inputs that produced it. Your auditors can replay any decision, any day." },
-    { tag: "Local-first", title: "ZA data residency. On-prem if you need it.", body: "Default deployment is in South African infrastructure. For regulated operations or air-gapped sites, ACE runs entirely on your hardware." },
+    { tag: "Isolated", title: "Your context lives in your instance. Nowhere else.", body: "Every customer gets a discrete ACE instance. Your history, your prices, your plans — none of it touches another customer's instance, not even at inference time." },
+    { tag: "Portable", title: "Your data stays in files you own. No lock-in.", body: "Your master data never leaves your ERP, and everything ACE produces — plans, snapshots, purchase orders — lands in readable files on your own hardware. If you ever leave, there's nothing to extract. We'd rather you stay because the product earns it." },
+    { tag: "Auditable", title: "Every number, traceable to its inputs.", body: "The shipped intelligence is deterministic: the same history produces the same forecast, and every landed-cost figure breaks down line by line — duty, clearing, freight, FX. As roadmap actions ship, each one will be logged with the inputs that produced it." },
+    { tag: "Local-first", title: "On-premise today. Your hardware, your network.", body: "The production deployment runs entirely on your own hardware — a self-contained app reading SYSPRO over ODBC, no cloud dependency. Any future hosted components default to South African infrastructure." },
   ];
   return (
     <Section>
@@ -219,36 +219,36 @@ function AcePrinciples() {
 function AceKnows() {
   const memory = [
     {
-      tag: "Your terminology",
-      ex: "When your buyer says \"specials\" they mean 12mm bar in 304-grade ex-Vereeniging. When the floor says \"line down\" they mean Bottling 3 specifically. ACE learns the words your team actually uses.",
+      tag: "Your sales history",
+      ex: "Up to 18 months of per-SKU movement, seasonality included — December and January trade differently, and the projection knows it. The current month is prorated from actuals, not guessed.",
     },
     {
-      tag: "Your suppliers, deeply",
-      ex: "Falcon Steel's ETAs are reliable within 1 day. Atlantic Tubing slips 4 days. Pinnacle's quote-to-invoice accuracy is 87%. Westcape Bearings closes on the 25th of every month. None of this is guesswork.",
+      tag: "Your stock lots",
+      ex: "Every lot with its own cost, its Local-or-Import flag, and the purchase order it arrived on. Drill from any number in the planning grid straight down to the lots behind it.",
     },
     {
-      tag: "Your decisions",
-      ex: "You always confirm POs to Falcon with the Bay 3 instruction. You never split orders below 4t. Repeat-buys under R50k auto-route. Above R250k, ACE pings Sarah, not the CFO. The patterns your team built without writing them down.",
+      tag: "Your committed orders",
+      ex: "What's already on order, month by month, so projected closing stock reflects what's actually arriving — not just what you hope is.",
     },
     {
-      tag: "Your reference codes",
-      ex: "VSG-IN-44211 means delivery to your Epping warehouse. POs with a \"-X\" suffix are inter-branch transfers. Project codes map to customers. ACE references the right code on every outbound message.",
+      tag: "Your customers",
+      ex: "Customer share per SKU — see who actually drives a line's movement before you commit to a buy, and what walks out the door if that relationship changes.",
     },
     {
-      tag: "Your house voice",
-      ex: "Naledi signs off with \"Cheers\" — never \"Regards\". The team uses \"please confirm by\" not \"can you please confirm\". Replies to Pinnacle start with \"Hi Mandla\" because that's how the relationship runs. The drafts sound like your team, not a chatbot.",
+      tag: "Your supplier prices",
+      ex: "Every RFQ round-trip imported back and compared per line — multiple suppliers side by side, Local against Import, with container and load fill in view.",
     },
     {
-      tag: "Your exception patterns",
-      ex: "When a supplier asks for early payment, you check with David before responding. Lead-time slips of >5 days trigger a single-source review. Disputed invoices over 60 days route to legal. ACE handles the routine, escalates the exception.",
+      tag: "Your landed costs",
+      ex: "Price plus duty, clearing, freight and FX — the true cost of an import next to a local quote, not the number on the invoice.",
     },
     {
-      tag: "Your edge cases",
-      ex: "Holiday season: Pinnacle's lead time goes from 3 weeks to 5. Quarter-end: Falcon prioritises listed-customer orders. Loadshedding stage 4+: Westcape's deliveries shift by a day. The seasonal truths your last buyer just knew.",
+      tag: "Your cover targets",
+      ex: "Months-of-cover targets per SKU, RAG-flagged the moment projected stock falls short before the next order can land. Stock-turn and upturn tracked in financial terms.",
     },
     {
-      tag: "Your audit lineage",
-      ex: "Every PO above R100k requires supporting evidence attached. Every supplier first-time order needs a banking-detail check. Every disputed invoice triggers a 14-day SLA. ACE enforces the audit trail you would otherwise have to chase.",
+      tag: "Your warehouses",
+      ex: "Multi-warehouse stock merged into one view, then filtered live — by class, warehouse, wildcard, or compound numeric rules your buyer writes on the fly.",
     },
   ];
 
@@ -263,7 +263,7 @@ function AceKnows() {
               <em style={{ fontStyle: "italic", fontWeight: 700 }}>All yours.</em>
             </Headline>
             <p style={{ marginTop: 24, maxWidth: 620, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              ACE doesn't just store data. It remembers context — the patterns your last buyer carried in their head, the codes nobody documented, the seasonal truths. Real examples below from a live customer tenant.
+              ACE doesn't guess. Inside VSG ICT it works from your own records — the history, lots, orders and costs already sitting in your ERP. Eight categories, all read from your data, nothing invented and nothing pooled.
             </p>
           </div>
         </Reveal>
@@ -315,6 +315,22 @@ function AceKnows() {
             </Reveal>
           ))}
         </div>
+        <Reveal delay={400}>
+          <div style={{
+            marginTop: 40,
+            padding: "16px 22px",
+            background: "var(--coral-soft)",
+            border: "1px solid rgba(201,99,58,0.22)",
+            borderRadius: 14,
+            maxWidth: 720,
+            fontFamily: "'Geist', sans-serif",
+            fontSize: 14,
+            color: "var(--ink-2)",
+            lineHeight: 1.55,
+          }}>
+            <strong style={{ color: "var(--coral)", fontWeight: 600 }}>On the roadmap:</strong> the learned kind of memory — your terminology, your house voice, your exception patterns — absorbed from your buyer's corrections once the drafting features ship. Future tense on purpose.
+          </div>
+        </Reveal>
       </Container>
     </Section>
   );
@@ -328,39 +344,39 @@ function AceDoes() {
   const pillars = [
     {
       icon: "◇",
-      tag: "Reads",
-      title: "Classifies and structures inbound.",
-      body: "Every supplier email — PO confirmation, quote, ASN, statement, dispute — classified, deduplicated, ranked by lead-time risk. Attachments parsed. Quote tables extracted into structured data. The inbox becomes a queue, not a pile.",
-    },
-    {
-      icon: "✎",
-      tag: "Drafts",
-      title: "Replies in your house voice.",
-      body: "Your terminology, your reference codes, your courtesy patterns. Drafts pre-filled with the supplier's correct contact name, the right delivery instruction, the right PO reference. Your buyer reviews and approves — or one-tap edits.",
+      tag: "Reads — today",
+      title: "Your ERP, read-only.",
+      body: "ACE reads SYSPRO over ODBC — up to 18 months of sales history, stock lots with per-lot cost and source PO, committed orders, customer share per SKU. It never writes back. The ERP stays the system of record.",
     },
     {
       icon: "▲",
-      tag: "Decides",
-      title: "Scores, routes, and prioritises.",
-      body: "RFQ auctioneer scoring against your weights. Approval chain selection learned from history. Exception routing to the right person — not always the CFO. Single-source risk flags. Cash-impact prioritisation across pending orders.",
+      tag: "Compares — today",
+      title: "True landed cost, side by side.",
+      body: "Supplier RFQs imported and compared per line on true landed cost — price plus duty, clearing, freight, FX. Local against Import, container and load fill in view. Award per line or whole column; your buyer makes the call.",
+    },
+    {
+      icon: "◉",
+      tag: "Explains — today",
+      title: "Every figure shows its working.",
+      body: "The maths is deterministic — the same history in produces the same forecast out. Drill from any number to the stock lots, committed orders and cost lines behind it. Never a black-box answer. CFO-ready, defensible.",
+    },
+    {
+      icon: "✎",
+      tag: "Drafts — roadmap",
+      title: "Replies in your house voice.",
+      body: "On the roadmap: supplier emails drafted with your terminology, your reference codes, your courtesy patterns — always reviewed and approved by your buyer before anything sends. Nothing goes out on its own.",
     },
     {
       icon: "→",
       tag: "Acts — roadmap",
-      title: "Writes to ERP, sends, pays. Where ACE is heading.",
-      body: "The acting tier is the roadmap: approved POs posted into the ERP, approved replies sent, payments triggered — every write logged with the input that produced it, and always behind explicit human sign-off. Today, ACE recommends and explains; it acts only where a person has approved.",
-    },
-    {
-      icon: "◉",
-      tag: "Explains",
-      title: "EvidenceButton on every action.",
-      body: "Why ACE chose this supplier for this order: scoring breakdown, last 6 POs reliability, lead-time variance, single-source risk. Why this PO routed to Sarah: amount band, supplier tier. Never a black-box answer. CFO-ready, defensible.",
+      title: "Writes back to your ERP. Where ACE is heading.",
+      body: "The acting tier is the roadmap: approved POs posted into SYSPRO via e.net, goods receipts to follow — every write logged with the input that produced it, and always behind explicit human sign-off. Today, ACE recommends and explains; a person acts.",
     },
     {
       icon: "↻",
-      tag: "Learns",
+      tag: "Learns — roadmap",
       title: "Every correction tightens the next round.",
-      body: "When your buyer edits a draft, ACE absorbs the diff. When you override a scoring weight, ACE notes the new preference. When you escalate an exception, ACE remembers the new threshold. The system that compounds.",
+      body: "Arrives with the drafting features: when your buyer edits a draft, ACE absorbs the diff; when you override a threshold, it notes the preference. Today's forecasting stays deterministic, history-based projection — learning ships labelled, not smuggled in.",
     },
   ];
   return (
@@ -370,11 +386,11 @@ function AceDoes() {
           <div style={{ maxWidth: 760 }}>
             <Eyebrow>What ACE does</Eyebrow>
             <Headline as="h2" size={56} style={{ marginTop: 32 }}>
-              Six capabilities,{" "}
-              <em style={{ fontStyle: "italic", fontWeight: 700 }}>running together.</em>
+              Six capabilities —{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 700 }}>three live, three to come.</em>
             </Headline>
             <p style={{ marginTop: 24, maxWidth: 620, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              Not a chatbot. An agent. ACE reads, drafts, decides, acts, explains, and learns — six loops running in parallel, every minute of every working day, on your tenant only.
+              Not a chatbot. An engine inside the product. Today ACE reads your ERP, compares your options on true landed cost, and shows its working. Drafting, acting and learning are the roadmap — each shipping behind explicit human approval.
             </p>
           </div>
         </Reveal>
@@ -458,34 +474,34 @@ function AceDoes() {
 function AceLearningCurve() {
   const milestones = [
     {
-      t: "Day 1",
-      label: "Provisioned",
-      accept: "0%",
-      detail: "Tenant is live. ACE has read 8 months of supplier email + your PO history. Zero corrections absorbed yet. Drafts go through shadow mode — visible to your team, not sent.",
+      t: "Shipped · today",
+      label: "In production",
+      mark: "01",
+      detail: "History-based forecasting ~5 months ahead from up to 18 months of history, true landed-cost comparison, and a SYSPRO-ready purchase order — live at a South African steel distributor, on their own hardware.",
     },
     {
-      t: "Week 4",
-      label: "First live drafts",
-      accept: "76%",
-      detail: "240+ corrections absorbed from your buyer's edits. ACE knows your top-50 suppliers by personality, lead-time variance, and quote-accuracy. First batch of ACE-drafted replies goes to real suppliers, buyer-approved.",
+      t: "Next",
+      label: "ERP write-back",
+      mark: "02",
+      detail: "Approved POs posted into SYSPRO via e.net, goods receipts to follow — certified onto e.net and listed on the SYSPRO Marketplace. Until then, ACE stays read-only.",
     },
     {
-      t: "Month 3",
-      label: "Trusted",
-      accept: "89%",
-      detail: "1,400+ exception patterns learned. Confidence thresholds tuned per supplier. Approval chain routing matches your CFO actual habits. The mobile PWA is the CFO preferred approval surface.",
+      t: "Roadmap",
+      label: "AI-drafted email",
+      mark: "03",
+      detail: "Supplier RFQs chased and replies drafted in your house voice — every send behind buyer approval. This is where the learned memory starts to compound.",
     },
     {
-      t: "Month 12",
-      label: "Compounding",
-      accept: "94%",
-      detail: "5,800+ tuning events. ACE handles seasonal patterns (quarter-end, holiday, loadshedding). New supplier onboarding is one-click with banking + credit detail auto-checked. Your last buyer's quirks are now organisational memory.",
+      t: "Roadmap",
+      label: "Approvals + ML forecasting",
+      mark: "04",
+      detail: "Multi-level, role-based sign-off chains. Probabilistic forecasting layered over the deterministic baseline — plus a plain-language copilot and deeper inventory intelligence.",
     },
     {
-      t: "Month 24",
-      label: "Institutional",
-      accept: "97%",
-      detail: "ACE knows your business better than any single person ever could. Edge cases that took years to learn are remembered. New buyers onboard in days, not months, because ACE briefs them. The moat is built.",
+      t: "Roadmap",
+      label: "Autonomous buying",
+      mark: "05",
+      detail: "A guardrailed buying agent: routine repeat buys proposed within hard limits you set, a person signing off anything outside them. The end state — approached step by step, in the open.",
     },
   ];
   return (
@@ -493,13 +509,13 @@ function AceLearningCurve() {
       <Container>
         <Reveal>
           <div style={{ maxWidth: 760 }}>
-            <Eyebrow>The compounding curve</Eyebrow>
+            <Eyebrow>The build order</Eyebrow>
             <Headline as="h2" size={56} style={{ marginTop: 32 }}>
-              ACE gets smarter{" "}
-              <em style={{ fontStyle: "italic", fontWeight: 700 }}>every week.</em>
+              Today is shipped.{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 700 }}>The rest is roadmap.</em>
             </Headline>
             <p style={{ marginTop: 24, maxWidth: 620, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)" }}>
-              Every edit by your buyer, every override, every escalation — absorbed. Acceptance rate is the most honest measure: the % of ACE-drafted replies that go out without an edit. Pulled from a live tenant.
+              No invented adoption curves, no acceptance rates from tenants that don't exist. The honest version: what runs in production today, and the order the rest arrives in.
             </p>
           </div>
         </Reveal>
@@ -527,7 +543,7 @@ function AceLearningCurve() {
                   <div style={{
                     width: 72, height: 72,
                     borderRadius: "50%",
-                    background: "var(--surface-white)",
+                    background: i === 0 ? "var(--coral)" : "var(--surface-white)",
                     border: "2px solid var(--coral)",
                     boxShadow: "0 8px 24px -10px rgba(201,99,58,0.4)",
                     display: "flex",
@@ -539,11 +555,11 @@ function AceLearningCurve() {
                     <span style={{
                       fontFamily: "'Geist', sans-serif",
                       fontWeight: 700, fontSize: 20,
-                      color: "var(--coral)",
+                      color: i === 0 ? "#FDF9F3" : "var(--coral)",
                       letterSpacing: "-0.02em",
                       lineHeight: 1,
                     }}>
-                      {m.accept}
+                      {m.mark}
                     </span>
                   </div>
                   <div style={{
@@ -593,7 +609,7 @@ function AceLearningCurve() {
             color: "var(--ink-2)",
             lineHeight: 1.55,
           }}>
-            <strong style={{ color: "var(--coral)", fontWeight: 600 }}>Acceptance rate</strong> = the % of ACE-drafted supplier replies sent without an edit. Pulled from a live customer tenant, anonymised.
+            <strong style={{ color: "var(--coral)", fontWeight: 600 }}>Build order, not dates.</strong> Stage 01 is the only one shipped — everything after it is future tense on purpose. When a stage goes live, this page changes tense.
           </div>
         </Reveal>
       </Container>
@@ -610,32 +626,32 @@ function AceComparison() {
     {
       dim: "Whose data trains the AI",
       cross: "Everyone's. Your edge cases get averaged into a global pool.",
-      vsg: "Yours only. Your tenant, your patterns, your weights.",
+      vsg: "Yours only. Your instance, computed from your own ERP data. Nothing pooled.",
     },
     {
-      dim: "What ACE remembers about you",
+      dim: "What ACE knows about you",
       cross: "Whatever the community supplied. Your specifics don't compound.",
-      vsg: "Eight memory categories tuned to your business — terminology, decisions, voice, codes, exceptions.",
+      vsg: "Your sales history, stock lots, committed orders, supplier prices, landed costs — read straight from your ERP.",
     },
     {
-      dim: "When you correct a draft",
-      cross: "The correction goes into the global model. Maybe.",
-      vsg: "Your correction immediately tightens your next inference.",
+      dim: "Where the intelligence runs",
+      cross: "The vendor's cloud. Your data makes the round trip.",
+      vsg: "On your hardware. The production deployment is on-premise and reads your ERP read-only.",
     },
     {
       dim: "Compliance posture",
       cross: "Your data lives somewhere — often the US, often pooled.",
-      vsg: "Per-tenant isolation, ZA-hosted, on-prem-capable. Zero cross-tenant exposure.",
+      vsg: "On-premise today, per-customer isolation by design. Zero cross-tenant exposure.",
     },
     {
       dim: "Lock-in risk",
       cross: "Your context is fused into the vendor's model. Leaving means starting over.",
-      vsg: "Export your full ACE memory in a documented format. Leave anytime.",
+      vsg: "Your master data never leaves your ERP; plans and POs are readable files you keep. Leave anytime.",
     },
     {
       dim: "Who picks the foundation model",
       cross: "The vendor. Locked to whatever they ship.",
-      vsg: "We hold the choice and swap when a better model ships. Your data stays put.",
+      vsg: "Today's shipped intelligence needs none — it's deterministic maths. Where models enter on the roadmap, we hold the choice and swap. Your data stays put.",
     },
   ];
   return (
@@ -689,7 +705,7 @@ function AceComparison() {
               }}>
                 Cross-trained AI<br />
                 <span style={{ textTransform: "none", letterSpacing: 0, fontSize: 11, color: "var(--ink-3)", fontWeight: 400 }}>
-                  (Coupa community · Stampli pooled · most platforms)
+                  (community-trained models · most procurement platforms)
                 </span>
               </div>
               <div style={{
@@ -772,7 +788,7 @@ function AceArchitecture() {
               </Headline>
             </div>
             <p style={{ fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 480 }}>
-              The model layer is shared and swappable. The memory — the part that actually does the thinking about your business — is yours alone. Diagrammed below the way we draw it for a security review.
+              Each customer's ACE stands alone — today, as a self-contained deployment on their own hardware. The shared, swappable model layer below is the design for the AI roadmap. Diagrammed the way we'd draw it for a security review: schematic, not a customer map.
             </p>
           </div>
         </Reveal>
@@ -781,9 +797,9 @@ function AceArchitecture() {
           <div style={{ marginTop: 64, background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: "56px 48px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
               {[
-                { n: "Customer A", c: "var(--ink-1)", note: "FMCG · SysPro" },
-                { n: "Customer B", c: "var(--coral)", note: "Packaging · Sage X3" },
-                { n: "Customer C", c: "var(--ink-1)", note: "Distribution · SAP B1" },
+                { n: "Customer A", c: "var(--ink-1)", note: "Isolated instance" },
+                { n: "Customer B", c: "var(--coral)", note: "Isolated instance" },
+                { n: "Customer C", c: "var(--ink-1)", note: "Isolated instance" },
               ].map((t, i) => (
                 <div key={i} style={{ border: `1.5px solid ${t.c}`, borderRadius: 16, padding: 24, background: "var(--paper-2)" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -794,7 +810,7 @@ function AceArchitecture() {
                     Memory · isolated
                   </div>
                   <div style={{ marginTop: 8, display: "flex", flexDirection: "column", gap: 4 }}>
-                    {["Suppliers", "Terminology", "Decisions", "Audit log"].map((l, j) => (
+                    {["Sales history", "Stock lots", "Supplier prices", "Landed costs"].map((l, j) => (
                       <div key={j} style={{ height: 6, borderRadius: 3, background: `${t.c}33`, width: `${[90, 70, 80, 60][j]}%` }} />
                     ))}
                   </div>
@@ -819,7 +835,7 @@ function AceArchitecture() {
             <div style={{ border: "1px solid var(--ink-1)", borderRadius: 16, padding: 24, background: "var(--ink-1)", color: "var(--paper)" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 17 }}>Model layer · shared, swappable</span>
-                <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", opacity: 0.7 }}>VSG-owned</span>
+                <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", opacity: 0.7 }}>VSG-owned · roadmap</span>
               </div>
               <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
                 {["Foundation model", "Embeddings", "Tool router", "Guardrails"].map((c, i) => (
@@ -829,7 +845,7 @@ function AceArchitecture() {
                 ))}
               </div>
               <div style={{ marginTop: 16, fontFamily: "'Geist', sans-serif", fontSize: 13, color: "rgba(245,240,232,0.75)", lineHeight: 1.6 }}>
-                Inference happens here, against your memory only. Your data never enters another customer's request, prompt, or training run.
+                Where the AI roadmap features will run — drafting, classification, the copilot. Inference happens against your memory only; your data never enters another customer's request, prompt, or training run. Today's forecasting and landed-cost maths don't need this layer at all — they run on your hardware.
               </div>
             </div>
           </div>
@@ -849,8 +865,8 @@ function AceModelLayer() {
     { task: "Landed-cost comparison", model: "Deterministic cost engine", why: "Duty, clearing, freight and FX — exact, repeatable, defensible in front of an auditor." },
     { task: "Supplier reply drafting (roadmap)", model: "Frontier reasoning model", why: "House-voice nuance + Afrikaans/isiZulu handling — always behind buyer approval." },
     { task: "Email classification (roadmap)", model: "Fast classification model", why: "Quick, low-cost triage at inbox scale — planned, not shipped." },
-    { task: "Embeddings (your memory)", model: "Self-hosted, in your tenant", why: "Your supplier vectors never leave your tenant." },
-    { task: "Guardrails + safety", model: "VSG-built rules engine", why: "Your validation rules, your hard limits. Not the model's defaults." },
+    { task: "Embeddings (roadmap)", model: "Self-hosted, in your tenant", why: "When learned memory ships, your vectors live in your tenant and never leave it." },
+    { task: "Guardrails + safety (roadmap)", model: "VSG-built rules engine", why: "Hard limits around every acting feature — sends, writes, buys. Your rules, not the model's defaults." },
   ];
   return (
     <Section>
@@ -864,7 +880,7 @@ function AceModelLayer() {
                 <em style={{ fontStyle: "italic", fontWeight: 700 }}>You hold the memory.</em>
               </Headline>
               <p style={{ marginTop: 28, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 380 }}>
-                Different jobs want different models. We use the best available foundation model for each task — and swap when something better ships. Your memory (the part that matters) stays put.
+                Different jobs want different engines. Today's shipped intelligence is deterministic — forecasting and landed-cost maths with no model in the loop. Where foundation models enter on the roadmap, we pick the best available per task and swap when something better ships. Your memory stays put.
               </p>
               <div style={{ marginTop: 28, padding: "16px 20px", background: "var(--coral-soft)", border: "1px solid rgba(201,99,58,0.22)", borderRadius: 12, fontFamily: "'Geist', sans-serif", fontSize: 13.5, color: "var(--ink-2)", lineHeight: 1.55 }}>
                 <strong style={{ color: "var(--coral)", fontWeight: 600 }}>Why this matters:</strong> when the next generation of models ships, we wire it in. You inherit the upgrade. You don't have to re-train your AI from scratch.
@@ -924,7 +940,7 @@ function AceInProducts() {
       statusColor: "var(--success)",
       headline: "Today: the forecasting and landed-cost engine behind the planning grid. Next: the AI layer on top.",
       uses: [
-        "Per-SKU demand projection from 18 months of your own sales history, seasonality included",
+        "Per-SKU demand projection from up to 18 months of your own sales history, seasonality included",
         "True landed-cost mathematics on every supplier comparison — duty, clearing, freight, FX",
         "Cover flags when projected stock falls below your target before the next order lands",
         "On the roadmap: AI-drafted supplier emails with buyer approval, and a plain-language copilot",
@@ -1067,12 +1083,12 @@ function AceSecurity() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>
               {[
-                { k: "Data residency", v: "South African region by default. On-prem available for regulated or air-gapped operations." },
-                { k: "Encryption", v: "AES-256 at rest. TLS 1.3 in transit. Per-tenant encryption keys, customer-rotatable." },
-                { k: "Access control", v: "SSO via your identity provider (Microsoft, Okta, Google). Per-action role-based access. Automated user provisioning." },
-                { k: "Training data", v: "Your data is never used to train shared models. Period. Cross-tenant inference is impossible by design." },
-                { k: "Backups", v: "Daily encrypted snapshots. 30-day retention by default. Customer-extendable to 7 years." },
-                { k: "Audit & evidence", v: "Immutable audit log, exportable. Per-event evidence retrieval. Replay any decision, any day." },
+                { k: "Deployment", v: "On-premise. The production deployment is a self-contained app on your own hardware, inside your network. No cloud dependency, nothing phones home." },
+                { k: "ERP access", v: "Read-only over ODBC. ACE reads SYSPRO; it never writes back. ERP write-back arrives with e.net certification, on the roadmap." },
+                { k: "Access control", v: "Runs inside your own Windows environment, under your network controls, with database credentials you hold. Role-based approvals are on the roadmap." },
+                { k: "Training data", v: "Your data is never used to train shared models. Period. Cross-tenant exposure is impossible by design — today there isn't even a shared server to pool it on." },
+                { k: "Snapshots", v: "Every plan exports as a dated, self-contained snapshot you keep on your own storage — re-importable any time, no server dependency." },
+                { k: "Traceability", v: "Deterministic maths: every figure reproducible from your history. POs carry their originating RFQ reference. Plans export for sign-off and re-import." },
               ].map((c, i) => (
                 <div key={i} style={{ padding: "22px 24px", border: "1px solid var(--hairline)", borderRadius: 14, background: "var(--surface-white)" }}>
                   <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--coral)" }}>
@@ -1098,11 +1114,11 @@ function AceSecurity() {
 const ACE_FAQS = [
   {
     q: "Which AI models power ACE?",
-    a: "Best-in-class foundation models, matched to each task — a frontier reasoning model for drafting and decisions, a fast model for classification, a vision model for reading scanned quotes. We hold the model choice and swap when a better one ships. Your memory and context are yours alone — that's the part that makes ACE work, not the model.",
+    a: "Today, none — and that's deliberate. The shipped intelligence in production is deterministic: history-based forecasting and landed-cost mathematics, auditable arithmetic on your own data. Foundation models enter with the roadmap features — drafting, classification, the copilot — matched per task, and we hold the choice and swap when a better one ships. Your memory and context stay yours alone; that's the part that makes ACE work, not the model.",
   },
   {
     q: "What if you change the foundation model? Will my AI 'forget'?",
-    a: "No. Your memory (suppliers, terminology, decisions, audit lineage) lives in your tenant — in vector embeddings, structured tables, and replayable event logs. We can swap the foundation model under ACE and your tenant inherits the upgrade. The model is interchangeable. The memory isn't.",
+    a: "No. Your memory lives in your instance — today, your ERP data plus the self-contained plan snapshots you keep on your own hardware. When foundation models arrive with the roadmap features, they sit under ACE as interchangeable parts: we swap the model, your instance inherits the upgrade. The model is interchangeable. The memory isn't.",
   },
   {
     q: "How is ACE different from a chatbot?",
@@ -1110,23 +1126,23 @@ const ACE_FAQS = [
   },
   {
     q: "Does ACE require us to replace anything?",
-    a: "No. ACE reads from your ERP (SysPro, SAP B1, Sage Pastel, etc.) and writes back to it. Your ERP, your master data, your existing approvals — all stay where they are. ACE adds the AI layer that wraps around them.",
+    a: "No. Today ACE reads from SYSPRO over ODBC — read-only, it never writes to your ERP. Write-back, via SYSPRO e.net, is on the roadmap and will only ever post what a person has approved. Your ERP, your master data, your existing sign-off habits — all stay where they are. The ERP stays the system of record; we make your buyers faster.",
   },
   {
     q: "Can we see what ACE has learned about us?",
-    a: "Yes. Every memory category is browsable, searchable, and exportable. You can see exactly which supplier ACE has flagged as unreliable, which terminology it's absorbed, which approval pattern it's learned. If you ever leave, you export the lot in a documented format.",
+    a: "Yes — because today nothing is hidden in a model. Every figure in the planning grid drills down to its inputs: the stock lots, the committed orders, the history behind a forecast, the duty-clearing-freight-FX lines behind a landed cost. Everything exports to files you keep. When learned memory ships with the drafting features, the same rule holds: browsable, exportable, yours.",
   },
   {
     q: "What happens if the model layer is down?",
-    a: "Graceful degradation. The product stays up in read-only mode: your buyer can still see the inbox, the planning grid, the audit log. New ACE drafts queue until the model layer is back. We've never had an outage longer than 14 minutes — and we publish the status page.",
+    a: "Today, nothing — there is no model layer to go down. ACE runs entirely on your hardware with no cloud dependency; if your network has a bad day, the last imported data still works. When cloud model calls arrive with the roadmap features, the product degrades gracefully: the planning grid keeps working, AI drafts queue until the layer is back.",
   },
   {
     q: "How do we know ACE isn't making things up?",
-    a: "EvidenceButton on every action. Every classification, every draft, every score ships with the inputs that produced it — the supplier history, the email thread, the scoring weights, the alternatives considered. Replayable. Signed. Defensible to your auditor.",
+    a: "Because today it can't. The forecasting and landed-cost engines are deterministic — the same history in produces the same numbers out, and every figure breaks down to the lots, orders and cost lines that produced it. Reproducible in front of your auditor. Roadmap AI outputs ship with the same discipline: inputs logged, replayable, always behind human review.",
   },
   {
     q: "What does ACE refuse to do?",
-    a: "Hard limits: never auto-approves payments above your CFO band. Never sends without buyer review during the first 30 days. Never trains on your data for any model used by another customer. Never crosses the tenant boundary, even at inference. Never makes claims it can't back with evidence from your tenant.",
+    a: "Today it refuses by architecture: it cannot write to your ERP, cannot send an email, cannot move money — it's a read-only engine that recommends. On the roadmap, every acting capability ships behind explicit human approval: no email without buyer sign-off, no ERP write without an approved plan, no autonomous buy outside hard guardrails you set. And permanently: never trains on your data for any other customer, never crosses the instance boundary, even at inference.",
   },
 ];
 
@@ -1208,7 +1224,7 @@ function AceCTA({ onBookDemo }) {
               An AI that knows <em style={{ fontStyle: "italic", fontWeight: 700, color: "var(--coral)" }}>your business.</em>
             </h2>
             <p style={{ marginTop: 28, fontFamily: "'Geist', sans-serif", fontSize: 20, lineHeight: 1.55, color: "var(--ink-2)", maxWidth: 580, marginLeft: "auto", marginRight: "auto" }}>
-              Book a 30-minute walkthrough. We'll show you how ACE looks the day you provision your tenant — and a year in.
+              Book a 30-minute walkthrough. We'll run the planning grid on demo data, show the landed-cost maths live — and where the AI roadmap takes it.
             </p>
             <div style={{ marginTop: 40, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
               <PrimaryButton onClick={onBookDemo} size="lg">Book a demo</PrimaryButton>
