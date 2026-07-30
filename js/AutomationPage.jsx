@@ -87,7 +87,7 @@ const WORKFLOWS = [
     title: "Stop matching invoices to POs by hand.",
     body: "Your AP team spends two days a week matching every supplier invoice to its purchase order and goods-received note. We automate the whole flow. AI reads every invoice, matches against your PO and GRV, flags variances and duplicates, drafts the exception response. Your team approves; the AI does the matching.",
     facts: [
-      ["Replaces", "1–2 FTE of AP admin time per month"],
+      ["Removes", "The manual line-by-line match between invoice, PO and GRV"],
       ["Recovers", "Missed credit notes, duplicate payments, supplier overcharges"],
       ["Timeline", "Two to four weeks"],
     ],
@@ -106,10 +106,10 @@ const WORKFLOWS = [
   {
     n: "03",
     tag: "DSO reduction (credit-hold + collections)",
-    title: "Cut DSO from 90 days to 60.",
+    title: "Make collections happen on a schedule, not when someone remembers.",
     body: "Your customers pay 90 days late. Your DSO is killing your cashflow. AI runs the collection sequence — polite reminders, firm reminders, attorney letters — with risk-scored escalation based on customer history and credit bureau signals. Auto-holds new orders to chronic late payers. Integrates with your accounting system.",
     facts: [
-      ["Replaces", "Debtor clerk + CFO's escalation hours"],
+      ["Removes", "The manual chase list and the escalation decisions behind it"],
       ["Recovers", "Working capital tied up in late payments"],
       ["Timeline", "Three to four weeks"],
     ],
@@ -133,9 +133,9 @@ function FourWorkflows() {
       <Container>
         <Reveal>
           <div style={{ maxWidth: 760 }}>
-            <Eyebrow>What we ship</Eyebrow>
+            <Eyebrow>What we build</Eyebrow>
             <Headline as="h2" size={56} style={{ marginTop: 32 }}>
-              Four workflows. Real R-value.{" "}
+              Four workflows we scope most often.{" "}
               <em style={{ fontStyle: "italic", fontWeight: 700 }}>Every one a two-to-four-week sprint.</em>
             </Headline>
           </div>
@@ -245,7 +245,7 @@ function CustomWorkflows({ onBookDemo }) {
                 letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--coral)",
                 marginBottom: 18, paddingBottom: 18, borderBottom: "1px solid var(--hairline)",
               }}>
-                Other workflows we've automated
+                Other workflow shapes we scope
               </div>
               <ul style={{ padding: 0, margin: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 {alsoBuilt.map((it, i) => (

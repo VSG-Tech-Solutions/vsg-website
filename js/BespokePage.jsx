@@ -57,7 +57,7 @@ function BespokeHero({ onBookDemo }) {
             marginTop: 36, maxWidth: 760,
             fontFamily: "'Geist', sans-serif", fontSize: 21, lineHeight: 1.55, color: "var(--ink-2)",
           }}>
-            Every business has a problem no off-the-shelf software solves. The workflow unique to how YOU operate. The internal tool that would save your team 20 hours a week if anyone built it. We design, build, and ship that software. Yours. In your repository.
+            Every business has a problem no off-the-shelf software solves. The workflow unique to how YOU operate. The internal tool nobody has built because it does not exist off the shelf — the one your team works around every week. We design, build, and ship that software. Yours. In your repository.
           </p>
         </Reveal>
 

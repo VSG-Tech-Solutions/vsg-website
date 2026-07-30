@@ -106,8 +106,7 @@ function TenPercentProblem() {
                 What you pay for vs what you use
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
-                <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 72, letterSpacing: "-0.04em", color: "var(--coral)", lineHeight: 1 }}>10%</span>
-                <span style={{ fontFamily: "'Geist', sans-serif", fontSize: 17, color: "var(--ink-3)" }}>actually used</span>
+                <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 44, letterSpacing: "-0.03em", color: "var(--coral)", lineHeight: 1.1 }}>How much of it<br/>does your team<br/>actually open?</span>
               </div>
               <div style={{ marginTop: 24, height: 14, borderRadius: 7, background: "var(--paper-2)", overflow: "hidden", position: "relative" }}>
                 <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "10%", background: "var(--coral)", borderRadius: 7 }} />

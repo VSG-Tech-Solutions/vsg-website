@@ -259,7 +259,7 @@ function Services({ onBookDemo }) {
               name="Bespoke Software"
               headline="Software built for the problem"
               emphasis="only YOU have."
-              body="Every business has a problem no off-the-shelf software solves. The workflow that's unique to how YOU operate. The internal tool that would save your team 20 hours a week if anyone built it. We design, build, and ship that software. Yours. In your repository."
+              body="Every business has a problem no off-the-shelf software solves. The workflow that's unique to how YOU operate. The internal tool nobody has built because it does not exist off the shelf. We design, build, and ship that software. Yours. In your repository."
               visual={<VisualCustom />}
               bullets={[
                 "Production-grade software built around YOUR specific business problem",

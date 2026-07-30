@@ -407,10 +407,10 @@ function ServicesPage({ onBookDemo }) {
         eyebrow="Bespoke Software"
         headline="Software built for the problem"
         emphasis="only YOU have."
-        body="Every business has a problem that no off-the-shelf software solves. The workflow that's unique to how YOU operate. The internal tool that would save your team 20 hours a week — if anyone built it. The customer portal that does the specific thing your customers actually want. The dashboard that pulls together the data nobody else thinks belongs together. We design, build, and ship that software. Yours. In your repository. With the engineer's phone number on the back of your laptop."
+        body="Every business has a problem that no off-the-shelf software solves. The workflow that's unique to how YOU operate. The internal tool nobody has built because it does not exist off the shelf. The customer portal that does the specific thing your customers actually want. The dashboard that pulls together the data nobody else thinks belongs together. We design, build, and ship that software. Yours. In your repository. With the engineer's phone number on the back of your laptop."
         useCases={[
           "Customer self-service portal that does what YOUR customers ask for",
-          "Internal tool that saves your team 20 hours a week",
+          "The internal tool nobody has built for you yet",
           "Daily ops dashboard the GM can read in two minutes",
           "Integration layer between systems no vendor will quote",
         ]}

@@ -147,7 +147,7 @@ function NavDropdown({ current, onBookDemo }) {
           <span style={{ color: "var(--coral)", fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", marginRight: 8 }}>
             Core
           </span>
-          Both products run on VSG ACE — the per-customer AI core →
+          VSG ICT runs on VSG ACE — the per-customer AI core →
         </a>
       </div>
     </div>

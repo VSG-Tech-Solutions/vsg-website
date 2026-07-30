@@ -12,9 +12,9 @@
 function WhatWeAre() {
   const isThis = [
     "Custom software, AI systems, and products — built around how you actually run",
-    "Connects to the tools you already use — SysPro, Sage, SAP B1, Pastel, and more",
+    "Works with the systems you already run — our procurement product connects to SYSPRO; other ERPs are a build",
     "Built specifically for SA mid-market manufacturers, retailers, and distributors",
-    "Per-customer AI memory — your context, never shared, never cross-trained",
+    "Runs on your infrastructure — on-premise and read-only, so your data never leaves your network",
     "Live in five weeks. Stephan replies personally.",
     "Quoted upfront before any work starts — no surprise overages, no retainer trap.",
   ];
@@ -138,7 +138,7 @@ function ROICalculator() {
 
   // Compute. These are illustrative formulas — operator-realistic, not over-claimed.
   // Hours back / week = hoursPerBuyer × buyers × adoption(0.7) — assume ACE handles ~70% routine
-  const adoption = 0.7;
+  const adoption = 0.7; // ILLUSTRATIVE ONLY — not a measured efficacy figure; calculator is unrendered
   const hoursBack = hoursPerBuyer * buyers * adoption;
   const weeklyValue = hoursBack * hourlyCost;
   const annualValue = weeklyValue * 48; // working weeks
@@ -239,16 +239,7 @@ function Pricing({ onBookDemo }) {
       cta: "See Source",
       href: "source.html",
     },
-    {
-      name: "Source + Pace",
-      sub: "Both products, bundled",
-      from: "Bundle",
-      blurb: "Both products on the same ACE tenant. Source feeds inbound risk signals straight into Pace's plan.",
-      bullets: ["Both products on one tenant", "Bundle discount applied", "Priority on Pace early access", "Design-partner conversion"],
-      cta: "Talk to us",
-      href: null,
-      featured: true,
-    },
+    
     {
       name: "Services",
       sub: "Custom · Automation · Bespoke",
