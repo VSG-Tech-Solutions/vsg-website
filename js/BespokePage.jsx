@@ -12,7 +12,7 @@ function BespokeHero({ onBookDemo }) {
       <div aria-hidden="true" style={{
         position: "absolute", top: "-10%", left: "50%", transform: "translateX(-50%)",
         width: 1400, height: 900,
-        background: "radial-gradient(ellipse at center, rgba(201,99,58,0.08), rgba(201,99,58,0) 60%)",
+        background: "radial-gradient(ellipse at center, rgba(var(--accent-rgb),0.08), rgba(var(--accent-rgb),0) 60%)",
         pointerEvents: "none",
       }} />
       <Container style={{ position: "relative" }}>
@@ -103,7 +103,7 @@ function WhatWeBuild() {
               }}>
                 <div style={{
                   display: "inline-flex", alignItems: "center", gap: 8, padding: "4px 10px",
-                  background: "var(--coral-soft)", border: "1px solid rgba(201,99,58,0.22)",
+                  background: "var(--coral-soft)", border: "1px solid rgba(var(--accent-rgb),0.22)",
                   borderRadius: 999, marginBottom: 18,
                 }}>
                   <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--coral)" }} />
@@ -236,7 +236,7 @@ function BespokeCTA({ onBookDemo }) {
       <div aria-hidden="true" style={{
         position: "absolute", bottom: "-40%", left: "50%", transform: "translateX(-50%)",
         width: 1300, height: 1300,
-        background: "radial-gradient(circle at center, rgba(201,99,58,0.16), rgba(201,99,58,0) 55%)",
+        background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.06), rgba(var(--accent-rgb),0) 55%)",
         pointerEvents: "none",
       }} />
       <Container>
@@ -279,7 +279,7 @@ function BespokePage({ onBookDemo }) {
   );
 }
 
-requestAnimationFrame(() => {
+vsgMount(() => {
   ReactDOM.createRoot(document.getElementById("app")).render(
     <PageShell current="services">
       <BespokePage />

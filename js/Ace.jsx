@@ -2,19 +2,19 @@
 
 /* VSG ACE — the per-customer AI core.
    Centerpiece visual: a floating ACE token. Layered cards stacked with depth,
-   gentle bob, coral floor glow, small data specks drifting in the surrounding
+   gentle bob, accent floor glow, small data specks drifting in the surrounding
    space, plus 4 small "memory chip" pills floating around. Reads as an iconic
    brand mark, not a literal "ball of AI". */
 
 const SPECKS = [
-  { x: 60,  y: 110, r: 3, dur: 7,  delay: 0.0, coral: true },
-  { x: 460, y: 90,  r: 2, dur: 8,  delay: 0.4, coral: false },
-  { x: 30,  y: 380, r: 2, dur: 9,  delay: 1.2, coral: false },
-  { x: 480, y: 360, r: 3, dur: 7,  delay: 0.8, coral: true },
-  { x: 110, y: 480, r: 2, dur: 10, delay: 0.3, coral: false },
-  { x: 420, y: 470, r: 2, dur: 8,  delay: 1.5, coral: false },
-  { x: 80,  y: 240, r: 2, dur: 9,  delay: 2.0, coral: false },
-  { x: 470, y: 220, r: 2, dur: 7,  delay: 0.6, coral: true },
+  { x: 60,  y: 110, r: 3, dur: 7,  delay: 0.0, accent: true },
+  { x: 460, y: 90,  r: 2, dur: 8,  delay: 0.4, accent: false },
+  { x: 30,  y: 380, r: 2, dur: 9,  delay: 1.2, accent: false },
+  { x: 480, y: 360, r: 3, dur: 7,  delay: 0.8, accent: true },
+  { x: 110, y: 480, r: 2, dur: 10, delay: 0.3, accent: false },
+  { x: 420, y: 470, r: 2, dur: 8,  delay: 1.5, accent: false },
+  { x: 80,  y: 240, r: 2, dur: 9,  delay: 2.0, accent: false },
+  { x: 470, y: 220, r: 2, dur: 7,  delay: 0.6, accent: true },
 ];
 
 const MEMORY_CHIPS = [
@@ -36,7 +36,7 @@ function AceFloatingToken() {
         perspective: 1400,
       }}
     >
-      {/* coral floor wash */}
+      {/* accent floor wash */}
       <div
         aria-hidden="true"
         style={{
@@ -46,7 +46,7 @@ function AceFloatingToken() {
           transform: "translateX(-50%)",
           width: 380,
           height: 180,
-          background: "radial-gradient(ellipse at center, rgba(201,99,58,0.20), rgba(201,99,58,0) 60%)",
+          background: "radial-gradient(ellipse at center, rgba(var(--accent-rgb),0.08), rgba(var(--accent-rgb),0) 60%)",
           pointerEvents: "none",
           filter: "blur(2px)",
         }}
@@ -80,8 +80,8 @@ function AceFloatingToken() {
             width: s.r,
             height: s.r,
             borderRadius: "50%",
-            background: s.coral ? "var(--coral)" : "var(--ink-3)",
-            opacity: s.coral ? 0.7 : 0.35,
+            background: s.accent ? "var(--coral)" : "var(--ink-3)",
+            opacity: s.accent ? 0.7 : 0.35,
             animation: `vsg-drift ${s.dur}s ease-in-out ${s.delay}s infinite`,
           }}
         />
@@ -117,7 +117,7 @@ function AceFloatingToken() {
           borderRadius: 22,
           background: "var(--surface-white)",
           border: "1px solid var(--hairline)",
-          boxShadow: "0 16px 40px -20px rgba(26,22,18,0.16)",
+          boxShadow: "var(--rim)",
           opacity: 0.85,
           animation: "vsg-float-mid 6s ease-in-out infinite",
         }}
@@ -133,9 +133,9 @@ function AceFloatingToken() {
           width: 280,
           height: 360,
           borderRadius: 24,
-          background: "linear-gradient(180deg, #25201A, #0E0B08)",
-          color: "var(--paper)",
-          boxShadow: "0 40px 80px -28px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.06)",
+          background: "linear-gradient(180deg, var(--surface-3), var(--canvas))",
+          color: "var(--text-1)",
+          boxShadow: "var(--rim)",
           padding: "28px 26px",
           display: "flex",
           flexDirection: "column",
@@ -145,7 +145,7 @@ function AceFloatingToken() {
           fontFamily: "'Geist', sans-serif",
         }}
       >
-        {/* coral inner glint */}
+        {/* accent inner glint */}
         <div
           aria-hidden="true"
           style={{
@@ -155,7 +155,7 @@ function AceFloatingToken() {
             width: 220,
             height: 220,
             borderRadius: "50%",
-            background: "radial-gradient(circle at center, rgba(229,141,98,0.28), rgba(229,141,98,0) 60%)",
+            background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.10), rgba(var(--accent-rgb),0) 60%)",
             pointerEvents: "none",
           }}
         />
@@ -166,25 +166,25 @@ function AceFloatingToken() {
             position: "absolute",
             inset: 0,
             background:
-              "repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,0.014) 3px 4px)",
+              "repeating-linear-gradient(0deg, transparent 0 3px, rgba(var(--ink-rgb),0.02) 3px 4px)",
             pointerEvents: "none",
           }}
         />
 
         {/* top row — Live pill + customer id */}
         <div style={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.26em", textTransform: "uppercase", color: "#F2A481", fontWeight: 500 }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#F2A481", animation: "vsg-pulse 2s ease-in-out infinite" }} />
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.26em", textTransform: "uppercase", color: "var(--accent-bright)", fontWeight: 500 }}>
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent-bright)", animation: "vsg-pulse 2s ease-in-out infinite" }} />
             Live
           </span>
-          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(245,240,232,0.55)", fontWeight: 500 }}>
+          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(var(--ink-rgb),0.55)", fontWeight: 500 }}>
             #042
           </span>
         </div>
 
         {/* the wordmark */}
         <div style={{ position: "relative", marginTop: 4 }}>
-          <div style={{ fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(245,240,232,0.55)", fontWeight: 500 }}>
+          <div style={{ fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(var(--ink-rgb),0.55)", fontWeight: 500 }}>
             VSG
           </div>
           <div
@@ -195,13 +195,13 @@ function AceFloatingToken() {
               fontSize: 88,
               letterSpacing: "-0.05em",
               lineHeight: 0.95,
-              color: "var(--paper)",
+              color: "var(--text-1)",
               marginTop: 2,
             }}
           >
             ACE
           </div>
-          <div style={{ marginTop: 8, fontFamily: "'Geist', sans-serif", fontSize: 13, color: "rgba(245,240,232,0.75)", letterSpacing: "-0.005em" }}>
+          <div style={{ marginTop: 8, fontFamily: "'Geist', sans-serif", fontSize: 13, color: "rgba(var(--ink-rgb),0.75)", letterSpacing: "-0.005em" }}>
             Your AI · trained on your business.
           </div>
         </div>
@@ -216,15 +216,15 @@ function AceFloatingToken() {
           ].map((b, i) => (
             <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 10, alignItems: "center" }}>
               <div>
-                <div style={{ fontFamily: "'Geist Mono', monospace", fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(245,240,232,0.55)", fontWeight: 500, marginBottom: 4 }}>
+                <div style={{ fontFamily: "'Geist Mono', monospace", fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(var(--ink-rgb),0.55)", fontWeight: 500, marginBottom: 4 }}>
                   {b.l}
                 </div>
-                <div style={{ height: 3, background: "rgba(245,240,232,0.10)", borderRadius: 2, overflow: "hidden" }}>
+                <div style={{ height: 3, background: "rgba(var(--ink-rgb),0.10)", borderRadius: 2, overflow: "hidden" }}>
                   <div
                     style={{
                       height: "100%",
                       width: `${b.v * 100}%`,
-                      background: "#F2A481",
+                      background: "var(--accent-bright)",
                       borderRadius: 2,
                       transform: "scaleX(0)",
                       transformOrigin: "left",
@@ -233,7 +233,7 @@ function AceFloatingToken() {
                   />
                 </div>
               </div>
-              <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.12em", color: "rgba(245,240,232,0.65)", fontWeight: 500, minWidth: 24, textAlign: "right" }}>
+              <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.12em", color: "rgba(var(--ink-rgb),0.65)", fontWeight: 500, minWidth: 24, textAlign: "right" }}>
                 {Math.round(b.v * 100)}
               </span>
             </div>
@@ -241,11 +241,11 @@ function AceFloatingToken() {
         </div>
 
         {/* footer */}
-        <div style={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 14, borderTop: "1px solid rgba(245,240,232,0.08)" }}>
-          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(245,240,232,0.6)", fontWeight: 500 }}>
+        <div style={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 14, borderTop: "1px solid rgba(var(--ink-rgb),0.08)" }}>
+          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(var(--ink-rgb),0.6)", fontWeight: 500 }}>
             Tenant · isolated
           </span>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "4px 9px", borderRadius: 999, background: "rgba(229,141,98,0.16)", fontFamily: "'Geist Mono', monospace", fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "#F2A481", fontWeight: 500 }}>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "4px 9px", borderRadius: 999, background: "rgba(var(--accent-rgb),0.16)", fontFamily: "'Geist Mono', monospace", fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--accent-bright)", fontWeight: 500 }}>
             ZA · on-prem ready
           </span>
         </div>
@@ -269,7 +269,7 @@ function AceFloatingToken() {
             textTransform: "uppercase",
             color: "var(--ink-3)",
             fontWeight: 500,
-            boxShadow: "0 6px 20px -10px rgba(26,22,18,0.18)",
+            boxShadow: "var(--rim)",
             display: "inline-flex",
             alignItems: "center",
             gap: 6,

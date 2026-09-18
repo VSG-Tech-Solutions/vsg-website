@@ -16,7 +16,7 @@ function CRMHero({ onBookDemo }) {
       <div aria-hidden="true" style={{
         position: "absolute", top: "-10%", left: "50%", transform: "translateX(-50%)",
         width: 1400, height: 900,
-        background: "radial-gradient(ellipse at center, rgba(201,99,58,0.08), rgba(201,99,58,0) 60%)",
+        background: "radial-gradient(ellipse at center, rgba(var(--accent-rgb),0.08), rgba(var(--accent-rgb),0) 60%)",
         pointerEvents: "none",
       }} />
       <Container style={{ position: "relative" }}>
@@ -101,7 +101,7 @@ function TenPercentProblem() {
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 24, padding: 40, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.14)" }}>
+            <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 24, padding: 40, boxShadow: "var(--rim)" }}>
               <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)", marginBottom: 20 }}>
                 What you pay for vs what you use
               </div>
@@ -292,7 +292,7 @@ function CRMCTA({ onBookDemo }) {
       <div aria-hidden="true" style={{
         position: "absolute", bottom: "-40%", left: "50%", transform: "translateX(-50%)",
         width: 1300, height: 1300,
-        background: "radial-gradient(circle at center, rgba(201,99,58,0.16), rgba(201,99,58,0) 55%)",
+        background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.06), rgba(var(--accent-rgb),0) 55%)",
         pointerEvents: "none",
       }} />
       <Container>
@@ -339,7 +339,7 @@ function CRMPage({ onBookDemo }) {
   );
 }
 
-requestAnimationFrame(() => {
+vsgMount(() => {
   ReactDOM.createRoot(document.getElementById("app")).render(
     <PageShell current="services">
       <CRMPage />

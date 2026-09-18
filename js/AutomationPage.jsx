@@ -16,7 +16,7 @@ function AutomationHero({ onBookDemo }) {
       <div aria-hidden="true" style={{
         position: "absolute", top: "-10%", left: "50%", transform: "translateX(-50%)",
         width: 1400, height: 900,
-        background: "radial-gradient(ellipse at center, rgba(201,99,58,0.08), rgba(201,99,58,0) 60%)",
+        background: "radial-gradient(ellipse at center, rgba(var(--accent-rgb),0.08), rgba(var(--accent-rgb),0) 60%)",
         pointerEvents: "none",
       }} />
       <Container style={{ position: "relative" }}>
@@ -274,8 +274,9 @@ function CustomWorkflows({ onBookDemo }) {
 
             {/* Right — "tell us what you'd want built" */}
             <div style={{
-              background: "var(--ink-1)", color: "var(--paper)",
-              borderRadius: 20, padding: 36, display: "flex", flexDirection: "column",
+              background: "var(--surface-3)", color: "var(--text-1)",
+              border: "1px solid var(--accent-line)",
+              borderRadius: "var(--r-card)", padding: 36, display: "flex", flexDirection: "column",
             }}>
               <div style={{
                 fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10,
@@ -296,24 +297,22 @@ function CustomWorkflows({ onBookDemo }) {
                     <div style={{
                       fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10,
                       letterSpacing: "0.22em", textTransform: "uppercase",
-                      color: "rgba(245,240,232,0.55)", marginBottom: 4,
+                      color: "rgba(var(--ink-rgb),0.55)", marginBottom: 4,
                     }}>{p.k}</div>
                     <div style={{
                       fontFamily: "'Geist', sans-serif", fontSize: 13.5, lineHeight: 1.55,
-                      color: "rgba(245,240,232,0.85)",
+                      color: "rgba(var(--ink-rgb),0.85)",
                     }}>{p.v}</div>
                   </li>
                 ))}
               </ul>
               <button
                 onClick={onBookDemo}
-                style={{
-                  background: "var(--coral)", color: "var(--paper)", border: "none", borderRadius: 999,
-                  height: 50, padding: "0 26px", fontFamily: "'Geist', sans-serif", fontSize: 15,
-                  fontWeight: 600, cursor: "pointer", marginTop: "auto", alignSelf: "flex-start",
-                }}
+                className="vsg-btn vsg-btn--primary"
+                style={{ marginTop: "auto", alignSelf: "flex-start" }}
               >
-                Tell us about your workflow →
+                Tell us about your workflow
+                <span className="vsg-btn__arrow" aria-hidden="true">→</span>
               </button>
             </div>
           </div>
@@ -462,7 +461,7 @@ function AutomationCTA({ onBookDemo }) {
       <div aria-hidden="true" style={{
         position: "absolute", bottom: "-40%", left: "50%", transform: "translateX(-50%)",
         width: 1300, height: 1300,
-        background: "radial-gradient(circle at center, rgba(201,99,58,0.16), rgba(201,99,58,0) 55%)",
+        background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.06), rgba(var(--accent-rgb),0) 55%)",
         pointerEvents: "none",
       }} />
       <Container>
@@ -510,7 +509,7 @@ function AutomationPage({ onBookDemo }) {
   );
 }
 
-requestAnimationFrame(() => {
+vsgMount(() => {
   ReactDOM.createRoot(document.getElementById("app")).render(
     <PageShell current="services">
       <AutomationPage />

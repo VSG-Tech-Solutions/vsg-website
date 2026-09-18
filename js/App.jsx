@@ -19,7 +19,7 @@ function HomePageContent({ onBookDemo }) {
   );
 }
 
-requestAnimationFrame(() => {
+vsgMount(() => {
   ReactDOM.createRoot(document.getElementById("app")).render(
     <PageShell current="home">
       <HomePageContent />

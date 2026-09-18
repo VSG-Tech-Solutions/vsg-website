@@ -91,7 +91,7 @@ function Hero({ onBookDemo }) {
         overflow: "hidden",
       }}
     >
-      {/* coral wash, off-axis */}
+      {/* accent wash, off-axis */}
       <div
         aria-hidden="true"
         style={{
@@ -100,7 +100,7 @@ function Hero({ onBookDemo }) {
           right: "-12%",
           width: 1100,
           height: 1100,
-          background: "radial-gradient(circle at center, rgba(201,99,58,0.16), rgba(201,99,58,0) 60%)",
+          background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.06), rgba(var(--accent-rgb),0) 60%)",
           pointerEvents: "none",
         }}
       />
@@ -111,7 +111,7 @@ function Hero({ onBookDemo }) {
           position: "absolute",
           inset: 0,
           backgroundImage:
-            "linear-gradient(to right, rgba(229,221,204,0.55) 1px, transparent 1px)",
+            "linear-gradient(to right, rgba(var(--ink-rgb),0.06) 1px, transparent 1px)",
           backgroundSize: "calc((100% - 96px) / 6) 100%",
           backgroundPosition: "48px 0",
           maskImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0) 80%)",

@@ -15,7 +15,7 @@ function AboutHero() {
       <div aria-hidden="true" style={{
         position: "absolute", top: "-10%", left: "50%", transform: "translateX(-50%)",
         width: 1400, height: 900,
-        background: "radial-gradient(ellipse at center, rgba(201,99,58,0.08), rgba(201,99,58,0) 60%)",
+        background: "radial-gradient(ellipse at center, rgba(var(--accent-rgb),0.08), rgba(var(--accent-rgb),0) 60%)",
         pointerEvents: "none",
       }} />
       <Container style={{ position: "relative" }}>
@@ -334,7 +334,7 @@ function AboutCTA({ onBookDemo }) {
       <div aria-hidden="true" style={{
         position: "absolute", bottom: "-40%", left: "50%", transform: "translateX(-50%)",
         width: 1300, height: 1300,
-        background: "radial-gradient(circle at center, rgba(201,99,58,0.16), rgba(201,99,58,0) 55%)",
+        background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.06), rgba(var(--accent-rgb),0) 55%)",
         pointerEvents: "none",
       }} />
       <Container>
@@ -378,7 +378,7 @@ function AboutPage({ onBookDemo }) {
   );
 }
 
-requestAnimationFrame(() => {
+vsgMount(() => {
   ReactDOM.createRoot(document.getElementById("app")).render(
     <PageShell current="about">
       <AboutPage />

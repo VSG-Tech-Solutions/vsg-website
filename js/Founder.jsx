@@ -24,7 +24,7 @@ function MonogramAvatar({ size = 180 }) {
         style={{
           position: "absolute",
           inset: "-10%",
-          background: "radial-gradient(circle at 30% 30%, rgba(201,99,58,0.18), rgba(201,99,58,0) 60%)",
+          background: "radial-gradient(circle at 30% 30%, rgba(var(--accent-rgb),0.07), rgba(var(--accent-rgb),0) 60%)",
         }}
       />
       <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: size * 0.42, color: "var(--ink-1)", letterSpacing: "-0.04em", position: "relative" }}>

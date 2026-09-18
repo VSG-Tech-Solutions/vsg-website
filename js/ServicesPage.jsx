@@ -15,7 +15,7 @@ function ServicesHero({ onBookDemo }) {
           right: "-10%",
           width: 1000,
           height: 1000,
-          background: "radial-gradient(circle at center, rgba(201,99,58,0.12), rgba(201,99,58,0) 60%)",
+          background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.05), rgba(var(--accent-rgb),0) 60%)",
           pointerEvents: "none",
         }}
       />
@@ -146,7 +146,7 @@ function ServiceDeepDive({ id, num, eyebrow, headline, emphasis, body, useCases,
 // Visuals (lifted/adapted from home Services component)
 function VisualCustomBig() {
   return (
-    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.14)" }}>
+    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "var(--rim)" }}>
       <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)", marginBottom: 18 }}>
         Stack — sits on top, not under
       </div>
@@ -176,7 +176,7 @@ function VisualCustomBig() {
 
 function VisualAutomationBig() {
   return (
-    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.14)" }}>
+    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "var(--rim)" }}>
       <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)", marginBottom: 18 }}>
         A typical automation pipeline
       </div>
@@ -205,7 +205,7 @@ function VisualAutomationBig() {
 
 function VisualBespokeBig() {
   return (
-    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.14)" }}>
+    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "var(--rim)" }}>
       <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)", marginBottom: 18 }}>
         Engagement shape · weeks
       </div>
@@ -239,7 +239,7 @@ function VisualBespokeBig() {
 
 function VisualCRMBig() {
   return (
-    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "0 24px 60px -28px rgba(26,22,18,0.14)" }}>
+    <div style={{ background: "var(--surface-white)", border: "1px solid var(--hairline)", borderRadius: 20, padding: 28, boxShadow: "var(--rim)" }}>
       <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)", marginBottom: 18 }}>
         Your pipeline · your stages
       </div>
@@ -327,7 +327,7 @@ function ServicesCTA({ onBookDemo }) {
     <section style={{ position: "relative", background: "var(--paper)", padding: "144px 0", borderTop: "1px solid var(--hairline)", overflow: "hidden" }}>
       <div
         aria-hidden="true"
-        style={{ position: "absolute", bottom: "-40%", left: "50%", transform: "translateX(-50%)", width: 1300, height: 1300, background: "radial-gradient(circle at center, rgba(201,99,58,0.16), rgba(201,99,58,0) 55%)", pointerEvents: "none" }}
+        style={{ position: "absolute", bottom: "-40%", left: "50%", transform: "translateX(-50%)", width: 1300, height: 1300, background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.06), rgba(var(--accent-rgb),0) 55%)", pointerEvents: "none" }}
       />
       <Container>
         <Reveal>
@@ -454,7 +454,7 @@ function ServicesPage({ onBookDemo }) {
   );
 }
 
-requestAnimationFrame(() => {
+vsgMount(() => {
   ReactDOM.createRoot(document.getElementById("app")).render(
     <PageShell current="services">
       <ServicesPage />

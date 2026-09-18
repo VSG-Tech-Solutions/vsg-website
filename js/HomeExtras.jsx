@@ -120,7 +120,7 @@ function Slider({ label, value, min, max, step = 1, onChange, format = (v) => v 
         />
         <div style={{ position: "absolute", top: 12, left: 0, right: 0, height: 4, background: "var(--hairline)", borderRadius: 2 }} />
         <div style={{ position: "absolute", top: 12, left: 0, width: `${pct}%`, height: 4, background: "var(--ink-1)", borderRadius: 2, transition: "width 120ms cubic-bezier(.2,0,0,1)" }} />
-        <div style={{ position: "absolute", top: 5, left: `calc(${pct}% - 9px)`, width: 18, height: 18, borderRadius: "50%", background: "var(--surface-white)", border: "2px solid var(--ink-1)", boxShadow: "0 4px 12px rgba(26,22,18,0.18)", transition: "left 120ms cubic-bezier(.2,0,0,1)" }} />
+        <div style={{ position: "absolute", top: 5, left: `calc(${pct}% - 9px)`, width: 18, height: 18, borderRadius: "50%", background: "var(--surface-white)", border: "2px solid var(--ink-1)", boxShadow: "var(--rim)", transition: "left 120ms cubic-bezier(.2,0,0,1)" }} />
       </div>
       <div style={{ marginTop: 8, display: "flex", justifyContent: "space-between", fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-4)" }}>
         <span>{format(min)}</span>
@@ -293,14 +293,14 @@ function Pricing({ onBookDemo }) {
                   <div style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: t.featured ? "var(--coral)" : "var(--coral)" }}>
                     {t.name}
                   </div>
-                  <div style={{ marginTop: 8, fontFamily: "'Geist', sans-serif", fontSize: 14, color: t.featured ? "rgba(245,240,232,0.7)" : "var(--ink-3)" }}>
+                  <div style={{ marginTop: 8, fontFamily: "'Geist', sans-serif", fontSize: 14, color: t.featured ? "rgba(var(--ink-rgb),0.7)" : "var(--ink-3)" }}>
                     {t.sub}
                   </div>
                 </div>
                 <div style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 36, letterSpacing: "-0.025em", color: t.featured ? "var(--paper)" : "var(--ink-1)", lineHeight: 1 }}>
                   {t.from}
                 </div>
-                <p style={{ fontFamily: "'Geist', sans-serif", fontSize: 15, lineHeight: 1.6, color: t.featured ? "rgba(245,240,232,0.78)" : "var(--ink-3)", margin: 0 }}>
+                <p style={{ fontFamily: "'Geist', sans-serif", fontSize: 15, lineHeight: 1.6, color: t.featured ? "rgba(var(--ink-rgb),0.78)" : "var(--ink-3)", margin: 0 }}>
                   {t.blurb}
                 </p>
                 <ul style={{ margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 10, flex: 1 }}>

@@ -5,7 +5,7 @@
 function ContactHero() {
   return (
     <section style={{ position: "relative", background: "var(--paper)", padding: "96px 0 0", overflow: "hidden" }}>
-      <div aria-hidden="true" style={{ position: "absolute", top: "-30%", right: "-15%", width: 1000, height: 1000, background: "radial-gradient(circle at center, rgba(201,99,58,0.12), rgba(201,99,58,0) 60%)", pointerEvents: "none" }} />
+      <div aria-hidden="true" style={{ position: "absolute", top: "-30%", right: "-15%", width: 1000, height: 1000, background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.05), rgba(var(--accent-rgb),0) 60%)", pointerEvents: "none" }} />
       <Container style={{ position: "relative" }}>
         <Reveal>
           <Eyebrow>Get in touch</Eyebrow>
@@ -234,7 +234,7 @@ function ContactPage() {
   );
 }
 
-requestAnimationFrame(() => {
+vsgMount(() => {
   ReactDOM.createRoot(document.getElementById("app")).render(
     <PageShell current="contact">
       <ContactPage />

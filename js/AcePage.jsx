@@ -7,11 +7,14 @@
 // ============================================================
 
 function AceHero({ onBookDemo }) {
-  const HERO_BG = "#13100C";   // darker so the sunrise pops
-  const HERO_INK = "#F5F0E8";
-  const HERO_INK_2 = "rgba(245,240,232,0.78)";
-  const HERO_INK_3 = "rgba(245,240,232,0.50)";
-  const HERO_INK_4 = "rgba(245,240,232,0.35)";
+  // The hero used its own ink ramp because it sat on a custom near-black
+  // panel. It now sits on the canvas, so it uses the shared text ramp — whose
+  // steps are tuned to clear AA. The old 0.35-alpha white measured 3.19:1
+  // against this ground, which failed for the 11px labels using it.
+  const HERO_BG = "var(--canvas)";
+  const HERO_INK = "var(--text-1)";
+  const HERO_INK_2 = "var(--text-2)";
+  const HERO_INK_4 = "var(--text-4)";
 
   return (
     <section style={{
@@ -21,11 +24,11 @@ function AceHero({ onBookDemo }) {
       paddingBottom: 96,
       overflow: "hidden",
     }}>
-      {/* Sunrise — coral horizon rising from the bottom edge. */}
+      {/* Bloom — accent horizon rising from the bottom edge. */}
       <div aria-hidden="true" style={{
         position: "absolute",
         inset: 0,
-        background: "radial-gradient(ellipse 110% 55% at 50% 100%, rgba(201,99,58,0.28), rgba(201,99,58,0) 70%)",
+        background: "radial-gradient(ellipse 110% 55% at 50% 100%, rgba(var(--accent-rgb),0.10), rgba(var(--accent-rgb),0) 70%)",
         pointerEvents: "none",
       }} />
       <Container style={{ position: "relative" }}>
@@ -104,34 +107,14 @@ function AceHero({ onBookDemo }) {
 
           <Reveal delay={240}>
             <div style={{ marginTop: 40, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <button onClick={onBookDemo} style={{
-                background: "var(--coral)",
-                color: HERO_INK,
-                border: "none",
-                borderRadius: 999,
-                height: 56,
-                padding: "0 32px",
-                fontFamily: "'Geist', sans-serif",
-                fontSize: 15, fontWeight: 600,
-                cursor: "pointer",
-                boxShadow: "0 12px 32px -12px rgba(201,99,58,0.55)",
-              }}>
+              {/* Was a hand-rolled fill: white text on the teal accent, about
+                  1.9:1. The shared primary pairs the gradient with near-black
+                  text, which clears AA comfortably. */}
+              <button onClick={onBookDemo} className="vsg-btn vsg-btn--primary vsg-btn--lg">
                 See ACE in your context
+                <span className="vsg-btn__arrow" aria-hidden="true">→</span>
               </button>
-              <a href="#how" style={{
-                background: "transparent",
-                color: HERO_INK,
-                border: `1px solid ${HERO_INK_3}`,
-                borderRadius: 999,
-                height: 56,
-                padding: "0 32px",
-                fontFamily: "'Geist', sans-serif",
-                fontSize: 15, fontWeight: 600,
-                cursor: "pointer",
-                display: "inline-flex",
-                alignItems: "center",
-                textDecoration: "none",
-              }}>
+              <a href="#how" className="vsg-btn vsg-btn--ghost vsg-btn--lg">
                 How it works
               </a>
             </div>
@@ -151,11 +134,11 @@ function AceHero({ onBookDemo }) {
               justifyContent: "center",
             }}>
               <span>Per-customer instance</span>
-              <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(245,240,232,0.18)", alignSelf: "center" }} />
+              <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(var(--ink-rgb),0.18)", alignSelf: "center" }} />
               <span>No cross-customer training</span>
-              <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(245,240,232,0.18)", alignSelf: "center" }} />
+              <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(var(--ink-rgb),0.18)", alignSelf: "center" }} />
               <span>On-premise today</span>
-              <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(245,240,232,0.18)", alignSelf: "center" }} />
+              <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(var(--ink-rgb),0.18)", alignSelf: "center" }} />
               <span>Read-only ERP access</span>
             </div>
           </Reveal>
@@ -288,7 +271,7 @@ function AceKnows() {
                   gap: 8,
                   padding: "4px 10px",
                   background: "var(--coral-soft)",
-                  border: "1px solid rgba(201,99,58,0.22)",
+                  border: "1px solid rgba(var(--accent-rgb),0.22)",
                   borderRadius: 999,
                   marginBottom: 16,
                 }}>
@@ -320,7 +303,7 @@ function AceKnows() {
             marginTop: 40,
             padding: "16px 22px",
             background: "var(--coral-soft)",
-            border: "1px solid rgba(201,99,58,0.22)",
+            border: "1px solid rgba(var(--accent-rgb),0.22)",
             borderRadius: 14,
             maxWidth: 720,
             fontFamily: "'Geist', sans-serif",
@@ -545,7 +528,7 @@ function AceLearningCurve() {
                     borderRadius: "50%",
                     background: i === 0 ? "var(--coral)" : "var(--surface-white)",
                     border: "2px solid var(--coral)",
-                    boxShadow: "0 8px 24px -10px rgba(201,99,58,0.4)",
+                    boxShadow: "0 8px 24px -10px rgba(var(--accent-rgb),0.4)",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
@@ -555,7 +538,9 @@ function AceLearningCurve() {
                     <span style={{
                       fontFamily: "'Geist', sans-serif",
                       fontWeight: 700, fontSize: 20,
-                      color: i === 0 ? "#FDF9F3" : "var(--coral)",
+                      // Filled milestone takes near-black type; the outlined
+                      // ones keep the accent on their dark surface.
+                      color: i === 0 ? "var(--on-accent)" : "var(--accent)",
                       letterSpacing: "-0.02em",
                       lineHeight: 1,
                     }}>
@@ -599,7 +584,7 @@ function AceLearningCurve() {
             marginTop: 48,
             padding: "16px 22px",
             background: "var(--coral-soft)",
-            border: "1px solid rgba(201,99,58,0.22)",
+            border: "1px solid rgba(var(--accent-rgb),0.22)",
             borderRadius: 14,
             maxWidth: 720,
             margin: "48px auto 0",
@@ -757,7 +742,7 @@ function AceComparison() {
                   color: "var(--ink-1)",
                   lineHeight: 1.55,
                   borderLeft: "1px solid var(--hairline)",
-                  background: "rgba(201,99,58,0.04)",
+                  background: "rgba(var(--accent-rgb),0.04)",
                   fontWeight: 500,
                 }}>
                   {r.vsg}
@@ -832,19 +817,19 @@ function AceArchitecture() {
               ))}
             </div>
 
-            <div style={{ border: "1px solid var(--ink-1)", borderRadius: 16, padding: 24, background: "var(--ink-1)", color: "var(--paper)" }}>
+            <div style={{ border: "1px solid var(--accent-line)", borderRadius: "var(--r-card)", padding: 24, background: "var(--surface-3)", color: "var(--text-1)" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 17 }}>Model layer · shared, swappable</span>
                 <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", opacity: 0.7 }}>VSG-owned · roadmap</span>
               </div>
               <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
                 {["Foundation model", "Embeddings", "Tool router", "Guardrails"].map((c, i) => (
-                  <div key={i} style={{ padding: "10px 14px", borderRadius: 8, border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.04)", fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--paper)" }}>
+                  <div key={i} style={{ padding: "10px 14px", borderRadius: 8, border: "1px solid var(--line-strong)", background: "var(--surface-2)", fontFamily: "'Geist Mono', monospace", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--text-2)" }}>
                     {c}
                   </div>
                 ))}
               </div>
-              <div style={{ marginTop: 16, fontFamily: "'Geist', sans-serif", fontSize: 13, color: "rgba(245,240,232,0.75)", lineHeight: 1.6 }}>
+              <div style={{ marginTop: 16, fontFamily: "'Geist', sans-serif", fontSize: 13, color: "rgba(var(--ink-rgb),0.75)", lineHeight: 1.6 }}>
                 Where the AI roadmap features will run — drafting, classification, the copilot. Inference happens against your memory only; your data never enters another customer's request, prompt, or training run. Today's forecasting and landed-cost maths don't need this layer at all — they run on your hardware.
               </div>
             </div>
@@ -882,7 +867,7 @@ function AceModelLayer() {
               <p style={{ marginTop: 28, fontFamily: "'Geist', sans-serif", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 380 }}>
                 Different jobs want different engines. Today's shipped intelligence is deterministic — forecasting and landed-cost maths with no model in the loop. Where foundation models enter on the roadmap, we pick the best available per task and swap when something better ships. Your memory stays put.
               </p>
-              <div style={{ marginTop: 28, padding: "16px 20px", background: "var(--coral-soft)", border: "1px solid rgba(201,99,58,0.22)", borderRadius: 12, fontFamily: "'Geist', sans-serif", fontSize: 13.5, color: "var(--ink-2)", lineHeight: 1.55 }}>
+              <div style={{ marginTop: 28, padding: "16px 20px", background: "var(--coral-soft)", border: "1px solid rgba(var(--accent-rgb),0.22)", borderRadius: 12, fontFamily: "'Geist', sans-serif", fontSize: 13.5, color: "var(--ink-2)", lineHeight: 1.55 }}>
                 <strong style={{ color: "var(--coral)", fontWeight: 600 }}>Why this matters:</strong> when the next generation of models ships, we wire it in. You inherit the upgrade. You don't have to re-train your AI from scratch.
               </div>
             </div>
@@ -1215,7 +1200,7 @@ function AceFAQ() {
 function AceCTA({ onBookDemo }) {
   return (
     <section style={{ position: "relative", background: "var(--paper)", padding: "144px 0", borderTop: "1px solid var(--hairline)", overflow: "hidden" }}>
-      <div aria-hidden="true" style={{ position: "absolute", bottom: "-40%", left: "50%", transform: "translateX(-50%)", width: 1300, height: 1300, background: "radial-gradient(circle at center, rgba(201,99,58,0.16), rgba(201,99,58,0) 55%)", pointerEvents: "none" }} />
+      <div aria-hidden="true" style={{ position: "absolute", bottom: "-40%", left: "50%", transform: "translateX(-50%)", width: 1300, height: 1300, background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.06), rgba(var(--accent-rgb),0) 55%)", pointerEvents: "none" }} />
       <Container>
         <Reveal>
           <div style={{ textAlign: "center", maxWidth: 880, margin: "0 auto", position: "relative" }}>
@@ -1260,7 +1245,7 @@ function AcePage({ onBookDemo }) {
   );
 }
 
-requestAnimationFrame(() => {
+vsgMount(() => {
   ReactDOM.createRoot(document.getElementById("app")).render(
     <PageShell current="ace">
       <AcePage />

@@ -2,9 +2,18 @@
    VSG Tech — Design Tokens
    colors_and_type.css
 
-   Editorial light mode. Type-led. Restrained palette.
-   Reference vibe: Anthropic.com / Linear / a premium publication.
-   Never: SaaS dashboard chrome.
+   Midnight operations console. Dark, type-led, restrained palette.
+   Teal + turquoise accent on a black/grey ground.
+   Reference vibe: Better Stack / Linear / Vercel — an engineered dark IDE.
+   Never: SaaS dashboard chrome. Never: drop shadows for elevation.
+
+   TOKEN CONTRACT
+   --------------
+   The JSX styles inline and references tokens by their ORIGINAL light-mode
+   names (--paper, --ink-1, --coral, ...). Those names are kept and remapped
+   to dark values so the whole site inverts from this file alone. New code
+   should prefer the dark-native names (--canvas, --text-1, --accent, ...);
+   the legacy names are aliases and stay valid.
    ===================================================================== */
 
 /* Geist Sans — loaded from local variable font file the brand provided. */
@@ -33,28 +42,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500&display=swap');
 
 :root {
-  /* ---------- Color: surfaces ---------- */
-  --paper:            #F5F0E8;  /* main canvas — warm cream */
-  --paper-2:          #FBF7EF;  /* alternating section — lighter cream */
-  --surface-white:    #FFFFFF;  /* pure white card */
+  color-scheme: dark;
 
-  /* ---------- Color: ink (foreground) ---------- */
-  --ink-1:            #1A1612;  /* primary text, warm near-black */
-  --ink-2:            #3D362E;  /* mid-tone, sub-heads, body emphasis */
-  --ink-3:            #6B6358;  /* body */
-  --ink-4:            #9C9387;  /* muted caption */
+  /* ===================================================================
+     SURFACES — three levels. Depth comes from surface tone, never shadow.
+     canvas → surface-1 → surface-2, each ~4-5 points of luminance apart.
+     =================================================================== */
+  --canvas:           #0B1012;  /* page ground — near-black, faint teal cast */
+  --surface-1:        #0F1517;  /* alternating section band */
+  --surface-2:        #141C1E;  /* card body, panel, well */
+  --surface-3:        #1A2427;  /* raised chip, hovered card, input fill */
 
-  /* ---------- Color: lines ---------- */
-  --hairline:         #E5DDCC;  /* 1px borders, section dividers */
-  --divider-strong:   #C9BFA9;  /* hover/active border darken */
+  /* ---------- Text ramp (greys, teal-tinted so they sit in the palette) -- */
+  --text-1:           #FFFFFF;  /* headings, primary emphasis */
+  --text-2:           #C8D6D8;  /* sub-heads, body emphasis — "frost" */
+  --text-3:           #93A5A8;  /* body copy */
+  /* Lifted from #667A7E, which measured 3.83:1 on the card surface and so
+     failed AA for the 10-11px eyebrows and labels that use it most. This
+     clears 4.5:1 against every surface level while staying clearly muted. */
+  --text-4:           #7D8E91;  /* muted caption, inactive */
 
-  /* ---------- Color: accent (coral) ---------- */
-  --coral:            #C9633A;  /* THE accent. used sparingly. */
-  --coral-soft:       rgba(201, 99, 58, 0.10);
+  /* ---------- Lines — hairlines do the work elevation does elsewhere ----- */
+  --line:             #1C2528;  /* THE workhorse border: cards, dividers */
+  --line-strong:      #2A3639;  /* hover/active border, emphasised edge */
+  --steel:            #939DA0;  /* icon strokes, monochrome marks — true grey */
 
-  /* ---------- Color: semantic ---------- */
-  --success:          #0E7A5A;
-  --success-soft:     rgba(14, 122, 90, 0.10);
+  /* ---------- Accent — teal → turquoise. Scarce. Marks interactivity. ---- */
+  --accent:           #2DD4BF;  /* THE accent: links, active, live state */
+  --accent-deep:      #0D9488;  /* gradient start, pressed accent */
+  --accent-bright:    #5EEAD4;  /* hover lift on accent text */
+  --accent-rgb:        45, 212, 191;
+  --accent-soft:      rgba(45, 212, 191, 0.10);
+  --accent-line:      rgba(45, 212, 191, 0.28);
+  /* Text and icons sitting ON an accent fill. The accent is a bright mid-tone:
+     white on it measures ~1.9:1, so anything filled with the accent takes
+     near-black type instead. */
+  --on-accent:        #04100E;
+
+  /* The one gradient in the system. It belongs to the primary CTA and to
+     nothing else — it earns chroma by being the conversion point. */
+  --gradient-accent:  linear-gradient(353deg, #0D9488 17.51%, #2DD4BF 183.08%);
+
+  /* ---------- Semantic ------------------------------------------------- */
+  /* Live reads as the brand accent (healthy = on-brand). Roadmap/pending
+     gets amber so the two status pills are never confusable. */
+  --live:             var(--accent);
+  --live-soft:        var(--accent-soft);
+  --amber:            #D9A441;
+  --amber-rgb:         217, 164, 65;
+  --amber-soft:       rgba(217, 164, 65, 0.12);
+
+  /* Stock-risk ramp — used by the VSG ICT projection grid to encode months
+     of cover. This is data, not decoration, so the three steps must stay
+     distinguishable: teal reads "covered", amber "watch", red "act now".
+     Ordered and hue-separated, so it survives greyscale and most CVD. */
+  --risk-ok:          var(--accent);
+  --risk-watch:       var(--amber);
+  --risk-high:        #F87171;
+  --risk-high-rgb:     248, 113, 113;
+  --risk-high-soft:   rgba(248, 113, 113, 0.12);
+
+  /* ---------- Alpha channels for compositing --------------------------- */
+  --ink-rgb:           255, 255, 255;  /* light-on-dark overlays */
+  --canvas-rgb:        11, 16, 18;     /* dark scrims, fades to ground */
+
+  /* ===================================================================
+     LEGACY ALIASES — the inline JSX still speaks the light-mode names.
+     Remapped, not removed. Semantics invert cleanly: "ink" is now the
+     light foreground, "paper" is now the dark ground, so patterns like
+     `background: var(--ink-1); color: var(--paper)` (the filled button)
+     keep working and simply flip to white-on-black.
+     =================================================================== */
+  --paper:            var(--canvas);
+  --paper-2:          var(--surface-1);
+  --surface-white:    var(--surface-2);
+  --ink-1:            var(--text-1);
+  --ink-2:            var(--text-2);
+  --ink-3:            var(--text-3);
+  --ink-4:            var(--text-4);
+  --hairline:         var(--line);
+  --divider-strong:   var(--line-strong);
+  --coral:            var(--accent);
+  --coral-soft:       var(--accent-soft);
+  --success:          var(--accent);
+  --success-soft:     var(--accent-soft);
 
   /* ---------- Font families ---------- */
   /* Geist Sans for display + body; Geist Mono for captions/labels. */
@@ -100,11 +171,11 @@
   --sp-9:  96px;
   --sp-10: 144px;    /* section vertical padding */
 
-  /* ---------- Radii ---------- */
-  --r-card:    20px;
+  /* ---------- Radii — cards 16, tiles 12, inputs 10, buttons pill ------- */
+  --r-card:    16px;
   --r-tile:    12px;
-  --r-input:    8px;
-  --r-pill:   999px;
+  --r-input:   10px;
+  --r-pill:   9999px;
 
   /* ---------- Components ---------- */
   --btn-h:           50px;
@@ -113,20 +184,31 @@
   --container:      1200px;
   --container-wide: 1320px;
 
-  /* ---------- Motion ---------- */
-  --ease-standard:   cubic-bezier(0.2, 0.0, 0.0, 1);
-  --ease-out:        cubic-bezier(0.16, 1, 0.3, 1);
-  --dur-fast:        140ms;
-  --dur-base:        220ms;
-  --dur-slow:        420ms;
+  /* Rim-light. The system's only "elevation": a 1px inset highlight along
+     the top edge of filled surfaces. Replaces drop shadows entirely. */
+  --rim:             inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --rim-strong:      inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  /* Reserved for genuinely floating layers (modal, mobile menu) only. */
+  --lift-modal:      0 40px 80px -28px rgba(0, 0, 0, 0.72);
+
+  /* ---------- Motion ----------
+     Custom curves. The built-in CSS easings are too weak to read as
+     intentional. Never ease-in on UI: it delays the first frame, which is
+     exactly the frame the user is watching. */
+  --ease-out:        cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out:     cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-standard:   cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-press:       140ms;   /* button press feedback */
+  --dur-fast:        160ms;   /* hover, colour */
+  --dur-base:        220ms;   /* dropdown, small popover */
+  --dur-slow:        320ms;   /* modal, drawer — ceiling for UI */
 
   /* ---------- Semantic role aliases ---------- */
-  --bg:              var(--paper);
-  --bg-alt:          var(--paper-2);
-  --fg:              var(--ink-1);
-  --fg-muted:        var(--ink-3);
-  --border:          var(--hairline);
-  --accent:          var(--coral);
+  --bg:              var(--canvas);
+  --bg-alt:          var(--surface-1);
+  --fg:              var(--text-1);
+  --fg-muted:        var(--text-3);
+  --border:          var(--line);
 }
 
 /* =====================================================================
@@ -134,8 +216,8 @@
    ===================================================================== */
 
 html, body {
-  background: var(--paper);
-  color: var(--ink-2);
+  background: var(--canvas);
+  color: var(--text-2);
   font-family: var(--font-body);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
@@ -144,8 +226,8 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-/* Eyebrow — sits above every big serif headline.
-   Mono, coral, 11px, all-caps, .28em tracking. */
+/* Eyebrow — sits above every big headline.
+   Mono, accent, 11px, all-caps, .28em tracking. */
 .eyebrow,
 [data-style="eyebrow"] {
   font-family: var(--font-mono);
@@ -153,7 +235,7 @@ html, body {
   font-size: var(--fs-eyebrow);
   letter-spacing: var(--track-mono);
   text-transform: uppercase;
-  color: var(--coral);
+  color: var(--accent);
   line-height: 1;
   display: inline-block;
 }
@@ -164,7 +246,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   font-weight: 700;       /* heavy sans display. 800 for max-impact hero. */
   line-height: var(--lh-headline);
   letter-spacing: var(--track-headline);
-  color: var(--ink-1);
+  color: var(--text-1);
   margin: 0;
 }
 h1, .h1 {
@@ -176,7 +258,6 @@ h2, .h2 { font-size: var(--fs-h2); }
 h3, .h3 { font-size: var(--fs-h3); }
 h4, .h4 { font-size: var(--fs-h4); }
 
-/* Italic emphasis inside headlines — keep weight 300, switch to italic. */
 /* Italic emphasis inside headlines — keep weight 700, switch to italic.
    In a sans display this reads as a subtle inflection, not a swoop. */
 h1 em, h1 i, .h1 em, .h1 i,
@@ -184,30 +265,30 @@ h2 em, h2 i, .h2 em, .h2 i,
 h3 em, h3 i, .h3 em, .h3 i {
   font-style: italic;
   font-weight: 700;
-  color: var(--ink-1);
+  color: var(--text-1);
 }
 
-/* Body text — Inter, generous leading. */
+/* Body text — generous leading. */
 p, .body {
   font-family: var(--font-body);
   font-size: var(--fs-body-lg);
   line-height: var(--lh-body-loose);
-  color: var(--ink-3);
+  color: var(--text-3);
   margin: 0;
   text-wrap: pretty;
 }
 .body-sm   { font-size: var(--fs-body-sm); line-height: var(--lh-body); }
-.lead      { font-size: var(--fs-lead);    line-height: 1.5; color: var(--ink-2); }
-.caption   { font-size: var(--fs-caption); line-height: 1.45; color: var(--ink-4); }
+.lead      { font-size: var(--fs-lead);    line-height: 1.5; color: var(--text-2); }
+.caption   { font-size: var(--fs-caption); line-height: 1.45; color: var(--text-4); }
 
-/* Mono utility (captions, source notes, code) — note: NOT colored coral by default;
-   only the .eyebrow variant is coral. */
+/* Mono utility (captions, source notes, code) — note: NOT accent-colored by
+   default; only the .eyebrow variant carries the accent. */
 .mono, code, kbd {
   font-family: var(--font-mono);
   font-weight: 500;
   font-size: var(--fs-caption);
   letter-spacing: 0.04em;
-  color: var(--ink-3);
+  color: var(--text-3);
 }
 .mono-caps {
   font-family: var(--font-mono);
@@ -215,34 +296,37 @@ p, .body {
   font-size: var(--fs-eyebrow);
   letter-spacing: var(--track-mono);
   text-transform: uppercase;
-  color: var(--ink-4);
+  color: var(--text-4);
 }
 
-/* Links — ink color, coral underline. */
+/* Links — the accent is the only chromatic UI colour; it marks interactivity. */
 a {
-  color: var(--ink-1);
+  color: var(--text-1);
   text-decoration: underline;
-  text-decoration-color: var(--coral);
+  text-decoration-color: var(--accent);
   text-decoration-thickness: 1.5px;
   text-underline-offset: 4px;
-  transition: text-decoration-thickness var(--dur-fast) var(--ease-standard);
+  transition: text-decoration-thickness var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
 }
-a:hover { text-decoration-thickness: 2.5px; }
+@media (hover: hover) and (pointer: fine) {
+  a:hover { text-decoration-thickness: 2.5px; }
+}
 
 /* Hairline horizontal rule */
 hr.hairline {
   border: none;
-  border-top: 1px solid var(--hairline);
+  border-top: 1px solid var(--line);
   margin: 0;
 }
 
-/* Section utility — alternating cream backgrounds, 144px vertical padding. */
+/* Section utility — alternating dark bands, 144px vertical padding. */
 .section {
   padding-top: var(--sp-10);
   padding-bottom: var(--sp-10);
-  background: var(--paper);
+  background: var(--canvas);
 }
-.section--alt { background: var(--paper-2); }
+.section--alt { background: var(--surface-1); }
 .container {
   max-width: var(--container);
   margin: 0 auto;
@@ -257,7 +341,170 @@ h1 + p, h2 + p, h3 + p,
 .h1 + p, .h2 + p, .h3 + p { margin-top: var(--sp-6); }
 
 /* Selection */
-::selection { background: var(--coral-soft); color: var(--ink-1); }
+::selection { background: rgba(var(--accent-rgb), 0.24); color: var(--text-1); }
+
+/* Focus — one ring, defined once, for every interactive element. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Scrollbar — match the console ground rather than punching a light hole. */
+* { scrollbar-color: var(--line-strong) transparent; scrollbar-width: thin; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 999px;
+  border: 2px solid var(--canvas);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--steel); }
+
+
+/* =====================================================================
+   COMPONENT LAYER
+   ─────────────────────────────────────────────────────────────────────
+   Real CSS classes, not inline styles, so pressable things can carry
+   :active, :focus-visible and hover gated behind a fine pointer. The JSX
+   previously faked hover with onMouseEnter state, which fires on tap and
+   leaves phones stuck in a hover state.
+   ===================================================================== */
+
+/* ---- Buttons ------------------------------------------------------- */
+.vsg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: var(--btn-h);
+  padding: 0 var(--btn-px);
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  /* Name the properties. `all` animates things you did not intend. */
+  transition: transform var(--dur-press) var(--ease-out),
+              background-color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              opacity var(--dur-fast) var(--ease-out);
+}
+/* Instant feedback on press — the interface confirms it heard you. */
+.vsg-btn:active:not(:disabled) { transform: scale(0.97); }
+.vsg-btn--lg { height: 56px; padding: 0 32px; font-size: 16px; }
+.vsg-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* The arrow leads on hover. Decorative, so it is gated behind a real pointer. */
+.vsg-btn__arrow {
+  display: inline-block;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .vsg-btn:hover .vsg-btn__arrow { transform: translateX(3px); }
+}
+
+/* Primary — the one gradient in the system. */
+.vsg-btn--primary {
+  background: var(--gradient-accent);
+  color: #04100E;
+  box-shadow: var(--rim-strong);
+  font-weight: 600;
+}
+@media (hover: hover) and (pointer: fine) {
+  .vsg-btn--primary:hover { filter: brightness(1.08); }
+}
+
+/* Ghost — secondary actions. Border defines the shape. */
+.vsg-btn--ghost {
+  background: transparent;
+  color: var(--text-2);
+  border-color: var(--line-strong);
+}
+@media (hover: hover) and (pointer: fine) {
+  .vsg-btn--ghost:hover {
+    background: var(--surface-2);
+    border-color: var(--steel);
+    color: var(--text-1);
+  }
+}
+
+/* Solid neutral — high-contrast alternative to the gradient. */
+.vsg-btn--solid {
+  background: var(--text-1);
+  color: var(--canvas);
+}
+@media (hover: hover) and (pointer: fine) {
+  .vsg-btn--solid:hover { background: var(--text-2); }
+}
+
+/* ---- Screen-reader-only ---------------------------------------------
+   Visible to assistive tech, removed from the visual layout. Used where a
+   status is drawn as a colour swatch: the colour reinforces, the text carries. */
+.vsg-sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Card ---------------------------------------------------------- */
+.vsg-card {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  transition: border-color var(--dur-fast) var(--ease-out),
+              background-color var(--dur-fast) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .vsg-card--interactive:hover {
+    border-color: var(--line-strong);
+    background: var(--surface-3);
+  }
+}
+
+/* ---- Input --------------------------------------------------------- */
+.vsg-input {
+  width: 100%;
+  background: var(--canvas);          /* a well, not a raised surface */
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-input);
+  padding: 12px 16px;
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 16px;                    /* 16px stops iOS zooming on focus */
+  letter-spacing: -0.01em;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+.vsg-input::placeholder { color: var(--text-4); }
+.vsg-input:focus { border-color: var(--accent); }
+
+/* ---- Reduced motion ------------------------------------------------
+   Fewer and gentler, not zero: opacity and colour still aid comprehension,
+   movement does not. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .vsg-btn:active { transform: none; }
+}
 
 
 /* =====================================================================

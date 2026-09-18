@@ -25,10 +25,13 @@ function Eyebrow({ children, style, muted }) {
 }
 
 // ---------- StatusPill ----------
+// Live carries the brand accent (shipped = on-brand); anything not-yet-live
+// gets amber. They used to share the accent colour, which made "in production"
+// and "on the roadmap" render identically — a truth problem, not just a visual one.
 function StatusPill({ variant = "live", children, style }) {
   const isLive = variant === "live";
-  const color = isLive ? "var(--success)" : "var(--coral)";
-  const bg = isLive ? "var(--success-soft)" : "var(--coral-soft)";
+  const color = isLive ? "var(--live)" : "var(--amber)";
+  const bg = isLive ? "var(--live-soft)" : "var(--amber-soft)";
   return (
     <span
       style={{
@@ -64,84 +67,36 @@ function StatusPill({ variant = "live", children, style }) {
 }
 
 // ---------- Buttons ----------
-function PrimaryButton({ children, onClick, as = "button", href, size = "md", style }) {
-  const [hover, setHover] = useState(false);
-  const [press, setPress] = useState(false);
+// Hover and press live in CSS (.vsg-btn in colors_and_type.css), not in React
+// state. onMouseEnter fires on tap, so the old JS-hover version left phones
+// stuck in a hover state after every press, and had no :active feedback at all.
+// CSS also gets us hover gated behind `(hover: hover) and (pointer: fine)`,
+// a real `scale(0.97)` press, and reduced-motion support for free.
+function PrimaryButton({ children, onClick, as = "button", href, size = "md", style, className = "", arrow = true, ...rest }) {
   const Tag = as;
-  const lift = press ? 0 : hover ? -2 : 0;
-  const shadow = hover && !press ? "0 10px 28px rgba(26,22,18,0.18)" : "none";
-  const h = size === "lg" ? 56 : 50;
-  const px = size === "lg" ? 32 : 28;
   return (
     <Tag
       href={href}
       onClick={onClick}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => { setHover(false); setPress(false); }}
-      onMouseDown={() => setPress(true)}
-      onMouseUp={() => setPress(false)}
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 10,
-        height: h,
-        padding: `0 ${px}px`,
-        borderRadius: 999,
-        background: "var(--ink-1)",
-        color: "var(--paper)",
-        fontFamily: "'Geist', sans-serif",
-        fontWeight: 500,
-        fontSize: size === "lg" ? 16 : 15,
-        border: 0,
-        cursor: "pointer",
-        textDecoration: "none",
-        transform: `translateY(${lift}px)`,
-        boxShadow: shadow,
-        transition: "transform 220ms cubic-bezier(.2,0,0,1), box-shadow 220ms cubic-bezier(.2,0,0,1)",
-        ...style,
-      }}
+      className={`vsg-btn vsg-btn--primary${size === "lg" ? " vsg-btn--lg" : ""} ${className}`.trim()}
+      style={style}
+      {...rest}
     >
       {children}
-      <span
-        style={{
-          transition: "transform 220ms cubic-bezier(.2,0,0,1)",
-          transform: hover ? "translateX(3px)" : "translateX(0)",
-          display: "inline-block",
-        }}
-      >→</span>
+      {arrow && <span className="vsg-btn__arrow" aria-hidden="true">→</span>}
     </Tag>
   );
 }
 
-function OutlineButton({ children, onClick, as = "button", href, size = "md", style }) {
-  const [hover, setHover] = useState(false);
+function OutlineButton({ children, onClick, as = "button", href, size = "md", style, className = "", ...rest }) {
   const Tag = as;
-  const h = size === "lg" ? 56 : 50;
-  const px = size === "lg" ? 32 : 28;
   return (
     <Tag
       href={href}
       onClick={onClick}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 10,
-        height: h,
-        padding: `0 ${px}px`,
-        borderRadius: 999,
-        background: hover ? "var(--ink-1)" : "transparent",
-        color: hover ? "var(--paper)" : "var(--ink-1)",
-        fontFamily: "'Geist', sans-serif",
-        fontWeight: 500,
-        fontSize: size === "lg" ? 16 : 15,
-        border: "1px solid var(--ink-1)",
-        cursor: "pointer",
-        textDecoration: "none",
-        transition: "background-color 220ms cubic-bezier(.2,0,0,1), color 220ms cubic-bezier(.2,0,0,1)",
-        ...style,
-      }}
+      className={`vsg-btn vsg-btn--ghost${size === "lg" ? " vsg-btn--lg" : ""} ${className}`.trim()}
+      style={style}
+      {...rest}
     >
       {children}
     </Tag>
@@ -181,7 +136,7 @@ function Container({ children, style, wide }) {
   );
 }
 
-// ---------- FeatureItem (coral bullet) ----------
+// ---------- FeatureItem (accent bullet) ----------
 function FeatureItem({ title, body }) {
   return (
     <li style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 14, alignItems: "start", listStyle: "none" }}>
@@ -219,9 +174,18 @@ function Headline({ as = "h2", size = 56, children, style }) {
 }
 
 // ---------- Reveal on scroll ----------
+// Reduced motion means fewer and gentler animations, not zero: the opacity
+// fade still aids comprehension, the upward travel is what causes trouble.
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 function Reveal({ children, delay = 0, y = 16, as = "div", style }) {
   const ref = useRef(null);
   const [shown, setShown] = useState(false);
+  const reduced = prefersReducedMotion();
+  if (reduced) y = 0;
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -246,8 +210,10 @@ function Reveal({ children, delay = 0, y = 16, as = "div", style }) {
       style={{
         opacity: shown ? 1 : 0,
         transform: shown ? "translateY(0)" : `translateY(${y}px)`,
-        transition: `opacity 700ms cubic-bezier(.16,1,.3,1) ${delay}ms, transform 700ms cubic-bezier(.16,1,.3,1) ${delay}ms`,
-        willChange: "opacity, transform",
+        transition: `opacity 600ms var(--ease-out) ${delay}ms, transform 600ms var(--ease-out) ${delay}ms`,
+        // Drop the compositing-layer hint once the reveal has played. Leaving
+        // it on pins a GPU layer per Reveal for the life of the page.
+        willChange: shown ? "auto" : "opacity, transform",
         ...style,
       }}
     >
@@ -300,6 +266,13 @@ function CountUp({ to, duration = 1400, prefix = "", suffix = "", decimals = 0 }
 @keyframes vsg-caret { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
 @keyframes vsg-orbit { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 @keyframes vsg-fadein { 0% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
+/* Nothing in the real world appears from nothing, so the panel starts at a
+   visible 0.96 rather than scale(0). Origin stays centre: a modal is not
+   anchored to its trigger the way a popover is. */
+@keyframes vsg-modal-in {
+  0%   { opacity: 0; transform: scale(0.96); }
+  100% { opacity: 1; transform: scale(1); }
+}
 @keyframes vsg-tile-in { 0% { opacity: 0; } 100% { opacity: 1; } }
 
 /* ACE token motion */
@@ -342,7 +315,22 @@ function CountUp({ to, duration = 1400, prefix = "", suffix = "", decimals = 0 }
   document.head.appendChild(s);
 })();
 
+// ---------- Mount ----------
+// Page entries used to defer their first render to requestAnimationFrame,
+// which browsers do not fire while a tab is in the background. Opening any
+// page in a new background tab (middle-click, ctrl-click, a restored session)
+// therefore left it blank until it was focused. Nothing needs waiting for:
+// Babel runs these scripts in document order, so every dependency is already
+// defined by the time a page entry executes.
+function vsgMount(render) {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", render, { once: true });
+  } else {
+    render();
+  }
+}
+
 Object.assign(window, {
   Eyebrow, StatusPill, PrimaryButton, OutlineButton,
-  Section, Container, FeatureItem, Headline, Reveal, CountUp,
+  Section, Container, FeatureItem, Headline, Reveal, CountUp, vsgMount,
 });

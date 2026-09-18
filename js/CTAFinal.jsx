@@ -12,7 +12,7 @@ function CTAFinal({ onBookDemo }) {
         overflow: "hidden",
       }}
     >
-      {/* coral wash */}
+      {/* accent wash */}
       <div
         aria-hidden="true"
         style={{
@@ -22,7 +22,7 @@ function CTAFinal({ onBookDemo }) {
           transform: "translateX(-50%)",
           width: 1400,
           height: 1400,
-          background: "radial-gradient(circle at center, rgba(201,99,58,0.18), rgba(201,99,58,0) 55%)",
+          background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.07), rgba(var(--accent-rgb),0) 55%)",
           pointerEvents: "none",
         }}
       />

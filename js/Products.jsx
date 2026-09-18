@@ -6,10 +6,10 @@
 // ---------- VSG ICT: planning-grid visual (truthful — cover projection) ----------
 function ICTGridMock() {
   const rows = [
-    ["FLT-2050-3", "1.8", "1.2", "0.6", "#C9633A"],
-    ["ANG-5040-6", "3.4", "2.9", "2.3", "#B8933A"],
-    ["CHS-1010-2", "5.1", "4.6", "4.0", "#5E8C61"],
-    ["RND-0812-6", "2.2", "1.5", "0.9", "#C9633A"],
+    ["FLT-2050-3", "1.8", "1.2", "0.6", "var(--risk-high)"],
+    ["ANG-5040-6", "3.4", "2.9", "2.3", "var(--risk-watch)"],
+    ["CHS-1010-2", "5.1", "4.6", "4.0", "var(--risk-ok)"],
+    ["RND-0812-6", "2.2", "1.5", "0.9", "var(--risk-high)"],
   ];
   const cell = { fontFamily: "'Geist Mono', monospace", fontSize: 11, color: "var(--ink-2)", padding: "6px 8px", borderBottom: "1px solid var(--hairline)", textAlign: "right" };
   return (
@@ -29,7 +29,7 @@ function ICTGridMock() {
             </div>
             <div style={cell}>{a}</div>
             <div style={cell}>{b}</div>
-            <div style={{ ...cell, color: parseFloat(c) < 1 ? "#C9633A" : "var(--ink-2)", fontWeight: parseFloat(c) < 1 ? 700 : 400 }}>{c}</div>
+            <div style={{ ...cell, color: parseFloat(c) < 1 ? "var(--risk-high)" : "var(--ink-2)", fontWeight: parseFloat(c) < 1 ? 700 : 400 }}>{c}</div>
           </React.Fragment>
         ))}
       </div>
@@ -81,7 +81,7 @@ function SourceMockup() {
         border: "1px solid var(--hairline)",
         borderRadius: 20,
         overflow: "hidden",
-        boxShadow: "0 24px 60px -28px rgba(26,22,18,0.18), 0 1px 0 rgba(255,255,255,0.6) inset",
+        boxShadow: "var(--rim-strong)",
         display: "grid",
         gridTemplateColumns: "180px 1fr",
         height: 460,
@@ -242,7 +242,7 @@ function PaceMockup() {
         border: "1px solid var(--hairline)",
         borderRadius: 20,
         overflow: "hidden",
-        boxShadow: "0 24px 60px -28px rgba(26,22,18,0.18)",
+        boxShadow: "var(--rim)",
         padding: 28,
         height: 460,
         display: "flex",

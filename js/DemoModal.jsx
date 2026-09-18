@@ -15,14 +15,56 @@ function DemoModal({ open, onClose }) {
     }
   }, [open]);
 
+  const panelRef = React.useRef(null);
+  const restoreFocusRef = React.useRef(null);
+
   React.useEffect(() => {
     if (!open) return;
-    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+
+    // Remember what had focus so it can be handed back on close. Without this,
+    // closing the dialog drops focus to <body> and keyboard users start over
+    // from the top of the page.
+    restoreFocusRef.current = document.activeElement;
+
+    const FOCUSABLE =
+      'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    const focusables = () =>
+      Array.from(panelRef.current?.querySelectorAll(FOCUSABLE) || []).filter(
+        (el) => el.offsetParent !== null
+      );
+
+    const onKey = (e) => {
+      if (e.key === "Escape") { onClose(); return; }
+      if (e.key !== "Tab") return;
+      // Trap Tab inside the dialog: without it, tabbing walks out into the
+      // page behind the scrim, which is still visually covered.
+      const items = focusables();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+      if (e.shiftKey && (active === first || !panelRef.current.contains(active))) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault(); first.focus();
+      }
+    };
+
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
+
+    // Move focus into the dialog on open.
+    const id = requestAnimationFrame(() => {
+      const items = focusables();
+      (items[0] || panelRef.current)?.focus();
+    });
+
     return () => {
+      cancelAnimationFrame(id);
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      const prev = restoreFocusRef.current;
+      if (prev && typeof prev.focus === "function") prev.focus();
     };
   }, [open, onClose]);
 
@@ -30,14 +72,13 @@ function DemoModal({ open, onClose }) {
 
   const inputStyle = {
     width: "100%",
-    background: "var(--paper-2)",
-    border: "1px solid var(--hairline)",
-    borderRadius: 8,
+    background: "var(--canvas)",
+    border: "1px solid var(--line-strong)",
+    borderRadius: "var(--r-input)",
     padding: "12px 14px",
     fontFamily: "'Geist', sans-serif",
-    fontSize: 15,
-    color: "var(--ink-1)",
-    outline: "none",
+    fontSize: 16,
+    color: "var(--text-1)",
   };
 
   return (
@@ -46,7 +87,7 @@ function DemoModal({ open, onClose }) {
       style={{
         position: "fixed",
         inset: 0,
-        background: "rgba(26,22,18,0.55)",
+        background: "rgba(var(--canvas-rgb),0.72)",
         zIndex: 100,
         display: "flex",
         alignItems: "center",
@@ -56,16 +97,23 @@ function DemoModal({ open, onClose }) {
       }}
     >
       <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="vsg-demo-modal-title"
+        tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
         style={{
-          background: "var(--paper)",
-          borderRadius: 24,
+          background: "var(--surface-2)",
+          borderRadius: "var(--r-card)",
           width: "100%",
           maxWidth: 540,
           padding: 40,
-          border: "1px solid var(--hairline)",
+          border: "1px solid var(--line)",
           position: "relative",
-          boxShadow: "0 40px 80px -20px rgba(26,22,18,0.4)",
+          boxShadow: "var(--lift-modal)",
+          // Modals are not anchored to a trigger, so they scale from centre.
+          animation: "vsg-modal-in 220ms var(--ease-out)",
         }}
       >
         <button
@@ -91,7 +139,7 @@ function DemoModal({ open, onClose }) {
         {!sent ? (
           <React.Fragment>
             <Eyebrow>Book a demo</Eyebrow>
-            <h3 style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 32, lineHeight: 1.1, letterSpacing: "-0.025em", color: "var(--ink-1)", margin: "20px 0 0" }}>
+            <h3 id="vsg-demo-modal-title" style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 32, lineHeight: 1.1, letterSpacing: "-0.025em", color: "var(--ink-1)", margin: "20px 0 0" }}>
               30 minutes with <em style={{ fontStyle: "italic", fontWeight: 700 }}>Stephan.</em>
             </h3>
             <p style={{ marginTop: 16, fontFamily: "'Geist', sans-serif", fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)" }}>
@@ -193,7 +241,7 @@ function DemoModal({ open, onClose }) {
             >
               ✓
             </div>
-            <h3 style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 28, color: "var(--ink-1)", margin: "20px 0 0", letterSpacing: "-0.02em" }}>
+            <h3 id="vsg-demo-modal-title" style={{ fontFamily: "'Geist', sans-serif", fontWeight: 700, fontSize: 28, color: "var(--ink-1)", margin: "20px 0 0", letterSpacing: "-0.02em" }}>
               On its way to Stephan.
             </h3>
             <p style={{ marginTop: 16, fontFamily: "'Geist', sans-serif", fontSize: 15, color: "var(--ink-3)", lineHeight: 1.6 }}>

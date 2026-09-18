@@ -9,55 +9,89 @@
 // STATIC PLANNING-GRID MOCKUP (illustrative UI, real feature shape)
 // ============================================================
 
+const RISK = {
+  high:  { color: "var(--risk-high)",  label: "Below target" },
+  watch: { color: "var(--risk-watch)", label: "Watch" },
+  ok:    { color: "var(--risk-ok)",    label: "Covered" },
+};
+
 const GRID_ROWS = [
-  { sku: "FLT-2050-3", now: "1.8", m1: "1.2", m2: "0.6", m3: "0.2", flag: "#C9633A" },
-  { sku: "ANG-5040-6", now: "3.4", m1: "2.9", m2: "2.3", m3: "1.7", flag: "#B8933A" },
-  { sku: "CHS-1010-2", now: "5.1", m1: "4.6", m2: "4.0", m3: "3.5", flag: "#5E8C61" },
-  { sku: "RND-0812-6", now: "2.2", m1: "1.5", m2: "0.9", m3: "0.4", flag: "#C9633A" },
-  { sku: "SHT-3MM-2500", now: "4.0", m1: "3.3", m2: "2.8", m3: "2.1", flag: "#5E8C61" },
+  { sku: "FLT-2050-3",   now: "1.8", m1: "1.2", m2: "0.6", m3: "0.2", risk: "high" },
+  { sku: "ANG-5040-6",   now: "3.4", m1: "2.9", m2: "2.3", m3: "1.7", risk: "watch" },
+  { sku: "CHS-1010-2",   now: "5.1", m1: "4.6", m2: "4.0", m3: "3.5", risk: "ok" },
+  { sku: "RND-0812-6",   now: "2.2", m1: "1.5", m2: "0.9", m3: "0.4", risk: "high" },
+  { sku: "SHT-3MM-2500", now: "4.0", m1: "3.3", m2: "2.8", m3: "2.1", risk: "ok" },
 ];
 
+const GRID_COLS = ["SKU", "Now", "+1 mo", "+2 mo", "+3 mo"];
+
 function GridMockup() {
+  // A real <table>. This was a div grid wearing role="table" with no rows or
+  // cells underneath it, which reads to a screen reader as a table containing
+  // nothing — worse than leaving the role off. Native elements get the row/
+  // column semantics, header association and keyboard behaviour for free.
   const cell = {
-    fontFamily: "'Geist Mono', monospace", fontSize: 11, color: "var(--ink-2)",
-    padding: "7px 10px", borderBottom: "1px solid var(--hairline)", textAlign: "right",
+    fontFamily: "'Geist Mono', monospace", fontSize: 11, fontWeight: 400,
+    color: "var(--text-2)", padding: "7px 10px", textAlign: "right",
+    borderBottom: "1px solid var(--line)",
+    fontVariantNumeric: "tabular-nums",  // columns of figures must align
+  };
+  const head = {
+    ...cell, color: "var(--text-4)", fontSize: 10, letterSpacing: "0.14em",
+    textTransform: "uppercase", fontWeight: 500,
   };
   return (
     <div style={{
-      background: "var(--surface-white)", border: "1px solid var(--hairline)",
-      borderRadius: 16, overflow: "hidden", boxShadow: "0 24px 60px rgba(26,26,26,0.08)",
+      background: "var(--surface-2)", border: "1px solid var(--line)",
+      borderRadius: "var(--r-card)", overflow: "hidden", boxShadow: "var(--rim)",
     }}>
       <div style={{
-        display: "flex", justifyContent: "space-between", alignItems: "center",
-        padding: "12px 16px", borderBottom: "1px solid var(--hairline)", background: "var(--paper-2)",
+        display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12,
+        padding: "12px 16px", borderBottom: "1px solid var(--line)", background: "var(--surface-1)",
       }}>
-        <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-4)" }}>
+        <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--text-4)" }}>
           Analysis · months of cover per SKU
         </span>
-        <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--coral)" }}>
+        <span style={{ fontFamily: "'Geist Mono', monospace", fontWeight: 500, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--accent)", whiteSpace: "nowrap" }}>
           projected →
         </span>
       </div>
-      <div role="table" aria-label="Illustration of the VSG ICT planning grid">
-        <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr 1fr" }}>
-          {["SKU", "Now", "+1 mo", "+2 mo", "+3 mo"].map((h, i) => (
-            <div key={h} style={{ ...cell, textAlign: i === 0 ? "left" : "right", color: "var(--ink-4)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase" }}>{h}</div>
-          ))}
-          {GRID_ROWS.map((r) => (
-            <React.Fragment key={r.sku}>
-              <div style={{ ...cell, textAlign: "left", color: "var(--ink-1)", fontWeight: 500 }}>
-                <span style={{ display: "inline-block", width: 7, height: 7, borderRadius: "50%", background: r.flag, marginRight: 8, verticalAlign: "middle" }} />
-                {r.sku}
-              </div>
-              <div style={cell}>{r.now}</div>
-              <div style={cell}>{r.m1}</div>
-              <div style={cell}>{r.m2}</div>
-              <div style={{ ...cell, color: parseFloat(r.m3) < 1 ? "#C9633A" : "var(--ink-2)", fontWeight: parseFloat(r.m3) < 1 ? 700 : 400 }}>{r.m3}</div>
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
-      <div style={{ padding: "10px 16px", fontFamily: "'Geist', sans-serif", fontSize: 12, color: "var(--ink-3)", background: "var(--paper-2)", borderTop: "1px solid var(--hairline)" }}>
+
+      <table style={{ width: "100%", borderCollapse: "collapse", tableLayout: "fixed" }}>
+        <caption className="vsg-sr-only">
+          Illustration of the VSG ICT planning grid: projected months of stock cover per SKU.
+        </caption>
+        <thead>
+          <tr>
+            {GRID_COLS.map((h, i) => (
+              <th key={h} scope="col" style={{ ...head, textAlign: i === 0 ? "left" : "right", width: i === 0 ? "34%" : undefined }}>{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {GRID_ROWS.map((r) => {
+            const risk = RISK[r.risk];
+            const low = parseFloat(r.m3) < 1;
+            return (
+              <tr key={r.sku}>
+                <th scope="row" style={{ ...cell, textAlign: "left", color: "var(--text-1)", fontWeight: 500 }}>
+                  {/* Status is carried by an adjacent text label, not by hue alone:
+                      colour is a reinforcement here, never the only signal. */}
+                  <span aria-hidden="true" style={{ display: "inline-block", width: 7, height: 7, borderRadius: "50%", background: risk.color, marginRight: 8, verticalAlign: "middle" }} />
+                  {r.sku}
+                  <span className="vsg-sr-only">{` — ${risk.label}`}</span>
+                </th>
+                <td style={cell}>{r.now}</td>
+                <td style={cell}>{r.m1}</td>
+                <td style={cell}>{r.m2}</td>
+                <td style={{ ...cell, color: low ? "var(--risk-high)" : "var(--text-2)", fontWeight: low ? 700 : 400 }}>{r.m3}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+
+      <div style={{ padding: "10px 16px", fontFamily: "'Geist', sans-serif", fontSize: 12, color: "var(--text-3)", background: "var(--surface-1)", borderTop: "1px solid var(--line)" }}>
         Illustrative data. Red = cover falls below target before your next order would land.
       </div>
     </div>
@@ -111,9 +145,9 @@ function SourceHero({ onBookDemo }) {
             <Reveal delay={280}>
               <div style={{ marginTop: 36, display: "flex", gap: 14, flexWrap: "wrap" }}>
                 <PrimaryButton onClick={onBookDemo}>Book a 30-minute walkthrough</PrimaryButton>
-                <PrimaryButton as="a" href="#how-it-works" style={{ background: "transparent", color: "var(--ink-1)", border: "1px solid var(--divider-strong)" }}>
+                <OutlineButton as="a" href="#how-it-works">
                   See how it works
-                </PrimaryButton>
+                </OutlineButton>
               </div>
             </Reveal>
           </div>
@@ -162,7 +196,7 @@ function FactStrip() {
 function FourScreens() {
   const steps = [
     { n: "01", t: "Connect", b: "Point it at your SYSPRO data source, choose the product classes and warehouses to load, and connect. A built-in demo mode runs the whole app on sample data — so you can see everything before it touches a single record of yours." },
-    { n: "02", t: "Analyse", b: "The forward planning grid: every SKU's projected stock and months of cover, five months out, flagged red, amber or green against your target. Click any SKU and drill into the evidence — stock lots with per-lot cost, incoming purchase orders, which customers buy it." },
+    { n: "02", t: "Analyse", b: "The forward planning grid: every SKU's projected stock and months of cover, five months out, flagged red, amber or teal against your target. Click any SKU and drill into the evidence — stock lots with per-lot cost, incoming purchase orders, which customers buy it." },
     { n: "03", t: "Compare", b: "Send suppliers a quote request as a simple file they fill in and return. VSG ICT compares every quote on true landed cost — price plus duty, clearing, freight and exchange rate — and shows how full each supplier's load would be. Award line by line." },
     { n: "04", t: "Sign off", b: "Export the plan for internal review, re-import it approved, and generate the purchase order — in SYSPRO's exact import format, carrying the quote reference for traceability. Your buyer imports it. The decision stays human; the assembly work doesn't." },
   ];
@@ -203,7 +237,7 @@ function FourScreens() {
 function PlanningGridSection() {
   const items = [
     { t: "Forecast per SKU, five months out", b: "Built from up to 18 months of your own sales history, with seasonality — reduced December and January trade included — and the current month prorated properly." },
-    { t: "Cover flags you can act on", b: "Projected closing stock and months of cover per SKU per month, red, amber or green against your target — so the SKU that runs dry in month three gets bought in month one." },
+    { t: "Cover flags you can act on", b: "Projected closing stock and months of cover per SKU per month, red, amber or teal against your target — so the SKU that runs dry in month three gets bought in month one." },
     { t: "The money view", b: "SYSPRO valuation-based stock-turn, an upturn score that weighs turn against margin, and a buy-up cash factor that shows where a small extra spend materially improves cover." },
     { t: "Multi-warehouse, one line", b: "Nets a SKU's stock and usage across the warehouses you select — one honest number instead of four partial ones." },
     { t: "Evidence one click away", b: "Drill into any SKU: every stock lot with its unit cost and local-vs-import split, every incoming purchase order with price and due date, and which customers actually buy it." },
@@ -577,7 +611,7 @@ function SourcePage({ onBookDemo }) {
   );
 }
 
-requestAnimationFrame(() => {
+vsgMount(() => {
   ReactDOM.createRoot(document.getElementById("app")).render(
     <PageShell current="source">
       <SourcePage />

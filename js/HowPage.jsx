@@ -5,7 +5,7 @@
 function HowHero() {
   return (
     <section style={{ position: "relative", background: "var(--paper)", padding: "96px 0 80px", overflow: "hidden" }}>
-      <div aria-hidden="true" style={{ position: "absolute", top: "-30%", right: "-15%", width: 1000, height: 1000, background: "radial-gradient(circle at center, rgba(201,99,58,0.12), rgba(201,99,58,0) 60%)", pointerEvents: "none" }} />
+      <div aria-hidden="true" style={{ position: "absolute", top: "-30%", right: "-15%", width: 1000, height: 1000, background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.05), rgba(var(--accent-rgb),0) 60%)", pointerEvents: "none" }} />
       <Container style={{ position: "relative" }}>
         <Reveal>
           <Eyebrow>The rollout</Eyebrow>
@@ -137,7 +137,7 @@ function AfterRollout() {
 function HowCTA({ onBookDemo }) {
   return (
     <section style={{ position: "relative", background: "var(--paper)", padding: "144px 0", borderTop: "1px solid var(--hairline)", overflow: "hidden" }}>
-      <div aria-hidden="true" style={{ position: "absolute", bottom: "-40%", left: "50%", transform: "translateX(-50%)", width: 1300, height: 1300, background: "radial-gradient(circle at center, rgba(201,99,58,0.16), rgba(201,99,58,0) 55%)", pointerEvents: "none" }} />
+      <div aria-hidden="true" style={{ position: "absolute", bottom: "-40%", left: "50%", transform: "translateX(-50%)", width: 1300, height: 1300, background: "radial-gradient(circle at center, rgba(var(--accent-rgb),0.06), rgba(var(--accent-rgb),0) 55%)", pointerEvents: "none" }} />
       <Container>
         <Reveal>
           <div style={{ textAlign: "center", maxWidth: 880, margin: "0 auto", position: "relative" }}>
@@ -169,7 +169,7 @@ function HowPage({ onBookDemo }) {
   );
 }
 
-requestAnimationFrame(() => {
+vsgMount(() => {
   ReactDOM.createRoot(document.getElementById("app")).render(
     <PageShell current="how">
       <HowPage />
