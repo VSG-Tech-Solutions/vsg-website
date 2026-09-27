@@ -4,7 +4,8 @@
   "private": true,
   "description": "VSG Tech Solutions, vsgtech.co.za. Plain HTML, CSS and JS built from site-src, with one Vercel serverless function for lead delivery.",
   "scripts": {
-    "build": "node site-src/build.js",
+    "build": "echo 'Prebuilt static site: pages are built locally with npm run site and committed.'",
+    "site": "node site-src/build.js",
     "dev": "node site-src/serve.js 5600"
   },
   "dependencies": {
