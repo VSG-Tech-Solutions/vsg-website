@@ -1,8 +1,9 @@
 <!-- The Halo window bar for a floating product UI (.w-float). Params: org (default Karoo Industrial Supply, a fictional sample company),
      crumb (the screen name), product (default VSG), right (extra HTML on the right, optional).
+     It always shows the Sample data badge, so a product window never needs its own.
      Usage: {{> winbar product="VSG Endorse" crumb="Approvals"}} -->
 <div class="w-winbar">
   <span class="w-winbar-mk">{{> mark size="16"}}</span>
   <span class="w-winbar-crumb"><span>{{product|VSG}}</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><span>{{org|Karoo Industrial Supply}}</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><b>{{crumb|Overview}}</b></span>
-  <span class="w-winbar-r">{{right}}<span class="w-conn"><i></i>ERP<em>connected</em></span></span>
+  <span class="w-winbar-r"><span class="w-badge w-badge--sample">Sample data</span>{{right}}<span class="w-conn"><i></i>ERP<em>connected</em></span></span>
 </div>

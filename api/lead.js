@@ -14,7 +14,9 @@
  * #error, so nobody lands on a raw JSON page.
  *
  * POST /api/lead
- * Body: { name, email, company?, phone?, role?, topic?, problem?, message? }
+ * Body: { name, email, consent, consent_notice?, company?, phone?, role?, topic?, problem?, message? }
+ * consent must be "yes": both forms ask for it (POPIA). The email records it with the
+ * notice version and a timestamp, so there is a record of what the person agreed to.
  * Response: { ok: true, delivered: boolean } | { ok: false, error: string }
  */
 
@@ -103,6 +105,8 @@ export default async function handler(req, res) {
     problem: sanitise(raw.problem,  80),
     message: sanitise(raw.message || raw.note, 4000),
     source:  sanitise(raw.source,   60) || (form ? "contact (no JS)" : "unknown"),
+    consent: /^(yes|on|true)$/i.test(String(raw.consent == null ? "" : raw.consent)) ? "yes" : "",
+    consentNotice: sanitise(raw.consent_notice, 20),
   };
 
   if (!input.name || !input.email || !input.message) {
@@ -110,6 +114,9 @@ export default async function handler(req, res) {
   }
   if (!validEmail(input.email)) {
     return reply(400, { ok: false, error: "That email address does not look right." }, "error");
+  }
+  if (!input.consent) {
+    return reply(400, { ok: false, error: "Please tick the box to agree that we may use your details to reply." }, "error");
   }
 
   // The topic leads the subject so demo requests stand out in the inbox.
@@ -134,6 +141,7 @@ export default async function handler(req, res) {
     input.phone   ? `Phone:   ${input.phone}`   : null,
     input.topic   ? `Topic:   ${input.topic}`   : null,
     input.problem ? `Problem: ${input.problem}` : null,
+    `Consent: yes, to reply (form notice ${input.consentNotice || "not recorded"}, ${new Date().toISOString()})`,
     ``,
     `Message:`,
     input.message,

@@ -438,7 +438,11 @@ a.w-tile{transition:border-color .2s,transform .2s var(--w-ease)}
 .w-float--mini{display:inline-block;width:auto;min-width:0;container-type:normal}  /* shrink-to-fit needs no size containment */
 .w-float--flat{box-shadow:var(--e2)}
 .w-dark .w-float{border-color:rgba(255,255,255,.08);box-shadow:0 2px 6px rgba(0,0,0,.2),0 30px 70px -30px rgba(0,0,0,.7)}
-.w-float,.w-ui{--fg3:#6E7489}  /* Halo Mist is 3.2:1; on the public site product labels meet AA (4.6:1) */
+:root,.w-float,.w-ui{--fg3:#676D82}  /* Halo Mist (#8A90A3) is 3.2:1. The public site darkens it so small labels meet AA: 5.1:1 on white, 4.8:1 on the canvas, 4.6:1 on sunk panels */
+.w-check{display:flex;align-items:flex-start;gap:10px;line-height:1.5;color:var(--fg);cursor:pointer}  /* consent box on the lead forms: a native checkbox, cobalt when ticked */
+.w-check input{flex:none;width:18px;height:18px;margin:2px 0 0;accent-color:var(--acc);cursor:pointer}
+.w-foot-legal{display:flex;flex-wrap:wrap;gap:6px 20px}  /* Privacy, Terms, Cookies */
+.w-foot-note{flex-basis:100%;font-size:12.5px}  /* the sample-data line under the footer */
 .w-ui{font-size:var(--t-md);line-height:1.55;color:var(--fg);font-feature-settings:'ss01' 1,'tnum' 1}
 .w-float .w-i,.w-ui .w-i{width:15px;height:15px}
 /* window bar */

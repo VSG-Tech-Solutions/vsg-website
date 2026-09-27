@@ -1,0 +1,61 @@
+/* Terms page: the same layout as privacy.css (the legal pages share it). */
+/* Privacy page layout. Page classes start with p-. Shared classes are never restyled here. */
+
+.p-hero-in{max-width:52rem}
+.p-hero-in .w-lead{margin-top:24px}
+.p-meta{display:flex;flex-wrap:wrap;gap:16px 40px;margin:36px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.p-meta div{display:grid;gap:4px}
+.p-meta dt{font-size:14px;color:var(--w-ink-2)}
+.p-meta dd{margin:0;font-family:var(--fm);font-size:15px;color:var(--w-ink)}
+
+/* two columns: a sticky contents list, then the policy at reading width */
+.p-grid{display:grid;grid-template-columns:232px minmax(0,1fr);gap:40px clamp(40px,6vw,96px);align-items:start}
+.p-toc{position:sticky;top:calc(var(--w-hdr) + 40px);max-height:calc(100vh - var(--w-hdr) - 64px);overflow:auto;padding-right:4px}
+.p-toc-h{margin-bottom:10px;font-size:14px;font-weight:600;color:var(--w-ink)}
+.p-toc ol{margin:0;padding:0;display:grid;gap:1px}
+.p-toc a{display:grid;grid-template-columns:26px minmax(0,1fr);align-items:baseline;padding:6px 10px 6px 8px;border-radius:8px;
+  font-size:14.5px;line-height:1.35;color:var(--w-ink-2);transition:background-color .15s,color .15s}
+.p-toc a span{font-family:var(--fm);font-size:12px;color:var(--fg3)}
+.p-toc a:hover{background:var(--bg);color:var(--w-ink)}
+.p-toc a[aria-current="location"]{background:var(--accs);color:var(--acc);font-weight:500}
+.p-toc a[aria-current="location"] span{color:var(--acc)}
+@media (max-width:960px){
+  .p-grid{grid-template-columns:1fr}
+  .p-toc{position:static;max-height:none;padding:18px;border-radius:var(--w-r-tile);background:var(--bg)}
+  .p-toc ol{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:8px}
+}
+@media (max-width:520px){.p-toc ol{grid-template-columns:1fr}}
+
+.p-doc{max-width:44rem;min-width:0}
+.p-sec{scroll-margin-top:calc(var(--w-hdr) + 32px);padding-top:clamp(40px,5vw,56px)}
+.p-sec:first-child{padding-top:0}
+.p-sec + .p-sec{margin-top:clamp(40px,5vw,56px);border-top:1px solid var(--line)}
+.p-sec h2{display:flex;align-items:baseline;gap:14px}
+.p-n{flex:none;min-width:28px;font-family:var(--fm);font-size:14px;font-weight:500;color:var(--fg3);letter-spacing:0}
+.p-sec .w-prose{margin-top:18px;padding-left:42px}
+.p-sec .w-prose p,.p-sec .w-prose li,.p-sec .w-prose dd{font-size:17px;line-height:1.7;color:var(--w-ink-2)}
+.p-sec .w-prose a{color:var(--acc);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.p-sec .w-prose em{font-style:italic;color:var(--w-ink)}
+@media (max-width:560px){.p-sec .w-prose{padding-left:0}}
+
+.p-list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.w-prose>.p-list,.w-prose>.p-keep{margin-top:16px}
+.w-prose>.p-list+p,.w-prose>.p-keep+p{margin-top:18px}
+.p-list li{position:relative;padding-left:22px}
+.p-list li::before{content:"";position:absolute;left:2px;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--fg3)}
+.p-list strong{color:var(--w-ink);font-weight:600}
+
+.p-keep{display:grid;margin:0;border-top:1px solid var(--line)}
+.p-keep div{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:4px 24px;padding:12px 0;border-bottom:1px solid var(--line)}
+.p-keep dt{font-size:16px;font-weight:600;color:var(--w-ink)}
+.p-keep dd{margin:0}
+@media (max-width:560px){.p-keep div{grid-template-columns:1fr}}
+
+.p-addr{display:grid;gap:2px;font-style:normal;font-size:17px;line-height:1.6;color:var(--w-ink-2)}
+.p-addr strong{color:var(--w-ink);font-weight:600}
+.p-addr a{justify-self:start}
+
+.p-ask{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px var(--w-split);align-items:end}
+.p-ask .w-body{margin-top:14px}
+.p-ask-acts{margin-top:0}
+@media (max-width:860px){.p-ask{grid-template-columns:1fr}.p-ask-acts{margin-top:4px}}
