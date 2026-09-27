@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://vsgtech.co.za/sitemap.xml
+Sitemap: https://www.vsgtech.co.za/sitemap.xml
