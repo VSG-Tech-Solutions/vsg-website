@@ -1,0 +1,157 @@
+/* VSG ACE, the flagship platform page. Shared pieces (the command centre) live in site.css. */
+
+/* 1. hero: the command centre sits on the obsidian as the product shot */
+.ace-shot{margin-top:clamp(32px,4vw,56px)}
+.ace-hero .h-cc{margin-top:0}
+.ace-hero .w-display{font-size:clamp(40px,5.6vw,80px)}
+.ace-hero .h-cc-roles-l,.ace-hero .h-cc .w-cap{color:var(--w-dark-ink-2)}
+
+/* 2. a view for every role */
+.ace-roles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:clamp(28px,3.5vw,44px) 0 0;padding:0;list-style:none}
+.ace-roles li{display:grid;align-content:start;gap:8px;padding:22px;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--e1)}
+.ace-roles .w-feat-ic{display:grid;place-items:center;width:40px;height:40px;border-radius:var(--r-md);background:var(--accs);color:var(--acc)}
+.ace-roles .w-feat-ic .w-i{width:19px;height:19px}
+.ace-roles b{margin-top:6px;font-size:17px;font-weight:600;letter-spacing:-.012em}
+.ace-roles p{font-size:15px;line-height:1.5;color:var(--fg2)}
+.ace-roles-n{margin-top:22px;text-align:center;color:var(--fg2)}
+.ace-roles-n b{color:var(--fg)}
+
+/* 3. the live model: VSG Core at the centre */
+.ace-model{align-items:center}
+.ace-k{margin-bottom:14px;font-family:var(--fm);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.ace-model .w-link{margin-top:18px}
+.ace-graph{position:relative;margin:0 auto;width:100%;max-width:520px;aspect-ratio:1/1}
+.ace-graph-l{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ace-graph-l line{stroke:var(--line2,var(--line));stroke-width:1.5;vector-effect:non-scaling-stroke;transition:stroke .3s}
+.ace-graph-l line.is-on{stroke:var(--acc);stroke-width:2.5}
+.ace-node{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--card);box-shadow:var(--e1);font-size:14.5px;font-weight:600;white-space:nowrap;transition:border-color .3s,color .3s,box-shadow .3s}
+.ace-node .w-i{width:16px;height:16px;color:var(--fg3);transition:color .3s}
+.ace-node.is-on{border-color:var(--acc);color:var(--acc);box-shadow:0 0 0 4px var(--accs)}
+.ace-node.is-on .w-i{color:var(--acc)}
+.ace-node--core{left:50%;top:50%;display:grid;justify-items:center;gap:4px;padding:20px 26px;border:0;border-radius:18px;background:var(--w-dark);color:#fff;box-shadow:0 18px 40px rgba(20,22,37,.22)}
+.ace-node--core b{font-size:18px;letter-spacing:-.015em}
+.ace-node--core small{font-size:12.5px;font-weight:400;color:var(--w-dark-ink-2)}
+.ace-pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,32px);margin:clamp(40px,5vw,64px) 0 0;padding:0;list-style:none}
+.ace-pillars li{display:grid;align-content:start;gap:8px;padding-top:22px;border-top:1px solid var(--line)}
+.ace-pillars .w-feat-ic{display:grid;place-items:center;width:40px;height:40px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--card);box-shadow:var(--e1)}
+.ace-pillars .w-feat-ic .w-i{width:19px;height:19px}
+.ace-pillars b{margin-top:8px;font-size:17px;font-weight:600;letter-spacing:-.012em}
+.ace-pillars p{font-size:15px;line-height:1.55;color:var(--fg2)}
+
+/* 4. the layers: a stack standing on the client's systems */
+.ace-layers-grid{align-items:center}
+.ace-stack{position:relative;display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.ace-lay{display:grid;gap:4px;padding:16px 20px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.04);transition:transform .22s var(--w-ease),border-color .22s}
+.ace-lay:hover{transform:translateY(-3px);border-color:rgba(143,176,255,.55)}
+.ace-lay-k{font-family:var(--fm);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:#8FB0FF}
+.ace-lay b{font-size:16.5px;font-weight:600;letter-spacing:-.012em;color:#fff}
+.ace-lay b a{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:3px}
+.ace-lay b a:hover{text-decoration-color:#fff}
+.ace-lay p{font-size:14.5px;line-height:1.5;color:var(--w-dark-ink-2)}
+.ace-lay--cc{background:rgba(11,92,255,.2);border-color:rgba(110,155,255,.5)}
+.ace-lay--ai .ace-lay-k{color:var(--w-ai-dark,#B69CFF)}
+.ace-lay--base{margin-top:6px;background:transparent;border-style:dashed;border-color:rgba(255,255,255,.22)}
+.ace-lay--base .ace-lay-k{color:var(--w-dark-ink-2)}
+
+/* 5. capabilities */
+.ace-caps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:clamp(28px,3.5vw,44px) 0 0;padding:0;list-style:none}
+.ace-caps li{display:grid;align-content:start;gap:6px;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.ace-cap-ic{display:grid;place-items:center;width:38px;height:38px;margin-bottom:6px;border-radius:var(--r-md);background:var(--accs);color:var(--acc)}
+.ace-cap-ic .w-i{width:18px;height:18px}
+.ace-cap-ic--ai{background:var(--acc2s);color:var(--acc2-ink)}
+.ace-cap-p{font-family:var(--fm);font-size:11.5px;letter-spacing:.04em;color:var(--fg3)}
+.ace-caps b{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.ace-caps p{font-size:14.5px;line-height:1.5;color:var(--fg2)}
+
+/* 6. the one-way flow */
+.ace-flow{display:grid;grid-template-columns:minmax(0,1.15fr) auto minmax(0,1fr) auto minmax(0,1.15fr);align-items:center;gap:16px;margin:clamp(32px,4vw,52px) 0 0;padding:clamp(20px,3vw,32px);border-radius:18px;background:var(--bg)}
+.ace-fl-src,.ace-fl-out{display:grid;gap:10px}
+.ace-fl-n{display:grid;grid-template-columns:34px minmax(0,1fr);column-gap:12px;row-gap:2px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--card);box-shadow:var(--e1)}
+.ace-fl-n .w-i{grid-row:span 2;width:20px;height:20px;color:var(--fg2)}
+.ace-fl-n b{font-size:15px;font-weight:600}
+.ace-fl-n small{font-size:13px;color:var(--fg2)}
+.ace-fl-n--core{background:var(--w-dark);border-color:transparent;color:#fff}
+.ace-fl-n--core .w-i,.ace-fl-n--core small{color:var(--w-dark-ink-2)}
+.ace-fl-n--cc{background:var(--accs);border-color:var(--acc-b,var(--acc))}
+.ace-fl-n--cc .w-i{color:var(--acc)}
+.ace-fl-n--file{border-style:dashed;box-shadow:none}
+.ace-fl-ar{display:inline-flex;flex-direction:column;align-items:center;gap:6px;font-family:var(--fm);font-size:11.5px;color:var(--fg3);white-space:nowrap}
+.ace-fl-ar::after{content:"";width:44px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--line),var(--acc))}
+.ace-fl-ar .w-i{width:16px;height:16px}
+.ace-fl-ar--plain::after{display:none}
+.ace-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,32px);margin:clamp(32px,4vw,48px) 0 0;padding:0;list-style:none}
+.ace-three li{display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:14px;row-gap:4px;align-items:start}
+.ace-three .w-feat-ic{grid-row:span 2;display:grid;place-items:center;width:40px;height:40px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--card);box-shadow:var(--e1)}
+.ace-three .w-feat-ic .w-i{width:19px;height:19px}
+.ace-three b{font-size:16.5px;font-weight:600}
+.ace-three p{font-size:15px;line-height:1.5;color:var(--fg2)}
+
+/* 7. security and deployment */
+.ace-sec{align-items:center}
+.ace-six{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px;margin:28px 0 0;padding:0;list-style:none}
+.ace-six li{display:grid;gap:4px;padding-top:14px;border-top:1px solid var(--line)}
+.ace-six b{font-size:15.5px;font-weight:600}
+.ace-six p{font-size:14.5px;line-height:1.5;color:var(--fg2)}
+.ace-logfig{margin:0}
+.ace-log-l{display:grid;margin:0;padding:6px 0;list-style:none}
+.ace-log-l li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.ace-log-l li:last-child{border-bottom:0}
+.ace-log-l div{display:grid;gap:2px;min-width:0}
+.ace-log-l b{font-size:14.5px;font-weight:600}
+.ace-log-l div span{font-size:13px;color:var(--acc)}
+.ace-log-l time{font-family:var(--fm);font-size:12px;color:var(--fg3)}
+.ace-log-f{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 18px;border-top:1px solid var(--line);background:var(--bg);font-size:13px;color:var(--fg2)}
+.ace-srv{display:inline-flex;align-items:center;gap:8px}
+.ace-srv .w-i{width:15px;height:15px}
+.ace-popia{padding:3px 10px;border:1px solid var(--line);border-radius:var(--r-pill);font-family:var(--fm);font-size:11.5px}
+
+/* 8. how clients start */
+.ace-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,28px);margin:clamp(28px,3.5vw,44px) 0 0;padding:0;list-style:none}
+.ace-steps li{display:grid;align-content:start;gap:8px;padding-top:18px;border-top:2px solid var(--line)}
+.ace-steps li:nth-child(3){border-top-color:var(--acc2)}
+.ace-steps li:nth-child(4){border-top-color:var(--acc)}
+.ace-step-n{font-size:13px;color:var(--fg3)}
+.ace-steps b{font-size:16.5px;font-weight:600}
+.ace-steps p{font-size:15px;line-height:1.5;color:var(--fg2)}
+.ace-start-act{margin-top:clamp(28px,3vw,40px)}
+
+@media (max-width:1020px){
+  .ace-caps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ace-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .ace-roles,.ace-pillars,.ace-three{grid-template-columns:1fr}
+  .ace-flow{grid-template-columns:1fr;justify-items:stretch}
+  .ace-fl-ar{flex-direction:row;justify-self:center}
+  .ace-fl-ar::after{width:2px;height:24px;background:linear-gradient(180deg,var(--line),var(--acc))}
+  .ace-fl-ar--plain .w-i{transform:rotate(90deg)}
+  .ace-graph{max-width:420px}
+}
+@media (max-width:560px){
+  .ace-caps,.ace-steps,.ace-six{grid-template-columns:1fr}
+  .ace-node{padding:7px 11px;font-size:13px}
+  .ace-node--core{padding:14px 16px}
+  .ace-log-l li{grid-template-columns:minmax(0,1fr) auto}
+  .ace-log-l .st{display:none}
+}
+@media (prefers-reduced-motion:reduce){.ace-lay,.ace-node,.ace-graph-l line{transition:none}.ace-lay:hover{transform:none}}
+
+/* 1b. one platform: five tiles */
+.ace-one{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin:clamp(28px,3.5vw,44px) 0 0;padding:0;list-style:none}
+.ace-one li{display:grid;align-content:start;gap:8px;padding:22px 20px;border:1px solid var(--line);border-radius:16px;background:var(--bg)}
+.ace-one-ic{display:grid;place-items:center;width:42px;height:42px;margin-bottom:6px;border-radius:var(--r-md);background:var(--accs);color:var(--acc)}
+.ace-one-ic .w-i{width:20px;height:20px}
+.ace-one-ic--ai{background:var(--acc2s);color:var(--acc2-ink)}
+.ace-one b{font-size:17px;font-weight:600;letter-spacing:-.012em}
+.ace-one p{font-size:14.5px;line-height:1.5;color:var(--fg2)}
+@media (max-width:1100px){.ace-one{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.ace-one{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.ace-one{grid-template-columns:1fr}}
+
+/* the roles footnote centres on the page, not inside a left-anchored measure */
+.ace-roles-n{max-width:62ch;margin-inline:auto}
+
+/* the hero headline keeps one thought per line at every width */
+
+/* the five-line headline leaves room for the buttons on a laptop screen */
+#ace-h1{font-size:clamp(38px,4.4vw,64px)}

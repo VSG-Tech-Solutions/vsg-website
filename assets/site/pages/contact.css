@@ -1,0 +1,78 @@
+/* Contact page layout. Page classes start with c-. Shared classes are never restyled here. */
+
+.c-hero{padding-bottom:clamp(72px,9vw,128px)}
+.c-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);grid-template-rows:auto 1fr;grid-template-areas:"copy side" "more side";gap:0 var(--w-split);align-items:start}
+.c-copy{grid-area:copy}.c-side{grid-area:side}.c-more{grid-area:more;min-width:0}
+/* phones: headline, intro, the form, then email and address */
+@media (max-width:960px){
+  .c-grid{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"copy" "side" "more";row-gap:48px}
+  .c-more .c-direct{margin-top:0}
+}
+.c-copy{padding-top:clamp(0px,2vw,24px)}
+.c-h1{max-width:14ch}
+.c-copy .w-lead{margin-top:28px;max-width:44ch}
+
+/* direct email: a big link, and a copy button once JS is here */
+.c-direct{margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+.c-direct-l{font-size:15px;color:var(--w-ink-2)}
+.c-mailrow{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;margin-top:8px}
+.c-mail{display:inline-flex;align-items:center;gap:10px;font-size:clamp(20px,2vw,24px);font-weight:600;letter-spacing:-.02em;color:var(--w-ink);
+  text-decoration:underline;text-decoration-color:var(--line2);text-underline-offset:6px;text-decoration-thickness:1.5px;transition:text-decoration-color .15s,color .15s;border-radius:6px}
+.c-mail .w-i{width:20px;height:20px;color:var(--acc)}
+.c-mail:hover{text-decoration-color:var(--acc)}
+.c-copybtn .w-i{width:14px;height:14px}
+.c-copybtn.is-done{color:var(--ok-ink);border-color:var(--okb)}
+
+.c-addr{display:grid;gap:2px;margin-top:28px;font-style:normal;font-family:var(--fs);font-size:16px;line-height:1.6;color:var(--w-ink-2)}
+.c-addr span:first-child{color:var(--w-ink)}
+.c-book{margin-top:32px}
+
+/* form card */
+.c-side{position:relative;min-width:0}
+.c-card{position:relative}
+.c-form{box-shadow:var(--e3)}
+.c-form-hd{display:grid;gap:6px;margin-bottom:6px}
+.c-form-sub{display:flex;align-items:center;gap:8px;font-size:14.5px;color:var(--w-ink-2)}
+.c-dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px var(--oks);flex:none}
+.c-fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.c-fgrid .span2{grid-column:1/-1}
+@media (max-width:560px){.c-fgrid{grid-template-columns:1fr}}
+.c-topic-help{margin-top:-6px;font-size:14px;line-height:1.5;color:var(--w-ink-2)}
+.c-topic-help span{display:inline-block;transition:opacity .18s var(--w-ease),transform .18s var(--w-ease)}
+.c-topic-help.is-swap span{opacity:0;transform:translateY(3px)}
+.c-form .w-form-note a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
+.c-form .btn .w-i{width:16px;height:16px}
+.c-form.is-sending .btn-p{opacity:.8}
+.c-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* sent: the card becomes a thank-you, and the logo's disc signs it off */
+.c-done{display:grid;justify-items:start;gap:0;padding:clamp(28px,4vw,48px);background:var(--card);border:1px solid var(--line);border-radius:var(--r-xl);box-shadow:var(--e3);outline:none}
+.c-done[hidden]{display:none}
+.c-done .w-h3{margin-top:28px;max-width:20ch}
+.c-done .w-body{margin-top:12px}
+.c-done .w-actions{margin-top:28px}
+.c-nowrap{white-space:nowrap}
+.c-seal{position:relative;width:88px;height:88px}
+.c-seal-card{position:absolute;left:0;top:0;width:78.5715%;height:78.5715%;border-radius:16px;background:var(--w-dark);
+  -webkit-mask:radial-gradient(circle 30px at 66px 66px,transparent 29.5px,#000 30px);mask:radial-gradient(circle 30px at 66px 66px,transparent 29.5px,#000 30px)}
+.c-seal-disc{position:absolute;left:50%;top:50%;width:50%;height:50%;display:grid;place-items:center;border-radius:50%;background:var(--acc);color:#fff}
+.c-seal-disc svg{width:56%;height:56%}
+@media (prefers-reduced-motion:no-preference){
+  .c-done.is-in{animation:c-in .28s var(--w-ease)}
+  .c-done.is-in .c-seal-disc{animation:c-land .3s var(--w-ease) .12s both}
+}
+@keyframes c-in{from{opacity:0;transform:translateY(8px)}}
+@keyframes c-land{from{opacity:0;transform:translate(10px,10px) scale(1.15)}}
+
+/* legal line */
+.c-legal{margin-top:clamp(56px,7vw,96px);padding-top:28px;border-top:1px solid var(--line);font-size:14px;line-height:1.5;color:var(--w-ink-2);text-align:center}
+@media (max-width:560px){.c-form .w-form-foot .btn{width:100%}}
+
+/* no-JS results (api/lead.js redirects to #sent, #held or #error) */
+.c-nojs{display:none;margin-bottom:16px;padding:18px 20px;border-radius:var(--r-lg);border:1px solid var(--line)}
+.c-nojs:target{display:block}
+.c-nojs .w-small{margin-top:6px}
+.c-nojs--ok{background:var(--oks);border-color:transparent}
+.c-nojs--ok .w-h3{color:var(--ok-ink)}
+.c-nojs--err{background:var(--sigs);border-color:transparent}
+.c-nojs--err .w-h3{color:var(--sig-ink)}

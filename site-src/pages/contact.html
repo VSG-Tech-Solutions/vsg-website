@@ -1,0 +1,117 @@
+---
+title: Contact VSG | Request a demo or book a Bootcamp
+description: Request a demo of VSG ACE, the AI platform for operations, or of VSG Core, Endorse or Procure. Book a VSG Bootcamp (a five-day assessment on your site) or discuss a custom build. Cape Town, South Africa.
+path: /contact
+nav: contact
+---
+<!-- Contact. Calm split: the H1, email and address on the left, the message form on the right.
+     On phones the form comes straight after the intro; the email and address (c-more) follow it.
+     The form posts JSON to /api/lead with source "contact" (contact.js). Without JS it posts to the same endpoint.
+     ?topic= keys (contact.js): procure-demo, endorse-demo, core-demo, bootcamp, custom, contact. -->
+
+<section class="w-hero w-bg-canvas c-hero" aria-labelledby="c-h1">
+  <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap">
+    <div class="c-grid">
+      <div class="c-copy">
+        <h1 class="w-h1 c-h1" id="c-h1">Contact VSG.<br><span class="w-accent" data-contact-accent>Tell us what you need.</span></h1>
+        <p class="w-lead">Request a demo of VSG ACE, the AI platform for operations, or of VSG Core, Endorse or Procure. Book a VSG Bootcamp (a five-day assessment on your site) or discuss a custom build. Every VSG product integrates with your ERP and existing systems.</p>
+      </div>
+
+      <div class="c-side">
+        <div class="c-card" data-contact-card>
+          <!-- No-JS results: api/lead.js answers a plain form post with a 303 to one of these anchors. -->
+          <div class="c-nojs c-nojs--ok" id="sent" role="status"><h2 class="w-h3">Thank you. <span class="w-mute">Your message has been received.</span></h2><p class="w-small">A senior member of our team will respond personally.</p></div>
+          <div class="c-nojs c-nojs--err" id="held" role="status"><h2 class="w-h3">Your message is saved. <span class="w-mute">Delivery to our team is delayed.</span></h2><p class="w-small">To make sure it reaches us, please also email <a href="mailto:stephan@vsgtech.co.za">stephan@vsgtech.co.za</a>.</p></div>
+          <div class="c-nojs c-nojs--err" id="error" role="status"><h2 class="w-h3">Your message was not sent.</h2><p class="w-small">Please enter your name, a valid email address and your message, or email us directly at <a href="mailto:stephan@vsgtech.co.za">stephan@vsgtech.co.za</a>.</p></div>
+          <form class="w-form w-form-card c-form" method="post" action="/api/lead" data-contact novalidate aria-labelledby="c-form-h">
+            <div class="c-form-hd">
+              <h2 class="w-h3" id="c-form-h" data-form-h>Send a message</h2>
+              <p class="c-form-sub"><span class="c-dot" aria-hidden="true"></span>Read personally by our senior team.</p>
+            </div>
+            <div class="fgrid c-fgrid">
+              <div class="field">
+                <label for="c-name">Name</label>
+                <div class="fld"><input id="c-name" name="name" autocomplete="name" required data-err="Please add your name."></div>
+                <p class="emsg" hidden></p>
+              </div>
+              <div class="field">
+                <label for="c-email">Work email</label>
+                <div class="fld"><input id="c-email" name="email" type="email" autocomplete="email" required data-err="Please add an email we can reply to."></div>
+                <p class="emsg" hidden></p>
+              </div>
+              <div class="field">
+                <label for="c-co">Company<span class="opt">Optional</span></label>
+                <div class="fld"><input id="c-co" name="company" autocomplete="organization"></div>
+              </div>
+              <div class="field">
+                <label for="c-role">Job title<span class="opt">Optional</span></label>
+                <div class="fld"><input id="c-role" name="role" autocomplete="organization-title"></div>
+              </div>
+              <div class="field">
+                <label for="c-phone">Phone<span class="opt">Optional</span></label>
+                <div class="fld"><input id="c-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+              </div>
+              <div class="field">
+                <label for="c-topic">Topic</label>
+                <select class="sel" id="c-topic" name="topic" aria-describedby="c-topic-help">
+                  <option value="A demo of VSG ACE" selected>A demo of VSG ACE</option>
+                  <option value="A demo of VSG Procure">A demo of VSG Procure</option>
+                  <option value="A demo of VSG Endorse">A demo of VSG Endorse</option>
+                  <option value="A demo of VSG Core">A demo of VSG Core</option>
+                  <option value="A VSG Bootcamp">A VSG Bootcamp</option>
+                  <option value="Custom software and AI">Custom software and AI</option>
+                  <option value="Something else">Something else</option>
+                </select>
+                <p class="c-topic-help" id="c-topic-help" aria-live="polite"><span data-topic-help>Tell us about your business and what you want to achieve.</span></p>
+              </div>
+              <div class="field span2">
+                <label for="c-msg" data-msg-l>Message</label>
+                <div class="fld ta"><textarea id="c-msg" name="message" rows="5" required placeholder="A few lines is plenty." data-err="Please add a short message."></textarea></div>
+                <p class="emsg" hidden></p>
+              </div>
+            </div>
+            <div class="c-hp" aria-hidden="true"><label for="c-hp">Leave this empty</label><input id="c-hp" name="company_site" tabindex="-1" autocomplete="off"></div>
+            <input type="hidden" name="source" value="contact">
+            <div class="w-form-foot">
+              <button class="btn btn-p btn-xl" type="submit"><span data-send-l>Send message</span><svg class="w-i" aria-hidden="true"><use href="#i-send"/></svg></button>
+              <p class="w-form-note">We use your details only to respond to your enquiry. See our <a href="/privacy">privacy policy</a>.</p>
+            </div>
+            <p class="w-form-status" data-contact-status role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="c-done" data-contact-done hidden tabindex="-1" aria-labelledby="c-done-h">
+            <div class="c-seal" aria-hidden="true">
+              <span class="c-seal-card"></span>
+              <span class="c-seal-disc"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.2 10.4 8.6 13.6 15 6.8"/></svg></span>
+            </div>
+            <h2 class="w-h3" id="c-done-h">Thank you. <span class="w-mute">Your message has been received.</span></h2>
+            <p class="w-body">A senior member of our team will respond personally.</p>
+            <div class="w-actions">
+              <a class="btn btn-s btn-lg" href="/bootcamp">See the Bootcamp</a>
+              <button class="btn btn-s btn-lg c-again" type="button" data-contact-again>Send another message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="c-more">
+        <div class="c-direct">
+          <p class="c-direct-l">Prefer email?</p>
+          <div class="c-mailrow">
+            <a class="c-mail" href="mailto:stephan@vsgtech.co.za"><svg class="w-i" aria-hidden="true"><use href="#i-mail"/></svg>stephan@vsgtech.co.za</a>
+            <button class="btn btn-s btn-sm c-copybtn" type="button" data-copy="stephan@vsgtech.co.za" hidden><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg><span data-copy-l>Copy</span></button>
+          </div>
+        </div>
+
+        <address class="c-addr">
+          <span>VSG Tech Solutions (Pty) Ltd</span>
+          <span>Cape Town, South Africa</span>
+        </address>
+
+        <a class="w-link c-book" href="/bootcamp#book">Book a VSG Bootcamp<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <p class="c-legal">We process your personal information in line with POPIA, South Africa's data protection law.</p>
+  </div>
+</section>
+

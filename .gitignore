@@ -18,3 +18,16 @@ node_modules/
 dist/
 .vercel
 .env*.local
+
+# Internal working notes and the banned-name list stay local: this repo is public
+site-src/banned.local.txt
+site-src/research/
+site-src/copy/
+site-src/logo/option-*/
+site-src/logo/sheet.html
+.impeccable/
+
+# The internal component kit stays local (old copy, not a public page)
+kit.html
+site-src/pages/_kit.*
+assets/site/pages/kit.*

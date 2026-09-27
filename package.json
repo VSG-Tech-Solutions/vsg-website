@@ -1,11 +1,11 @@
 {
   "name": "vsg-website",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": true,
-  "description": "VSG Tech Solutions — vsgtech.co.za. Static HTML + React-in-browser site with a single Vercel serverless function for lead delivery.",
+  "description": "VSG Tech Solutions, vsgtech.co.za. Plain HTML, CSS and JS built from site-src, with one Vercel serverless function for lead delivery.",
   "scripts": {
-    "dev": "npx http-server -p 5500 -c-1 --cors",
-    "build": "echo 'Static site — nothing to build.'"
+    "build": "node site-src/build.js",
+    "dev": "node site-src/serve.js 5600"
   },
   "dependencies": {
     "resend": "^4.0.0"

@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VSG Procure | Your stock is cash. Put it to work.</title>
+<meta name="description" content="Procurement planning software for businesses that hold stock. VSG Procure forecasts every item from your own sales, shows the cash tied up in stock, compares every supplier at the full delivered cost and generates purchase orders ready to import into your ERP.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vsgtech.co.za/procure">
+<meta name="theme-color" content="#F6F7FB">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VSG">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:title" content="VSG Procure. Your stock is cash. Put it to work.">
+<meta property="og:description" content="Procurement planning software for businesses that hold stock. VSG Procure forecasts every item from your own sales, shows the cash tied up in stock, compares every supplier at the full delivered cost and generates purchase orders ready to import into your ERP.">
+<meta property="og:url" content="https://vsgtech.co.za/procure">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VSG Procure. Your stock is cash. Put it to work.">
+<meta name="twitter:description" content="Procurement planning software for businesses that hold stock. VSG Procure forecasts every item from your own sales, shows the cash tied up in stock, compares every supplier at the full delivered cost and generates purchase orders ready to import into your ERP.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="assets/site/halo.css?v=ade82759">
+<link rel="stylesheet" href="assets/site/site.css?v=666f17f3">
+<link rel="stylesheet" href="assets/site/pages/procure.css?v=62e1ad3f">
+<script src="assets/site/site.js?v=b69ff06d" defer></script>
+<script src="assets/site/pages/procure.js?v=17d7ded8" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"VSG","legalName":"VSG Tech Solutions (Pty) Ltd","url":"https://vsgtech.co.za/","logo":"https://vsgtech.co.za/assets/site/logo/mark.svg","description":"An AI company that specializes in operations.","founder":[{"@type":"Person","name":"Stephan Esterhuizen","jobTitle":"Founder and CEO"},{"@type":"Person","name":"Ernst Schloms","jobTitle":"Co-founder, engineering"}],"areaServed":"ZA","address":{"@type":"PostalAddress","addressLocality":"Cape Town","addressRegion":"Western Cape","addressCountry":"ZA"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"VSG ACE","applicationCategory":"BusinessApplication","description":"The AI platform for operations. A data layer, AI automations, applications and a command centre, integrated with your ERP and existing systems.","url":"https://vsgtech.co.za/ace","hasPart":[{"@type":"SoftwareApplication","name":"VSG Core","description":"Your business data, organised: live dashboards, reports and look-ups."},{"@type":"SoftwareApplication","name":"VSG Endorse","description":"Every AI automation in your business, approved by your team."},{"@type":"SoftwareApplication","name":"VSG Procure","description":"Procurement planning: forecasts, cash, supplier quotes and purchase orders."}],"provider":{"@type":"Organization","name":"VSG Tech Solutions (Pty) Ltd","address":{"@type":"PostalAddress","addressLocality":"Cape Town","addressCountry":"ZA"}}}</script>
+</head>
+<body class="w-page w-page-procure">
+<svg class="w-sprite" aria-hidden="true" focusable="false"><defs><symbol id="i-menu" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h12M4 10h12M4 14h12"/></symbol><symbol id="i-x" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.4 5.4l9.2 9.2M14.6 5.4l-9.2 9.2"/></symbol><symbol id="i-hist" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 10a6.6 6.6 0 1 0 2-4.7"/><path d="M3.4 4.6v3h3"/><path d="M10 7v3.2l2.4 1.6"/></symbol><symbol id="i-grid" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="5.6" height="5.6" rx="1.4"/><rect x="11.2" y="3.2" width="5.6" height="5.6" rx="1.4"/><rect x="3.2" y="11.2" width="5.6" height="5.6" rx="1.4"/><rect x="11.2" y="11.2" width="5.6" height="5.6" rx="1.4"/></symbol><symbol id="i-layers" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3 3 6.6l7 3.6 7-3.6z"/><path d="M3 11l7 3.6 7-3.6"/></symbol><symbol id="i-chart" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 16.4h13.2"/><path d="M6 16V9.6M10 16V5.4M14 16v-4.4"/></symbol><symbol id="i-users" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7.6" r="2.6"/><path d="M3 16c.7-2.4 2.5-3.6 5-3.6s4.3 1.2 5 3.6"/><path d="M13.4 5.6a2.4 2.4 0 0 1 0 4.4M15.4 16c-.2-1.4-.7-2.5-1.6-3.2"/></symbol><symbol id="i-user" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7.4" r="3"/><path d="M4.6 16.4c.8-2.8 2.8-4.2 5.4-4.2s4.6 1.4 5.4 4.2"/></symbol><symbol id="i-cal" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.6" width="14" height="12.4" rx="2.4"/><path d="M3 8.6h14M7 3.2v2.6M13 3.2v2.6"/></symbol><symbol id="i-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 10.4 8 14l7.8-8"/></symbol><symbol id="i-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.6 4.6 13 10l-5.4 5.4"/></symbol><symbol id="i-down" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 4.4L15 8"/></symbol><symbol id="i-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11.2M11 5.6l4.4 4.4-4.4 4.4"/></symbol><symbol id="i-warn" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3.4 17.4 16.6H2.6z"/><path d="M10 8.2v3.4M10 13.9v.1"/></symbol><symbol id="i-filter" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 5h13.2l-5 5.8v4.6l-3.2-1.6v-3z"/></symbol><symbol id="i-doc" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2.6h6.5L15.4 6.5V17.4H5z"/><path d="M11.2 2.8v3.8h3.8"/></symbol><symbol id="i-bolt" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.6 5.6 11h3.6l-.6 6.4L14.4 9h-3.6z"/></symbol><symbol id="i-inbox" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.4 5.2 4.6h9.6L17 11.4v4a1.4 1.4 0 0 1-1.4 1.4H4.4A1.4 1.4 0 0 1 3 15.4z"/><path d="M3 11.4h3.6l1 2h4.8l1-2H17"/></symbol><symbol id="i-plus" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4.4v11.2M4.4 10h11.2"/></symbol><symbol id="i-graph" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="15" cy="5.4" r="2.2"/><circle cx="10.4" cy="14.6" r="2.2"/><path d="M6.6 7.4l2.6 5.4M13.4 7l-2 5.6M7.1 5.7h5.8"/></symbol><symbol id="i-table" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="3.6" width="14.4" height="12.8" rx="1.6"/><path d="M2.8 8h14.4M8 8v8.4"/></symbol><symbol id="i-eye" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.4 10S5.2 5 10 5s7.6 5 7.6 5-2.8 5-7.6 5S2.4 10 2.4 10Z"/><circle cx="10" cy="10" r="2.2"/></symbol><symbol id="i-gear" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="2.4"/><path d="M10 3.2v1.9M10 14.9v1.9M3.2 10h1.9M14.9 10h1.9M5.2 5.2l1.35 1.35M13.45 13.45 14.8 14.8M14.8 5.2l-1.35 1.35M6.55 13.45 5.2 14.8"/></symbol><symbol id="i-truck" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.6 6.4h7.8v7.2H2.6z"/><path d="M10.4 8.8h3.4l2.6 2.6v2.2h-6z"/><circle cx="5.6" cy="15" r="1.5"/><circle cx="13.6" cy="15" r="1.5"/></symbol><symbol id="i-factory" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16.6V8.4l4.4 2.6V8.4L11.8 11V5.6L17 8v8.6z"/><path d="M6.6 16.6v-2.8M10.6 16.6v-2.8M14.2 16.6v-2.8"/></symbol><symbol id="i-flag" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v14"/><path d="M5 4.2h9.6l-1.8 3.4 1.8 3.4H5z"/></symbol><symbol id="i-send" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 10 16.8 4.2 12.4 17l-2.6-5.4z"/></symbol><symbol id="i-lock" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8.6" width="12" height="8.4" rx="2"/><path d="M6.8 8.6V6.4a3.2 3.2 0 0 1 6.4 0v2.2"/><path d="M10 12v1.6"/></symbol><symbol id="i-server" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.4" width="13.6" height="5.6" rx="1.6"/><rect x="3.2" y="11" width="13.6" height="5.6" rx="1.6"/><path d="M6.2 6.2h.1M6.2 13.8h.1M9.4 6.2h4.4M9.4 13.8h4.4"/></symbol><symbol id="i-mail" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="4.6" width="14.4" height="10.8" rx="2"/><path d="M3.4 5.6 10 10.6l6.6-5"/></symbol><symbol id="i-ship" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.6 12.2h14.8l-2 3.6H4.6z"/><path d="M5 12.2V8.6h6.4v3.6M11.4 10.2h3.2v2"/><path d="M7.6 8.6V5.4h2"/></symbol><symbol id="i-box" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.8 16.6 6.4v7.2L10 17.2 3.4 13.6V6.4z"/><path d="M3.4 6.4 10 10l6.6-3.6M10 10v7.2"/></symbol><symbol id="i-receipt" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 2.8h10.8v14.4l-2.2-1.4-2 1.4-2-1.4-2 1.4-2.6-1.4z"/><path d="M7.4 6.8h5.2M7.4 9.8h5.2M7.4 12.8h3"/></symbol><symbol id="i-list" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.4 5.4h9.2M7.4 10h9.2M7.4 14.6h9.2"/><path d="M3.6 5.4h.1M3.6 10h.1M3.6 14.6h.1"/></symbol><symbol id="i-trace" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="2.8" width="7.4" height="5.6" rx="1.4"/><path d="M6.5 8.4v4.4a2 2 0 0 0 2 2h4.2"/><circle cx="14.8" cy="14.8" r="2.2"/></symbol><symbol id="i-rotate" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.6 10a6.6 6.6 0 1 1-2-4.7"/><path d="M16.6 4.6v3h-3"/></symbol><symbol id="i-code" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 6 3 10l4 4M13 6l4 4-4 4M11.2 4.4 8.8 15.6"/></symbol><symbol id="i-coins" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="8" cy="6" rx="4.6" ry="2.2"/><path d="M3.4 6v3.4c0 1.2 2 2.2 4.6 2.2s4.6-1 4.6-2.2V6"/><path d="M7.4 13.4c.6 1.1 2.4 1.8 4.6 1.8 2.6 0 4.6-1 4.6-2.2V9.6c0-1-1.4-1.9-3.4-2.1"/></symbol></defs></svg>
+<a class="w-skip" href="#main">Skip to content</a>
+<div class="w-announce"><p><span><span class="w-ann-l">VSG Bootcamp: five days on your site, one fixed price agreed up front.</span><span class="w-ann-s">VSG Bootcamp: five days, fixed price.</span></span> <a href="/bootcamp">How the five days work<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a></p></div>
+<header class="w-hdr" data-nav>
+  <nav class="w-nav" aria-label="Main">
+    <a class="w-logo" href="/" aria-label="VSG home"><svg class="w-wordmark" viewBox="-32.2 -736.3 2360.7 792.6" height="22" width="66" aria-hidden="true" focusable="false"><path fill="currentColor" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="var(--wm-dot,#0B5CFF)" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></svg>
+</a>
+    <ul class="w-nav-list" role="list">
+      <li class="w-nav-item is-current">
+        <button class="w-nav-trig" type="button" aria-expanded="false" aria-controls="w-mm-platform">Platform<svg class="w-i w-nav-chev" aria-hidden="true"><use href="#i-down"/></svg></button>
+        <div class="w-mm w-mm--platform" id="w-mm-platform">
+          <div class="w-mm-grid w-mm-grid--ace">
+            <a class="w-mm-feat" href="/ace">
+              <span class="w-mm-feat-k">VSG ACE</span>
+              <b>The AI platform for operations.</b>
+              <span class="w-mm-feat-d">Data, AI automations and applications on one platform, with a view for every role.</span>
+              <span class="w-mm-feat-lk">Explore VSG ACE<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              <span class="w-mm-feat-n"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg>Every part of ACE integrates with your ERP and existing systems, and never changes them.</span>
+            </a>
+            <div>
+              <p class="w-mm-h">Parts of VSG ACE</p>
+              <ul class="w-mm-list" role="list">
+              <li><a class="w-mm-a" href="/core">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-layers"/></svg></span>
+                <span class="w-mm-t"><b>VSG Core</b></span>
+                <span class="w-mm-d">Your business data, organised. Live dashboards, custom reports and every number traced to its source.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/endorse">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg></span>
+                <span class="w-mm-t"><b>VSG Endorse</b></span>
+                <span class="w-mm-d">Every AI automation in your business. Your team approves every action.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/procure" aria-current="page">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></span>
+                <span class="w-mm-t"><b>VSG Procure</b></span>
+                <span class="w-mm-d">Procurement planning, from forecast to purchase order, at the landed price.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/custom">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-code"/></svg></span>
+                <span class="w-mm-t"><b>Custom applications</b></span>
+                <span class="w-mm-d">Built for your operational bottlenecks, delivered in phases.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/ace#command-centre">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-grid"/></svg></span>
+                <span class="w-mm-t"><b>ACE Command Centre</b></span>
+                <span class="w-mm-d">A view for every role.</span>
+              </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="w-nav-item">
+        <button class="w-nav-trig" type="button" aria-expanded="false" aria-controls="w-mm-start">Get started<svg class="w-i w-nav-chev" aria-hidden="true"><use href="#i-down"/></svg></button>
+        <div class="w-mm w-mm--services" id="w-mm-start">
+          <ul class="w-mm-list" role="list">
+              <li><a class="w-mm-a" href="/bootcamp">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-cal"/></svg></span>
+                <span class="w-mm-t"><b>VSG Bootcamp</b></span>
+                <span class="w-mm-d">Five days on your site, at a fixed price. One AI automation running on your data by day four.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/contact?topic=ace">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-eye"/></svg></span>
+                <span class="w-mm-t"><b>Request a demo</b></span>
+                <span class="w-mm-d">See ACE in a guided walkthrough.</span>
+              </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="w-nav-item">
+        <button class="w-nav-trig" type="button" aria-expanded="false" aria-controls="w-mm-company">Company<svg class="w-i w-nav-chev" aria-hidden="true"><use href="#i-down"/></svg></button>
+        <div class="w-mm w-mm--company" id="w-mm-company">
+          <ul class="w-mm-list" role="list">
+              <li><a class="w-mm-a" href="/about">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg></span>
+                <span class="w-mm-t"><b>About VSG</b></span>
+                <span class="w-mm-d">An AI company that specializes in operations.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/contact">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-mail"/></svg></span>
+                <span class="w-mm-t"><b>Contact</b></span>
+                <span class="w-mm-d">Speak to our team in Cape Town.</span>
+              </a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <div class="w-nav-r">
+      <a class="w-nav-link" href="/contact?topic=contact">Contact</a>
+      <a class="btn btn-p w-nav-cta" href="/bootcamp#book">Book a Bootcamp</a>
+      <button class="w-burger" type="button" aria-expanded="false" aria-controls="w-sheet" aria-label="Open menu"><svg class="w-i" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+    <span class="w-mm-bg" aria-hidden="true"></span>
+  </nav>
+</header>
+<div class="w-sheet" id="w-sheet" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="w-sheet-in">
+    <div class="w-sheet-hd">
+      <a class="w-logo" href="/" aria-label="VSG home"><svg class="w-wordmark" viewBox="-32.2 -736.3 2360.7 792.6" height="22" width="66" aria-hidden="true" focusable="false"><path fill="currentColor" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="var(--wm-dot,#0B5CFF)" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></svg>
+</a>
+      <button class="w-burger" type="button" data-close aria-label="Close menu"><svg class="w-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="w-sheet-body">
+      <p class="w-sheet-h">Platform</p>
+      <a class="w-sheet-a w-sheet-a--ace" href="/ace"><b>VSG ACE</b><span>The AI platform for operations</span></a>
+      <a class="w-sheet-a w-sheet-a--part" href="/core"><b>VSG Core</b></a>
+      <a class="w-sheet-a w-sheet-a--part" href="/endorse"><b>VSG Endorse</b></a>
+      <a class="w-sheet-a w-sheet-a--part" href="/procure" aria-current="page"><b>VSG Procure</b></a>
+      <a class="w-sheet-a w-sheet-a--part" href="/custom"><b>Custom applications</b></a>
+      <p class="w-sheet-h">Get started</p>
+      <a class="w-sheet-a" href="/bootcamp"><b>VSG Bootcamp</b></a>
+      <a class="w-sheet-a" href="/contact?topic=ace"><b>Request a demo</b></a>
+      <p class="w-sheet-h">Company</p>
+      <a class="w-sheet-a" href="/about"><b>About VSG</b></a>
+      <a class="w-sheet-a" href="/contact"><b>Contact</b></a>
+    </div>
+    <div class="w-sheet-ft">
+      <a class="btn btn-p btn-xl" href="/bootcamp#book">Book a Bootcamp</a>
+      <a class="btn btn-s btn-xl" href="/contact?topic=contact">Contact</a>
+    </div>
+  </div>
+</div>
+<main id="main" tabindex="-1">
+<section class="w-hero w-bg-canvas p-hero" aria-labelledby="p-h1">
+  <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap">
+    <div class="p-hero-in">
+      <span class="w-chip"><span><b>VSG Procure.</b> Procurement planning on VSG ACE.</span></span>
+      <h1 class="w-display" id="p-h1">Your stock is cash.<br><span class="w-accent">Put it to work.</span></h1>
+      <div class="p-hero-sub">
+        <p class="w-lead">Know what to buy, which month you need it and what it really costs once it lands. VSG Procure forecasts every item from your own sales, shows the cash sitting above your target and compares every supplier with duty, clearing and freight included. Your buyers set every quantity on one screen and finish with purchase orders ready to import into your ERP.</p>
+        <div class="p-hero-act">
+          <div class="w-actions">
+            <a class="btn btn-p btn-xl" href="/contact?topic=procure-demo">Request a demo</a>
+            <a class="btn btn-s btn-xl" href="/contact?topic=contact">Contact us</a>
+          </div>
+          <p class="w-trust"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg>Integrates with your ERP and existing systems. Your buyers decide every order.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-wrap w-wrap--wide">
+    <div class="w-hero-shot w-tilt p-hshot" data-tilt data-rx="10" data-rz="-4">
+      <div class="w-tilt-obj">
+        <div class="w-float w-float--lg p-hwin" data-hero-plan>
+          <div class="w-winbar">
+  <span class="w-winbar-mk"><svg class="w-mark " viewBox="0 0 32 32" width="16" height="16" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><g transform="translate(4.327 19.457) scale(0.01017)"><path fill="var(--mk-ink,#fff)" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="#0B5CFF" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></g></svg>
+</span>
+  <span class="w-winbar-crumb"><span>VSG Procure</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><span>Karoo Industrial Supply</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><b>Analysis</b></span>
+  <span class="w-winbar-r"><span class="w-conn"><i></i>ERP<em>connected</em></span></span>
+</div>
+
+          <div class="w-float-app">
+            <aside class="w-float-side" aria-hidden="true">
+              <span class="lbl">Workspace</span>
+              <nav class="nav">
+                <a><svg class="w-i"><use href="#i-gear"/></svg>Setup / Connect</a>
+                <a class="on"><svg class="w-i"><use href="#i-grid"/></svg>Analysis</a>
+                <a><svg class="w-i"><use href="#i-inbox"/></svg>RFQ Import</a>
+                <a><svg class="w-i"><use href="#i-check"/></svg>Review</a>
+              </nav>
+            </aside>
+            <div class="w-float-main">
+              <div class="p-an-hd">
+                <div class="p-hw-title"><b>Procurement Planning</b><span>Analysis. Five-month forward forecast, plan and quotes.</span></div>
+                <div class="p-hw-chips"><span class="p-an-ref">Refreshed 06:00</span></div>
+              </div>
+              <div class="p-cash">
+                <div class="p-cash-v"><p class="lbl">Cash above target</p><b class="w-num">R&nbsp;2.4m</b></div>
+                <div class="p-cash-d">
+                  <p><span><b>214</b> items analysed</span><span class="p-cash-x"><b>5</b> run out this month</span><span><b>R&nbsp;2.4m</b> above target, 56 items</span></p>
+                  <small>Valued at cost, on stock already paid for. Only stock above your months-of-cover target counts.</small>
+                </div>
+              </div>
+              <div class="p-an-tools" aria-hidden="true">
+                <span class="p-tool">Warehouses<span class="p-tool-c">JHB</span><span class="p-tool-c">CPT</span></span>
+                <span class="p-tool p-t-x"><i class="p-tog"></i>Include direct sales</span>
+                <span class="p-tool">Target cover<span class="p-tool-i mono">2.0</span></span>
+                <span class="btn btn-p btn-sm"><svg class="w-i"><use href="#i-rotate"/></svg>Refresh from ERP</span>
+                <span class="btn btn-s btn-sm"><svg class="w-i"><use href="#i-filter"/></svg>Filters</span>
+                <span class="btn btn-s btn-sm p-t-x"><svg class="w-i"><use href="#i-table"/></svg>Choose columns</span>
+                <span class="btn btn-s btn-sm p-t-x">Clear forecast</span>
+                <span class="btn btn-s btn-sm"><svg class="w-i"><use href="#i-send"/></svg>Export RFQ</span>
+                <span class="btn btn-p btn-sm p-t-po"><svg class="w-i"><use href="#i-bolt"/></svg>Generate PO</span>
+                <span class="btn btn-s btn-sm p-t-x">Export for review</span>
+                <span class="btn btn-s btn-sm p-t-x">Print snapshot</span>
+              </div>
+              <div class="p-kpi">
+                <div class="p-kpi-cls">
+                  <p class="lbl">Product classes</p>
+                  <ul class="p-cls" role="list">
+                    <li>Bearings</li><li>Belting</li><li>Pipe</li><li>Cable</li><li>Fasteners</li><li>Safety</li><li>Paint</li><li>Pumps</li>
+                  </ul>
+                </div>
+                <div class="p-kpi-n"><b>2.6<small>mo</small></b><span>Months on hand, all stock</span></div>
+                <div class="p-kpi-n"><b>1.24<small>x</small></b><span>Buy-up cash factor, peak Nov</span></div>
+                <div class="p-kpi-n"><b>55<small>%</small> / 45<small>%</small></b><span>Local / import</span></div>
+                <div class="p-kpi-risk">
+                  <p class="lbl">Risk lanes</p>
+                  <div class="p-lane-c"><span>Stock-out risk</span><b class="p-lane-x" data-risk-out>5</b><em>items</em></div>
+                  <div class="p-lane-c"><span>Over target</span><b class="p-lane-h">56</b><em>items</em></div>
+                </div>
+              </div>
+              <p class="p-tip">Type a quantity in any <b>Plan</b> cell. Tab and the arrow keys move between cells.</p>
+              <div class="p-an-tbl">
+                <table class="tbl p-an">
+                  <caption class="w-sr">VSG Procure Analysis grid for six items: stock on hand, 12-month sales trend, average sold a month, number of customers, how many months of the year it sold, orders committed and planned for October to December, and months of cover from October to February. Months of cover is how many months the stock will last, including committed and planned orders. Red is under a month, amber below target, green on target and grey above target.</caption>
+                  <thead>
+                    <tr class="p-an-grp"><th scope="colgroup" colspan="6">Item<span class="p-an-sum">214 items</span></th><th scope="colgroup" colspan="6" class="p-an-g2">Orders: committed and planned</th><th scope="colgroup" colspan="5" class="p-an-g3">Months of cover</th></tr>
+                    <tr class="p-an-fx"><th colspan="6" class="p-an-fxl">Buy-up cash factor</th><th colspan="2" class="p-an-po">Oct<b>&times;0.84</b></th><th colspan="2" class="p-an-po is-peak">Nov<b>&times;1.24</b></th><th colspan="2" class="p-an-po">Dec<b>&times;0.97</b></th><th colspan="5" class="p-an-fxe"></th></tr>
+                    <tr>
+                      <th scope="col">Item</th><th class="r" scope="col">On hand</th><th scope="col" class="p-an-tr">12-mo trend</th><th class="r" scope="col">Avg/mo</th><th class="r p-an-o" scope="col">Cust</th><th class="r p-an-o" scope="col">Freq</th>
+                      <th class="r p-an-po" scope="col">Comm</th><th class="r p-an-po p-an-pc" scope="col">Plan</th><th class="r p-an-po" scope="col">Comm</th><th class="r p-an-po p-an-pc" scope="col">Plan</th><th class="r p-an-po" scope="col">Comm</th><th class="r p-an-po p-an-pc" scope="col">Plan</th>
+                      <th class="r p-an-cv" scope="col" data-hm="0">Oct</th><th class="r p-an-cv" scope="col" data-hm="1">Nov</th><th class="r p-an-cv" scope="col" data-hm="2">Dec</th><th class="r p-an-cv" scope="col" data-hm="3">Jan</th><th class="r p-an-cv" scope="col" data-hm="4">Feb</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-row="0" class="sel">
+                      <td class="nm"><span class="p-an-nm">Centrifugal pump 50mm</span><span class="sub mono">PMP-CF-50</span><span class="p-tag">Pumps</span></td>
+                      <td class="r mono">36</td>
+                      <td class="p-an-tr"><span class="p-spark"><svg viewBox="0 0 60 18" aria-hidden="true"><polyline pathLength="1" points="0,9 5.5,7 11,13 16.5,15 22,11 27.5,9 33,7 38.5,5 44,6 49.5,8 55,4 60,5"/></svg><em class="p-up">+8%</em></span></td>
+                      <td class="r mono">20</td><td class="r mono p-an-o">41</td><td class="r mono p-an-o">12/12</td>
+                      <td class="r p-an-po"></td><td class="r p-an-po p-an-pc"></td><td class="r p-an-po"></td><td class="r p-an-po p-an-pc"><span class="p-pl">60</span></td><td class="r p-an-po"></td><td class="r p-an-po p-an-pc"></td>
+                      <td class="r lv-x" data-hm="0">0.8</td><td class="r lv-hi" data-hm="1">2.8</td><td class="r lv-hi" data-hm="2">2.3</td><td class="r lv-ok" data-hm="3">1.8</td><td class="r lv-x" data-hm="4">0.8</td>
+                    </tr>
+                    <tr data-row="1">
+                      <td class="nm"><span class="p-an-nm">Conveyor belt EP400, 3-ply</span><span class="sub mono">CVB-EP400-3P</span><span class="p-tag">Belting</span></td>
+                      <td class="r mono">420 m</td>
+                      <td class="p-an-tr"><span class="p-spark"><svg viewBox="0 0 60 18" aria-hidden="true"><polyline pathLength="1" points="0,12 5.5,11 11,12 16.5,10 22,9 27.5,10 33,8 38.5,7 44,7 49.5,5 55,5 60,3"/></svg><em class="p-up">+14%</em></span></td>
+                      <td class="r mono">600 m</td><td class="r mono p-an-o">27</td><td class="r mono p-an-o">12/12</td>
+                      <td class="r p-an-po"><span class="p-cm">1&nbsp;200</span></td><td class="r p-an-po p-an-pc"></td><td class="r p-an-po"></td><td class="r p-an-po p-an-pc"></td><td class="r p-an-po"></td><td class="r p-an-po p-an-pc"></td>
+                      <td class="r lv-w" data-hm="0">1.7</td><td class="r lv-x" data-hm="1">0.7</td><td class="r lv-x" data-hm="2">0.2</td><td class="r lv-x p-z" data-hm="3">0.0</td><td class="r lv-x p-z" data-hm="4">0.0</td>
+                    </tr>
+                    <tr data-row="2">
+                      <td class="nm"><span class="p-an-nm">Hex bolt M12, box of 100</span><span class="sub mono">FST-M12-HX</span><span class="p-tag">Fasteners</span></td>
+                      <td class="r mono">2&nbsp;900</td>
+                      <td class="p-an-tr"><span class="p-spark"><svg viewBox="0 0 60 18" aria-hidden="true"><polyline pathLength="1" points="0,5 5.5,6 11,6 16.5,8 22,8 27.5,9 33,10 38.5,11 44,11 49.5,12 55,13 60,14"/></svg><em class="p-dn">-12%</em></span></td>
+                      <td class="r mono">500</td><td class="r mono p-an-o">22</td><td class="r mono p-an-o">9/12</td>
+                      <td class="r p-an-po"></td><td class="r p-an-po p-an-pc"></td><td class="r p-an-po"></td><td class="r p-an-po p-an-pc"></td><td class="r p-an-po"></td><td class="r p-an-po p-an-pc"></td>
+                      <td class="r lv-hi" data-hm="0">4.8</td><td class="r lv-hi" data-hm="1">3.8</td><td class="r lv-hi" data-hm="2">3.3</td><td class="r lv-hi" data-hm="3">2.8</td><td class="r lv-ok" data-hm="4">1.8</td>
+                    </tr>
+                    <tr data-row="3">
+                      <td class="nm"><span class="p-an-nm">PVC pipe 110mm, 6m</span><span class="sub mono">PVC-110-6M</span><span class="p-tag">Pipe</span></td>
+                      <td class="r mono">180</td>
+                      <td class="p-an-tr"><span class="p-spark"><svg viewBox="0 0 60 18" aria-hidden="true"><polyline pathLength="1" points="0,8 5.5,9 11,8 16.5,10 22,9 27.5,9 33,8 38.5,9 44,9 49.5,8 55,9 60,9"/></svg><em>0%</em></span></td>
+                      <td class="r mono">60</td><td class="r mono p-an-o">18</td><td class="r mono p-an-o">11/12</td>
+                      <td class="r p-an-po"></td><td class="r p-an-po p-an-pc"></td><td class="r p-an-po"></td><td class="r p-an-po p-an-pc"></td><td class="r p-an-po"></td><td class="r p-an-po p-an-pc"><span class="p-pl">125</span></td>
+                      <td class="r lv-ok" data-hm="0">2.0</td><td class="r lv-w" data-hm="1">1.0</td><td class="r lv-hi" data-hm="2">2.6</td><td class="r lv-ok" data-hm="3">2.1</td><td class="r lv-w" data-hm="4">1.1</td>
+                    </tr>
+                    <tr data-row="4">
+                      <td class="nm"><span class="p-an-nm">Bearing 6205, sealed</span><span class="sub mono">BRG-6205-2RS</span><span class="p-tag">Bearings</span></td>
+                      <td class="r mono">1&nbsp;300</td>
+                      <td class="p-an-tr"><span class="p-spark"><svg viewBox="0 0 60 18" aria-hidden="true"><polyline pathLength="1" points="0,5 5.5,6 11,5 16.5,8 22,7 27.5,9 33,8 38.5,10 44,9 49.5,11 55,10 60,12"/></svg><em class="p-dn">-5%</em></span></td>
+                      <td class="r mono">500</td><td class="r mono p-an-o">96</td><td class="r mono p-an-o">12/12</td>
+                      <td class="r p-an-po"><span class="p-cm">500</span></td><td class="r p-an-po p-an-pc"></td><td class="r p-an-po"></td><td class="r p-an-po p-an-pc"></td><td class="r p-an-po"></td><td class="r p-an-po p-an-pc"><span class="p-pl">800</span></td>
+                      <td class="r lv-hi" data-hm="0">2.6</td><td class="r lv-w" data-hm="1">1.6</td><td class="r lv-hi" data-hm="2">2.7</td><td class="r lv-ok" data-hm="3">2.2</td><td class="r lv-w" data-hm="4">1.2</td>
+                    </tr>
+                    <tr data-row="5">
+                      <td class="nm"><span class="p-an-nm">Armoured cable 4-core 16mm²</span><span class="sub mono">CAB-4C-16</span><span class="p-tag">Cable</span></td>
+                      <td class="r mono">3&nbsp;300 m</td>
+                      <td class="p-an-tr"><span class="p-spark"><svg viewBox="0 0 60 18" aria-hidden="true"><polyline pathLength="1" points="0,10 5.5,9 11,11 16.5,9 22,8 27.5,9 33,7 38.5,8 44,6 49.5,7 55,6 60,6"/></svg><em class="p-up">+4%</em></span></td>
+                      <td class="r mono">1&nbsp;500 m</td><td class="r mono p-an-o">33</td><td class="r mono p-an-o">12/12</td>
+                      <td class="r p-an-po"></td><td class="r p-an-po p-an-pc"></td><td class="r p-an-po"></td><td class="r p-an-po p-an-pc"><span class="p-pl">3&nbsp;000</span></td><td class="r p-an-po"></td><td class="r p-an-po p-an-pc"></td>
+                      <td class="r lv-w" data-hm="0">1.2</td><td class="r lv-ok" data-hm="1">2.2</td><td class="r lv-w" data-hm="2">1.7</td><td class="r lv-w" data-hm="3">1.2</td><td class="r lv-x" data-hm="4">0.2</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pf"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3.5h7l3 3v10H5z"/><path d="M12 3.5v3h3M7.5 10h5M7.5 13h5"/></svg><span>This week's plan (week 38): 14 lines, <b class="w-num" data-hero-traced>14</b> of 14 matched to a supplier quote. Nothing changed in your ERP.</span></div>
+            </div>
+          </div>
+        </div>
+                <div class="w-float w-float--mini p-hcard" data-depth="120" aria-live="polite">
+          <div class="p-insp" data-insp>
+            <p class="lbl" data-i="code">PMP-CF-50</p>
+            <p class="p-insp-t" data-i="title">The 50mm pump dips below target in October</p>
+            <p class="p-insp-p" data-i="text">60 pumps are planned for November. Cover dips again in February, so the next order is due.</p>
+            <ul class="p-opts" role="list" data-i="opts">
+              <li><b>Import A</b><span class="mono">Q-0418-A</span><span class="st st-a"><i></i>R&nbsp;18&nbsp;808</span></li>
+              <li><b>Local supplier</b><span class="mono">Q-0415-L</span><span class="st st-n"><i></i>R&nbsp;19&nbsp;370</span></li>
+            </ul>
+            <span class="btn btn-p btn-sm p-insp-b" data-i="btn">Compare quotes</span>
+          </div>
+        </div>
+        <div class="w-float w-float--mini p-hpill" data-depth="80" aria-hidden="true">
+          <div class="p-hpill-in"><svg class="w-i"><use href="#i-lock"/></svg>0 changes made in your ERP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w-sec w-bg-white" aria-labelledby="p-prob-h">
+  <div class="w-wrap">
+    <div class="w-split p-prob">
+      <div class="w-head">
+        <h2 class="w-h2" id="p-prob-h">Spreadsheet buying costs more than it shows. <span class="w-mute">Stock ends up in the wrong places.</span></h2>
+        <p class="w-lead">In too many businesses, buying still runs on spreadsheets and one buyer&rsquo;s memory. That holds until you stock thousands of items. Then best sellers run dry while slow movers gather dust and swallow cash. The import that looked cheapest turns out dearest once duty and freight arrive. Containers sail with space you paid for and never used. What that can cost:</p>
+      </div>
+      <ul class="w-feats p-prob-l" role="list" data-reveal-group>
+        <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-warn"/></svg></span><b>Best sellers out of stock for weeks.</b><p>Three weeks without one top seller can cost <span class="w-num">R&nbsp;330&nbsp;000</span> in lost sales. Customers buy elsewhere.</p></li>
+        <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></span><b><span class="w-num">R&nbsp;1.4&nbsp;million</span> tied up in stock that will not sell this year.</b><p>Bought on gut feel and paid for in cash.</p></li>
+        <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-ship"/></svg></span><b>Suppliers chosen on the quoted price.</b><p>Once duty, clearing and freight are added, the cheapest quote is often not the cheapest supplier.</p></li>
+        <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-truck"/></svg></span><b>Containers shipped 14% empty.</b><p>The full freight bill is paid on space that carried nothing.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="w-sec w-bg-canvas" aria-labelledby="p-how-h">
+  <div class="w-wrap">
+    <div class="w-head">
+      <h2 class="w-h2" id="p-how-h">How it works. <span class="w-mute">From your sales history to purchase orders.</span></h2>
+      <p class="w-lead">Your ERP already knows what sold, what is on the shelf and what is on order. VSG Procure turns that into a buying plan for every item, and the plan into purchase orders. Three steps.</p>
+    </div>
+    <ol class="p-steps" role="list" data-reveal-group>
+      <li><span class="p-step-ic"><svg class="w-i" aria-hidden="true"><use href="#i-layers"/></svg></span><b>1. Integrates with your ERP</b><p>Stock on hand, sales history, open purchase orders and prices load from your ERP with one click, across every warehouse.</p></li>
+      <li><span class="p-step-ic"><svg class="w-i" aria-hidden="true"><use href="#i-graph"/></svg></span><b>2. Forecasts every item</b><p>How long your stock will last, what will run short and where cash sits above your target.</p></li>
+      <li><span class="p-step-ic p-step-ic--you"><svg class="w-i" aria-hidden="true"><use href="#i-user"/></svg></span><b>3. Your buyers plan and order</b><p>Buyers set every quantity, request quotes, compare suppliers at the landed price and generate purchase orders ready to import into your ERP.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="w-sec w-dark w-fx-sec" aria-labelledby="p-fx-h">
+  <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap">
+    <div class="w-head w-head--split">
+      <h2 class="w-h2" id="p-fx-h">VSG Procure at a glance. <span class="w-mute">Ten features that protect your cash and keep your best sellers on the shelf.</span></h2>
+      <p class="w-lead">Every number starts from your own sales and your own stock. Procure integrates with your ERP and existing systems and does the arithmetic. Your buyers make every call.</p>
+    </div>
+    <ul class="w-fx w-fx--4 w-fx--10" role="list" data-reveal-group>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-graph"/></svg></span></div><b class="w-fx-t">Forecast every item</b><p class="w-fx-d">Forecasts demand for every item from the last twelve months of your own sales, with December and January weighted at half.</p><p class="w-fx-v"><span>Why it matters</span>Faster decisions, because every buying plan starts from what your customers actually bought.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-cal"/></svg></span></div><b class="w-fx-t">Months of cover, five months ahead</b><p class="w-fx-d">Projects stock and months of cover for every item five months forward, counting every order already committed or planned.</p><p class="w-fx-v"><span>Why it matters</span>Fewer stock-outs, because your buyers see a shortage coming while there is still time to act.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-flag"/></svg></span></div><b class="w-fx-t">Run-out and overstock lists</b><p class="w-fx-d">Items about to run out in one list. Items holding more stock than target in another.</p><p class="w-fx-v"><span>Why it matters</span>Sharper control, as your buyers spend their time on the items that put sales and cash at risk.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg></span></div><b class="w-fx-t">Cash you can free up</b><p class="w-fx-d">Totals the value, at cost, of all stock held above your target.</p><p class="w-fx-v"><span>Why it matters</span>Cash freed for the business, with surplus stock valued and in plain view before the next order goes out.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg></span></div><b class="w-fx-t">Heavy buying months, seen early</b><p class="w-fx-d">Sets each month&rsquo;s planned and committed buying against an average month of sales.</p><p class="w-fx-v"><span>Why it matters</span>Firm control of cash flow, with heavy buying months visible before you commit more cash.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-grid"/></svg></span></div><b class="w-fx-t">The buying pipeline, one screen</b><p class="w-fx-d">Shows the whole buying pipeline on a single screen, where your buyers set every quantity themselves.</p><p class="w-fx-v"><span>Why it matters</span>Faster planning with full accountability, because every quantity is a decision your buyer made and can explain.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-send"/></svg></span></div><b class="w-fx-t">Requests for quote from the plan</b><p class="w-fx-d">Creates requests for quote straight from the plan and imports every supplier reply without retyping a single price.</p><p class="w-fx-v"><span>Why it matters</span>Time back on every buying round, and fewer mistakes from manual capture.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-table"/></svg></span></div><b class="w-fx-t">Landed price comparison</b><p class="w-fx-d">Compares every supplier side by side at landed price, using the exchange rate, duty, clearing, freight and other costs your buyer sets per quote.</p><p class="w-fx-v"><span>Why it matters</span>Better buying decisions, because your buyers see the cheapest supplier per line and which supplier covers the whole order once the goods reach your warehouse.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-truck"/></svg></span></div><b class="w-fx-t">Container fill by weight</b><p class="w-fx-d">Shows how full every import container is by weight and how much room is left.</p><p class="w-fx-v"><span>Why it matters</span>Fuller containers and lower freight cost per unit, because your buyers see the room left while the order is still open.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg></span></div><b class="w-fx-t">Review, then purchase orders</b><p class="w-fx-d">Exports the plan for a colleague to review as a separate version, then generates purchase orders as a file ready to import into your ERP.</p><p class="w-fx-v"><span>Why it matters</span>Fewer ordering mistakes, with every order checked before it goes out and nothing changing in your ERP until your team imports the file.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="w-sec w-bg-white p-tour-sec" aria-labelledby="p-tour-h">
+  <div class="w-wrap">
+    <div class="w-head">
+      <h2 class="w-h2" id="p-tour-h">The full buying cycle. <span class="w-mute">From forecast to purchase order.</span></h2>
+    </div>
+    <div class="p-tour">
+      <nav class="p-tnav" aria-label="VSG Procure, what you get">
+        <ol role="list">
+          <li><a href="#plan" aria-current="true"><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg><span>Forward plan</span></a></li>
+          <li><a href="#quotes"><svg class="w-i" aria-hidden="true"><use href="#i-inbox"/></svg><span>Quotes</span></a></li>
+          <li><a href="#landed"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg><span>Landed cost</span></a></li>
+          <li><a href="#container"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg><span>Container</span></a></li>
+          <li><a href="#orderfile"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg><span>Purchase orders</span></a></li>
+        </ol>
+      </nav>
+
+      <div class="p-panels">
+
+                <article class="p-panel" id="plan" aria-labelledby="plan-h">
+          <div class="p-panel-hd">
+            <h3 class="w-h2 p-ph" id="plan-h">See every shortage and every surplus, months ahead.</h3>
+            <p class="w-body">Months of cover is the clock on every item: how long until the shelf is empty at the rate it sells. Procure runs that clock for every item, month by month, and colours it against your target. Red is about to run out. Amber is below target. Green is on target. Grey is stock, and cash, sitting above target.</p>
+          </div>
+          <div class="w-frame p-art" data-reveal>
+            <div class="w-float p-gwin" data-grid>
+              <div class="w-winbar">
+  <span class="w-winbar-mk"><svg class="w-mark " viewBox="0 0 32 32" width="16" height="16" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><g transform="translate(4.327 19.457) scale(0.01017)"><path fill="var(--mk-ink,#fff)" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="#0B5CFF" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></g></svg>
+</span>
+  <span class="w-winbar-crumb"><span>VSG Procure</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><span>Karoo Industrial Supply</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><b>Analysis, months of cover</b></span>
+  <span class="w-winbar-r"><span class="w-conn"><i></i>ERP<em>connected</em></span></span>
+</div>
+
+              <div class="p-g-top">
+                <div class="p-g-legend" aria-hidden="true">
+                  <span><i class="p-k p-k--x"></i>Under a month</span>
+                  <span><i class="p-k p-k--w"></i>Below target</span>
+                  <span><i class="p-k p-k--ok"></i>On target</span>
+                  <span><i class="p-k p-k--hi"></i>Above target</span>
+                </div>
+                <span class="chip on">Target 2.0 months</span>
+              </div>
+              <div class="tblx">
+                <table class="tbl p-grid">
+                  <caption class="w-sr">Months of cover for five items, October to February, against a target of 2.0 months, before new orders. Pick a month to see what the plan does that month.</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Item</th>
+                      <th class="r" scope="col" data-m="0"><button type="button" class="p-mb" data-m="0" aria-pressed="false">Oct</button></th>
+                      <th class="r" scope="col" data-m="1"><button type="button" class="p-mb" data-m="1" aria-pressed="false">Nov</button></th>
+                      <th class="r" scope="col" data-m="2"><button type="button" class="p-mb" data-m="2" aria-pressed="false">Dec</button></th>
+                      <th class="r" scope="col" data-m="3"><button type="button" class="p-mb" data-m="3" aria-pressed="false">Jan</button></th>
+                      <th class="r" scope="col" data-m="4"><button type="button" class="p-mb" data-m="4" aria-pressed="false">Feb</button></th>
+                      <th class="p-g-buy" scope="col">Buyer&rsquo;s plan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="nm">Centrifugal pump 50mm<span class="sub mono">PMP-CF-50</span></td><td class="r lv-ok" data-m="0">1.8</td><td class="r lv-w" data-m="1">1.1</td><td class="r lv-x" data-m="2">0.4</td><td class="r lv-x p-z" data-m="3">0.0</td><td class="r lv-x p-z" data-m="4">0.0</td><td class="p-g-buy"><span class="st st-a"><i></i>60 planned, Nov</span></td></tr>
+                    <tr><td class="nm">Conveyor belt EP400<span class="sub mono">CVB-EP400-3P</span></td><td class="r lv-x" data-m="0">0.7</td><td class="r lv-x" data-m="1">0.2</td><td class="r lv-x p-z" data-m="2">0.0</td><td class="r lv-x p-z" data-m="3">0.0</td><td class="r lv-x p-z" data-m="4">0.0</td><td class="p-g-buy"><span class="st st-a"><i></i>1&nbsp;200&nbsp;m planned, Oct</span></td></tr>
+                    <tr><td class="nm">PVC pipe 110mm<span class="sub mono">PVC-110-6M</span></td><td class="r lv-hi" data-m="0">3.0</td><td class="r lv-hi" data-m="1">2.6</td><td class="r lv-ok" data-m="2">2.1</td><td class="r lv-w" data-m="3">1.6</td><td class="r lv-w" data-m="4">1.1</td><td class="p-g-buy"><span class="st st-a"><i></i>125 planned, Dec</span></td></tr>
+                    <tr><td class="nm">Bearing 6205<span class="sub mono">BRG-6205-2RS</span></td><td class="r lv-hi" data-m="0">2.6</td><td class="r lv-ok" data-m="1">2.1</td><td class="r lv-w" data-m="2">1.6</td><td class="r lv-w" data-m="3">1.1</td><td class="r lv-x" data-m="4">0.6</td><td class="p-g-buy"><span class="st st-a"><i></i>1&nbsp;500 planned, Dec</span></td></tr>
+                    <tr><td class="nm">Safety boot, size 8<span class="sub mono">SFB-STC-08</span></td><td class="r lv-hi" data-m="0">3.1</td><td class="r lv-hi" data-m="1">2.7</td><td class="r lv-ok" data-m="2">2.2</td><td class="r lv-ok" data-m="3">1.8</td><td class="r lv-w" data-m="4">1.3</td><td class="p-g-buy"><span class="st st-a"><i></i>400 planned, Jan</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pf p-g-note" aria-live="polite"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 6.2V10l2.8 1.8"/></svg><span data-g-note><b>December.</b> Without new orders, the conveyor belt runs out. The belt sits at the top of the stock-out list.</span></div>
+            </div>
+          </div>
+          <p class="w-cap">Months of cover against a two month target. Pick a month to move through the plan.</p>
+          <div class="p-feats">
+            <ul class="w-feats" role="list">
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-hist"/></svg></span><b>Orders already placed are counted</b><p>Every order placed or planned is part of the projection, so you see what is already coming before you buy more.</p></li>
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-cal"/></svg></span><b>Five months ahead</b><p>Every item projected month by month, so a shortage shows up to five months before the shelf is empty.</p></li>
+            </ul>
+            <ul class="w-feats" role="list">
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-flag"/></svg></span><b>Your target</b><p>Set how many months of stock to hold. Every item is measured against it.</p></li>
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-warn"/></svg></span><b>Shortages and surplus, flagged</b><p>Items about to run out, and items holding more stock than target, each in its own list.</p></li>
+            </ul>
+          </div>
+        </article>
+
+                <article class="p-panel" id="quotes" aria-labelledby="quotes-h">
+          <div class="p-panel-hd">
+            <h3 class="w-h2 p-ph" id="quotes-h">One request for quote. Every supplier reply, priced and compared.</h3>
+            <p class="w-body">Stop retyping supplier prices. Procure builds the request for quote (RFQ) straight from your plan: a file your suppliers fill in and send back. Import the replies and every price lands on the right line. Set the exchange rate, duty and clearing per quote, and every line shows its landed price, the real cost once duty, clearing and freight are in.</p>
+          </div>
+          <div class="w-frame p-art" data-reveal>
+            <div class="w-float p-rwin" data-rfq>
+              <div class="w-winbar">
+  <span class="w-winbar-mk"><svg class="w-mark " viewBox="0 0 32 32" width="16" height="16" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><g transform="translate(4.327 19.457) scale(0.01017)"><path fill="var(--mk-ink,#fff)" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="#0B5CFF" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></g></svg>
+</span>
+  <span class="w-winbar-crumb"><span>VSG Procure</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><span>Karoo Industrial Supply</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><b>RFQ Import</b></span>
+  <span class="w-winbar-r"><span class="w-conn"><i></i>ERP<em>connected</em></span></span>
+</div>
+
+              <div class="p-r-hd">
+                <div class="p-hw-title"><b>Import supplier quote</b><span>Supplier quote, landed price, purchase order</span></div>
+                <div class="p-r-acts" aria-hidden="true"><span class="btn btn-s btn-sm">From downloads</span><span class="btn btn-s btn-sm p-t-x">Import quote</span><span class="btn btn-s btn-sm p-t-x">Clear</span></div>
+              </div>
+              <div class="p-r-body">
+                <div class="p-drop" data-drop>
+                  <span class="p-drop-f"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg>RFQ-0418, Import A.html</span>
+                  <span class="p-drop-t">Quote imported. 4 lines from RFQ-0418, priced in USD each.</span>
+                </div>
+                <div class="p-r-set">
+                  <div class="p-r-type"><span>Order type</span><div class="seg" aria-hidden="true"><span class="p-seg">Local</span><span class="p-seg on">Import</span></div></div>
+                  <dl class="p-r-f">
+                    <div><dt>Exchange rate</dt><dd class="mono">18.40</dd></div>
+                    <div><dt>Duty %</dt><dd class="mono">10</dd></div>
+                    <div><dt>Clearing %</dt><dd class="mono">3.5</dd></div>
+                    <div><dt>Our ref</dt><dd class="mono">RFQ-0418</dd></div>
+                  </dl>
+                </div>
+                <div class="tblx">
+                  <table class="tbl p-rq">
+                    <caption class="w-sr">Supplier quote Q-0418-A, imported. Landed price each is the quoted USD price times the 18.40 exchange rate, plus 10 percent duty and 3.5 percent clearing, plus freight and other costs each.</caption>
+                    <thead><tr><th scope="col" class="p-rq-n">#</th><th scope="col">Item</th><th class="r" scope="col">Qty</th><th class="r" scope="col">Quoted, USD</th><th class="r p-rq-fr" scope="col">Freight and other, R</th><th class="r" scope="col">Landed, R each</th><th class="r p-rq-v" scope="col">Order value, R</th></tr></thead>
+                    <tbody>
+                      <tr data-rq="0"><td class="p-rq-n mono">1</td><td class="nm">Centrifugal pump 50mm<span class="sub mono">PMP-CF-50</span></td><td class="r mono">60</td><td class="r mono p-rq-q">812.00</td><td class="r mono p-rq-fr">1&nbsp;850</td><td class="r mono p-rq-l"><b>18&nbsp;807.81</b></td><td class="r mono p-rq-v">1&nbsp;128&nbsp;468.60</td></tr>
+                      <tr data-rq="1"><td class="p-rq-n mono">2</td><td class="nm">Epoxy floor paint, 20L<span class="sub mono">PNT-EPX-20</span></td><td class="r mono">1&nbsp;200</td><td class="r mono p-rq-q">38.50</td><td class="r mono p-rq-fr">42</td><td class="r mono p-rq-l"><b>846.03</b></td><td class="r mono p-rq-v">1&nbsp;015&nbsp;236.00</td></tr>
+                      <tr data-rq="2"><td class="p-rq-n mono">3</td><td class="nm">PVC pipe 110mm, 6m<span class="sub mono">PVC-110-6M</span></td><td class="r mono">125</td><td class="r mono p-rq-q">21.40</td><td class="r mono p-rq-fr">118</td><td class="r mono p-rq-l"><b>564.92</b></td><td class="r mono p-rq-v">70&nbsp;615.00</td></tr>
+                      <tr data-rq="3"><td class="p-rq-n mono">4</td><td class="nm">Bearing 6205, sealed<span class="sub mono">BRG-6205-2RS</span></td><td class="r mono">1&nbsp;500</td><td class="r mono p-rq-q">2.10</td><td class="r mono p-rq-fr">3.50</td><td class="r mono p-rq-l"><b>47.36</b></td><td class="r mono p-rq-v">71&nbsp;040.00</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="p-r-tot"><span>Total order value, landed</span><b class="w-num" data-rq-total data-format="rand">R&nbsp;2&nbsp;285&nbsp;360</b></div>
+                <div class="p-r-go"><span class="btn btn-p btn-sm"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg>Generate PO</span></div>
+              </div>
+            </div>
+          </div>
+          <p class="w-cap">A pump at USD&nbsp;812, at R&nbsp;18.40 to the dollar, is R&nbsp;14&nbsp;941. Add 10% duty, 3.5% clearing and R&nbsp;1&nbsp;850 freight, and it lands at R&nbsp;18&nbsp;807.81.</p>
+          <div class="p-feats">
+            <ul class="w-feats" role="list">
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-send"/></svg></span><b>Quote requests from the plan</b><p>Every quantity your plan needs, for the suppliers you choose.</p></li>
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-inbox"/></svg></span><b>Replies imported, not retyped</b><p>Import each reply and every price lands on the right line.</p></li>
+            </ul>
+            <ul class="w-feats" role="list">
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-receipt"/></svg></span><b>Every cost in the price</b><p>Exchange rate, duty, clearing, freight and other costs added to every supplier price, so you compare what each option really costs.</p></li>
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-user"/></svg></span><b>Your buyer sets the rates</b><p>Exchange rate, duty and clearing are set per quote, so every comparison is like for like.</p></li>
+            </ul>
+          </div>
+        </article>
+
+                <article class="p-panel" id="landed" aria-labelledby="landed-h">
+          <div class="p-panel-hd">
+            <h3 class="w-h2 p-ph" id="landed-h">Compare suppliers on the landed price, not the quoted one.</h3>
+            <p class="w-body">A low quote from overseas can cost more than a local one by the time it reaches your warehouse. Procure lines up every supplier at the landed price and shows, line by line, where the money is saved. Your buyer picks the supplier. The purchase orders follow.</p>
+          </div>
+          <div class="w-frame p-art" data-reveal>
+            <div class="w-float p-lwin" data-landed>
+              <div class="w-winbar">
+  <span class="w-winbar-mk"><svg class="w-mark " viewBox="0 0 32 32" width="16" height="16" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><g transform="translate(4.327 19.457) scale(0.01017)"><path fill="var(--mk-ink,#fff)" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="#0B5CFF" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></g></svg>
+</span>
+  <span class="w-winbar-crumb"><span>VSG Procure</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><span>Karoo Industrial Supply</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><b>Landed cost</b></span>
+  <span class="w-winbar-r"><span class="w-conn"><i></i>ERP<em>connected</em></span></span>
+</div>
+
+              <div class="p-l-top">
+                <div class="p-l-sku"><b>Centrifugal pump 50mm</b><span class="mono">PMP-CF-50</span><span class="p-l-need">60 needed, planned for November</span></div>
+                <div class="p-l-rate">
+                  <span id="p-rate-l">Exchange rate, set by your buyer</span>
+                  <div class="seg" role="group" aria-labelledby="p-rate-l">
+                    <button type="button" class="on" data-rate="18.40" aria-pressed="true"><span class="mono">18.40</span></button>
+                    <button type="button" data-rate="18.90" aria-pressed="false"><span class="mono">18.90</span></button>
+                  </div>
+                </div>
+              </div>
+              <div class="p-l-opts">
+                <div class="p-opt">
+                  <div class="p-opt-hd"><b>Local supplier</b><span class="st st-n"><i></i>Available</span></div>
+                  <p class="p-opt-v w-num">R&nbsp;19&nbsp;370</p>
+                  <p class="p-opt-u">each, landed</p>
+                  <dl class="p-opt-kv"><div><dt>Covers</dt><dd class="mono">4 of 4 lines</dd></div><div><dt>Quote</dt><dd class="mono">Q-0415-L</dd></div></dl>
+                </div>
+
+                <div class="w-flip p-opt-flip">
+                  <div class="w-flip-in">
+                    <div class="w-flip-face w-flip-front p-opt p-opt--a">
+                      <div class="p-opt-hd"><b>Import A</b><span class="st st-a"><i></i>In plan</span></div>
+                      <p class="p-opt-v w-num" data-l="landed" data-format="rand" data-count="18808" data-from="14941" data-dur="1100">R&nbsp;18&nbsp;808</p>
+                      <p class="p-opt-u">each, landed</p>
+                      <dl class="p-opt-kv"><div><dt>Covers</dt><dd class="mono">4 of 4 lines</dd></div><div><dt>Quote</dt><dd class="mono">Q-0418-A</dd></div></dl>
+                      <button class="btn btn-s btn-sm p-opt-b" type="button" data-flip>How is this built?</button>
+                    </div>
+                    <div class="w-flip-face w-flip-back p-opt p-opt--a">
+                      <div class="p-opt-hd"><b>Import A, built up</b><span class="mono p-opt-q">Q-0418-A</span></div>
+                      <table class="tbl p-build">
+                        <caption class="w-sr">How the Import A landed price for one pump is built.</caption>
+                        <tbody>
+                          <tr><td>USD 812 x <span data-l="rate">18.40</span></td><td class="r" data-l="sup" data-format="rand">R&nbsp;14&nbsp;941</td></tr>
+                          <tr><td>Duty, 10%</td><td class="r" data-l="duty" data-format="rand">R&nbsp;1&nbsp;494</td></tr>
+                          <tr><td>Clearing, 3.5%</td><td class="r" data-l="clr" data-format="rand">R&nbsp;523</td></tr>
+                          <tr><td>Freight and other</td><td class="r">R&nbsp;1&nbsp;850</td></tr>
+                          <tr class="p-build-t"><td>Landed</td><td class="r" data-l="landed2" data-format="rand">R&nbsp;18&nbsp;808</td></tr>
+                        </tbody>
+                      </table>
+                      <button class="btn btn-s btn-sm p-opt-b" type="button" data-flip>Back to the total</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-opt p-opt--late">
+                  <div class="p-opt-hd"><b>Import B</b><span class="st st-w"><i></i>Partial quote</span></div>
+                  <p class="p-opt-v w-num" data-l="b" data-format="rand">R&nbsp;18&nbsp;506</p>
+                  <p class="p-opt-u">each, landed</p>
+                  <dl class="p-opt-kv"><div><dt>Covers</dt><dd class="mono">2 of 4 lines</dd></div><div><dt>Quote</dt><dd class="mono">Q-0421-B</dd></div></dl>
+                </div>
+              </div>
+              <div class="pf p-l-note" aria-live="polite"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4.2 10.4 8 14l7.8-8"/></svg><span data-l="note">Import A covers the full order and beats the local supplier by <b class="w-num">R&nbsp;562</b> a pump.</span></div>
+            </div>
+          </div>
+          <p class="w-cap">Change the exchange rate and Import A recalculates. Turn the card to see how R&nbsp;18&nbsp;808 is built at R&nbsp;18.40 to the dollar.</p>
+          <div class="p-feats">
+            <ul class="w-feats" role="list">
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-factory"/></svg></span><b>Local against import</b><p>Every supplier side by side, per unit, at the landed price.</p></li>
+            </ul>
+            <ul class="w-feats" role="list">
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-list"/></svg></span><b>The whole order in view</b><p>The cheapest landed price on every line, and which supplier covers the full order.</p></li>
+            </ul>
+          </div>
+        </article>
+
+                <article class="p-panel" id="container" aria-labelledby="container-h">
+          <div class="p-panel-hd">
+            <h3 class="w-h2 p-ph" id="container-h">Fill every container you pay for.</h3>
+            <p class="w-body">You pay for the whole container, full or not. Procure shows how full every import container is by weight, and exactly how much more weight it can take while the order is still open. Top it up before it sails, not after.</p>
+          </div>
+          <div class="w-frame p-art p-cart" data-container data-reveal data-pause-offscreen>
+            <div class="p-c-scene">
+              <div class="w-fit" data-w="620">
+                <div class="w-fit-in">
+                  <div class="w-iso p-iso" role="img" aria-label="A 40 foot container, drawn with the front wall cut away and the doors open at the near end, loaded by weight: centrifugal pumps 7 800 kilograms and epoxy paint 9 100 kilograms, with bearings, 17 200 of 20 000 kilograms, 86 percent, with room for 2 800 more. A dashed space by the doors shows where 2 750 kilograms of PVC pipe would go.">
+                    <div class="w-iso-world p-iso-world">
+                      <div class="p-box">
+                        <i class="p-box-floor"></i><i class="p-box-back"></i><i class="p-box-end"></i><i class="p-box-roof"></i>
+                        <i class="p-box-post"></i><i class="p-box-post p-box-post--r"></i><i class="p-box-post p-box-post--b"></i>
+                        <i class="p-box-door"></i>
+                      </div>
+                      <div class="p-load p-load--1"><div class="w-cube w-cube--acc" style="--x:260px;--y:10px;--w:280px;--d:100px;--h:44px"><i class="w-cube-top"></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div></div>
+                      <div class="p-load p-load--2"><div class="w-cube" style="--x:96px;--y:10px;--w:164px;--d:100px;--h:40px"><i class="w-cube-top"></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div></div>
+                      <div class="p-load p-load--3"><div class="w-cube p-cube-g" style="--x:2px;--y:10px;--w:94px;--d:100px;--h:40px"><i class="w-cube-top"></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div></div>
+                    </div>
+                    <span class="p-ctag p-ctag--a"><i class="p-sw p-sw--a"></i>Pumps<b>7&nbsp;800 kg</b></span>
+                    <span class="p-ctag p-ctag--b"><i class="p-sw p-sw--b"></i>Epoxy paint<b>9&nbsp;100 kg</b></span>
+                    <span class="p-ctag p-ctag--g"><i class="p-sw p-sw--g"></i>Room for 2&nbsp;800 kg</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-float p-cwin">
+              <div class="w-float-pad">
+                <div class="p-cw-hd"><p class="lbl">40ft container, Import A</p></div>
+                <p class="p-cw-v"><b class="w-num" data-c="pct" data-format="dec" data-dp="1" data-suffix="%">86.0%</b><span>full by weight</span></p>
+                <div class="p-bar" aria-hidden="true"><i class="p-bar-a"></i><i class="p-bar-g"></i></div>
+                <p class="p-cw-t"><span class="w-num" data-c="t">17&nbsp;200</span> of 20&nbsp;000 kg</p>
+                <ul class="p-cw-list" role="list">
+                  <li><i class="p-sw p-sw--a"></i>Centrifugal pumps 50mm<span class="mono">7&nbsp;800 kg</span></li>
+                  <li><i class="p-sw p-sw--b"></i>Epoxy floor paint, 350 &times; 20L<span class="mono">9&nbsp;100 kg</span></li>
+                  <li><i class="p-sw p-sw--b"></i>Bearings 6205<span class="mono">300 kg</span></li>
+                  <li class="p-cw-add"><i class="p-sw p-sw--g"></i>PVC pipe 110mm<span class="mono">2&nbsp;750 kg</span></li>
+                </ul>
+                <div class="p-sug" data-sug>
+                  <p><b>2&nbsp;800 kg left to fill.</b> Your buyer can bring forward stock the plan needs anyway, such as 125 lengths of PVC pipe for December, 2&nbsp;750 kg.</p>
+                  <div class="p-sug-acts">
+                    <button class="btn btn-p btn-sm" type="button" data-add aria-pressed="false">Add to this order</button>
+                    <span class="p-sug-done" data-added hidden><span class="st st-ok"><i></i>Added, 99.8% full</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="w-cap">A 40ft container, loaded by weight. Point at the note to preview the next item going in.</p>
+          <div class="p-feats">
+            <ul class="w-feats" role="list">
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-list"/></svg></span><b>Weight left to fill</b><p>See exactly how many kilograms each container can still take.</p></li>
+            </ul>
+            <ul class="w-feats" role="list">
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg></span><b>Less freight per unit</b><p>The fuller the container, the less freight each item carries.</p></li>
+            </ul>
+          </div>
+        </article>
+
+                <article class="p-panel" id="orderfile" aria-labelledby="orderfile-h">
+          <div class="p-panel-hd">
+            <h3 class="w-h2 p-ph" id="orderfile-h">Review the plan. <span class="w-mute">Then generate purchase orders ready for your ERP.</span></h3>
+            <p class="w-body">Before a cent is committed, a second pair of eyes. Export the plan and a colleague reviews a separate version while yours stays exactly as you left it. Once it has been checked, Procure generates the purchase orders as a file ready to import into your ERP. Prices already agreed? Buyers go straight from plan to purchase order, with no new quotes needed.</p>
+          </div>
+          <div class="w-frame p-art p-oart" data-orderfile data-reveal data-pause-offscreen>
+            <div class="p-of-scene">
+              <div class="w-fit" data-w="620">
+                <div class="w-fit-in">
+                  <div class="p-of is-hot" aria-hidden="true">
+                    <div class="p-of-rig">
+                                            <div class="p-of-plate p-of-plate--q">
+                        <div class="p-of-q p-of-q--h"><span>Quotes on file</span></div>
+                        <div class="p-of-q" data-q="a" style="--r0:1;--rn:3"><b>Q-0418-A</b><span>Import A</span></div>
+                        <div class="p-of-q" data-q="l" style="--r0:4;--rn:1"><b>Q-0415-L</b><span>Local supplier</span></div>
+                        <div class="p-of-q is-hot" data-q="f" style="--r0:5;--rn:1"><b>Q-0416-L</b><span>Local supplier</span></div>
+                        <span class="p-of-rs" style="--r:1" data-q="a"><i></i></span>
+                        <span class="p-of-rs" style="--r:2" data-q="a"><i></i></span>
+                        <span class="p-of-rs" style="--r:3" data-q="a"><i></i></span>
+                        <span class="p-of-rs" style="--r:4" data-q="l"><i></i></span>
+                        <span class="p-of-rs is-hot" style="--r:5" data-q="f"><i></i></span>
+                      </div>
+                                            <div class="p-of-plate p-of-plate--f">
+                        <div class="p-of-r p-of-r--h"><b>PO-W38.xlsx</b><span>14 lines</span></div>
+                        <div class="p-of-r" style="--r:1" data-q="a"><b>PMP-CF-50</b><span>Pump 50mm</span><em>60</em></div>
+                        <div class="p-of-r" style="--r:2" data-q="a"><b>PNT-EPX-20</b><span>Epoxy paint 20L</span><em>1 200</em></div>
+                        <div class="p-of-r" style="--r:3" data-q="a"><b>PVC-110-6M</b><span>PVC pipe 110mm</span><em>125</em></div>
+                        <div class="p-of-r" style="--r:4" data-q="l"><b>CVB-EP400-3P</b><span>Conveyor belt</span><em>1 200 m</em></div>
+                        <div class="p-of-r is-hot" style="--r:5" data-q="f"><b>SFB-STC-08</b><span>Safety boot 8</span><em>400</em></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-float p-owin">
+              <div class="w-winbar">
+  <span class="w-winbar-mk"><svg class="w-mark " viewBox="0 0 32 32" width="16" height="16" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><g transform="translate(4.327 19.457) scale(0.01017)"><path fill="var(--mk-ink,#fff)" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="#0B5CFF" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></g></svg>
+</span>
+  <span class="w-winbar-crumb"><span>VSG Procure</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><span>Karoo Industrial Supply</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><b>Review</b></span>
+  <span class="w-winbar-r"><span class="w-conn"><i></i>ERP<em>connected</em></span></span>
+</div>
+
+              <div class="w-float-pad">
+                <div class="p-cw-hd"><p class="lbl">Review, week 38 plan</p></div>
+                <p class="p-rv-ban"><svg class="w-i" aria-hidden="true"><use href="#i-eye"/></svg>A colleague's copy of your plan. Your own Analysis stays as you left it.</p>
+                <p class="p-cw-v"><b class="w-num" data-count="14" data-from="0" data-dur="1400">14</b><span>of 14 lines matched to a quote</span></p>
+                <ul class="p-trace" role="list">
+                  <li><button type="button" data-q="a"><b>Pump 50mm</b><span class="mono">60</span><span class="p-trace-q mono">Q-0418-A</span></button></li>
+                  <li><button type="button" data-q="a"><b>Epoxy paint 20L</b><span class="mono">1&nbsp;200</span><span class="p-trace-q mono">Q-0418-A</span></button></li>
+                  <li><button type="button" data-q="a"><b>PVC pipe 110mm</b><span class="mono">125</span><span class="p-trace-q mono">Q-0418-A</span></button></li>
+                  <li><button type="button" data-q="l"><b>Conveyor belt</b><span class="mono">1&nbsp;200&nbsp;m</span><span class="p-trace-q mono">Q-0415-L</span></button></li>
+                  <li><button type="button" data-q="f" class="is-hot"><b>Safety boot 8</b><span class="mono">400</span><span class="p-trace-q mono">Q-0416-L</span></button></li>
+                </ul>
+                <div class="p-rv-ft">
+                  <span class="btn btn-p btn-sm" aria-hidden="true"><svg class="w-i"><use href="#i-doc"/></svg>Generate PO</span>
+                  <p class="p-ow-foot"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg>Your team imports it. Procure changes nothing in your ERP.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="w-cap">Five of the fourteen lines on this week&rsquo;s plan. Point at a line to see its supplier and price.</p>
+          <div class="p-feats">
+            <ul class="w-feats" role="list">
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg></span><b>Plans your team can review</b><p>Export the plan and a colleague checks a separate copy.</p></li>
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg></span><b>Purchase orders ready for your ERP</b><p>Stock code, warehouse, quantity, price and supplier on every line, in a file ready to import into your ERP.</p></li>
+            </ul>
+            <ul class="w-feats" role="list">
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-trace"/></svg></span><b>Every line traceable</b><p>Each purchase order line carries its supplier, its buyer and your reference.</p></li>
+              <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg></span><b>Your team stays in control</b><p>Nothing changes in your ERP until your team imports the purchase orders.</p></li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w-sec w-dark p-cf" aria-labelledby="p-cf-h">
+  <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap">
+    <div class="w-split p-cf-grid">
+      <div class="p-cf-copy">
+        <h2 class="w-h2" id="p-cf-h">Free up the cash on your shelves. <span class="w-mute">Plan every month before you buy.</span></h2>
+        <p class="w-body">Surplus stock is cash on a shelf. VSG Procure values every unit above your target at what you paid for it, so you see exactly how much cash is tied up, and in which items. Three numbers keep every month of buying honest.</p>
+        <dl class="p-cf-facts">
+          <div><dt>Cash above target</dt><dd>The value of stock above your target, at cost. Stop reordering it or sell it down, and the cash comes back.</dd></div>
+          <div><dt>Buy-up cash factor</dt><dd>Each month&rsquo;s planned and ordered buying against an average month&rsquo;s sales, so a heavy month shows before the cash goes out.</dd></div>
+          <div><dt>Stock-out risk</dt><dd>Items about to run out come first, so cash goes where it earns.</dd></div>
+        </dl>
+      </div>
+      <figure class="p-cf-art" data-reveal>
+        <div class="w-float p-cfwin">
+          <div class="w-winbar">
+  <span class="w-winbar-mk"><svg class="w-mark " viewBox="0 0 32 32" width="16" height="16" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><g transform="translate(4.327 19.457) scale(0.01017)"><path fill="var(--mk-ink,#fff)" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="#0B5CFF" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></g></svg>
+</span>
+  <span class="w-winbar-crumb"><span>VSG Procure</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><span>Karoo Industrial Supply</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><b>Cash and buying</b></span>
+  <span class="w-winbar-r"><span class="w-conn"><i></i>ERP<em>connected</em></span></span>
+</div>
+
+          <div class="w-float-pad">
+            <div class="p-cf-top">
+              <div><p class="lbl">Cash above target</p><b class="w-num">R&nbsp;2.4m</b></div>
+              <span>Stock above target, 56 items, valued at cost</span>
+            </div>
+            <ul class="p-cf-cls" role="list">
+              <li><span>Fasteners</span><i style="--p:1.000"></i><b class="w-num">R&nbsp;612&nbsp;000</b></li>
+              <li><span>Paint</span><i style="--p:0.882"></i><b class="w-num">R&nbsp;540&nbsp;000</b></li>
+              <li><span>Pipe</span><i style="--p:0.683"></i><b class="w-num">R&nbsp;418&nbsp;000</b></li>
+              <li><span>Cable</span><i style="--p:0.637"></i><b class="w-num">R&nbsp;390&nbsp;000</b></li>
+              <li><span>Bearings</span><i style="--p:0.428"></i><b class="w-num">R&nbsp;262&nbsp;000</b></li>
+              <li><span>Other</span><i style="--p:0.291"></i><b class="w-num">R&nbsp;178&nbsp;000</b></li>
+            </ul>
+            <div class="p-cf-bh"><p class="lbl">Buy-up cash factor</p><span class="mono">Flag at 1.5&times;</span></div>
+            <div class="p-cf-bars" role="img" aria-label="Buy-up cash factor by month: October 0.84, November 1.24, the peak, December 0.97, January 0.72, February 1.05. Months above 1.5 are flagged.">
+              <i class="p-cf-line" aria-hidden="true"></i>
+              <span style="--v:0.84"><b>&times;0.84</b><i></i><em>Oct</em></span>
+              <span style="--v:1.24" class="is-peak"><b>&times;1.24</b><i></i><em>Nov</em></span>
+              <span style="--v:0.97"><b>&times;0.97</b><i></i><em>Dec</em></span>
+              <span style="--v:0.72"><b>&times;0.72</b><i></i><em>Jan</em></span>
+              <span style="--v:1.05"><b>&times;1.05</b><i></i><em>Feb</em></span>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="w-sec w-bg-canvas" aria-labelledby="p-ai-h">
+  <div class="w-wrap">
+    <div class="w-head">
+      <h2 class="w-h2" id="p-ai-h">Procure forecasts. <span class="w-mute">Your buyers decide.</span></h2>
+      <p class="w-lead">The forecast is plain arithmetic from your own sales, open for every buyer to check. What to buy, from whom and at what price stays their call.</p>
+    </div>
+    <div class="w-split p-ai">
+      <div class="w-frame p-ai-art" data-reveal>
+        <div class="w-float p-twin" data-trend>
+          <div class="w-winbar">
+  <span class="w-winbar-mk"><svg class="w-mark " viewBox="0 0 32 32" width="16" height="16" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><g transform="translate(4.327 19.457) scale(0.01017)"><path fill="var(--mk-ink,#fff)" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="#0B5CFF" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></g></svg>
+</span>
+  <span class="w-winbar-crumb"><span>VSG Procure</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><span>Karoo Industrial Supply</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><b>12-month sales trend</b></span>
+  <span class="w-winbar-r"><span class="w-conn"><i></i>ERP<em>connected</em></span></span>
+</div>
+
+          <div class="w-float-pad">
+            <div class="p-t-hd">
+              <div class="p-hw-title"><b>Centrifugal pump 50mm</b><span class="mono">PMP-CF-50</span></div>
+              <span class="chip">Dec / Jan: holiday slowdown built in</span>
+            </div>
+            <div class="p-bars" role="img" aria-label="Units sold each month for the last 12 months, October to September: 22, 24, 14, 12, 16, 19, 21, 23, 22, 20, 24 and 23, 240 in total. The forecast for the next five months, October to February: 20, 20, 10, 10 and 20.">
+              <div class="p-bars-in">
+                <span style="--v:22"><i></i><em>O</em></span><span style="--v:24"><i></i><em>N</em></span><span style="--v:14"><i></i><em>D</em></span><span style="--v:12"><i></i><em>J</em></span>
+                <span style="--v:16"><i></i><em>F</em></span><span style="--v:19"><i></i><em>M</em></span><span style="--v:21"><i></i><em>A</em></span><span style="--v:23"><i></i><em>M</em></span>
+                <span style="--v:22"><i></i><em>J</em></span><span style="--v:20"><i></i><em>J</em></span><span style="--v:24"><i></i><em>A</em></span><span style="--v:23"><i></i><em>S</em></span>
+                <span class="p-fc" style="--v:20;--k:0"><i></i><em>O</em></span><span class="p-fc" style="--v:20;--k:1"><i></i><em>N</em></span><span class="p-fc" style="--v:10;--k:2"><i></i><em>D</em></span><span class="p-fc" style="--v:10;--k:3"><i></i><em>J</em></span><span class="p-fc" style="--v:20;--k:4"><i></i><em>F</em></span>
+              </div>
+              <div class="p-bars-k" aria-hidden="true"><span><i class="p-k p-k--act"></i>Sold, last 12 months</span><span><i class="p-k p-k--fc"></i>Forecast</span></div>
+            </div>
+            <div class="p-t-ft">
+              <div><span>12-month total</span><b class="mono">240</b></div>
+              <div><span>Average a month</span><b class="mono">20</b></div>
+              <div><span>Trend</span><b class="mono p-up">+8%</b></div>
+            </div>
+          </div>
+        </div>
+        <p class="w-cap p-ai-cap">Twelve months of sales, then the five-month forecast in blue.</p>
+      </div>
+      <div class="p-ai-lists">
+        <div class="p-ai-col">
+          <p class="p-ai-h"><span class="st st-n"><i></i>The forecast</span></p>
+          <ul class="w-feats" role="list">
+            <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-hist"/></svg></span><b>Your own sales, item by item</b><p>The last twelve months of what you actually sold. Not an industry average.</p></li>
+            <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-cal"/></svg></span><b>Seasonality built in</b><p>December and January count at half, for the holiday slowdown.</p></li>
+            <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-trace"/></svg></span><b>A forecast you can check</b><p>Plain arithmetic, not a black box. Every number traces back to your own sales.</p></li>
+          </ul>
+        </div>
+        <div class="p-ai-col">
+          <p class="p-ai-h"><span class="st st-a"><i></i>Your people</span></p>
+          <ul class="w-feats" role="list">
+            <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-user"/></svg></span><b>Set the target and the rates</b><p>How many months of stock to hold, and the exchange rate, duty and clearing for each quote.</p></li>
+            <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg></span><b>Plan every quantity</b><p>Buyers set every order quantity, month by month, and choose the supplier.</p></li>
+            <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg></span><b>Generate the purchase orders</b><p>Your buyers generate them, and your team imports them into your ERP when ready.</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w-sec w-bg-white" aria-labelledby="p-fit-h">
+  <div class="w-wrap">
+    <div class="w-split p-live">
+      <div>
+        <h2 class="w-h2" id="p-fit-h">Built for businesses that hold stock. <span class="w-mute">We handle the setup.</span></h2>
+        <p class="w-body p-fit-p">Manufacturers, distributors, wholesalers and retailers that buy locally, import, or both. If your buyers juggle hundreds or thousands of items and too much of your cash sits on the shelf, VSG Procure was built for you.</p>
+        <ol class="p-live-rows" role="list">
+          <li><span class="p-live-ic"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg></span><div><b>Set up for you.</b> <span>We connect Procure to your ERP across every warehouse.</span></div></li>
+          <li><span class="p-live-ic"><svg class="w-i" aria-hidden="true"><use href="#i-server"/></svg></span><div><b>Your own server or South African hosting.</b> <span>Your data stays in South Africa.</span></div></li>
+          <li><span class="p-live-ic"><svg class="w-i" aria-hidden="true"><use href="#i-layers"/></svg></span><div><b>Part of VSG ACE.</b> <span>VSG Core comes with it, so your dashboards and reports run on the same ERP data your buyers plan from. <a href="/core">How VSG Core works</a>.</span></div></li>
+        </ol>
+      </div>
+      <div class="w-frame w-frame--sunk p-live-art" data-reveal>
+        <div class="w-float p-conn" data-hover-tilt="3">
+          <div class="w-winbar">
+  <span class="w-winbar-mk"><svg class="w-mark " viewBox="0 0 32 32" width="16" height="16" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><g transform="translate(4.327 19.457) scale(0.01017)"><path fill="var(--mk-ink,#fff)" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="#0B5CFF" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></g></svg>
+</span>
+  <span class="w-winbar-crumb"><span>VSG Procure</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><span>Karoo Industrial Supply</span><svg class="w-i" aria-hidden="true"><use href="#i-chev"/></svg><b>Setup / Connect</b></span>
+  <span class="w-winbar-r"><span class="w-conn"><i></i>ERP<em>connected</em></span></span>
+</div>
+
+          <div class="w-float-pad">
+            <ol class="p-stp" role="list" aria-label="Setup steps">
+              <li class="is-done"><i>1</i>Data source</li>
+              <li class="is-done"><i>2</i>Choose what to load</li>
+              <li class="is-on"><i>3</i>Connect</li>
+            </ol>
+            <div class="p-conn-hd">
+              <div><b>Connect to your ERP</b><span>A secure connection. Your connection details stay on your server.</span></div>
+              <span class="st st-ok"><i></i>Connected</span>
+            </div>
+            <div class="p-conn-cls">
+              <p class="lbl">Product classes and warehouses to load</p>
+              <ul class="p-cls p-cls--sel" role="list"><li>Bearings</li><li>Belting</li><li>Pipe</li><li>Cable</li><li>Fasteners</li><li>Safety</li><li>Paint</li><li>Pumps</li><li class="p-cls-w">Main warehouse</li></ul>
+            </div>
+            <ul class="p-perm" role="list">
+              <li><svg class="w-i p-ok" aria-hidden="true"><use href="#i-check"/></svg>Sync stock levels<span class="mono">On</span></li>
+              <li><svg class="w-i p-ok" aria-hidden="true"><use href="#i-check"/></svg>Sync sales history<span class="mono">On</span></li>
+              <li><svg class="w-i p-ok" aria-hidden="true"><use href="#i-check"/></svg>Sync purchase orders<span class="mono">On</span></li>
+              <li class="is-off"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg>Change anything in your ERP<span class="mono">Never</span></li>
+            </ul>
+            <div class="p-conn-ft"><span>Changes made in your ERP</span><b class="w-num">0</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w-sec w-bg-canvas" aria-labelledby="p-faq-h">
+  <div class="w-wrap">
+    <div class="p-faq">
+      <div class="p-faq-hd">
+        <h2 class="w-h2" id="p-faq-h">Frequently asked questions.</h2>
+        <p class="w-body">Have another question? <a href="/contact?topic=contact">Talk to our team</a>.</p>
+      </div>
+      <div class="p-faq-list">
+        <details class="p-q" open>
+          <summary><span>Does Procure change anything in my ERP?</span><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <p>No. VSG Procure never changes anything in your ERP. Procure generates purchase orders as a file, and your team checks and imports them.</p>
+        </details>
+        <details class="p-q">
+          <summary><span>Does Procure create purchase orders?</span><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <p>Yes. Your buyers generate purchase orders straight from the plan, or after comparing quotes. Procure creates them as a file ready to import into your ERP, with stock code, warehouse, quantity, price, supplier, buyer and your reference on every line. Your team imports them. Procure never writes into your ERP.</p>
+        </details>
+        <details class="p-q">
+          <summary><span>How does the forecast work?</span><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <p>Procure averages each item&rsquo;s last twelve months of sales, with December and January counted at half for the holiday slowdown, and projects stock five months ahead, including orders already placed or planned. Your buyers set the target and every order quantity.</p>
+        </details>
+        <details class="p-q">
+          <summary><span>What kind of stock does it handle?</span><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <p>Any stocked item you buy locally or import. We confirm the fit on your own range during the demo.</p>
+        </details>
+        <details class="p-q">
+          <summary><span>Where does it run?</span><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <p>On your own server or South African hosting. Your data stays in South Africa.</p>
+        </details>
+        <details class="p-q">
+          <summary><span>What does it cost?</span><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <p>A fixed price, set by the size of your range and your setup, agreed with you before any work starts. Not sure where to start? A five-day <a href="/bootcamp">VSG Bootcamp</a> puts a cost on every stock and buying issue first.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w-sec w-dark w-cta" aria-label="Request a demo">
+  <div class="w-glow w-glow--cta" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap w-cta-in">
+    <h2 class="w-h2">See VSG Procure on a range like yours.</h2>
+    <p class="w-lead">We walk you through the forecast, the cash view, supplier comparison and purchase orders, on a range like yours.</p>
+    <div class="w-actions w-actions--center">
+      <a class="btn btn-p btn-xl" href="/contact?topic=procure-demo">Request a demo</a>
+      <a class="btn btn-s btn-xl" href="/contact?topic=contact">Contact us</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="w-foot" id="site-footer">
+  <div class="w-wrap">
+    <div class="w-foot-grid">
+      <div class="w-foot-brand">
+        <a class="w-logo" href="/" aria-label="VSG home"><svg class="w-wordmark" viewBox="-32.2 -736.3 2360.7 792.6" height="24" width="71" aria-hidden="true" focusable="false"><path fill="currentColor" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="var(--wm-dot,#0B5CFF)" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></svg>
+</a>
+        <p>An AI company that specializes in operations. VSG ACE is the AI platform for operations, for South African manufacturers, distributors, wholesalers and retailers.</p>
+      </div>
+      <nav class="w-foot-col" aria-label="Platform">
+        <p class="w-foot-h">Platform</p>
+        <a href="/ace">VSG ACE</a>
+        <a href="/core">VSG Core</a>
+        <a href="/endorse">VSG Endorse</a>
+        <a href="/procure">VSG Procure</a>
+        <a href="/custom">Custom applications</a>
+      </nav>
+      <nav class="w-foot-col" aria-label="Get started">
+        <p class="w-foot-h">Get started</p>
+        <a href="/bootcamp">VSG Bootcamp</a>
+        <a href="/contact?topic=ace">Request a demo</a>
+      </nav>
+      <nav class="w-foot-col" aria-label="Company">
+        <p class="w-foot-h">Company</p>
+        <a href="/about">About VSG</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+    <div class="w-foot-base">
+      <p>&copy; 2026 VSG Tech Solutions (Pty) Ltd. Cape Town, South Africa.</p>
+      <p><a href="/privacy">Privacy</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

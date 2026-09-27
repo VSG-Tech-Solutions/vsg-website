@@ -5,24 +5,138 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/source",
+      "destination": "/procure",
+      "permanent": true
+    },
+    {
+      "source": "/source.html",
+      "destination": "/procure",
+      "permanent": true
+    },
+    {
+      "source": "/ai-systems",
+      "destination": "/custom",
+      "permanent": true
+    },
+    {
+      "source": "/ai-systems.html",
+      "destination": "/custom",
+      "permanent": true
+    },
+    {
+      "source": "/automation",
+      "destination": "/custom",
+      "permanent": true
+    },
+    {
+      "source": "/automation.html",
+      "destination": "/custom",
+      "permanent": true
+    },
+    {
+      "source": "/bespoke",
+      "destination": "/custom",
+      "permanent": true
+    },
+    {
+      "source": "/bespoke.html",
+      "destination": "/custom",
+      "permanent": true
+    },
+    {
+      "source": "/crm",
+      "destination": "/custom",
+      "permanent": true
+    },
+    {
+      "source": "/crm.html",
+      "destination": "/custom",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/custom",
+      "permanent": true
+    },
+    {
+      "source": "/services.html",
+      "destination": "/custom",
+      "permanent": true
+    },
+    {
+      "source": "/how-it-works",
+      "destination": "/bootcamp",
+      "permanent": true
+    },
+    {
+      "source": "/how-it-works.html",
+      "destination": "/bootcamp",
+      "permanent": true
+    },
+    {
+      "source": "/logos",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/logos.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pace",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pace.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/vantage",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ace.html",
+      "destination": "/ace",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
-      "source": "/(.*)\\.jsx",
+      "source": "/(.*)",
       "headers": [
-        { "key": "Content-Type", "value": "text/babel; charset=utf-8" },
-        { "key": "Cache-Control", "value": "public, max-age=300" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     },
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
-      "source": "/fonts/(.*)",
+      "source": "/kit",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
       ]
     }
   ]

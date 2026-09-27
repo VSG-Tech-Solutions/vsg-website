@@ -1,0 +1,51 @@
+<!-- The import lane globe for VSG Procure. Its point: the cheapest quote is no good if it lands after your stock runs out.
+     Shanghai to Durban, Import A (in Durban day 48) against
+     Import B (day 74) and the day cover runs out (day 61). Sample data, Karoo Industrial Supply, a 50mm centrifugal pump.
+     Canvas with JS; without JS a flat SVG lane shows the same facts. Ships sail on a slow loop while
+     in view; the day slider and the pause button take over. Params: class ("w-globe--light" for a
+     light frame; default is drawn for an obsidian section). Usage: {{> globe}} -->
+<div class="w-globe {{class}}" data-globe>
+  <div class="w-globe-stage">
+    <canvas class="w-globe-cv" role="img" aria-label="Globe with the sea lane from Shanghai to Durban, through the South China Sea, Singapore and the Indian Ocean. Import A reaches Durban on day 48, before cover runs out on day 61. Import B reaches Durban on day 74, 13 days after cover runs out."></canvas>
+    <svg class="w-globe-flat" viewBox="0 0 640 220" role="img" aria-labelledby="w-globe-flat-t">
+      <title id="w-globe-flat-t">Three quotes for a 50mm centrifugal pump on one timeline. Local supplier in 7 days. Import A in Durban on day 48. Import B in Durban on day 74, after cover runs out on day 61.</title>
+      <g font-family="IBM Plex Mono, monospace" font-size="12" fill="currentColor">
+        <line x1="40" y1="190" x2="600" y2="190" stroke="currentColor" stroke-opacity=".3"/>
+        <line x1="467" y1="20" x2="467" y2="190" stroke="#FF6B55" stroke-dasharray="3 4"/>
+        <text x="467" y="210" text-anchor="middle" fill="#FF6B55">Cover out D61</text>
+        <text x="40" y="210">D0</text><text x="600" y="210" text-anchor="end">D80</text>
+        <line x1="40" y1="50" x2="89" y2="50" stroke="currentColor" stroke-width="2"/><circle cx="89" cy="50" r="4" fill="currentColor"/>
+        <text x="40" y="38">Local supplier, 7 days</text>
+        <line x1="40" y1="100" x2="376" y2="100" stroke="#5C8DFF" stroke-width="2"/><circle cx="376" cy="100" r="4" fill="#5C8DFF"/>
+        <text x="40" y="88">Import A, Durban day 48, in time</text>
+        <line x1="40" y1="150" x2="558" y2="150" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/><circle cx="558" cy="150" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="40" y="138">Import B, Durban day 74, too late</text>
+      </g>
+    </svg>
+    <div class="w-globe-ctl">
+      <button class="w-globe-b" type="button" data-globe-play aria-pressed="true" aria-label="Sail the ships"><svg class="w-i w-globe-pause" aria-hidden="true"><use href="#i-pause"/></svg><svg class="w-i w-globe-play" aria-hidden="true"><use href="#i-play"/></svg></button>
+    </div>
+  </div>
+  <div class="w-globe-day">
+    <div class="w-globe-dh">
+      <label for="{{id|w-globe-day}}">Day from order</label>
+      <output class="w-globe-out" for="{{id|w-globe-day}}">D61</output>
+      <span class="w-globe-cov is-out">Cover runs out on D61</span>
+    </div>
+    <div class="w-globe-rng">
+      <div class="w-globe-marks" aria-hidden="true">
+        <span style="left:8.75%">Local D7</span>
+        <span class="is-a" style="left:60%">A D48</span>
+        <span class="is-c" style="left:76.25%">Cover D61</span>
+        <span style="left:92.5%">B D74</span>
+      </div>
+      <input class="w-globe-in" type="range" id="{{id|w-globe-day}}" min="0" max="80" step="1" value="61" aria-valuetext="Day 61. Local supplier delivered on day 7. Import A in Durban since day 48. Import B at sea, 13 days out. Cover runs out on day 61.">
+    </div>
+  </div>
+  <ul class="w-globe-tel" role="list">
+    <li><span class="w-globe-n">Local supplier</span><span class="w-globe-bar"><i style="--p:100%"></i></span><span class="w-globe-s" data-s="local">Delivered on D7</span></li>
+    <li class="is-a"><span class="w-globe-n">Import A</span><span class="w-globe-bar"><i style="--p:100%"></i></span><span class="w-globe-s" data-s="a">In Durban since D48</span></li>
+    <li><span class="w-globe-n">Import B</span><span class="w-globe-bar"><i style="--p:82%"></i></span><span class="w-globe-s" data-s="b">At sea, 13 days out, ETA D74</span></li>
+  </ul>
+  <p class="w-cap">A 50mm centrifugal pump, landed price each: local supplier R&nbsp;19&nbsp;370, Import A R&nbsp;18&nbsp;808, Import B R&nbsp;18&nbsp;506. Import B is cheapest, but it lands 13 days after the shelf is empty.</p>
+</div>

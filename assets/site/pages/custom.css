@@ -1,0 +1,223 @@
+/* Custom software and AI (/custom). Page classes start with "c-". Layout with tokens only;
+   shared classes are never restyled. */
+
+/* ---------------------------------------------------------------- hero */
+.c-hero{padding-bottom:clamp(96px,11vw,168px)}
+.c-hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(40px,5vw,80px);align-items:center}
+.c-hero-copy{display:grid;justify-items:start}
+.c-hero-copy .w-chip{margin-bottom:28px}
+.c-hero-copy .w-h1{max-width:15ch}
+.c-hero-copy .w-lead{margin-top:24px;max-width:46ch}
+.c-hero-art{position:relative;min-width:0;padding:0 8px 152px 40px}
+
+/* the stack of floating screens: a quote desk behind, two mini screens in front */
+.c-stack{position:relative}
+.c-lay{position:absolute;z-index:2}
+.c-lay--flow{left:-44px;top:calc(100% - 132px);width:244px}
+.c-lay--ai{right:-16px;top:calc(100% - 6px);width:336px}   /* clears the quote desk footnote */
+.c-lay .w-float--mini{display:block;width:100%}
+@media (prefers-reduced-motion:no-preference){
+  .c-in{animation:c-settle .6s var(--w-ease) both}
+  .c-in--2{animation-delay:.28s}
+  .c-in--3{animation-delay:.56s}
+}
+@keyframes c-settle{from{opacity:0;transform:translateY(18px) scale(.985)}}
+
+.c-desk-main{background:var(--card)}
+.c-desk-hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px 10px}
+.c-desk-hd b{font-size:var(--t-md);font-weight:var(--w-semi);letter-spacing:-.012em}
+@container (max-width:520px){.c-hide-s{display:none}}
+
+.c-mini-hd{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.c-mini-hd b{font-size:var(--t-md);font-weight:var(--w-semi);letter-spacing:-.012em}
+.c-mini-hd>:last-child{margin-left:auto}
+.c-mini-ic{display:grid;place-items:center;width:26px;height:26px;border-radius:var(--r-sm);background:var(--sunk);color:var(--fg);flex:none}
+.c-mini-ic .w-i{width:14px;height:14px}
+.c-mini-ic--ai{background:var(--acc2s);color:var(--acc2-ink)}
+.c-flow-t{font-size:var(--t-xs);color:var(--fg2)}
+.c-flow-ft{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.c-ai-acts{padding-top:2px}
+
+/* step markers, shared by the workflow card and the build log */
+.c-steps{display:grid;gap:2px;margin:0;padding:0}
+.c-steps li{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:var(--t-sm);color:var(--fg)}
+.c-steps li i,.c-log-list li i{position:relative;display:block;width:16px;height:16px;border-radius:50%;flex:none;
+  box-shadow:inset 0 0 0 1.5px var(--line2);transition:background-color .24s var(--w-ease),box-shadow .24s var(--w-ease)}
+.c-steps li.is-done i,.c-log-list li.is-done i{background:var(--ok);box-shadow:none}
+.c-steps li.is-done i::after,.c-log-list li.is-done i::after{content:"";position:absolute;left:5.5px;top:3.5px;width:4px;height:7px;
+  border:solid #fff;border-width:0 1.8px 1.8px 0;transform:rotate(45deg)}
+.c-steps li.is-run i,.c-log-list li.is-run i{box-shadow:inset 0 0 0 1.5px var(--acc)}
+.c-steps li.is-run i::after,.c-log-list li.is-run i::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--acc)}
+@media (prefers-reduced-motion:no-preference){
+  .c-steps li.is-run i::after,.c-log-list li.is-run i::after{animation:c-breathe 2.4s var(--w-ease-io) infinite alternate}
+}
+@keyframes c-breathe{to{transform:scale(.55);opacity:.55}}
+.c-steps li:not(.is-done):not(.is-run),.c-log-list li:not(.is-done):not(.is-run){color:var(--fg2)}
+
+/* -------------------------------------------------------- three kinds */
+.c-bento{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:var(--w-gap)}
+.c-tile-ai{grid-column:1/-1}
+@media (max-width:860px){.c-bento{grid-template-columns:1fr}}
+.c-jobs-h{margin-top:10px;font-size:var(--w-t-small);font-weight:600;color:var(--fg)}
+.w-tile--dark .c-jobs-h{color:#fff}
+.c-jobs{display:grid;gap:8px;margin:0;padding:0}
+.c-jobs li{position:relative;padding-left:20px;font-size:var(--w-t-small);line-height:1.5;color:var(--fg2);max-width:52ch}
+.c-jobs li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--acc)}
+.w-tile--dark .c-jobs li{color:var(--w-dark-ink-2)}
+.w-tile--dark .c-jobs li::before{background:var(--w-acc-dark)}
+
+/* custom AI: the assistant reads a delivery note and proposes a reply */
+.c-read{position:relative;padding:8px 0 0}
+.c-read-in{position:relative;display:grid;justify-items:start}
+.c-doc{width:min(100%,340px);transform:rotate(-2deg);transform-origin:30% 20%;padding:18px 18px 16px;margin-top:4px}
+.c-doc-hd{display:flex;align-items:center;gap:8px;padding-bottom:12px;border-bottom:1px solid var(--line);font-size:var(--t-base)}
+.c-doc-hd .w-i{color:var(--fg2)}
+.c-doc-hd b{font-weight:var(--w-semi)}
+.c-doc-hd .mono{margin-left:auto;font-size:var(--t-xs);color:var(--fg2)}
+.c-doc-kv{display:grid;gap:2px;margin:10px 0 0}
+.c-doc-kv>div{display:flex;justify-content:space-between;gap:12px;padding:7px 8px;border-radius:var(--r-sm);font-size:var(--t-sm);
+  transition:background-color .26s var(--w-ease),box-shadow .26s var(--w-ease)}
+.c-doc-kv dt{color:var(--fg2)}
+.c-doc-kv dd{margin:0;font-weight:var(--w-med);white-space:nowrap}
+.c-doc-kv .c-hl{background:var(--acc2s);box-shadow:inset 0 0 0 1.5px var(--acc2b)}
+.js .c-read:not(.is-in) .c-hl{background:transparent;box-shadow:inset 0 0 0 1.5px transparent}
+.c-read .c-hl--2{transition-delay:.35s}
+.c-doc-sig{display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line2);font-size:var(--t-xs);color:var(--fg2)}
+.c-doc-sig i{display:block;height:6px;border-radius:3px;background:var(--sunk)}
+.c-doc-sig i:first-child{width:54px}
+.c-doc-sig i:nth-child(2){width:32px}
+.c-doc-sig span{margin-left:auto}
+.c-prop{z-index:2;justify-self:end;width:min(100%,380px);margin-top:-44px}
+.c-prop .w-float-pad{padding:12px}
+.js .c-read:not(.is-in) .c-prop{opacity:0;transform:translateY(10px)}
+.c-prop{transition:opacity .5s var(--w-ease) .5s,transform .5s var(--w-ease) .5s}
+.c-read-acts{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:10px;min-height:32px;margin-top:16px}
+.c-approved .st{animation:c-pop .24s var(--w-ease)}
+@keyframes c-pop{from{opacity:0;transform:scale(.94)}}
+@media (max-width:640px){
+  .c-doc{width:calc(100% - 16px)}
+  .c-prop{width:calc(100% - 12px);margin-top:-20px}
+}
+
+/* workflow: three steps joined by a line, a pulse travelling along it */
+.c-tile-flow .w-tile-art{padding-top:44px}
+.c-pipe{position:relative;padding:4px 0 0}
+.c-pipe-steps{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0;padding:0}
+.c-pipe-steps li{display:grid;justify-items:center;gap:6px;text-align:center}
+.c-pipe-steps b{margin-top:6px;font-size:15px;font-weight:600;letter-spacing:-.01em;color:#fff;line-height:1.25}
+.c-pipe-steps small{font-family:var(--fm);font-size:12.5px;color:var(--w-dark-ink-2)}
+.c-node{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:var(--w-dark-2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);color:#fff}
+.c-node .w-i{width:20px;height:20px}
+.c-node--end{color:var(--w-ok-dark);box-shadow:inset 0 0 0 1px rgba(79,209,161,.5);background:rgba(79,209,161,.1)}
+.c-pipe-line{position:absolute;left:16.67%;right:16.67%;top:30px;height:1px;background:rgba(255,255,255,.18)}
+.c-pipe-line i{position:absolute;left:0;top:-1px;width:28px;height:3px;margin-left:-14px;border-radius:2px;background:var(--w-acc-dark);opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  .c-pipe-line i{animation:c-pulse 6s cubic-bezier(.45,0,.25,1) infinite}
+  .c-node--end{animation:c-land 6s var(--w-ease) infinite}
+}
+@keyframes c-pulse{0%{left:0;opacity:0}6%{opacity:1}40%{left:100%;opacity:1}46%,100%{left:100%;opacity:0}}
+@keyframes c-land{0%,38%{transform:none}44%{transform:scale(1.08)}52%,100%{transform:none}}
+.c-pipe-log{margin-top:28px;padding-top:14px;border-top:1px solid var(--w-dark-line);font-size:12.5px;color:var(--w-dark-ink-2);white-space:normal}
+
+/* bespoke software: a mini window cropped by the tile edge */
+.c-tile-soft .w-tile-art{padding-top:40px}
+.c-soft{border-bottom-right-radius:0}
+
+/* ------------------------------------------------------------- how a build runs */
+.c-how{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--w-split);align-items:start}
+.c-how-copy .w-body{margin-top:20px}
+.c-how-art{position:sticky;top:calc(var(--w-hdr) + 40px)}
+@media (max-width:960px){.c-how{grid-template-columns:1fr}.c-how-art{position:relative;top:auto}}
+.c-rules{display:grid;margin:40px 0 0;padding:0}
+.c-rules li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:4px;padding:20px 0;border-top:1px solid var(--line2)}
+.c-rules li:last-child{border-bottom:1px solid var(--line2)}
+.c-rule-n{padding-top:3px;font-size:13px;color:var(--acc)}
+.c-rules b{display:block;font-size:19px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.c-rules p{margin-top:4px;font-size:16px;line-height:1.55;color:var(--w-ink-2)}
+
+.c-log .w-float-pad{padding:20px 22px 12px}
+.c-log-hd{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.c-log-t{margin-top:4px;font-size:var(--t-lg);font-weight:var(--w-semi);letter-spacing:-.015em}
+.c-avts{display:flex;gap:6px}
+.c-avt-se{background:var(--fg)}
+.c-avt-es{background:var(--fg2)}
+.c-log-prog{margin:18px 0 8px}
+.c-log-prog .pt i{transform-origin:0 50%;transition:transform .28s var(--w-ease)}
+.c-log-list{display:grid;margin:0;padding:0}
+.c-log-list li{display:grid;grid-template-columns:16px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line);font-size:var(--t-base);color:var(--fg);transition:color .24s var(--w-ease)}
+.c-log-list li:first-child{border-top:0}
+.c-log-list em{font-style:normal;font-size:var(--t-xs);color:var(--fg2)}
+.c-log-list li.is-run span{font-weight:var(--w-semi)}
+
+/* ------------------------------------------------------------- engine */
+.c-engine{margin-top:clamp(0px,1vw,16px)}
+
+/* ------------------------------------------------------ product or build */
+.c-fit{align-items:center}
+.c-asks{display:grid;justify-items:start;gap:10px;margin-top:32px}
+.c-ask{display:inline-flex;align-items:center;min-height:44px;padding:8px 18px;border-radius:var(--r-pill);border:1px solid var(--line2);background:var(--card);
+  font-size:15px;font-weight:500;line-height:1.3;color:var(--fg);text-align:left;
+  transition:border-color .16s var(--w-ease),background-color .16s var(--w-ease),color .16s var(--w-ease),transform .12s var(--w-ease)}
+.c-ask:active{transform:scale(.97)}
+.c-ask[aria-pressed="true"]{border-color:var(--acc);background:var(--accs);color:var(--acc)}
+@media (hover:hover) and (pointer:fine){.c-ask:hover:not([aria-pressed="true"]){border-color:var(--fg3)}}
+.c-cmd{border-radius:var(--r-xl)}
+.c-cmd-q{display:flex;align-items:center;gap:12px;min-height:64px;padding:12px 20px;border-bottom:1px solid var(--line);font-size:17px;color:var(--fg)}
+.c-cmd-q>.w-i{width:18px;height:18px;color:var(--fg2)}
+.c-cmd-text{min-width:0}
+.c-caret{width:2px;height:20px;margin-left:-8px;background:var(--acc);flex:none}
+@media (prefers-reduced-motion:no-preference){.c-caret{animation:c-blink 1.1s steps(1) infinite}}
+@keyframes c-blink{50%{opacity:0}}
+.c-cmd-q .kbd{margin-left:auto}
+.c-cmd-res{padding:22px 22px 24px;min-height:208px}
+.c-ans{display:grid;justify-items:start;gap:10px}
+.c-ans+.c-ans{margin-top:20px;padding-top:20px;border-top:1px solid var(--line)}
+.js .c-ans:not(.is-on){display:none}
+.js .c-ans+.c-ans{margin-top:0;padding-top:0;border-top:0}
+.js .c-ans-q{display:none}
+.c-ans.is-on{animation:c-ans-in .24s var(--w-ease)}
+@keyframes c-ans-in{from{opacity:0;transform:translateY(6px)}}
+.c-ans-q{font-family:var(--fm);font-size:13px;color:var(--fg2)}
+.c-ans-hd{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+.c-ans-hd b{font-size:18px;font-weight:600;letter-spacing:-.015em}
+.c-ans-ic{display:grid;place-items:center;width:32px;height:32px;border-radius:var(--r);background:var(--oks);color:var(--ok-ink);flex:none}
+.c-ans-ic .w-i{width:16px;height:16px}
+.c-ans-ic--build{background:var(--accs);color:var(--acc)}
+.c-ans-p{font-size:16px;line-height:1.55;color:var(--fg2);max-width:48ch}
+@media (max-width:640px){.c-cmd-q{font-size:16px}.c-cmd-q .kbd{display:none}.c-cmd-res{padding:18px}}
+
+/* ----------------------------------------------------------------- FAQ */
+.c-faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px var(--w-split);align-items:start}
+@media (max-width:860px){.c-faq{grid-template-columns:1fr}}
+.c-faq-list{border-bottom:1px solid var(--line2)}
+.c-q{border-top:1px solid var(--line2)}
+.c-q summary{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px;padding:14px 0;cursor:pointer;list-style:none;
+  font-size:19px;font-weight:600;letter-spacing:-.015em;line-height:1.35}
+.c-q summary::-webkit-details-marker{display:none}
+.c-q summary:focus-visible{outline-offset:4px;border-radius:6px}
+.c-q-ic{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line2);color:var(--fg2);flex:none;
+  transition:transform .24s var(--w-ease),color .16s,box-shadow .16s}
+.c-q-ic .w-i{width:15px;height:15px}
+.c-q[open] .c-q-ic{transform:rotate(45deg);color:var(--fg)}
+@media (hover:hover) and (pointer:fine){.c-q summary:hover .c-q-ic{box-shadow:inset 0 0 0 1px var(--fg3);color:var(--fg)}}
+.c-q p{padding:0 56px 24px 0;font-size:17px;line-height:1.6;color:var(--w-ink-2);max-width:60ch}
+
+/* ------------------------------------------------------------ small screens */
+@media (max-width:1060px){
+  .c-hero-grid{grid-template-columns:1fr}
+  .c-hero-copy .w-h1{max-width:16ch}
+  .c-hero-art{padding:0 12px 172px 36px;max-width:760px;width:100%;margin-inline:auto}
+}
+@media (max-width:480px){.c-hide-m{display:none}}
+@media (max-width:720px){
+  .c-hero-art{padding:0}
+  .c-lay{position:relative;left:auto;right:auto;top:auto;width:auto;margin-top:12px}
+  .c-lay--flow{margin:-18px 40px 0 -4px}
+  .c-lay--ai{margin:-18px -4px 0 28px}
+}
+@media (max-width:640px){
+  .c-rules li{grid-template-columns:40px minmax(0,1fr)}
+  .c-q summary{font-size:17px}
+  .c-q p{padding-right:0;font-size:16px}
+}
+@container (max-width:360px){.c-prop .cf{display:none}}

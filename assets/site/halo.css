@@ -1,0 +1,737 @@
+/* Copied from VSG-UI-DESIGN css/vsg-halo.css (v3.1) for vsgtech.co.za. Do not edit here:
+   change the pack, then copy again without section 0. Website-only styles live in site.css. */
+/* ==========================================================================
+   VSG HALO — product design system
+   Look and feel: Halo.   Object architecture: Atlas.   Density: Precision.
+   v3.1 of the VSG UI pack (github.com/VSG-Tech-Solutions/VSG-UI-DESIGN).
+   One file. Every VSG product surface is built from these tokens and
+   primitives.
+   ========================================================================== */
+
+/* 0. fonts: removed in this copy. On vsgtech.co.za Switzer loads from Fontshare and
+   IBM Plex Mono from Google Fonts (site-src/partials/head.html). No font files ship in this public repo. */
+
+/* --------------------------------------------------------------- 1. tokens */
+:root{
+  /* surfaces */
+  --bg:#F6F7FB;
+  --card:#FFFFFF;
+  --sunk:#F1F3F9;
+  --row-hover:#FAFBFE;    /* a table row or list link under the pointer */
+  --line:#E7E9F0;
+  --line2:#D5D9E4;
+
+  /* ink */
+  --fg:#141625;
+  --fg2:#535A6E;
+  --fg3:#8A90A3;
+  --fg4:#AAB0C0;
+
+  /* accent — cobalt carries action, violet carries intelligence */
+  --acc:#0B5CFF;
+  --acc-h:#0A4EDA;
+  --accs:#EDF2FF;
+  --acc-b:#D3E0FF;
+  --acc-r:rgba(11,92,255,.20);
+  --acc2:#7C4DFF;
+  --acc2s:#F1ECFF;
+  --acc2b:#DFD3FF;
+  --acc2-wash2:#FBFAFF;   /* the far end of the agent card's violet wash */
+  --acc2-track:#E2DAFB;   /* the empty track of the agent's confidence meter */
+
+  /* signal */
+  --ok:#0E9F6E;   --oks:#E7F7F0;   --okb:#BFE9D6;
+  --warn:#B4690E; --warns:#FDF3E3; --warnb:#F2DDB6;
+  --sig:#DC3A22;  --sigs:#FDEDEA;  --sigb:#F7CFC7;
+  /* status words: text-safe ink, measured 4.6:1 or better on the soft wash and on white */
+  --ok-ink:#0B7C56; --warn-ink:#A15E0D; --sig-ink:#C8351F; --acc2-ink:#7340FF;
+
+  /* inverse — dark bars, confirm strips, marketing sections */
+  --inv:#141625;
+  --inv2:#1E2133;
+  --inv-line:rgba(255,255,255,.14);
+  --inv-fg2:#A9AEC0;
+  /* text and marks on a solid fill (cobalt, violet, ok-ink, the inverse strip, avatars) */
+  --on-fill:#FFFFFF;
+
+  /* type */
+  --fs:'Switzer',system-ui,-apple-system,sans-serif;
+  --fm:'IBM Plex Mono',ui-monospace,monospace;
+  --t-micro:10px;   --t-label:11.5px; --t-xs:12px;   --t-sm:13px;
+  --t-base:13.5px;  --t-md:14px;      --t-lg:17px;   --t-xl:21px;
+  --t-2xl:27px;     --t-3xl:34px;
+  --w-reg:400; --w-med:500; --w-mid:550; --w-semi:600; --w-bold:700;
+
+  /* radius — Halo is soft. 14 is the signature. */
+  --r-xs:6px; --r-sm:8px; --r:10px; --r-md:12px; --r-lg:14px; --r-xl:18px; --r-pill:99px;
+
+  /* elevation */
+  --e1:0 1px 2px rgba(20,22,37,.05);
+  --e2:0 1px 2px rgba(20,22,37,.05),0 8px 24px -14px rgba(20,22,37,.22);
+  --e3:0 2px 5px rgba(20,22,37,.06),0 20px 48px -24px rgba(20,22,37,.30);
+  --e-acc:0 6px 18px -8px rgba(11,92,255,.55);
+  --e-ok:0 6px 18px -8px rgba(11,124,86,.55);   /* the .btn-ok confirm, from its --ok-ink fill */
+  --ring:0 0 0 3px var(--acc-r);
+
+  /* structure */
+  --rail:248px;
+  --topbar:56px;
+  --tabbar:46px;
+  --gut:22px;
+  --sb:rgba(130,136,155,.32);
+
+  /* overlay */
+  --scrim:rgba(20,22,37,.34);
+}
+
+/* ---------------------------------------------------------------- 2. reset */
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{
+  font-family:var(--fs);font-size:var(--t-md);line-height:1.55;
+  color:var(--fg);background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:'ss01' 1,'tnum' 1;
+  overflow:hidden;
+}
+svg{display:block;width:100%;height:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+input,textarea{font:inherit;color:inherit;background:none;border:0;outline:none;width:100%;resize:none}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:var(--sb);border-radius:var(--r-pill)}
+::-webkit-scrollbar-track{background:transparent}
+
+/* ------------------------------------------------------------ 3. type roles */
+.h1{font-size:var(--t-2xl);font-weight:var(--w-semi);letter-spacing:-.035em;line-height:1.14}
+.h2{font-size:var(--t-xl);font-weight:var(--w-semi);letter-spacing:-.03em;line-height:1.2}
+.h3{font-size:var(--t-lg);font-weight:var(--w-semi);letter-spacing:-.022em}
+.h4{font-size:var(--t-md);font-weight:var(--w-semi);letter-spacing:-.015em}
+.body{font-size:var(--t-base);color:var(--fg2)}
+.small{font-size:var(--t-xs);color:var(--fg2)}
+.muted{color:var(--fg3)}
+/* Micro labels are the only uppercase in the system, and only inside product
+   chrome — never in a footer, never in marketing copy. */
+.lbl{font-size:var(--t-label);font-weight:var(--w-semi);letter-spacing:.045em;
+     text-transform:uppercase;color:var(--fg3)}
+.mono{font-family:var(--fm);font-variant-numeric:tabular-nums}
+.num{font-family:var(--fm);font-size:var(--t-sm);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+/* -------------------------------------------------------------- 4. buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+     height:34px;padding:0 14px;border-radius:var(--r-pill);
+     font-size:var(--t-base);font-weight:var(--w-semi);white-space:nowrap;
+     transition:background .15s,border-color .15s,box-shadow .15s,color .15s}
+.btn svg{width:15px;height:15px;flex:none}
+/* A human-pressed button that starts an agent stays .btn-s; only its icon is violet (svg.ai). */
+.btn svg.ai{color:var(--acc2)}
+.btn-p{background:var(--acc);color:var(--on-fill);box-shadow:var(--e-acc)}
+.btn-p:hover{background:var(--acc-h)}
+.btn-s{background:var(--card);border:1px solid var(--line2);color:var(--fg)}
+.btn-s:hover{border-color:var(--fg3);background:var(--card)}
+.btn-g{color:var(--fg2)}
+.btn-g:hover{background:var(--sunk);color:var(--fg)}
+.btn-d{background:var(--sigs);color:var(--sig-ink);border:1px solid var(--sigb)}
+.btn-ok{background:var(--ok-ink);color:var(--on-fill);box-shadow:var(--e-ok)}
+.btn-lg{height:40px;padding:0 20px;font-size:var(--t-md)}
+.btn-sm{height:29px;padding:0 11px;font-size:var(--t-xs)}
+.btn-ico{width:32px;height:32px;padding:0;border-radius:var(--r);flex:none}
+.btn-ico svg{width:16px;height:16px}
+.btn:focus-visible{outline:none;box-shadow:var(--ring)}
+.btn[disabled],.btn.off{opacity:.45;cursor:not-allowed;box-shadow:none}
+
+/* -------------------------------------------------- 5. chips, pills, status */
+.chip{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;
+      border-radius:var(--r-pill);border:1px solid var(--line2);
+      font-size:var(--t-xs);font-weight:var(--w-mid);color:var(--fg2);background:var(--card)}
+.chip svg{width:13px;height:13px;flex:none}
+.chip.on{border-color:var(--acc-b);background:var(--accs);color:var(--acc)}
+.chip.ai{border-color:var(--acc2b);background:var(--acc2s);color:var(--acc2-ink)}
+.st{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:var(--r-pill);
+    font-size:var(--t-label);font-weight:var(--w-semi);white-space:nowrap}
+.st i{width:6px;height:6px;border-radius:var(--r-pill);background:currentColor;flex:none}
+.st-ok{background:var(--oks);color:var(--ok-ink)}
+.st-w{background:var(--warns);color:var(--warn-ink)}
+.st-x{background:var(--sigs);color:var(--sig-ink)}
+.st-n{background:var(--sunk);color:var(--fg2)}
+.st-a{background:var(--accs);color:var(--acc)}      /* selected, in plan: the option the plan uses */
+.st-ai{background:var(--acc2s);color:var(--acc2-ink)} /* recommended by the agent, and only by an agent */
+.tag{display:inline-flex;align-items:center;height:21px;padding:0 7px;border-radius:var(--r-xs);white-space:nowrap;
+     font-family:var(--fm);font-size:var(--t-micro);letter-spacing:.09em;text-transform:uppercase;
+     color:var(--fg3);border:1px solid var(--line2);background:var(--card)}
+.tag.a{color:var(--acc);border-color:var(--acc-b);background:var(--accs)}
+.kbd{font-family:var(--fm);font-size:var(--t-micro);border:1px solid var(--line2);
+     border-radius:var(--r-xs);padding:2px 5px;color:var(--fg2);background:var(--card);flex:none}
+
+/* -------------------------------------------------------- 6. cards, panels */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--e2)}
+.card-f{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg)}
+.ph{display:flex;align-items:center;gap:10px;padding:14px 17px;border-bottom:1px solid var(--line)}
+.ph h2,.ph h3{font-size:var(--t-md);font-weight:var(--w-semi);letter-spacing:-.015em}
+.ph em{font-style:normal;font-size:var(--t-xs);color:var(--fg2)}
+.ph .r{margin-left:auto;display:flex;align-items:center;gap:7px;flex:none}
+.pb{padding:16px 17px}
+.pf{padding:11px 17px;border-top:1px solid var(--line);display:flex;align-items:flex-start;gap:9px;
+    font-size:var(--t-xs);color:var(--fg2);line-height:1.5}
+.pf svg{width:14px;height:14px;flex:none;margin-top:2px;color:var(--fg3)}
+.hr{height:1px;background:var(--line);border:0}
+
+/* Segmented control — the Halo pill group. */
+.seg{display:inline-flex;gap:4px;padding:3px;background:var(--sunk);border-radius:var(--r-pill)}
+.seg button{display:inline-flex;align-items:center;justify-content:center;gap:6px;
+            height:28px;padding:0 13px;border-radius:var(--r-pill);font-size:var(--t-xs);
+            font-weight:var(--w-semi);color:var(--fg2);white-space:nowrap}
+.seg button svg{width:14px;height:14px;flex:none}
+.seg button.on{background:var(--card);color:var(--fg);box-shadow:var(--e1)}
+
+/* Stat — the KPI unit. */
+.stat{padding:14px 16px}
+.stat b{display:block;margin-top:7px;font-size:var(--t-2xl);font-weight:var(--w-semi);
+        letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.stat .d{margin-top:7px;font-size:var(--t-xs);font-weight:var(--w-mid);color:var(--fg2)}
+.stat .d.up{color:var(--ok-ink)}
+.stat .d.dn{color:var(--sig-ink)}
+
+/* ---------------------------------------------------------- 7. data tables */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{padding:9px 14px;text-align:left;font-size:var(--t-label);font-weight:var(--w-semi);
+        letter-spacing:.045em;text-transform:uppercase;color:var(--fg3);
+        border-bottom:1px solid var(--line);background:var(--card);white-space:nowrap}
+.tbl td{padding:11px 14px;border-bottom:1px solid var(--line);font-size:var(--t-base);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tbody tr:hover{background:var(--row-hover)}
+.tbl tr.sel{background:var(--accs)}
+.tbl tr.sel td{border-bottom-color:var(--acc-b)}
+.tbl .r{text-align:right;font-family:var(--fm);font-variant-numeric:tabular-nums;
+        font-size:var(--t-sm);white-space:nowrap}
+.tbl th.r{font-family:inherit;font-size:var(--t-label)}   /* headers stay in the label style */
+.tbl .nm{font-weight:var(--w-semi);white-space:nowrap}   /* codes never break at a hyphen */
+.tbl .sub{display:block;font-size:var(--t-xs);color:var(--fg2);font-weight:var(--w-reg);white-space:normal}
+/* A table wider than its card scrolls sideways inside .tblx; the card keeps its radius. */
+.tblx{overflow-x:auto;overscroll-behavior-x:contain}
+.tblx>.tbl{min-width:max-content}
+
+/* Level cell: a number shown against a target (months of cover, fill rate, days late).
+   The -ink colour plus the soft wash on the cell itself: no dot, no pill, so the digits
+   stay right-aligned with the plain cells in the same column. Use on td.r. */
+.tbl td.lv-ok{background:var(--oks);color:var(--ok-ink);font-weight:var(--w-semi)}
+.tbl td.lv-w{background:var(--warns);color:var(--warn-ink);font-weight:var(--w-semi)}
+.tbl td.lv-x{background:var(--sigs);color:var(--sig-ink);font-weight:var(--w-semi)}
+
+/* Editable cell: a value the human types into the grid (a planned quantity). Cobalt,
+   because it is the human's next action. td.edit carries tabindex="0"; while editing it
+   gets .on and holds one input. The keys are in js/vsg-halo.js (COMPONENTS.md, Editable cell). */
+.tbl td.edit{background:var(--accs);color:var(--acc);font-weight:var(--w-semi);cursor:text;
+  outline:1px solid var(--acc-b);outline-offset:-1px;transition:background-color .12s,outline-color .12s}
+.tbl td.edit:hover{outline-color:var(--acc)}
+.tbl td.edit:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
+.tbl td.edit.on{background:var(--card);outline:2px solid var(--acc);outline-offset:-2px}
+.tbl td.edit input{width:100%;min-width:5ch;padding:0;text-align:right;color:var(--fg);font:inherit;line-height:inherit}
+
+/* Legend: the key to the colours in a grid. Sits in the .tbar or a .ph. */
+.lgd{display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;font-size:var(--t-xs);color:var(--fg2)}
+.lgd span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.lgd i{width:16px;height:12px;flex:none;border-radius:var(--r-xs);background:var(--card);border:1px solid var(--line2)}
+.lgd i.ok{background:var(--oks);border-color:var(--okb)}
+.lgd i.w{background:var(--warns);border-color:var(--warnb)}
+.lgd i.x{background:var(--sigs);border-color:var(--sigb)}
+.lgd i.e{background:var(--accs);border-color:var(--acc-b)}
+.bar{width:78px;height:5px;border-radius:var(--r-pill);background:var(--sunk);overflow:hidden;display:inline-block;
+     vertical-align:middle}
+.bar i{display:block;height:100%;border-radius:var(--r-pill);background:var(--acc)}
+.bar.g i{background:var(--ok)}
+.bar.w i{background:var(--warn)}
+.bar.r i{background:var(--sig)}
+
+/* Key/value grid — the object property surface. */
+.kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.kv div{padding:11px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kv div:nth-child(3n){border-right:0}
+.kv p{font-size:var(--t-label);font-weight:var(--w-semi);letter-spacing:.045em;
+      text-transform:uppercase;color:var(--fg3)}
+.kv b{display:block;margin-top:4px;font-size:var(--t-base);font-weight:var(--w-mid)}
+.kv b.ok{color:var(--ok-ink)}
+.kv b.bad{color:var(--sig-ink)}
+.kv b.m{font-family:var(--fm);font-size:var(--t-sm)}
+
+/* ---------------------------------------------------------- 8. form fields */
+.fld{display:flex;align-items:center;gap:9px;height:34px;padding:0 12px;background:var(--card);
+     border:1px solid var(--line2);border-radius:var(--r);transition:box-shadow .15s,border-color .15s}
+.fld:focus-within{border-color:var(--acc);box-shadow:var(--ring)}
+.fld svg{width:15px;height:15px;flex:none;color:var(--fg3)}
+.fld input{font-size:var(--t-sm)}
+.fld input::placeholder{color:var(--fg4)}
+.fld.q input{font-family:var(--fm);font-size:var(--t-sm)}
+.fld.lg{height:44px;border-radius:var(--r-md)}
+
+/* --------------------------------------------------------- 9. avatars, nav */
+.avt{display:grid;place-items:center;border-radius:var(--r-pill);flex:none;color:var(--on-fill);
+     font-size:var(--t-label);font-weight:var(--w-semi);width:28px;height:28px}
+.avt.sq{border-radius:var(--r-sm)}
+.avt.lg{width:34px;height:34px;font-size:var(--t-xs)}
+.stack{display:flex;align-items:center}
+.stack .avt{border:2px solid var(--card);margin-left:-8px}
+.stack .avt:first-child{margin-left:0}
+
+.nav{display:grid;gap:1px}
+.nav a{display:flex;align-items:center;gap:10px;height:33px;padding:0 10px;border-radius:var(--r);
+       font-size:var(--t-base);font-weight:var(--w-med);color:var(--fg2);transition:background .14s,color .14s}
+.nav a svg{width:16px;height:16px;flex:none;color:var(--fg3)}
+.nav a span.c{margin-left:auto;font-family:var(--fm);font-size:var(--t-micro);color:var(--fg3)}
+.nav a:hover{background:var(--sunk);color:var(--fg)}
+.nav a.on{background:var(--accs);color:var(--acc);font-weight:var(--w-semi)}
+.nav a.on svg{color:var(--acc)}
+.nav a.on span.c{color:var(--acc)}
+
+/* --------------------------------------------------- 10. agent primitives */
+/* Everything an agent says sits in violet. Cobalt stays reserved for what a
+   human is about to do. That single rule keeps autonomy legible. */
+.ag{border:1px solid var(--acc2b);border-radius:var(--r-lg);
+    background:linear-gradient(160deg,var(--acc2s),var(--acc2-wash2) 62%)}
+.ag-h{display:flex;align-items:center;gap:10px;padding:13px 15px}
+.ag-h .ic{width:30px;height:30px;flex:none;border-radius:var(--r);background:var(--acc2);color:var(--on-fill);
+          display:grid;place-items:center;padding:6px}
+.ag-h b{font-size:var(--t-base);font-weight:var(--w-semi)}
+.ag-h em{font-style:normal;display:block;font-size:var(--t-xs);color:var(--fg2)}
+.ag-h .cf{margin-left:auto;font-family:var(--fm);font-size:var(--t-xs);color:var(--acc2-ink);flex:none}
+.rz{display:grid;gap:8px;padding:0 15px 13px}
+.rz li{display:flex;gap:9px;font-size:var(--t-sm);color:var(--fg2);line-height:1.5;list-style:none}
+.rz li svg{width:14px;height:14px;flex:none;margin-top:3px;color:var(--ok)}
+.rz li.w svg{color:var(--warn)}
+.rz li.x svg{color:var(--sig)}
+.mtr{display:flex;align-items:center;gap:9px;padding:0 15px 13px;font-size:var(--t-xs);color:var(--fg2)}
+.mtr .t{flex:1;height:5px;border-radius:var(--r-pill);background:var(--acc2-track);overflow:hidden}
+.mtr .t i{display:block;height:100%;border-radius:var(--r-pill);background:var(--acc2)}
+.mtr .v{font-family:var(--fm);color:var(--acc2-ink);font-weight:var(--w-med)}
+.auth{display:flex;gap:9px;padding:11px 15px;border-top:1px solid var(--acc2b);
+      font-size:var(--t-xs);color:var(--fg2);line-height:1.5}
+.auth svg{width:14px;height:14px;flex:none;margin-top:2px;color:var(--fg3)}
+
+/* ------------------------------------------------------ 11. inverse strip */
+.inv{background:var(--inv);color:var(--on-fill)}
+.inv .fg2{color:var(--inv-fg2)}
+.inv .btn-s{background:transparent;border-color:var(--inv-line);color:var(--on-fill)}
+.inv .btn-p{background:var(--on-fill);color:var(--inv);box-shadow:none}   /* non-decision strips only */
+/* Confirm strip: the inverse strip under an irreversible decision. One sentence (b, then
+   em.fg2), "Not yet" as .btn-s, and the one .btn-ok confirm. .pin keeps it stuck to the
+   bottom of the scroll region. */
+.confirm{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;padding:13px 18px;
+  border-radius:var(--r-lg);box-shadow:var(--e3)}
+.confirm b{font-size:var(--t-base);font-weight:var(--w-semi)}
+.confirm em{display:block;font-style:normal;font-size:var(--t-xs)}
+.confirm .acts{display:flex;gap:9px;margin-left:auto;flex:none}
+.confirm.pin{position:sticky;bottom:16px;z-index:5}
+.inv .btn-ok{box-shadow:none}
+
+/* ---------------------------------------------------------- 12. utilities */
+.row{display:flex;align-items:center;gap:10px}
+.col{display:grid}
+.push{margin-left:auto}
+.grow{flex:1;min-width:0}
+.gap6{gap:6px}.gap10{gap:10px}.gap14{gap:14px}
+.scroll{overflow-y:auto;min-height:0}
+.nowrap{white-space:nowrap}
+.hairline{border-top:1px solid var(--line)}
+/* Detail rail: the list or grid stays on the left, the selected object's detail docks on
+   the right and stays in view. Use it instead of the drawer when the user must keep
+   comparing the detail with the list. */
+.split{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:var(--gut);align-items:start}
+.split.lg{grid-template-columns:minmax(0,1fr) 420px}
+.split>.dock{position:sticky;top:0;display:grid;gap:var(--gut);min-width:0}
+@media (max-width:1100px){.split,.split.lg{grid-template-columns:1fr}.split>.dock{position:static}}
+
+/* ------------------------------------------------------ 13. accessibility */
+/* Added in v3.0 when Halo became the pack: every interactive primitive gets
+   the same cobalt ring (it follows each element's own radius), and reduced
+   motion removes the few transitions. */
+.nav a:focus-visible,.seg button:focus-visible,.chip:focus-visible,
+.ri:focus-visible,.rp:focus-visible,.tt:focus-visible,.swi:focus-visible,
+a:focus-visible,button:focus-visible,
+label.chk input:focus-visible,label.rad input:focus-visible,label.tgl input:focus-visible,
+select.sel:focus-visible,.menu [role^="menuitem"]:focus-visible,.utabs [role="tab"]:focus-visible,
+.pager button:focus-visible,.cmdk .it:focus-visible,.drop:has(input:focus-visible),
+.dlg:focus-visible,.drw:focus-visible,pre:focus-visible{outline:none;box-shadow:var(--ring)}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+
+/* ------------------------------------------------------------- 14. forms */
+/* Added in v3.1. A field is a label, one control, then one line of help or
+   one error. Text controls build on .fld; select, checkbox, radio and toggle
+   are restyled natives, so the keyboard and form behaviour stay the browser's.
+   State comes from the markup: aria-invalid, disabled, readonly. The classes
+   .err, .dis and .ro exist for the rare wrapper that cannot see its input. */
+.field{display:grid;align-content:start;gap:6px;min-width:0}
+fieldset.field{border:0;padding:0;min-width:0}
+fieldset.field>legend{margin-bottom:10px}
+.field>label,.field>legend{display:flex;align-items:baseline;gap:8px;padding:0;
+  font-size:var(--t-xs);font-weight:var(--w-semi);color:var(--fg)}
+.field .req,.field .opt{margin-left:auto;font-size:var(--t-xs);font-weight:var(--w-reg);color:var(--fg2)}
+.help{font-size:var(--t-xs);color:var(--fg2);line-height:1.5}
+.emsg{display:flex;gap:6px;font-size:var(--t-xs);font-weight:var(--w-med);color:var(--sig-ink);line-height:1.5}
+.emsg svg{width:13px;height:13px;flex:none;margin-top:2px}
+
+.fld .sfx{flex:none;font-family:var(--fm);font-size:var(--t-xs);color:var(--fg2)}
+.fld:hover{border-color:var(--fg3)}
+.fld:focus-within{border-color:var(--acc)}
+.fld.err,.fld:has([aria-invalid="true"]){border-color:var(--sig)}
+.fld.err svg,.fld:has([aria-invalid="true"]) svg{color:var(--sig)}
+.fld.ro,.fld:has([readonly]){background:var(--bg);border-color:var(--line2);border-style:dashed}
+.fld.dis,.fld:has(:disabled){background:var(--sunk);border-color:var(--line);color:var(--fg3);cursor:not-allowed}
+.fld:has(:disabled) input,.fld:has(:disabled) textarea{cursor:not-allowed}
+.fld.ta{height:auto;align-items:flex-start;padding:8px 12px}
+.fld textarea{min-height:76px;font-size:var(--t-sm);line-height:1.5;resize:vertical}
+.fld textarea::placeholder{color:var(--fg4)}
+
+select.sel{appearance:none;-webkit-appearance:none;width:100%;height:34px;padding:0 32px 0 12px;
+  font:inherit;font-size:var(--t-sm);color:var(--fg);cursor:pointer;
+  background-color:var(--card);border:1px solid var(--line2);border-radius:var(--r);
+  /* a stroked chevron from two 1.4px diagonals, so the colour stays a token */
+  background-image:
+    linear-gradient(45deg,transparent calc(50% - .7px),var(--fg3) calc(50% - .7px),var(--fg3) calc(50% + .7px),transparent calc(50% + .7px)),
+    linear-gradient(135deg,transparent calc(50% - .7px),var(--fg3) calc(50% - .7px),var(--fg3) calc(50% + .7px),transparent calc(50% + .7px));
+  background-position:calc(100% - 18px) 14px,calc(100% - 13px) 14px;
+  background-size:5px 5px;background-repeat:no-repeat;
+  transition:border-color .15s,box-shadow .15s}
+select.sel:hover{border-color:var(--fg3)}
+select.sel:focus-visible{border-color:var(--acc)}
+select.sel[aria-invalid="true"]{border-color:var(--sig)}
+select.sel:disabled{background-color:var(--sunk);border-color:var(--line);color:var(--fg3);cursor:not-allowed}
+select.sel.sm{width:auto;height:30px;font-size:var(--t-xs);
+  background-position:calc(100% - 18px) 12px,calc(100% - 13px) 12px}
+
+/* Checkbox, radio, toggle: the label wraps a native input and its text. */
+label.chk,label.rad,label.tgl{display:inline-flex;align-items:flex-start;gap:9px;
+  font-size:var(--t-sm);line-height:1.45;color:var(--fg);cursor:pointer}
+label.chk small,label.rad small,label.tgl small{display:block;font-size:var(--t-xs);color:var(--fg2)}
+label.chk input,label.rad input{appearance:none;-webkit-appearance:none;flex:none;
+  display:grid;place-items:center;width:18px;height:18px;margin:0;cursor:pointer;
+  background:var(--card);border:1.5px solid var(--line2);
+  transition:background-color .12s,border-color .12s,box-shadow .12s}
+label.chk input{border-radius:var(--r-xs)}
+label.rad input{border-radius:var(--r-pill)}
+label.chk input:hover,label.rad input:hover{border-color:var(--fg3)}
+label.chk input:checked,label.chk input:indeterminate{background:var(--acc);border-color:var(--acc)}
+label.chk input:checked::before{content:"";width:9px;height:5px;border:solid var(--on-fill);border-width:0 0 2px 2px;
+  transform:translateY(-1px) rotate(-45deg)}
+label.chk input:indeterminate::before{content:"";width:8px;height:2px;background:var(--on-fill)}
+label.rad input:checked{border:5px solid var(--acc)}
+label.chk input:disabled,label.rad input:disabled{background:var(--sunk);border-color:var(--line);cursor:not-allowed}
+label.chk input:checked:disabled{background:var(--fg4);border-color:var(--fg4)}
+label.rad input:checked:disabled{border-color:var(--fg4)}
+label.tgl input{appearance:none;-webkit-appearance:none;position:relative;flex:none;width:32px;height:18px;
+  margin:1px 0 0;border-radius:var(--r-pill);background:var(--line2);cursor:pointer;
+  transition:background-color .15s,box-shadow .15s}
+label.tgl input::before{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;
+  border-radius:var(--r-pill);background:var(--card);box-shadow:var(--e1);transition:transform .15s}
+label.tgl input:checked{background:var(--acc)}
+label.tgl input:checked::before{transform:translateX(14px)}
+label.tgl input:disabled{opacity:.45;cursor:not-allowed}
+label.tgl.rev{display:flex;flex-direction:row-reverse;justify-content:space-between;width:100%}
+label.chk:has(:disabled),label.rad:has(:disabled),label.tgl:has(:disabled){color:var(--fg3);cursor:not-allowed}
+
+.opts{display:grid;gap:10px}
+.opts.row{display:flex;flex-wrap:wrap;gap:10px 20px}
+
+/* Layout: a two-column form grid, and an inline row for filters and quick entry. */
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
+.fgrid.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.fgrid .span2{grid-column:1/-1}
+.fline{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.fline .field{flex:1;min-width:150px}
+.facts{display:flex;align-items:center;justify-content:flex-end;gap:9px;padding-top:16px;
+  border-top:1px solid var(--line)}
+.facts .note{margin-right:auto;font-size:var(--t-xs);color:var(--fg2)}
+@media (max-width:720px){.fgrid,.fgrid.c3{grid-template-columns:1fr}}
+
+/* ---------------------------------------------------------- 15. overlays */
+/* Dialog and drawer are the native <dialog>, opened with showModal(), so the
+   browser supplies the backdrop, the focus trap and Escape. Both are modal: the
+   page behind is inert until they close. For detail that must sit beside the
+   list, use the detail rail (.split, section 12). .inline renders
+   one in the page flow (documentation, an embedded confirm panel). */
+.dlg,.drw{padding:0;color:var(--fg);background:var(--card);box-shadow:var(--e3);overflow:hidden}
+.dlg{width:min(520px,calc(100vw - 32px));max-height:calc(100vh - 64px);
+  border:1px solid var(--line);border-radius:var(--r-xl)}
+.dlg:modal{margin:auto}   /* the reset in section 2 zeroes the browser's centring margin */
+.dlg.sm{width:min(400px,calc(100vw - 32px))}
+.dlg.lg{width:min(760px,calc(100vw - 32px))}
+.dlg[open],.drw[open]{display:flex;flex-direction:column}
+.dlg::backdrop,.drw::backdrop{background:var(--scrim)}
+.dh{display:flex;align-items:flex-start;gap:12px;padding:18px 20px 15px;border-bottom:1px solid var(--line)}
+.dh h2{font-size:var(--t-lg);font-weight:var(--w-semi);letter-spacing:-.022em;line-height:1.3}
+.dh p{margin-top:3px;font-size:var(--t-sm);color:var(--fg2)}
+.dh .btn-ico{margin:-4px -6px 0 auto}
+.db{flex:1;min-height:0;overflow-y:auto;padding:18px 20px;font-size:var(--t-base);color:var(--fg2)}
+.df{display:flex;align-items:center;justify-content:flex-end;gap:9px;padding:13px 20px;
+  border-top:1px solid var(--line);background:var(--bg)}
+.df .note{margin-right:auto;font-size:var(--t-xs);color:var(--fg2)}
+.drw{inset:0 0 0 auto;margin:0;width:min(440px,100vw);height:100vh;max-width:100vw;max-height:100vh;
+  border:0;border-left:1px solid var(--line);border-radius:var(--r-xl) 0 0 var(--r-xl)}
+.dlg.inline,.drw.inline{position:static;margin:0;max-width:100%;max-height:none}
+.drw.inline{width:100%;height:auto;border:1px solid var(--line);border-radius:var(--r-xl)}
+@keyframes vsg-in{from{opacity:0;transform:translateY(6px) scale(.985)}}
+@keyframes vsg-side{from{opacity:0;transform:translateX(24px)}}
+.dlg[open]:not(.kb):not(.inline){animation:vsg-in .16s ease-out}
+.drw[open]:not(.kb):not(.inline){animation:vsg-side .18s ease-out}
+
+/* Dropdown menu and popover. .dd is the anchor; its .menu or .pop shows when
+   .dd has .open (vsg-halo.js toggles it). A bare .menu renders in place. */
+.dd{position:relative;display:inline-flex}
+.dd>.menu,.dd>.pop{position:absolute;top:calc(100% + 6px);left:0;z-index:40;display:none}
+.dd.r>.menu,.dd.r>.pop{left:auto;right:0}
+.dd.open>.menu{display:grid}
+.dd.open>.pop{display:block}
+.menu{display:grid;gap:1px;min-width:224px;padding:5px;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--e3)}
+.menu [role^="menuitem"]{display:flex;align-items:center;gap:9px;width:100%;height:32px;padding:0 9px;
+  border-radius:var(--r-sm);font-size:var(--t-base);font-weight:var(--w-med);color:var(--fg);
+  white-space:nowrap;transition:background-color .12s,color .12s}
+.menu [role^="menuitem"] svg{width:15px;height:15px;flex:none;color:var(--fg3)}
+.menu [role^="menuitem"]:hover,.menu [role^="menuitem"]:focus-visible{background:var(--sunk)}
+.menu .kbd{margin-left:auto}
+.menu .ck{width:15px;height:15px;flex:none;visibility:hidden}
+.menu .ck svg{color:var(--acc)}
+.menu [aria-checked="true"] .ck{visibility:visible}
+.menu .dz,.menu .dz svg{color:var(--sig-ink)}
+.menu .dz:hover,.menu .dz:focus-visible{background:var(--sigs)}
+.menu [aria-disabled="true"],.menu :disabled{color:var(--fg4);cursor:not-allowed;background:none}
+.menu .lbl{padding:7px 9px 3px}
+.msep{height:1px;margin:4px -5px;background:var(--line)}
+.pop{width:320px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:var(--e3);overflow:hidden}
+.pop .kv{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pop .kv div:nth-child(3n){border-right:1px solid var(--line)}
+.pop .kv div:nth-child(2n){border-right:0}
+
+/* Tooltip: CSS only. Put the text in data-tip and the same words in
+   aria-label, because screen readers do not read generated content. */
+[data-tip]{position:relative}
+[data-tip]::after,.tip{padding:5px 9px;border-radius:var(--r-sm);background:var(--card);
+  border:1px solid var(--line2);box-shadow:var(--e2);color:var(--fg);font-family:var(--fs);
+  font-size:var(--t-xs);font-weight:var(--w-med);line-height:1.4;letter-spacing:0;
+  text-transform:none;white-space:nowrap}
+[data-tip]::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 7px);z-index:50;
+  transform:translate(-50%,3px);opacity:0;pointer-events:none;transition:opacity .12s,transform .12s}
+[data-tip-pos="bottom"]::after{bottom:auto;top:calc(100% + 7px);transform:translate(-50%,-3px)}
+[data-tip]:hover::after,[data-tip]:focus-visible::after{opacity:1;transform:translate(-50%,0)}
+.tip{display:inline-block}
+
+/* Command palette: a .dlg.cmdk, opened with Ctrl K or Cmd K. */
+.cmdk{width:min(620px,calc(100vw - 32px))}
+.cmdk:modal{margin:12vh auto auto}
+.cmdk .q{display:flex;align-items:center;gap:10px;height:52px;padding:0 16px;flex:none;
+  border-bottom:1px solid var(--line)}
+.cmdk .q svg{width:17px;height:17px;flex:none;color:var(--fg3)}
+.cmdk .q input{font-size:var(--t-md)}
+.cmdk .q input::placeholder{color:var(--fg4)}
+.cmdk .res{max-height:min(380px,52vh);overflow-y:auto;padding:4px 6px 6px}
+.cmdk [role="group"] .lbl{padding:10px 10px 5px}
+.cmdk .it{display:flex;align-items:center;gap:10px;width:100%;height:38px;padding:0 10px;
+  border-radius:var(--r-sm);font-size:var(--t-base);color:var(--fg);transition:background-color .1s}
+.cmdk .it svg{width:16px;height:16px;flex:none;color:var(--fg3)}
+.cmdk .it em{margin-left:auto;font-style:normal;font-family:var(--fm);font-size:var(--t-xs);color:var(--fg2)}
+.cmdk .it:hover{background:var(--sunk)}
+.cmdk .it.on{background:var(--accs);color:var(--acc)}
+.cmdk .it.on svg,.cmdk .it.on em{color:var(--acc)}
+.cmdk .it.ai svg{color:var(--acc2)}
+.cmdk .none{padding:28px 16px;text-align:center;font-size:var(--t-sm);color:var(--fg2)}
+.cmdk .ft{display:flex;align-items:center;gap:16px;padding:10px 16px;flex:none;
+  border-top:1px solid var(--line);background:var(--bg);font-size:var(--t-xs);color:var(--fg2)}
+.cmdk .ft span{display:inline-flex;align-items:center;gap:6px}
+.cmdk .ft span:last-child{margin-left:auto}
+
+/* ---------------------------------------------------------- 16. feedback */
+/* Toasts confirm what just happened and leave on their own. Alerts stay on
+   the page until the condition changes. Tone follows the status law: grey
+   for neutral, the signal colours for status, violet only for the agent. */
+.toasts{position:fixed;right:20px;bottom:20px;z-index:60;display:grid;gap:10px;
+  width:min(372px,calc(100vw - 32px))}
+.toasts.inline{position:static;width:auto;max-width:372px}
+.toast{display:flex;align-items:flex-start;gap:11px;padding:12px 10px 12px 14px;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--e3)}
+.toast>svg{width:17px;height:17px;flex:none;margin-top:1px;color:var(--fg3)}
+.toast .tx{flex:1;min-width:0}
+.toast b{display:block;font-size:var(--t-base);font-weight:var(--w-semi);line-height:1.4}
+.toast p{margin-top:2px;font-size:var(--t-sm);color:var(--fg2);line-height:1.5}
+.toast .acts{display:flex;gap:6px;margin-top:9px}
+.toast .btn-ico{width:26px;height:26px;margin:-3px 0 0}
+.toast .btn-ico svg{width:14px;height:14px}
+.toast.ok>svg{color:var(--ok)}
+.toast.warn>svg{color:var(--warn)}
+.toast.sig>svg{color:var(--sig)}
+.toast.agent{border-color:var(--acc2b);background:linear-gradient(160deg,var(--acc2s),var(--card) 62%)}
+.toast.agent>svg{color:var(--acc2)}
+@keyframes vsg-up{from{opacity:0;transform:translateY(8px)}}
+.toast.in{animation:vsg-up .16s ease-out}
+
+.alert{display:flex;align-items:flex-start;gap:11px;padding:12px 14px;border-radius:var(--r-md);
+  border:1px solid var(--line2);background:var(--sunk);font-size:var(--t-sm);color:var(--fg2);line-height:1.5}
+.alert>svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--fg2)}
+.alert .tx{flex:1;min-width:0}
+.alert .tx b{display:block;font-weight:var(--w-semi);color:var(--fg)}
+.alert .acts{flex:none;align-self:center;display:flex;gap:7px}
+.alert.ok{background:var(--oks);border-color:var(--okb)}
+.alert.ok>svg{color:var(--ok)}
+.alert.ok .tx b{color:var(--ok-ink)}
+.alert.warn{background:var(--warns);border-color:var(--warnb)}
+.alert.warn>svg{color:var(--warn)}
+.alert.warn .tx b{color:var(--warn-ink)}
+.alert.sig{background:var(--sigs);border-color:var(--sigb)}
+.alert.sig>svg{color:var(--sig)}
+.alert.sig .tx b{color:var(--sig-ink)}
+.alert.agent{background:var(--acc2s);border-color:var(--acc2b)}
+.alert.agent>svg{color:var(--acc2)}
+.alert.agent .tx b{color:var(--acc2-ink)}
+
+.empty{display:grid;justify-items:center;gap:6px;padding:36px 24px;text-align:center}
+.empty .ic{width:44px;height:44px;margin-bottom:8px;padding:11px;border-radius:var(--r-lg);
+  background:var(--sunk);color:var(--fg3)}
+.empty h2,.empty h3{font-size:var(--t-md);font-weight:var(--w-semi);letter-spacing:-.015em}
+.empty p{max-width:46ch;font-size:var(--t-sm);color:var(--fg2)}
+.empty .acts{display:flex;gap:8px;justify-content:center;margin-top:10px}
+
+/* Skeleton: the shape of what is loading, never a spinner over a blank card. */
+.skel{display:block;border-radius:var(--r-xs);
+  background:linear-gradient(90deg,var(--line) 0 44%,var(--sunk) 50%,var(--line) 56% 100%) 0 0/300% 100%;
+  animation:vsg-sheen 1.4s linear infinite}
+@keyframes vsg-sheen{from{background-position:100% 0}to{background-position:0 0}}
+.skel.ln{height:10px;margin:5px 0}
+.skel.hd{height:16px;margin:4px 0 10px}
+.skel.blk{height:84px;border-radius:var(--r-md)}
+.skel.av{width:28px;height:28px;border-radius:var(--r-pill)}
+.skel.bt{width:96px;height:34px;border-radius:var(--r-pill)}
+
+.prog{display:grid;gap:6px}
+.prog .pl{display:flex;align-items:baseline;gap:10px;font-size:var(--t-xs);color:var(--fg2)}
+.prog .pl b{font-weight:var(--w-semi);color:var(--fg)}
+.prog .pl .num{margin-left:auto;font-size:var(--t-xs);color:var(--fg2)}
+.prog .pt{height:6px;border-radius:var(--r-pill);background:var(--sunk);overflow:hidden}
+.prog .pt i{display:block;height:100%;border-radius:inherit;background:var(--acc)}
+.prog.ok .pt i{background:var(--ok)}
+.prog.warn .pt i{background:var(--warn)}
+.prog.sig .pt i{background:var(--sig)}
+.prog.agent .pt i{background:var(--acc2)}
+.prog.ind .pt i{width:36%;animation:vsg-ind 1.1s ease-in-out infinite}
+@keyframes vsg-ind{from{transform:translateX(-100%)}to{transform:translateX(280%)}}
+.spin{display:inline-block;flex:none;width:16px;height:16px;vertical-align:middle;
+  border-radius:var(--r-pill);border:2px solid var(--line2);border-top-color:var(--acc);
+  animation:vsg-spin .7s linear infinite}
+.spin.lg{width:24px;height:24px;border-width:2.5px}
+.btn-p .spin{border-color:var(--acc-b);border-top-color:var(--on-fill)}
+@keyframes vsg-spin{to{transform:rotate(360deg)}}
+
+/* ----------------------------------------------- 17. navigation and data */
+/* Underline tabs switch panels inside a page; .seg switches views of the
+   same objects; .tt switches the product area. Three jobs, three controls. */
+.utabs{display:flex;align-items:flex-end;gap:4px;border-bottom:1px solid var(--line)}
+.utabs [role="tab"]{position:relative;display:inline-flex;align-items:center;gap:7px;height:38px;
+  padding:0 10px;border-radius:var(--r-sm) var(--r-sm) 0 0;font-size:var(--t-base);
+  font-weight:var(--w-med);color:var(--fg2);white-space:nowrap;transition:color .14s}
+.utabs [role="tab"]:hover{color:var(--fg)}
+.utabs [role="tab"][aria-selected="true"]{color:var(--fg);font-weight:var(--w-semi)}
+.utabs [role="tab"][aria-selected="true"]::after{content:"";position:absolute;left:10px;right:10px;bottom:-1px;
+  height:2px;border-radius:var(--r-pill) var(--r-pill) 0 0;background:var(--acc)}
+.utabs .c{padding:1px 7px;border-radius:var(--r-pill);background:var(--sunk);
+  font-family:var(--fm);font-size:var(--t-micro);color:var(--fg2)}
+.utabs [aria-selected="true"] .c{background:var(--accs);color:var(--acc)}
+
+.pager{display:flex;align-items:center;gap:4px;font-size:var(--t-xs);color:var(--fg2)}
+.pager .info{margin-right:auto}
+.pager .info b{color:var(--fg);font-weight:var(--w-semi)}
+.pager button{display:inline-grid;place-items:center;min-width:30px;height:30px;padding:0 8px;
+  border-radius:var(--r);font-family:var(--fm);font-size:var(--t-xs);color:var(--fg2);
+  transition:background-color .12s,color .12s}
+.pager button svg{width:15px;height:15px}
+.pager button:hover{background:var(--sunk);color:var(--fg)}
+.pager [aria-current="page"]{background:var(--accs);color:var(--acc);font-weight:var(--w-semi)}
+.pager button:disabled{background:none;color:var(--fg4);cursor:not-allowed}
+.pager .gap{min-width:22px;text-align:center;color:var(--fg2)}
+.pager select.sel{margin:0 10px 0 6px}
+
+.steps{display:flex;align-items:center;padding:0;list-style:none}
+.steps li{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.steps li:last-child{flex:none}
+.steps li:not(:last-child)::after{content:"";flex:1;min-width:16px;height:1px;margin:0 6px;background:var(--line2)}
+.steps li.done::after{background:var(--okb)}
+.steps .dot{display:grid;place-items:center;flex:none;width:24px;height:24px;padding:5px;
+  border-radius:var(--r-pill);border:1.5px solid var(--line2);background:var(--card);
+  font-family:var(--fm);font-size:var(--t-xs);line-height:1;color:var(--fg2)}
+.steps b{display:block;font-size:var(--t-sm);font-weight:var(--w-semi);color:var(--fg2);white-space:nowrap}
+.steps em{display:block;font-style:normal;font-size:var(--t-xs);color:var(--fg2);white-space:nowrap}
+.steps .done .dot{background:var(--oks);border-color:var(--okb);color:var(--ok-ink)}
+.steps .done b,.steps [aria-current="step"] b{color:var(--fg)}
+.steps [aria-current="step"] .dot{background:var(--acc);border-color:var(--acc);color:var(--on-fill);box-shadow:var(--ring)}
+
+/* Table toolbar and bulk bar sit inside the table's card, above the .tbl. */
+.tbar{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.tbar .fld{flex:1 1 180px;max-width:280px;height:32px}
+.tbar .sep{width:1px;height:20px;background:var(--line);flex:none}
+.bulk{display:flex;align-items:center;gap:10px;padding:7px 10px 7px 14px;background:var(--accs);
+  border-bottom:1px solid var(--acc-b);font-size:var(--t-sm);color:var(--acc)}
+.bulk b{font-weight:var(--w-semi)}
+.bulk .btn-s{border-color:var(--acc-b)}
+.bulk .btn-g{color:var(--acc)}
+.tbl .cx{width:44px;padding-right:0}
+.tbl .cx label.chk{vertical-align:middle}
+
+/* Dropzone: the file input covers the zone, so click, keyboard and drop all
+   work without script. vsg-halo.js only adds the drag-over state. */
+.drop{position:relative;display:grid;justify-items:center;align-content:center;gap:4px;padding:26px 20px;text-align:center;
+  border:1.5px dashed var(--line2);border-radius:var(--r-lg);background:var(--bg);
+  font-size:var(--t-sm);color:var(--fg2);cursor:pointer;
+  transition:border-color .15s,background-color .15s,box-shadow .15s}
+.drop input[type="file"]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.drop .ic{width:38px;height:38px;margin-bottom:6px;padding:9px;border-radius:var(--r);
+  background:var(--card);border:1px solid var(--line);box-shadow:var(--e1);color:var(--fg3)}
+.drop b{font-size:var(--t-base);font-weight:var(--w-semi);color:var(--fg)}
+.drop b u{text-decoration:none;color:var(--acc)}
+.drop small{font-size:var(--t-xs);color:var(--fg2)}
+.drop .prog{width:min(320px,100%);margin-top:10px;text-align:left}
+.drop:hover{border-color:var(--fg3)}
+.drop.over{border-style:solid;border-color:var(--acc);background:var(--accs)}
+.drop.over .ic{border-color:var(--acc-b);color:var(--acc)}
+.drop.busy,.drop.done,.drop.err{border-style:solid;cursor:default}
+.drop.busy{background:var(--card);border-color:var(--line2)}
+.drop.done{border-color:var(--okb);background:var(--oks)}
+.drop.done .ic{color:var(--ok)}
+.drop.err{border-color:var(--sigb);background:var(--sigs)}
+.drop.err .ic{color:var(--sig)}
+.drop.err small{color:var(--sig-ink)}
+
+/* ------------------------------------------------------------ 18. records */
+/* Added in v3.1 when the record template and the reference record page both needed them.
+   Audit timeline: who did what, and when, newest last, in a card under a .ph. The dot says
+   who acted: grey a person or the system, li.v violet an agent, li.x red a block, li.a cobalt
+   waiting on the human now. Offsets are calculated from the dot, the rail and the step. */
+.tl{--tl-dot:10px;--tl-rail:1px;--tl-step:12px;--tl-lead:4px;
+  display:grid;padding:6px 17px 16px;list-style:none}
+.tl li{position:relative;list-style:none;margin-left:calc(var(--tl-dot) / 2 + var(--tl-rail) * 2);
+  padding:var(--tl-step) 0 var(--tl-step) calc(var(--tl-dot) * 2.6);border-left:var(--tl-rail) solid var(--line)}
+.tl li:first-child{padding-top:var(--tl-lead)}
+.tl li:last-child{border-left-color:transparent;padding-bottom:calc(var(--tl-lead) / 2)}
+.tl li::before{content:"";position:absolute;left:calc((var(--tl-dot) + var(--tl-rail)) / -2);
+  top:calc(var(--tl-step) + var(--tl-lead));width:var(--tl-dot);height:var(--tl-dot);
+  border-radius:var(--r-pill);background:var(--card);border:2px solid var(--line2)}
+.tl li:first-child::before{top:calc(var(--tl-lead) * 2)}
+.tl li.a::before{border-color:var(--acc)}
+.tl li.v::before{border-color:var(--acc2)}
+.tl li.x::before{border-color:var(--sig)}
+.tl .hd{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.tl .hd b{font-size:var(--t-base);font-weight:var(--w-semi);letter-spacing:-.015em}
+.tl .hd time{margin-left:auto;flex:none;font-family:var(--fm);font-size:var(--t-xs);color:var(--fg2)}
+.tl p{margin-top:3px;max-width:66ch;font-size:var(--t-sm);color:var(--fg2);line-height:1.55}
+.tl .who{font-size:var(--t-label);font-weight:var(--w-semi);color:var(--fg2)}
+.tl .who.ai{color:var(--acc2-ink)}    /* an agent acted */
+.tl .who.now{color:var(--acc)}        /* waiting on the human */
+
+/* Checks list: the rules an object passed or failed, one per row, the status pill on the
+   right. A rule code goes in small under the sentence. */
+.chk-l{display:grid}
+.chk-l>div{display:flex;align-items:center;gap:10px;padding:10px 17px;border-top:1px solid var(--line);
+  font-size:var(--t-sm);color:var(--fg)}
+.chk-l>div:first-child{border-top:0}
+.chk-l small{display:block;font-family:var(--fm);font-size:var(--t-xs);color:var(--fg2)}
+.chk-l .st{margin-left:auto;flex:none}

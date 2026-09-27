@@ -1,0 +1,9 @@
+<!-- The VSG Core node canvas: VSG Core's five parts (suppliers, stock, orders, customers, invoices)
+     on a base plane, with VSG Procure, VSG Endorse and custom builds floating above and reading from it.
+     Every 4 seconds the next product lights the parts it reads; data pulses travel the edges.
+     Params: class ("w-model--light" for light sections; default is drawn for obsidian), height (CSS, default 460px), align ("right" puts the model on the right on wide screens).
+     Usage: {{> model}} -->
+<div class="w-model {{class}}" data-model data-align="{{align|center}}" style="--h:{{height|460px}}">
+  <canvas class="w-model-cv" aria-hidden="true"></canvas>
+  <p class="w-sr">VSG Core keeps your business data on one clean platform: suppliers, stock, orders, customers and invoices. VSG Procure works from suppliers, stock and orders. VSG Endorse works from customers, invoices, suppliers and stock. Custom builds can work from any of it.</p>
+</div>

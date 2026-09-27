@@ -1,0 +1,15 @@
+<!-- Closing call to action on an obsidian band.
+     Params: title, sub, primary, primary_href, secondary, secondary_href.
+     Defaults: "Book a Bootcamp" to /bootcamp#book, and "Contact us" to /contact?topic=contact.
+     Usage: {{> cta title="..." sub="..." primary="Request a demo" primary_href="/contact?topic=procure-demo"}} -->
+<section class="w-sec w-dark w-cta" aria-label="{{primary|Book a Bootcamp}}">
+  <div class="w-glow w-glow--cta" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap w-cta-in">
+    <h2 class="w-h2">{{title|See what AI can do for your business.}}</h2>
+    <p class="w-lead">{{sub|Start with a five-day Bootcamp on your own numbers, at a fixed price. You leave knowing where AI will save time and money, and what it is worth.}}</p>
+    <div class="w-actions w-actions--center">
+      <a class="btn btn-p btn-xl" href="{{primary_href|/bootcamp#book}}">{{primary|Book a Bootcamp}}</a>
+      <a class="btn btn-s btn-xl" href="{{secondary_href|/contact?topic=contact}}">{{secondary|Contact us}}</a>
+    </div>
+  </div>
+</section>

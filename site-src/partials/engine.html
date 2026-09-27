@@ -1,0 +1,78 @@
+<!-- The exploded 3D engine stack, read from the bottom up: your ERP and spreadsheets (we only read them),
+     VSG Core (your data, organised and traced to its source), VSG products (Procure, Endorse, custom builds, where the AI finds the problems),
+     and your people on top, who approve every decision. Plates explode on scroll, pulses rise, picking a product
+     lights the data it works from and the people who approve its work.
+     Params: class ("w-engine--compact" hides the legend and labels, "w-engine--dark" for obsidian sections),
+     intro (legend line). Usage: {{> engine}} or {{> engine class="w-engine--dark"}} -->
+<div class="w-engine {{class}}" data-engine>
+  <figure class="w-engine-fig">
+    <div class="w-engine-scene" aria-hidden="true">
+      <div class="w-engine-rig">
+        <div class="w-engine-shadow"></div>
+        <div class="w-plate w-plate--sys" style="--i:0">
+          <span class="w-plate-ef"></span><span class="w-plate-el"></span>
+          <div class="w-plate-h">Your systems: integrated, never changed</div>
+          <div class="w-plate-row w-cols-3">
+            <div class="w-tl w-tl--sys"><b>Your ERP</b><small>Integrated, never changed</small></div>
+            <div class="w-tl w-tl--sys"><b>Spreadsheets</b><small>Price lists, counts</small></div>
+            <div class="w-tl w-tl--sys"><b>Email and documents</b><small>Statements, invoices</small></div>
+          </div>
+          <div class="w-plate-row w-cols-3 w-risers"><span class="w-rs"><span class="w-ln"><span class="w-pu"></span></span></span><span class="w-rs"><span class="w-ln"><span class="w-pu"></span></span></span><span class="w-rs"><span class="w-ln"><span class="w-pu"></span></span></span></div>
+          <div class="w-plate-lab"><span><b>Your systems</b><small>ERP, spreadsheets, email. Integrated, never changed.</small></span></div>
+        </div>
+        <div class="w-plate w-plate--core" style="--i:1">
+          <span class="w-plate-ef"></span><span class="w-plate-el"></span>
+          <div class="w-plate-h">{{> mark size="12"}}VSG Core: your business, connected</div>
+          <div class="w-plate-row w-core-row">
+            <div class="w-core-id">{{> mark size="26" class="w-mark--inv"}}<b>VSG Core</b></div>
+            <div class="w-tl w-tl--ent" data-e="suppliers">Suppliers</div>
+            <div class="w-tl w-tl--ent" data-e="stock">Stock</div>
+            <div class="w-tl w-tl--ent" data-e="orders">Orders</div>
+            <div class="w-tl w-tl--ent" data-e="customers">Customers</div>
+            <div class="w-tl w-tl--ent" data-e="invoices">Invoices</div>
+          </div>
+          <div class="w-plate-row w-cols-4 w-risers"><span class="w-rs" data-p="see"><span class="w-ln"><span class="w-pu"></span></span></span><span class="w-rs w-rs--ai" data-p="endorse"><span class="w-ln"><span class="w-pu"></span></span></span><span class="w-rs" data-p="procure"><span class="w-ln"><span class="w-pu"></span></span></span><span class="w-rs" data-p="custom"><span class="w-ln"><span class="w-pu"></span></span></span></div>
+          <div class="w-plate-lab"><span><b>VSG Core</b><small>Customers, orders, stock, suppliers and invoices, linked</small></span></div>
+        </div>
+        <div class="w-plate w-plate--apps" style="--i:2">
+          <span class="w-plate-ef"></span><span class="w-plate-el"></span>
+          <div class="w-plate-h">See, do, buy: what your people use</div>
+          <div class="w-plate-row w-cols-4">
+            <div class="w-tl w-tl--app" data-p="see"><b>See</b><small>VSG Core reports and look-ups</small></div>
+            <div class="w-tl w-tl--app" data-p="endorse"><b>Do</b><small>VSG Endorse automations</small></div>
+            <div class="w-tl w-tl--app" data-p="procure"><b>Buy</b><small>VSG Procure</small></div>
+            <div class="w-tl w-tl--app" data-p="custom"><b>Build</b><small>Custom software</small></div>
+          </div>
+          <div class="w-plate-lab"><span><b>See, do, buy</b><small>Reports, AI automations and buying.</small></span></div>
+        </div>
+        <div class="w-plate w-plate--ppl" style="--i:3">
+          <span class="w-plate-ef"></span><span class="w-plate-el"></span>
+          <div class="w-plate-h">Your people approve every decision</div>
+          <div class="w-plate-row w-cols-3">
+            <div class="w-tl w-tl--person" data-for="procure custom see"><svg class="w-i" aria-hidden="true"><use href="#i-user"/></svg>Buyer</div>
+            <div class="w-tl w-tl--person" data-for="endorse custom see"><svg class="w-i" aria-hidden="true"><use href="#i-user"/></svg>Credit controller</div>
+            <div class="w-tl w-tl--person" data-for="endorse custom see"><svg class="w-i" aria-hidden="true"><use href="#i-user"/></svg>CFO</div>
+          </div>
+          <div class="w-plate-lab"><span><b>Your people</b><small>Approve every decision</small></span></div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="w-sr">How VSG fits together, from the bottom up. At the bottom, your systems: your ERP, spreadsheets and email. We integrate with them and never change anything in them. Above that, VSG Core: your business, connected, with your customers, orders, stock, suppliers and invoices linked. Above that, what your people use: See, with VSG Core reports and look-ups; Do, with VSG Endorse automations; Buy, with VSG Procure; and Build, with custom software. AI works in the reports, the automations and the custom builds. At the top, your people, who approve every decision.</figcaption>
+  </figure>
+  <div class="w-engine-legend">
+    <p class="w-engine-intro">{{intro|Choose a product to see the data it works from and who approves its work.}}</p>
+    <div class="w-engine-picks">
+      <button class="w-pick" type="button" aria-pressed="false" data-p="see" data-ents="suppliers stock orders customers invoices"><span class="w-pick-t"><b>See: VSG Core</b></span><small>Live dashboards, custom reports and a personal view for every person on your team, built on all of your data.</small></button>
+      <button class="w-pick" type="button" aria-pressed="false" data-p="procure" data-ents="suppliers stock orders"><span class="w-pick-t"><b>Buy: VSG Procure</b></span><small>Forecasts demand, plans every order and compares landed prices, from your stock, sales and suppliers. Your buyers approve every order.</small></button>
+      <button class="w-pick" type="button" aria-pressed="false" data-p="endorse" data-ents="customers invoices suppliers stock"><span class="w-pick-t"><b>Do: VSG Endorse</b></span><small>AI automations that check, alert and report across your customers, invoices, suppliers and stock. The right person approves.</small></button>
+      <button class="w-pick" type="button" aria-pressed="false" data-p="custom" data-ents="suppliers stock orders customers invoices"><span class="w-pick-t"><b>Build: custom software</b></span><small>Systems built around the way your business works, using any of your data. The right person approves.</small></button>
+    </div>
+    <p class="w-engine-ex"><b>Every morning, bottom to top.</b> VSG Core syncs the latest data from your systems. The AI in Core, Endorse and your custom builds checks every order, invoice and stock line, finds the problems and drafts the fix. Your team approves with one click.</p>
+    <ul class="w-engine-facts" role="list">
+      <li><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg>Integrates with your ERP and existing systems</li>
+      <li><svg class="w-i" aria-hidden="true"><use href="#i-spark"/></svg>AI prepares the work, your team makes the call</li>
+      <li><svg class="w-i" aria-hidden="true"><use href="#i-trace"/></svg>Click any number to see where it came from</li>
+      <li><svg class="w-i" aria-hidden="true"><use href="#i-server"/></svg>Runs on your own server or South African hosting</li>
+    </ul>
+  </div>
+</div>

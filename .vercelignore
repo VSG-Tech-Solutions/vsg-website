@@ -1,0 +1,11 @@
+# The site is prebuilt at the repo root. Sources, research notes and tooling are not served.
+site-src
+node_modules
+README.md
+.claude
+.env*
+.impeccable
+brand-assets
+brand-assets-v2
+kit.html
+assets/site/pages/kit.*

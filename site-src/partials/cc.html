@@ -1,0 +1,117 @@
+<!-- The ACE Command Centre illustration: one login, each product an icon, each role its view. Used on home and /ace.
+     Styles live in assets/site/site.css, behaviour in assets/site/site.js ([data-cc]). -->
+<div class="h-cc" data-cc data-role="md" data-app="home">
+  <div class="h-cc-roles" role="radiogroup" aria-label="View the command centre as">
+    <span class="h-cc-roles-l">View as</span>
+    <button type="button" role="radio" aria-checked="true" data-cc-role="md">Managing director</button>
+    <button type="button" role="radio" aria-checked="false" data-cc-role="cc">Finance manager</button>
+    <button type="button" role="radio" aria-checked="false" data-cc-role="buyer">Buyer</button>
+  </div>
+  <div class="w-float w-float--lg h-cc-win">
+    <nav class="h-cc-rail" aria-label="Products">
+      <span class="h-cc-mk">{{> mark size="18" class="w-mark--inv"}}</span>
+      <button type="button" class="h-cc-ic is-on" data-cc-app="home" data-roles="md cc buyer" aria-label="ACE Command Centre" title="ACE Command Centre"><svg class="w-i" aria-hidden="true"><use href="#i-home"/></svg></button>
+      <button type="button" class="h-cc-ic" data-cc-app="core" data-roles="md cc buyer" aria-label="VSG Core" title="VSG Core"><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg></button>
+      <button type="button" class="h-cc-ic" data-cc-app="procure" data-roles="md buyer" aria-label="VSG Procure" title="VSG Procure"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></button>
+      <button type="button" class="h-cc-ic" data-cc-app="endorse" data-roles="md cc" aria-label="VSG Endorse" title="VSG Endorse"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg></button>
+      <span class="h-cc-sp"></span>
+      <button type="button" class="h-cc-ic" data-cc-app="settings" data-roles="md" aria-label="Settings" title="Settings"><svg class="w-i" aria-hidden="true"><use href="#i-gear"/></svg></button>
+    </nav>
+    <div class="h-cc-main">
+      <div class="h-cc-top">
+        <span class="h-cc-org">Karoo Industrial Supply</span><span class="h-cc-sl">/</span><b class="h-cc-crumb" data-cc-crumb>ACE Command Centre</b>
+        <span class="h-cc-fill"></span>
+        <span class="h-cc-search"><svg class="w-i" aria-hidden="true"><use href="#i-search"/></svg><span>Search everything</span></span>
+        <span class="h-cc-bell"><svg class="w-i" aria-hidden="true"><use href="#i-inbox"/></svg><i data-cc-badge>3</i></span>
+        <span class="h-cc-av" data-cc-av>SE</span>
+      </div>
+      <div class="h-cc-body">
+        <!-- command centre -->
+        <div class="h-cc-p" data-cc-p="home">
+          <aside class="h-cc-side"><b>Command centre</b><span class="is-on">Today</span><span>Approvals</span><span>Alerts</span><span>Reports</span><span>Automations</span></aside>
+          <div class="h-cc-c h-cc-c--dash">
+            <div class="h-cc-hello"><p class="h-cc-h">Good morning. Your business at a glance.</p><span class="h-cc-live"><i></i>Refreshed from your ERP at 06:00</span></div>
+            <ul class="h-cc-kpis h-cc-kpis--rich" role="list">
+              <li data-roles="md buyer"><span>Sales this week</span><b class="w-num">R&nbsp;4.61m</b><em class="h-cc-up">&#9650; 4.8% on last week</em><svg class="h-cc-spark" viewBox="0 0 84 26" aria-hidden="true"><polyline points="0.0,21.3 7.6,15.9 15.3,24.0 22.9,10.4 30.5,18.6 38.2,7.7 45.8,13.1 53.5,2.3 61.1,10.4 68.7,5.0 76.4,7.7 84.0,2.0"/></svg></li>
+              <li data-roles="md cc"><span>Cash owed to you</span><b class="w-num">R&nbsp;1.28m</b><em class="h-cc-down">14 accounts overdue</em><svg class="h-cc-spark is-down" viewBox="0 0 84 26" aria-hidden="true"><polyline points="0.0,2.0 9.3,4.8 18.7,7.5 28.0,12.1 37.3,9.3 46.7,14.8 56.0,17.6 65.3,19.4 74.7,22.2 84.0,24.0"/></svg></li>
+              <li data-roles="md buyer"><span>Stock value</span><b class="w-num">R&nbsp;18.4m</b><em>5 items running out</em><svg class="h-cc-spark" viewBox="0 0 84 26" aria-hidden="true"><polyline points="0.0,24.0 12.0,17.7 24.0,13.0 36.0,6.7 48.0,9.9 60.0,2.0 72.0,3.6 84.0,5.1"/></svg></li>
+              <li data-roles="md cc buyer"><span>Waiting for approval</span><b class="w-num" data-cc-wait>3</b><em>One click each</em><svg class="h-cc-spark is-down" viewBox="0 0 84 26" aria-hidden="true"><polyline points="0.0,2.0 14.0,13.0 28.0,7.5 42.0,18.5 56.0,13.0 70.0,24.0 84.0,18.5"/></svg></li>
+            </ul>
+            <div class="h-cc-grid2">
+              <div class="h-cc-panel" data-roles="md cc buyer">
+                <div class="h-cc-ph"><b>Sales and cash collected</b><span><i class="h-cc-key h-cc-key--bar"></i>Sales <i class="h-cc-key h-cc-key--line"></i>Cash in</span></div>
+                <svg class="h-cc-chart" viewBox="0 0 480 170" role="img" aria-label="Sales and cash collected per week, last 12 weeks"><line x1="30" x2="476" y1="150" y2="150" class="h-cc-grid"/><text x="24" y="154" class="h-cc-ax" text-anchor="end">0m</text><line x1="30" x2="476" y1="122.4" y2="122.4" class="h-cc-grid"/><text x="24" y="126.4" class="h-cc-ax" text-anchor="end">1m</text><line x1="30" x2="476" y1="94.8" y2="94.8" class="h-cc-grid"/><text x="24" y="98.8" class="h-cc-ax" text-anchor="end">2m</text><line x1="30" x2="476" y1="67.2" y2="67.2" class="h-cc-grid"/><text x="24" y="71.2" class="h-cc-ax" text-anchor="end">3m</text><line x1="30" x2="476" y1="39.599999999999994" y2="39.599999999999994" class="h-cc-grid"/><text x="24" y="43.599999999999994" class="h-cc-ax" text-anchor="end">4m</text><line x1="30" x2="476" y1="12" y2="12" class="h-cc-grid"/><text x="24" y="16" class="h-cc-ax" text-anchor="end">5m</text><rect class="h-cc-bar" x="34.0" y="42.4" width="28.8" height="107.6" rx="3" style="--i:0"/><rect class="h-cc-bar" x="70.8" y="36.8" width="28.8" height="113.2" rx="3" style="--i:1"/><rect class="h-cc-bar" x="107.7" y="45.1" width="28.8" height="104.9" rx="3" style="--i:2"/><rect class="h-cc-bar" x="144.5" y="31.3" width="28.8" height="118.7" rx="3" style="--i:3"/><rect class="h-cc-bar" x="181.3" y="39.6" width="28.8" height="110.4" rx="3" style="--i:4"/><rect class="h-cc-bar" x="218.2" y="28.6" width="28.8" height="121.4" rx="3" style="--i:5"/><rect class="h-cc-bar" x="255.0" y="34.1" width="28.8" height="115.9" rx="3" style="--i:6"/><rect class="h-cc-bar" x="291.8" y="23.0" width="28.8" height="127.0" rx="3" style="--i:7"/><rect class="h-cc-bar" x="328.7" y="31.3" width="28.8" height="118.7" rx="3" style="--i:8"/><rect class="h-cc-bar" x="365.5" y="25.8" width="28.8" height="124.2" rx="3" style="--i:9"/><rect class="h-cc-bar" x="402.3" y="28.6" width="28.8" height="121.4" rx="3" style="--i:10"/><rect class="h-cc-bar is-now" x="439.2" y="22.8" width="28.8" height="127.2" rx="3" style="--i:11"/><polyline class="h-cc-line" points="48.4,61.7 85.3,53.4 122.1,56.2 158.9,50.6 195.8,58.9 232.6,45.1 269.4,42.4 306.3,39.6 343.1,42.4 379.9,34.1 416.8,31.3 453.6,28.6"/><circle class="h-cc-dot" cx="453.6" cy="28.6" r="4"/><text x="48.4" y="166" class="h-cc-ax" text-anchor="middle">W27</text><text x="158.9" y="166" class="h-cc-ax" text-anchor="middle">W30</text><text x="269.4" y="166" class="h-cc-ax" text-anchor="middle">W33</text><text x="379.9" y="166" class="h-cc-ax" text-anchor="middle">W36</text><text x="453.6" y="166" class="h-cc-ax" text-anchor="middle">W38</text></svg>
+                <ul class="h-cc-sum" role="list"><li><span>Sales, week 38</span><b class="w-num">R&nbsp;4.61m</b></li><li><span>Cash in, week 38</span><b class="w-num">R&nbsp;4.40m</b></li><li><span>Collected</span><b class="w-num">95%</b></li></ul>
+                <div class="h-cc-best"><p>Top customers this week</p><ul role="list"><li><span>Namakwa Mining Services</span><b class="w-num">R&nbsp;486&nbsp;200</b></li><li><span>Overberg Agri Co-op</span><b class="w-num">R&nbsp;402&nbsp;750</b></li><li><span>Tugela Water Works</span><b class="w-num">R&nbsp;355&nbsp;900</b></li></ul></div>
+              </div>
+              <div class="h-cc-panel">
+                <div class="h-cc-ph"><b>Needs your attention</b><span>Biggest first</span></div>
+                <ul class="h-cc-jobs h-cc-att" role="list">
+                  <li data-roles="md buyer"><div><span class="st st-a"><i></i>VSG Procure</span><b>Conveyor belt EP400 runs out in 3 weeks</b><small>On the stock-out list. Three quotes compared at landed cost.</small></div><b class="w-num">R&nbsp;412&nbsp;800</b><button type="button" class="btn btn-p btn-sm" data-cc-ok="ep400">Approve</button></li>
+                  <li data-roles="md cc"><div><span class="st st-ai"><i></i>VSG Endorse</span><b>Breede Irrigation, 67 days overdue</b><small>Reminder drafted for approval</small></div><b class="w-num">R&nbsp;312&nbsp;400</b><button type="button" class="btn btn-p btn-sm" data-cc-ok="breede">Approve</button></li>
+                  <li data-roles="md cc buyer"><div><span class="st st-ai"><i></i>VSG Endorse</span><b>Highveld Cable Co. billed above the order</b><small>Payment held, query drafted</small></div><b class="w-num">R&nbsp;24&nbsp;350</b><button type="button" class="btn btn-p btn-sm" data-cc-ok="highveld">Approve</button></li>
+                </ul>
+              </div>
+            </div>
+            <div class="h-cc-panel">
+              <div class="h-cc-ph"><b>Automations running</b><span>Every morning, and the moment something changes</span></div>
+              <div class="h-cc-auto" role="table" aria-label="Automations running">
+                <div class="h-cc-ar h-cc-ah" role="row"><span role="columnheader">Automation</span><span role="columnheader">Last run</span><span role="columnheader">Found</span><span role="columnheader">Status</span></div>
+                <div class="h-cc-ar" role="row" data-roles="md buyer"><span role="cell"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg>Stock running low</span><span role="cell">06:00</span><span role="cell">5 items</span><span role="cell"><em class="h-cc-ok">Running</em></span></div>
+                <div class="h-cc-ar" role="row" data-roles="md cc"><span role="cell"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg>Late payments</span><span role="cell">06:05</span><span role="cell">14 accounts</span><span role="cell"><em class="h-cc-ok">Running</em></span></div>
+                <div class="h-cc-ar" role="row" data-roles="md cc buyer"><span role="cell"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg>Supplier invoices</span><span role="cell">06:10</span><span role="cell">5 flagged</span><span role="cell"><em class="h-cc-ok">Running</em></span></div>
+                <div class="h-cc-ar" role="row" data-roles="md"><span role="cell"><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg>Monday management pack</span><span role="cell">Mon 07:00</span><span role="cell">Sent</span><span role="cell"><em class="h-cc-ok">Running</em></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- core -->
+        <div class="h-cc-p" data-cc-p="core" hidden>
+          <aside class="h-cc-side"><b>VSG Core</b><span>Search</span><span>Customers</span><span>Suppliers</span><span>Items</span><span class="is-on">Reports</span><span>Dashboards</span></aside>
+          <div class="h-cc-c">
+            <p class="h-cc-h">Monday management pack, week 38</p>
+            <div class="h-cc-bars" aria-hidden="true"><i style="--h:44%"></i><i style="--h:58%"></i><i style="--h:51%"></i><i style="--h:66%"></i><i style="--h:72%"></i><i style="--h:69%"></i><i style="--h:82%"></i></div>
+            <p class="h-cc-sm">Sales per week. Click any bar to see the invoices behind it.</p>
+            <ul class="h-cc-rows" role="list"><li><span>Sales this week</span><b class="w-num">R&nbsp;4.61m</b></li><li><span>Stock value</span><b class="w-num">R&nbsp;18.4m</b></li><li><span>Debtors over 60 days</span><b class="w-num">R&nbsp;498&nbsp;150</b></li></ul>
+          </div>
+        </div>
+        <!-- procure -->
+        <div class="h-cc-p" data-cc-p="procure" hidden>
+          <aside class="h-cc-side"><b>VSG Procure</b><span class="is-on">Planning</span><span>Quotes</span><span>Review</span><span>Orders</span></aside>
+          <div class="h-cc-c">
+            <p class="h-cc-h">Planning: months of stock left</p>
+            <div class="h-cc-grid" role="table" aria-label="Months of stock left">
+              <div class="h-cc-gr h-cc-gh" role="row"><span role="columnheader">Item</span><span role="columnheader">Oct</span><span role="columnheader">Nov</span><span role="columnheader">Dec</span><span role="columnheader">Jan</span></div>
+              <div class="h-cc-gr" role="row"><span role="cell">Bearing 6205</span><span role="cell" class="lv-ok">2.4</span><span role="cell" class="lv-ok">1.6</span><span role="cell" class="lv-w">0.9</span><span role="cell" class="lv-x">0.0</span></div>
+              <div class="h-cc-gr" role="row"><span role="cell">Cable 4mm, 100m</span><span role="cell" class="lv-w">1.2</span><span role="cell" class="lv-w">0.6</span><span role="cell" class="lv-x">0.0</span><span role="cell" class="lv-x">0.0</span></div>
+              <div class="h-cc-gr" role="row"><span role="cell">PVC pipe 110mm</span><span role="cell" class="lv-ok">3.1</span><span role="cell" class="lv-ok">2.7</span><span role="cell" class="lv-ok">2.2</span><span role="cell" class="lv-ok">1.8</span></div>
+            </div>
+            <p class="h-cc-sm">Order file ready to check: 14 lines, each traced to its quote.</p>
+          </div>
+        </div>
+        <!-- endorse -->
+        <div class="h-cc-p" data-cc-p="endorse" hidden>
+          <aside class="h-cc-side"><b>VSG Endorse</b><span class="is-on">Inbox</span><span>Automations</span><span>Record</span><span>Monthly results</span></aside>
+          <div class="h-cc-c">
+            <p class="h-cc-h">Inbox: waiting for your approval</p>
+            <ul class="h-cc-jobs" role="list">
+              <li><div><b>Breede Irrigation</b><small>67 days late. Reminder drafted.</small></div><b class="w-num">R&nbsp;312&nbsp;400</b><button type="button" class="btn btn-p btn-sm" data-cc-ok="breede">Approve</button></li>
+              <li><div><b>Highveld Cable Co.</b><small>Billed above the order. Query drafted.</small></div><b class="w-num">R&nbsp;24&nbsp;350</b><button type="button" class="btn btn-p btn-sm" data-cc-ok="highveld">Approve</button></li>
+              <li><div><b>Safety boots, size 8</b><small>Short on the last three counts. Recount drafted.</small></div><b class="w-num">R&nbsp;48&nbsp;730</b><button type="button" class="btn btn-p btn-sm" data-cc-ok="boots">Approve</button></li>
+            </ul>
+          </div>
+        </div>
+        <!-- settings -->
+        <div class="h-cc-p" data-cc-p="settings" hidden>
+          <aside class="h-cc-side"><b>Settings</b><span class="is-on">People and roles</span><span>Connections</span></aside>
+          <div class="h-cc-c">
+            <p class="h-cc-h">People and roles</p>
+            <ul class="h-cc-rows" role="list"><li><span>S. Ebrahim, managing director</span><b>Everything</b></li><li><span>T. Naidoo, finance manager</span><b>Endorse, Core</b></li><li><span>L. Botha, buyer</span><b>Procure, Core</b></li></ul>
+            <p class="h-cc-sm"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg> Your ERP is connected and secure. Sign in with your Microsoft work account.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="w-cap">An illustration of the ACE Command Centre. Switch the role, then click the icons on the left.</p>
+</div>

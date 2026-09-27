@@ -1,0 +1,618 @@
+---
+title: VSG | Streamline your business with AI
+description: VSG is an AI company in Cape Town that specializes in operations. VSG ACE, our AI platform for operations, integrates with your ERP and existing systems and puts AI to work across finance, stock, suppliers, sales and production.
+path: /
+nav: home
+og_title: Streamline your business with AI | VSG
+og_description: An AI company in Cape Town that specializes in operations. VSG ACE puts AI to work across your whole operation, with a view for every role, integrated with your ERP and existing systems.
+---
+<!-- Home: VSG the business, led by VSG ACE, the flagship platform. Every product reads as a layer or part of ACE.
+     Figures in the product previews are Karoo Industrial Supply demo data (a fictional company, not a client). -->
+
+<!-- 1. HERO: the company -->
+<section class="w-hero w-bg-canvas h-hero" aria-labelledby="h-hero-h">
+  <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap">
+    <div class="w-hero-in">
+      <h1 class="w-display h-hero-h" id="h-hero-h">Streamline your business<br><span class="w-accent">with AI.</span></h1>
+      <p class="w-lead">Picture the right stock on the shelf, every supplier invoice checked before you pay, and a team that walks into the Monday meeting already knowing what matters. VSG is an AI company in Cape Town that specializes in operations, for manufacturers, distributors, wholesalers and retailers. We build around the way your business already runs. Start with one process and grow.</p>
+      <div class="w-actions w-actions--center">
+        <a class="btn btn-p btn-xl" href="/contact?topic=ace">Request a demo</a>
+        <a class="btn btn-s btn-xl" href="/bootcamp#book">Book a Bootcamp</a>
+      </div>
+      <p class="w-trust"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg>Integrates with your ERP and existing systems, and never changes them. Your team approves every decision.</p>
+      <nav class="h-lu" aria-label="VSG ACE and its parts">
+        <ul role="list">
+          <li class="h-lu-ace"><a href="/ace"><b>VSG ACE</b><span>The AI platform for operations</span></a></li>
+          <li class="h-lu-part"><a href="/core"><b>VSG Core</b><span>Your data, organised</span></a></li>
+          <li class="h-lu-part"><a href="/endorse"><b>VSG Endorse</b><span>Every AI automation, approved</span></a></li>
+          <li class="h-lu-part"><a href="/procure"><b>VSG Procure</b><span>Procurement planning, forecast to order</span></a></li>
+          <li class="h-lu-part"><a href="/custom"><b>Custom applications</b><span>Built on ACE for your business</span></a></li>
+          <li><a href="/bootcamp"><b>VSG Bootcamp</b><span>Five days on site, fixed price</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- 1b. VSG ACE: the flagship platform, with the ACE Command Centre as its face (illustration, partials/cc.html) -->
+<section class="w-sec w-dark h-ccsec h-ace" aria-labelledby="h-cc-h">
+  <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap w-wrap--wide">
+    <div class="w-head w-head--center">
+      <p class="h-ace-k">VSG ACE</p>
+      <h2 class="w-h2" id="h-cc-h">One platform.<br class="h-br"> Your entire business.<br class="h-br"> <span class="w-mute">AI in every team, every number, every decision.</span></h2>
+      <p class="w-lead">Finance, buying, sales and the warehouse, finally working from the same numbers. VSG ACE is your own AI operations environment, deployed and run by VSG around the way your business works. Every product and custom system you add joins it. The ACE Command Centre is designed so your team signs in once and each role sees exactly what it needs.</p>
+    </div>
+    <ul class="h-cc-pts" role="list">
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-layers"/></svg></span><div><b>Powered by VSG Core</b><p>Every screen, report and automation works from the same numbers.</p></div></li>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg></span><div><b>One login, every role</b><p>Designed for one sign-in, with each role seeing the numbers behind its decisions.</p></div></li>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></span><div><b>Everything you add, in view</b><p>Each application and automation added to ACE is designed to appear in the Command Centre, on the same data.</p></div></li>
+    </ul>
+    {{> cc}}
+    <div class="w-actions w-actions--center h-ace-act"><a class="btn btn-p btn-lg" href="/ace">Explore VSG ACE</a></div>
+  </div>
+</section>
+
+<!-- 2. THE PROBLEM: a plain ledger; three lines lift out and get a price. Then what the AI does with it. -->
+<section class="w-sec w-bg-white h-prob" aria-labelledby="h-prob-h">
+  <div class="w-wrap">
+    <div class="w-head">
+      <h2 class="w-h2" id="h-prob-h">Your data already shows where money is being lost. <span class="w-mute">Often it is found too late.</span></h2>
+      <p class="w-lead">Stock runs out while the wrong items gather dust. A supplier bills more than the order said. A job slips behind plan. A good customer quietly stops ordering. The evidence already sits in your ERP and existing systems, buried in thousands of transactions. AI brings it to the surface early, shows what each problem costs and puts it in front of the right person while there is still time to act.</p>
+    </div>
+    <figure class="h-ledger" data-ledger>
+      <div class="h-sheet" aria-hidden="true">
+        <div class="h-sheet-hd"><span>Customers, stock and buying, as your ERP shows them</span></div>
+        <div class="h-row h-row--th"><span>Area</span><span>Reference</span><span>Name</span><span>Type</span><span>What your ERP shows</span><span>What it costs you</span></div>
+        <ol class="h-rows">
+          <li class="h-row" data-lift><span>Sales</span><span class="h-code">BRE001</span><span class="h-nm">Breede Irrigation</span><span>Customer</span><span>67 days late</span><span class="h-flag">R&nbsp;312&nbsp;400 at risk</span></li>
+          <li class="h-row h-row--x"><span>Stock</span><span class="h-code">BRG-6205</span><span class="h-nm">Bearings 6205</span><span>Stock item</span><span>1&nbsp;300 on hand</span><span></span></li>
+          <li class="h-row"><span>Buying</span><span class="h-code">PO-4471</span><span class="h-nm">Highveld Cable Co.</span><span>Order</span><span>Received in full</span><span></span></li>
+          <li class="h-row" data-lift><span>Stock</span><span class="h-code">SFB-STC-08</span><span class="h-nm">Safety boots, size 8</span><span>Stock count</span><span>Short on the last 3 counts</span><span class="h-flag">Part of R&nbsp;48&nbsp;730 off</span></li>
+          <li class="h-row h-row--x"><span>Sales</span><span class="h-code">LAN007</span><span class="h-nm">Langeberg Electrical</span><span>Customer</span><span>Paying on time</span><span></span></li>
+          <li class="h-row" data-lift><span>Buying</span><span class="h-code">PMP-CF-50</span><span class="h-nm">Centrifugal pump 50mm</span><span>Import order</span><span>Lands after stock runs out</span><span class="h-flag">Out of stock in December</span></li>
+          <li class="h-row h-row--x"><span>Stock in</span><span class="h-code">GRN-3310</span><span class="h-nm">Store 2</span><span>Delivery</span><span>Matches its order</span><span></span></li>
+          <li class="h-row"><span>Sales</span><span class="h-code">INV-20911</span><span class="h-nm">Overberg Hardware</span><span>Invoice</span><span>Paid</span><span></span></li>
+        </ol>
+      </div>
+      <figcaption class="w-sr">An example list of eight lines from an ERP. Three of them cost money: Breede Irrigation is 67 days late with R 312 400 at risk; safety boots size 8 were short on the last three counts, part of R 48 730 in stock counts that are off; and an imported centrifugal pump lands after stock runs out, so it is out of stock in December.</figcaption>
+    </figure>
+
+    <div class="w-split h-ai">
+      <div class="h-ai-copy">
+        <p class="h-ai-k"><span class="h-ai-dot" aria-hidden="true"></span>How the AI works</p>
+        <h3 class="w-h3">AI checks your business every night. <span class="w-mute">Your team makes the calls.</span></h3>
+        <p class="w-body">Every night, AI checks your orders, invoices, stock counts and supplier statements. By the time your team walks in, the buyer knows which items will run short, the credit controller has overdue accounts with follow-ups drafted, and accounts knows which supplier invoices to query before paying. Your team reviews each one and makes the call.</p>
+        <ul class="h-ai-list" role="list">
+          <li><b>Stock</b><span>which items are about to run out</span></li>
+          <li><b>Supplier invoices</b><span>which ones to query before you pay</span></li>
+          <li><b>Production</b><span>which orders are at risk of running late</span></li>
+          <li><b>Sales and margin</b><span>which customers and products are losing margin</span></li>
+        </ul>
+      </div>
+      <div class="h-ai-art">
+        <div class="w-float h-au-win" data-auto aria-hidden="true">
+          {{> winbar product="VSG Endorse" org="Karoo Industrial Supply" crumb="Automations"}}
+          <div class="h-au-body">
+            <div class="h-au-list">
+              <div class="h-au"><b>Late payers</b><span>14 customers late</span></div>
+              <div class="h-au on"><b>Stock counts</b><span>Store 2, 9 lines off</span></div>
+              <div class="h-au"><b>Supplier statements</b><span>Highveld Cable, 2 invoices missing</span></div>
+              <div class="h-au"><b>Supplier invoices</b><span>5 of 46 need a look</span></div>
+            </div>
+            <div class="h-au-cards">
+              <div class="h-pc">
+                <div class="ag">
+                  <div class="ag-h"><span class="ic"><svg class="w-i"><use href="#i-spark"/></svg></span><div><b>Call Breede Irrigation today</b><em>R&nbsp;312&nbsp;400 overdue, 67 days</em></div></div>
+                  <ul class="rz"><li class="w"><svg class="w-i"><use href="#i-warn"/></svg>Promised to pay last Friday. Not received.</li><li><svg class="w-i"><use href="#i-doc"/></svg>Reminder drafted, ready to send</li></ul>
+                  <div class="w-msg-acts"><span class="btn btn-p btn-sm">Approve</span><span class="btn btn-s btn-sm">Read the draft</span></div>
+                </div>
+                <p class="h-pc-q"><svg class="w-i"><use href="#i-list"/></svg>Next: Olifants Engineering, R&nbsp;186&nbsp;950, 52 days</p>
+              </div>
+              <div class="h-pc is-on">
+                <div class="ag">
+                  <div class="ag-h"><span class="ic"><svg class="w-i"><use href="#i-spark"/></svg></span><div><b>Recount safety boots in Store 2</b><em>Store 2 counts off by R&nbsp;48&nbsp;730 on 9 lines</em></div></div>
+                  <ul class="rz"><li class="w"><svg class="w-i"><use href="#i-warn"/></svg>SFB-STC-08 was short on the last three counts.</li><li><svg class="w-i"><use href="#i-doc"/></svg>212 lines checked, 3 count sheets</li></ul>
+                  <div class="w-msg-acts"><span class="btn btn-p btn-sm">Approve</span><span class="btn btn-s btn-sm">See the counts</span></div>
+                </div>
+                <p class="h-pc-q"><svg class="w-i"><use href="#i-list"/></svg>Next: 8 more lines off in Store 2</p>
+              </div>
+              <div class="h-pc">
+                <div class="ag">
+                  <div class="ag-h"><span class="ic"><svg class="w-i"><use href="#i-spark"/></svg></span><div><b>Capture two Highveld Cable invoices</b><em>Statement and your books R&nbsp;24&nbsp;350 apart</em></div></div>
+                  <ul class="rz"><li class="w"><svg class="w-i"><use href="#i-warn"/></svg>INV-7781 (R&nbsp;18&nbsp;900) and INV-7794 (R&nbsp;5&nbsp;450) are not captured.</li><li><svg class="w-i"><use href="#i-doc"/></svg>Supplier statement against your books</li></ul>
+                  <div class="w-msg-acts"><span class="btn btn-p btn-sm">Approve</span><span class="btn btn-s btn-sm">Compare lines</span></div>
+                </div>
+                <p class="h-pc-q"><svg class="w-i"><use href="#i-list"/></svg>Next: the other supplier statements agree</p>
+              </div>
+              <div class="h-pc">
+                <div class="ag">
+                  <div class="ag-h"><span class="ic"><svg class="w-i"><use href="#i-spark"/></svg></span><div><b>Hold 5 invoices before paying</b><em>41 of 46 match the order and the delivery</em></div></div>
+                  <ul class="rz"><li class="w"><svg class="w-i"><use href="#i-warn"/></svg>3 priced above the order. 1 charged twice. 1 billed for more than arrived.</li><li><svg class="w-i"><use href="#i-doc"/></svg>Orders, deliveries, supplier invoices</li></ul>
+                  <div class="w-msg-acts"><span class="btn btn-p btn-sm">Approve</span><span class="btn btn-s btn-sm">See the 5</span></div>
+                </div>
+                <p class="h-pc-q"><svg class="w-i"><use href="#i-list"/></svg>Next: 41 matching invoices go through as they are</p>
+              </div>
+            </div>
+          </div>
+          <div class="pf"><svg class="w-i"><use href="#i-lock"/></svg>Nothing is sent until a person approves, and nothing is written to your ERP.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WHAT WE DO: the lineup, each with one small live preview -->
+<section class="w-sec h-line" id="what-we-do" aria-labelledby="h-line-h">
+  <div class="w-wrap w-wrap--wide">
+    <div class="w-head h-line-head">
+      <h2 class="w-h2" id="h-line-h">AI across the whole operation. <span class="w-mute">Every team, one platform.</span></h2>
+      <p class="w-lead">Month end that eats a week. Quotes that sit without a follow-up. Stock counts that never balance. Wherever work is slow, manual or costly, we put AI on it, across finance, sales, buying, the warehouse, production and dispatch. Your ERP and existing systems stay exactly as they are.</p>
+    </div>
+    <ul class="h-areas" role="list" aria-label="Where we help" data-reveal-group>
+      <li><span class="h-area-ic"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg></span><b>Finance and back office</b><small>Invoicing, reconciliations, month-end and cash flow</small></li>
+      <li><span class="h-area-ic"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg></span><b>Sales and customers</b><small>Quotes, pricing and customer retention</small></li>
+      <li><span class="h-area-ic"><svg class="w-i" aria-hidden="true"><use href="#i-receipt"/></svg></span><b>Buying and suppliers</b><small>Demand planning, supplier pricing and purchase orders</small></li>
+      <li><span class="h-area-ic"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></span><b>Stock and warehouse</b><small>Stock levels, slow-moving stock and count variances</small></li>
+      <li><span class="h-area-ic"><svg class="w-i" aria-hidden="true"><use href="#i-factory"/></svg></span><b>Production and planning</b><small>Scheduling, materials and production delays</small></li>
+      <li><span class="h-area-ic"><svg class="w-i" aria-hidden="true"><use href="#i-truck"/></svg></span><b>Dispatch and deliveries</b><small>Order fulfilment, delivery tracking and proof of delivery</small></li>
+      <li><span class="h-area-ic"><svg class="w-i" aria-hidden="true"><use href="#i-shield"/></svg></span><b>Checks and compliance</b><small>Approvals, sign-offs and audit-ready records</small></li>
+      <li><span class="h-area-ic"><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg></span><b>The management view</b><small>Live dashboards, what each issue costs and scheduled reports</small></li>
+    </ul>
+    <div class="h-how-we">
+      <p class="h-how-we-h">The layers of VSG ACE</p>
+      <p class="h-how-we-p">Every report and automation in ACE works from the same numbers in VSG Core, every part integrates with your ERP and existing systems, so finance, sales and the warehouse finally agree. A five-day <a class="w-link" href="/bootcamp">Bootcamp</a> gets your first AI automation running on your own data.</p>
+    </div>
+    <div class="h-cards">
+      <!-- VSG Core: under every product -->
+      <article class="w-tile w-tile--dark w-tile--wide h-core" aria-labelledby="h-c-core-h">
+        <div class="w-tile-head">
+          <p class="h-card-k"><svg class="w-i" aria-hidden="true"><use href="#i-layers"/></svg>ACE Data Layer</p>
+          <h3 class="w-h3" id="h-c-core-h">VSG Core. <span class="w-mute">Every number you can trust.</span></h3>
+          <p class="w-body">Today your numbers sit in the ERP, a dozen spreadsheets and systems that rarely agree. VSG Core brings them together on a schedule, changes nothing at the source, and organises everything around suppliers, stock, orders, customers and invoices. Every dashboard, report and automation then runs on the same numbers, and any figure opens to show where it came from.</p>
+          <div class="h-get"><p class="h-get-h">You get</p><ul role="list"><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>A page for every customer, supplier and item</span></li><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>Live dashboards and custom reports, built for your business</span></li><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>Every number traceable to where it came from</span></li><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>A personal view for each person on your team, with AI insights on your dashboards</span></li></ul></div>
+          <p class="w-body h-core-note"><b>Included in every ACE deployment.</b></p>
+          <a class="w-link" href="/core">See VSG Core<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="w-tile-art h-core-art">
+          <div class="h-trace" data-trace aria-hidden="true">
+            <div class="w-float h-tr"><span class="h-tr-l">Stock value, bearings 6205</span><b class="h-tr-v">R&nbsp;59&nbsp;150</b></div>
+            <i class="h-tr-ln"></i>
+            <div class="w-float h-tr"><span class="h-tr-l">Worked out from the count and the cost price</span><b class="h-tr-v">1&nbsp;300 x R&nbsp;45.50</b><span class="h-tr-s">Main warehouse, at average cost</span></div>
+            <i class="h-tr-ln"></i>
+            <div class="w-float h-tr h-tr--row"><span class="h-tr-l"><svg class="w-i"><use href="#i-lock"/></svg>And your ERP stock line, unchanged</span><b class="h-tr-v">BRG-6205-2RS</b><span class="h-tr-s">Bearing 6205, sealed, 1&nbsp;300 on hand</span></div>
+          </div>
+          <p class="w-cap">Click a number, see where it came from.</p>
+        </div>
+      </article>
+
+      <!-- VSG Endorse: the approvals inbox, jobs slide in and a person approves -->
+      <article class="w-tile h-card" aria-labelledby="h-c-end-h">
+        <div class="h-card-head">
+          <p class="h-card-k"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg>ACE Automation Layer</p>
+          <h3 class="w-h3" id="h-c-end-h">VSG Endorse. <span class="w-mute">Every AI automation, approved by your team.</span></h3>
+          <p class="w-body">A supplier invoice checked against the order and the delivery before you pay it. A customer who stopped ordering, spotted early. Overdue accounts with the follow-up already drafted. AI does the checking and the drafting, and each automation is built around how you work. The right person approves in one inbox, and nothing goes out until they do.</p>
+          <div class="h-get"><p class="h-get-h">You get</p><ul role="list"><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>Automations built for the jobs that cost you most</span></li><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>One inbox where your team approves every action</span></li><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>Alerts and reports sent to the right person</span></li><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>A record of every decision, and a monthly report measuring the real change in your ERP</span></li></ul></div>
+          <a class="w-link" href="/endorse">See VSG Endorse<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="h-card-art">
+          <figure class="w-float h-inbox" data-inbox aria-label="Example VSG Endorse approvals for Karoo Industrial Supply: the AI ranks overdue customers, biggest amount first, and a credit controller approves each reminder.">
+            {{> winbar product="VSG Endorse" org="Karoo Industrial Supply" crumb="Approvals"}}
+            <div class="h-inbox-in">
+              <div class="h-inbox-hd"><b>Jobs to approve</b><span class="st st-ai"><i></i><span data-wait>3</span>&nbsp;waiting</span></div>
+              <div class="h-total"><span class="h-total-l">Approved today</span><b class="h-total-v" data-format="rand">R&nbsp;0</b></div>
+              <ol class="h-props" role="list">
+                <li class="h-prop" data-amt="312400" data-name="Breede Irrigation">
+                  <div class="h-prop-in"><div class="ag">
+                    <div class="ag-h"><div><b>Breede Irrigation</b><em>67 days late</em></div><span class="h-amt">R&nbsp;312&nbsp;400</span></div>
+                    <ul class="rz"><li class="w"><svg class="w-i" aria-hidden="true"><use href="#i-warn"/></svg>Promised to pay last Friday. Not received.</li></ul>
+                    <p class="h-src" hidden>From: aged debtors list, invoices INV-20874 and INV-20902</p>
+                    <div class="w-msg-acts h-acts">
+                      <button class="btn btn-p btn-sm h-ok" type="button" aria-label="Approve the reminder to Breede Irrigation">Approve</button>
+                      <button class="btn btn-s btn-sm h-srcb" type="button" aria-expanded="false">Why?</button>
+                      <span class="h-done" tabindex="-1" hidden><span class="st st-ok"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg>Approved by T. Naidoo</span></span>
+                    </div>
+                  </div></div>
+                </li>
+                <li class="h-prop" data-amt="186950" data-name="Olifants Engineering">
+                  <div class="h-prop-in"><div class="ag">
+                    <div class="ag-h"><div><b>Olifants Engineering</b><em>52 days late</em></div><span class="h-amt">R&nbsp;186&nbsp;950</span></div>
+                    <ul class="rz"><li class="w"><svg class="w-i" aria-hidden="true"><use href="#i-warn"/></svg>Disputes INV-20931: 24 units short on delivery.</li></ul>
+                    <p class="h-src" hidden>From: invoice INV-20931, delivery note DN-5518</p>
+                    <div class="w-msg-acts h-acts">
+                      <button class="btn btn-p btn-sm h-ok" type="button" aria-label="Approve the note to Olifants Engineering">Approve</button>
+                      <button class="btn btn-s btn-sm h-srcb" type="button" aria-expanded="false">Why?</button>
+                      <span class="h-done" tabindex="-1" hidden><span class="st st-ok"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg>Approved by T. Naidoo</span></span>
+                    </div>
+                  </div></div>
+                </li>
+                <li class="h-prop" data-amt="142300" data-name="Swartland Building Supplies">
+                  <div class="h-prop-in"><div class="ag">
+                    <div class="ag-h"><div><b>Swartland Building Supplies</b><em>45 days late</em></div><span class="h-amt">R&nbsp;142&nbsp;300</span></div>
+                    <ul class="rz"><li class="w"><svg class="w-i" aria-hidden="true"><use href="#i-warn"/></svg>R&nbsp;42&nbsp;300 over its credit limit.</li></ul>
+                    <p class="h-src" hidden>From: aged debtors list, credit limit R&nbsp;100&nbsp;000</p>
+                    <div class="w-msg-acts h-acts">
+                      <button class="btn btn-p btn-sm h-ok" type="button" aria-label="Approve the reminder to Swartland Building Supplies">Approve</button>
+                      <button class="btn btn-s btn-sm h-srcb" type="button" aria-expanded="false">Why?</button>
+                      <span class="h-done" tabindex="-1" hidden><span class="st st-ok"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg>Approved by T. Naidoo</span></span>
+                    </div>
+                  </div></div>
+                </li>
+                <li class="h-empty" aria-hidden="true"><svg class="w-i"><use href="#i-check"/></svg><span><b>All caught up.</b> Next check at 14:00.</span></li>
+              </ol>
+              <p class="w-sr" data-inbox-status role="status" aria-live="polite"></p>
+            </div>
+          </figure>
+        </div>
+      </article>
+
+      <!-- VSG Procure: a mini version of the real Analysis screen -->
+      <article class="w-tile h-card" aria-labelledby="h-c-pro-h">
+        <div class="h-card-head">
+          <p class="h-card-k"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg>ACE Application Layer</p>
+          <h3 class="w-h3" id="h-c-pro-h">VSG Procure. <span class="w-mute">Forecast, plan and buy at the landed price.</span></h3>
+          <p class="w-body">Know what to buy, which month you need it and which supplier costs least once it lands. VSG Procure forecasts every item from your own sales history, shows what will run short and where cash is tied up, and compares supplier quotes at the landed price. Your buyer sets every quantity on one screen, and the purchase orders arrive ready to import into your ERP.</p>
+          <div class="h-get"><p class="h-get-h">You get</p><ul role="list"><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>A forecast for every item, and one screen to plan every quantity</span></li><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>Stock and months of cover projected five months ahead, with stock-outs and overstock flagged</span></li><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>Excess stock valued, so you can free up cash</span></li><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>Suppliers compared at the landed price, with purchase orders ready to import into your ERP</span></li></ul></div>
+          <a class="w-link" href="/procure">See VSG Procure<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="h-card-art">
+          <figure class="w-float h-pg" data-pgrid aria-label="Example VSG Procure planning screen for Karoo Industrial Supply: five stock items with their sales trend and how many months each will last.">
+            {{> winbar product="VSG Procure" org="Karoo Industrial Supply" crumb="Procurement Planning"}}
+            <div class="h-pg-bar" aria-hidden="true">
+              <span class="h-pg-b">Filters</span><span class="h-pg-b">Export RFQ</span><span class="h-pg-b h-pg-b--p">Generate PO</span>
+            </div>
+            <div class="h-pg-kpi">
+              <div class="h-pg-cls" aria-hidden="true"><span>BRG</span><span>BELT</span><span>PVC</span><span>CABLE</span><span>FAST</span></div>
+              <div class="h-pg-risk"><span class="h-pg-rl">Stock-out risk</span><b class="h-pg-rn" data-risk>4</b></div>
+            </div>
+            <div class="h-pg-grid">
+              <table class="tbl">
+                <thead>
+                  <tr class="h-pg-band" aria-hidden="true"><th><span>Item</span>&nbsp;</th><th class="h-pg-oh"></th><th></th><th class="h-pg-band-c"><span><span class="h-pg-l">Months of cover</span><span class="h-pg-s">Cover</span></span>&nbsp;</th><th class="h-pg-band-c"></th><th class="h-pg-band-c"></th><th class="h-pg-band-c"></th></tr>
+                  <tr><th scope="col">SKU</th><th class="r h-pg-oh" scope="col">On hand</th><th scope="col"><span class="h-pg-l">12-mo trend</span><span class="h-pg-s">Trend</span></th><th class="r" scope="col" data-m>Oct</th><th class="r" scope="col" data-m>Nov</th><th class="r" scope="col" data-m>Dec</th><th class="r" scope="col" data-m>Jan</th></tr>
+                </thead>
+                <tbody>
+                  <tr data-cov="2.6 2.1 1.6 1.1 0.6 0.1 0"><td class="nm"><span class="h-pg-sku">BRG-6205-2RS</span><span class="h-pg-tag">BRG</span></td><td class="r h-pg-oh">1&nbsp;300</td><td class="h-pg-tr"><svg class="h-spark h-spark--up" viewBox="0 0 60 24" aria-hidden="true"><rect x="0" y="3" width="3.4" height="21" rx="1" style="--i:0"/><rect x="5" y="4" width="3.4" height="20" rx="1" style="--i:1"/><rect x="10" y="4" width="3.4" height="20" rx="1" style="--i:2"/><rect x="15" y="5" width="3.4" height="19" rx="1" style="--i:3"/><rect x="20" y="6" width="3.4" height="18" rx="1" style="--i:4"/><rect x="25" y="7" width="3.4" height="17" rx="1" style="--i:5"/><rect x="30" y="7" width="3.4" height="17" rx="1" style="--i:6"/><rect x="35" y="7" width="3.4" height="17" rx="1" style="--i:7"/><rect x="40" y="8" width="3.4" height="16" rx="1" style="--i:8"/><rect x="45" y="9" width="3.4" height="15" rx="1" style="--i:9"/><rect x="50" y="10" width="3.4" height="14" rx="1" style="--i:10"/><rect x="55" y="10" width="3.4" height="14" rx="1" style="--i:11"/></svg><span class="h-pg-pc h-pg-pc--dn">-5%</span></td><td class="r lv-ok">2.6</td><td class="r lv-ok">2.1</td><td class="r lv-ok">1.6</td><td class="r lv-w">1.1</td></tr>
+                  <tr data-cov="0.7 0.2 0 0 0 0 0"><td class="nm"><span class="h-pg-sku">CVB-EP400-3P</span><span class="h-pg-tag">BELT</span></td><td class="r h-pg-oh">420&nbsp;m</td><td class="h-pg-tr"><svg class="h-spark h-spark--dn" viewBox="0 0 60 24" aria-hidden="true"><rect x="0" y="12" width="3.4" height="12" rx="1" style="--i:0"/><rect x="5" y="11" width="3.4" height="13" rx="1" style="--i:1"/><rect x="10" y="11" width="3.4" height="13" rx="1" style="--i:2"/><rect x="15" y="10" width="3.4" height="14" rx="1" style="--i:3"/><rect x="20" y="8" width="3.4" height="16" rx="1" style="--i:4"/><rect x="25" y="9" width="3.4" height="15" rx="1" style="--i:5"/><rect x="30" y="7" width="3.4" height="17" rx="1" style="--i:6"/><rect x="35" y="7" width="3.4" height="17" rx="1" style="--i:7"/><rect x="40" y="8" width="3.4" height="16" rx="1" style="--i:8"/><rect x="45" y="6" width="3.4" height="18" rx="1" style="--i:9"/><rect x="50" y="5" width="3.4" height="19" rx="1" style="--i:10"/><rect x="55" y="4" width="3.4" height="20" rx="1" style="--i:11"/></svg><span class="h-pg-pc h-pg-pc--up">+14%</span></td><td class="r lv-w">0.7</td><td class="r lv-x">0.2</td><td class="r lv-x">0.0</td><td class="r lv-x">0.0</td></tr>
+                  <tr data-cov="3.0 2.6 2.1 1.6 1.1 0.6 0.1"><td class="nm"><span class="h-pg-sku">PVC-110-6M</span><span class="h-pg-tag">PVC</span></td><td class="r h-pg-oh">180</td><td class="h-pg-tr"><svg class="h-spark h-spark--up" viewBox="0 0 60 24" aria-hidden="true"><rect x="0" y="15" width="3.4" height="9" rx="1" style="--i:0"/><rect x="5" y="14" width="3.4" height="10" rx="1" style="--i:1"/><rect x="10" y="12" width="3.4" height="12" rx="1" style="--i:2"/><rect x="15" y="8" width="3.4" height="16" rx="1" style="--i:3"/><rect x="20" y="5" width="3.4" height="19" rx="1" style="--i:4"/><rect x="25" y="2" width="3.4" height="22" rx="1" style="--i:5"/><rect x="30" y="3" width="3.4" height="21" rx="1" style="--i:6"/><rect x="35" y="6" width="3.4" height="18" rx="1" style="--i:7"/><rect x="40" y="10" width="3.4" height="14" rx="1" style="--i:8"/><rect x="45" y="13" width="3.4" height="11" rx="1" style="--i:9"/><rect x="50" y="14" width="3.4" height="10" rx="1" style="--i:10"/><rect x="55" y="12" width="3.4" height="12" rx="1" style="--i:11"/></svg><span class="h-pg-pc">0%</span></td><td class="r lv-ok">3.0</td><td class="r lv-ok">2.6</td><td class="r lv-ok">2.1</td><td class="r lv-ok">1.6</td></tr>
+                  <tr data-cov="2.2 1.9 1.5 1.1 0.7 0.3 0"><td class="nm"><span class="h-pg-sku">CAB-4C-16</span><span class="h-pg-tag">CABLE</span></td><td class="r h-pg-oh">3&nbsp;300&nbsp;m</td><td class="h-pg-tr"><svg class="h-spark h-spark--dn" viewBox="0 0 60 24" aria-hidden="true"><rect x="0" y="7" width="3.4" height="17" rx="1" style="--i:0"/><rect x="5" y="7" width="3.4" height="17" rx="1" style="--i:1"/><rect x="10" y="8" width="3.4" height="16" rx="1" style="--i:2"/><rect x="15" y="7" width="3.4" height="17" rx="1" style="--i:3"/><rect x="20" y="7" width="3.4" height="17" rx="1" style="--i:4"/><rect x="25" y="8" width="3.4" height="16" rx="1" style="--i:5"/><rect x="30" y="7" width="3.4" height="17" rx="1" style="--i:6"/><rect x="35" y="8" width="3.4" height="16" rx="1" style="--i:7"/><rect x="40" y="8" width="3.4" height="16" rx="1" style="--i:8"/><rect x="45" y="7" width="3.4" height="17" rx="1" style="--i:9"/><rect x="50" y="8" width="3.4" height="16" rx="1" style="--i:10"/><rect x="55" y="8" width="3.4" height="16" rx="1" style="--i:11"/></svg><span class="h-pg-pc h-pg-pc--up">+4%</span></td><td class="r lv-ok">2.2</td><td class="r lv-ok">1.9</td><td class="r lv-ok">1.5</td><td class="r lv-w">1.1</td></tr>
+                  <tr data-cov="4.1 3.7 3.3 2.8 2.4 2 1.6"><td class="nm"><span class="h-pg-sku">FST-M12-HX</span><span class="h-pg-tag">FAST</span></td><td class="r h-pg-oh">58&nbsp;200</td><td class="h-pg-tr"><svg class="h-spark h-spark--up" viewBox="0 0 60 24" aria-hidden="true"><rect x="0" y="10" width="3.4" height="14" rx="1" style="--i:0"/><rect x="5" y="9" width="3.4" height="15" rx="1" style="--i:1"/><rect x="10" y="10" width="3.4" height="14" rx="1" style="--i:2"/><rect x="15" y="8" width="3.4" height="16" rx="1" style="--i:3"/><rect x="20" y="9" width="3.4" height="15" rx="1" style="--i:4"/><rect x="25" y="8" width="3.4" height="16" rx="1" style="--i:5"/><rect x="30" y="9" width="3.4" height="15" rx="1" style="--i:6"/><rect x="35" y="8" width="3.4" height="16" rx="1" style="--i:7"/><rect x="40" y="7" width="3.4" height="17" rx="1" style="--i:8"/><rect x="45" y="8" width="3.4" height="16" rx="1" style="--i:9"/><rect x="50" y="7" width="3.4" height="17" rx="1" style="--i:10"/><rect x="55" y="7" width="3.4" height="17" rx="1" style="--i:11"/></svg><span class="h-pg-pc h-pg-pc--up">+5%</span></td><td class="r lv-ok">4.1</td><td class="r lv-ok">3.7</td><td class="r lv-ok">3.3</td><td class="r lv-ok">2.8</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="pf"><svg class="w-i" aria-hidden="true"><use href="#i-clock"/></svg><span>Months of cover: how many months your stock will last. Red means it runs out.</span></div>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Custom software and AI: modules drop into a window -->
+      <article class="w-tile h-card" aria-labelledby="h-c-cus-h">
+        <div class="h-card-head">
+          <p class="h-card-k"><svg class="w-i" aria-hidden="true"><use href="#i-wrench"/></svg>ACE Application Layer</p>
+          <h3 class="w-h3" id="h-c-cus-h">Custom applications. <span class="w-mute">Built for your bottlenecks.</span></h3>
+          <p class="w-body">Every business has a bottleneck no off-the-shelf product fixes, like the quoting process that lives in one person&rsquo;s head. We build the software and AI for it on ACE, sharing the same data and approvals, delivered in phases at a fixed price per phase.</p>
+          <div class="h-get"><p class="h-get-h">You get</p><ul role="list"><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>A system built around how your team works</span></li><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>AI where it saves time, dependable software everywhere else</span></li><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>Integrates with your ERP and existing systems</span></li><li><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg><span>Delivered in phases, each at a fixed price</span></li></ul></div>
+          <a class="w-link" href="/custom">See custom applications<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="h-card-art">
+          <div class="w-float h-slots-win" data-slots aria-hidden="true">
+            {{> winbar product="VSG" org="Karoo Industrial Supply" crumb="Your system"}}
+            <div class="h-slots">
+              <div class="h-slot h-slot--a"><div class="h-mod">
+                <p class="h-mod-h"><svg class="w-i"><use href="#i-doc"/></svg>Credit applications</p>
+                <div class="h-mod-rows">
+                  <p><span class="h-mod-n">Breede Irrigation</span><span class="st st-ok"><i></i>Approved</span></p>
+                  <p><span class="h-mod-n">Langeberg Electrical</span><span class="st st-w"><i></i>Needs a look</span></p>
+                  <p><span class="h-mod-n">Swartland Building</span><span class="st st-n"><i></i>Waiting</span></p>
+                </div>
+              </div></div>
+              <div class="h-slot h-slot--b"><div class="h-mod">
+                <p class="h-mod-h"><svg class="w-i"><use href="#i-truck"/></svg>Branch transfers</p>
+                <div class="h-bars"><i style="--h:46%"></i><i style="--h:72%"></i><i style="--h:38%"></i><i style="--h:88%"></i><i style="--h:60%"></i><i style="--h:30%"></i></div>
+              </div></div>
+              <div class="h-slot h-slot--c"><div class="h-mod">
+                <p class="h-mod-h"><svg class="w-i"><use href="#i-users"/></svg>Supplier onboarding</p>
+                <ul class="h-ticks"><li><svg class="w-i"><use href="#i-check"/></svg>Bank details checked</li><li><svg class="w-i"><use href="#i-check"/></svg>BEE certificate on file</li><li class="is-todo"><svg class="w-i"><use href="#i-clock"/></svg>Buyer sign-off</li></ul>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 4. HOW IT WORKS: the 3D engine stack, and one late account travelling up through it -->
+<section class="w-sec w-dark h-how" aria-labelledby="h-how-h">
+  <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap">
+    <div class="w-head w-head--center">
+      <h2 class="w-h2" id="h-how-h">How everything runs. <span class="w-mute">AI does the digging. Your people make the call.</span></h2>
+      <p class="w-lead">While you sleep, VSG Core pulls in the latest numbers from your ERP and existing systems, and AI goes through them line by line. By the time the kettle boils, your team has a short list: what to reorder, which invoice to query, which customer to call. They make every call.</p>
+    </div>
+    {{> engine}}
+    <ol class="h-steps" role="list" aria-label="One morning in the command centre, step by step">
+      <li class="h-step">
+        <p class="h-step-n"><span>1</span>Overnight</p>
+        <h3 class="h-step-h">Overnight, the latest data syncs from your ERP and existing systems.</h3>
+        <div class="w-float h-step-card">
+          <div class="w-msg">
+            <span class="avt sq w-avt-prod" aria-hidden="true">{{> mark size="14" class="w-mark--inv"}}</span>
+            <div>
+              <div class="w-msg-hd"><b>VSG Core</b><time>05:58</time></div>
+              <p>Overnight refresh complete. Orders, invoices, stock and supplier data are up to date. <b>Nothing in your ERP was changed.</b></p>
+            </div>
+          </div>
+          <p class="h-pill"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg>0 changes made in your ERP</p>
+        </div>
+      </li>
+      <li class="h-step">
+        <p class="h-step-n"><span>2</span>07:05</p>
+        <h3 class="h-step-h">By morning, AI has found the problems and drafted the fix.</h3>
+        <div class="w-float h-step-card">
+          <div class="w-msg">
+            <span class="avt sq w-avt-ai" aria-hidden="true">{{> mark size="14" class="w-mark--inv"}}</span>
+            <div>
+              <div class="w-msg-hd"><b>VSG Endorse</b><time>07:05</time><span class="st st-ai"><i></i>AI</span></div>
+              <p><b>Three items need attention today.</b> Safety boots, size 8, run out in 12 days: reorder drafted. Highveld Cable Co. billed R&nbsp;24&nbsp;350 above the order: query drafted. Breede Irrigation is 67 days overdue: reminder drafted.</p>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="h-step">
+        <p class="h-step-n"><span>3</span>07:12</p>
+        <h3 class="h-step-h">Your team approves, edits or rejects each item in one inbox.</h3>
+        <div class="w-float h-step-card h-sign" data-sign>
+          <div class="w-msg">
+            <span class="avt sq w-avt-person" aria-hidden="true">LB</span>
+            <div>
+              <div class="w-msg-hd"><b>L. Botha, buying</b><time>07:12</time></div>
+              <p>Checked the reorder against the next delivery date. Approved.</p>
+              <p class="h-sign-st"><span class="st st-ok h-sign-ok"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg>Approved</span><span class="st st-n h-sign-wait"><i></i>Waiting for L. Botha</span></p>
+            </div>
+          </div>
+          <div class="h-log">
+            <p class="lbl">Decision log <span class="h-log-x">a record of who approved what, and why</span></p>
+            <p class="h-log-n">Reorder: Safety boots, size 8, 120 pairs</p>
+            <p class="small">Tue 07:12. Approved by L. Botha, buyer.</p>
+            <p class="h-log-a"><span class="h-log-v">R&nbsp;45&nbsp;500</span><span class="h-log-s">Why: runs out in 12 days, next delivery in 21 days</span></p>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- 5. WHY COMPANIES TRUST VSG: six plain commitments, and one figure you can take apart -->
+<section class="w-sec w-bg-white h-trust" aria-labelledby="h-trust-h">
+  <div class="w-wrap">
+    <div class="w-split">
+      <div>
+        <h2 class="w-h2" id="h-trust-h">Why companies trust VSG.</h2>
+        <ul class="w-feats h-feats" role="list">
+          <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg></span><b>Integrated, never disrupted.</b><p>Every VSG product integrates with your ERP and existing systems and never changes anything in them. Anything meant for your ERP, like a purchase order, arrives as a file your team reviews and imports.</p></li>
+          <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-server"/></svg></span><b>Your data stays in South Africa.</b><p>Hosted on your own servers or in South Africa, in line with POPIA, South Africa&rsquo;s data privacy law.</p></li>
+          <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg></span><b>Your team approves every decision.</b><p>The AI finds and prepares. Nothing goes to a customer or supplier until the right person approves it, and nothing is ever written to your ERP.</p></li>
+          <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-hist"/></svg></span><b>Every number traceable, every decision recorded.</b><p>Click any number to trace it to its source. Every decision is recorded: who approved it and when.</p></li>
+          <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg></span><b>Fixed prices, agreed up front.</b><p>You know the cost before any work starts.</p></li>
+          <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg></span><b>Senior people, end to end.</b><p>The senior team that scopes your project delivers it, from the first assessment to go-live. No hand-offs.</p></li>
+        </ul>
+      </div>
+      <div class="h-fx-col">
+        <div class="w-frame h-fx-frame">
+          <div class="w-flip h-fx" data-fx>
+            <div class="w-flip-in">
+              <div class="w-flip-face w-flip-front w-float">
+                <div class="h-fx-hd"><span class="lbl">Every figure shows its working</span><span class="st st-a"><i></i>Best landed price</span></div>
+                <div class="w-float-pad h-fx-pad">
+                  <p class="small">Landed price of one 50mm centrifugal pump: the real price once the exchange rate, duty, clearing and freight are added. Import A:</p>
+                  <p class="h-fx-big"><span data-fx-v="tot" data-format="rand">R&nbsp;18&nbsp;808</span></p>
+                  <p class="h-fx-vs" data-fx-vs aria-live="polite">Beats the local supplier by <b>R&nbsp;562</b> a pump.</p>
+                  <ul class="h-fx-opts">
+                    <li><span>Local supplier</span><span class="mono">R&nbsp;19&nbsp;370</span></li>
+                    <li class="is-a"><span>Import A, full order</span><span class="mono" data-fx-v="tot" data-format="rand">R&nbsp;18&nbsp;808</span></li>
+                    <li><span>Import B<span class="st st-w"><i></i>Partial quote</span></span><span class="mono">R&nbsp;18&nbsp;506</span></li>
+                  </ul>
+                  <div class="h-fx-rate">
+                    <span class="small" id="h-fx-rl">Exchange rate, set by your buyer</span>
+                    <div class="seg h-seg" role="group" aria-labelledby="h-fx-rl">
+                      <button class="on" type="button" aria-pressed="true" data-rate="18.40">18.40</button>
+                      <button type="button" aria-pressed="false" data-rate="18.90">18.90</button>
+                    </div>
+                  </div>
+                  <button class="btn btn-s btn-sm h-fx-b" type="button" data-flip>How is this worked out?<svg class="w-i" aria-hidden="true"><use href="#i-rotate"/></svg></button>
+                </div>
+              </div>
+              <div class="w-flip-face w-flip-back w-float h-fx-back">
+                <div class="h-fx-hd"><span class="lbl">Import A, worked out</span><span class="h-fx-q mono">Q-0418-A</span></div>
+                <div class="w-float-pad h-fx-pad">
+                  <table class="tbl h-fx-tbl">
+                    <tbody>
+                      <tr><td>USD 812 at <span data-fx-rate>18.40</span></td><td class="r"><span data-fx-v="base" data-format="rand">R&nbsp;14&nbsp;941</span></td></tr>
+                      <tr><td>Duty, 10%</td><td class="r"><span data-fx-v="duty" data-format="rand">R&nbsp;1&nbsp;494</span></td></tr>
+                      <tr><td>Clearing, 3.5%</td><td class="r"><span data-fx-v="clr" data-format="rand">R&nbsp;523</span></td></tr>
+                      <tr><td>Freight</td><td class="r">R&nbsp;1&nbsp;850</td></tr>
+                      <tr class="h-fx-tot"><td><b>Landed</b></td><td class="r"><b><span data-fx-v="tot" data-format="rand">R&nbsp;18&nbsp;808</span></b></td></tr>
+                    </tbody>
+                  </table>
+                  <p class="h-fx-trace"><svg class="w-i" aria-hidden="true"><use href="#i-trace"/></svg>Worked out from supplier quote Q-0418-A and stock item PMP-CF-50.</p>
+                  <button class="btn btn-s btn-sm h-fx-b" type="button" data-flip>Back to the total<svg class="w-i" aria-hidden="true"><use href="#i-rotate"/></svg></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="w-cap">Every figure can be traced back to its source. Change the exchange rate, then flip the card to see the calculation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. VSG BOOTCAMP: the way in, an obsidian band with the five days as 3D blocks -->
+<section class="w-sec w-bg-white h-bootsec" aria-labelledby="h-boot-h">
+  <div class="w-wrap w-wrap--wide">
+    <div class="w-band w-dark h-boot">
+      <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+      <div class="h-boot-in">
+        <div class="h-boot-copy">
+          <p class="h-boot-k">VSG Bootcamp</p>
+          <h2 class="w-h2" id="h-boot-h">Five days on your site. <span class="w-mute">One AI automation on your data by day four.</span></h2>
+          <p class="w-body">In five days you see what your operation is really costing you, and your first AI automation is already running. Our team works on site with yours. We integrate with your ERP and existing systems without changing them, AI analyses thousands of your transactions, and we map your key processes and cost every issue we find. On Friday you get the costed findings and a fixed quote for phase one.</p>
+          <p class="w-small h-boot-price">Fixed price, agreed before we start.</p>
+          <div class="w-actions">
+            <a class="btn btn-p btn-xl" href="/bootcamp#book">Book a Bootcamp</a>
+            <a class="btn btn-s btn-xl" href="/bootcamp">See the five days<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+        <figure class="h-boot-art" data-days>
+          <div class="h-iso-stage" aria-hidden="true">
+            <div class="w-iso h-iso">
+              <div class="w-iso-world h-iso-world">
+                <div class="w-cube h-day" style="--x:0px;--w:108px;--d:108px;--h:16px"><i class="w-cube-top"><span class="h-day-l"><small>Mon</small>Connect</span></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div>
+                <div class="w-cube h-day" style="--x:122px;--w:108px;--d:108px;--h:30px"><i class="w-cube-top"><span class="h-day-l"><small>Tue</small>Measure</span></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div>
+                <div class="w-cube h-day" style="--x:244px;--w:108px;--d:108px;--h:44px"><i class="w-cube-top"><span class="h-day-l"><small>Wed</small>Analyse</span></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div>
+                <div class="w-cube h-day" style="--x:366px;--w:108px;--d:108px;--h:58px"><i class="w-cube-top"><span class="h-day-l"><small>Thu</small>Build</span></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div>
+                <div class="w-cube h-day h-day--5" style="--x:488px;--w:108px;--d:108px;--h:72px"><i class="w-cube-top"><span class="h-day-l"><small>Fri</small>Present</span></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="w-float w-float--mini h-quote" aria-hidden="true">
+            <div class="w-float-pad">
+              <span class="st st-ok"><i></i>Ready on Friday</span>
+              <p class="h-quote-t">Fixed quote</p>
+              <p class="small">Automate stock reordering with AI. Price fixed before work starts.</p>
+            </div>
+          </div>
+          <ol class="h-dl" role="list">
+            <li><b>Mon</b><span>Integrate with your ERP and existing systems</span></li>
+            <li><b>Tue</b><span>Map how your processes run, step by step</span></li>
+            <li><b>Wed</b><span>Find every issue and what it costs</span></li>
+            <li><b>Thu</b><span>Build one AI automation on your data</span></li>
+            <li><b>Fri</b><span>Present the findings and a fixed quote for phase one</span></li>
+          </ol>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. QUESTIONS: a command window you can type into -->
+<section class="w-sec w-bg-white h-asksec" aria-labelledby="h-ask-h">
+  <div class="w-wrap">
+    <div class="w-head w-head--center">
+      <h2 class="w-h2" id="h-ask-h">Questions business owners ask first.</h2>
+      <p class="w-lead">Type a question, or choose one below.</p>
+    </div>
+    <div class="w-float h-ask" data-ask>
+      <div class="h-ask-top">
+        <svg class="w-i" aria-hidden="true"><use href="#i-search"/></svg>
+        <label class="w-sr" for="h-ask-in">Ask about VSG</label>
+        <input class="h-ask-in" id="h-ask-in" type="text" placeholder="Ask about VSG" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="h-ask-list" aria-autocomplete="list">
+        <kbd class="kbd h-ask-k" aria-hidden="true">/</kbd>
+      </div>
+      <div class="h-ask-body">
+        <div class="h-ask-list" id="h-ask-list" role="listbox" aria-label="Questions">
+          <p class="h-ask-lbl" role="presentation">Asked in the first five minutes</p>
+          <div class="h-q" role="option" id="h-q-ace" data-a="ace" data-k="ace vsg ace platform what is command centre centre one login layers core endorse procure" aria-selected="true"><svg class="w-i" aria-hidden="true"><use href="#i-grid"/></svg><span>What is VSG ACE?</span></div>
+          <div class="h-q" role="option" id="h-q-ai" data-a="ai" data-k="ai artificial intelligence where what does automate machine drafts decide" aria-selected="false"><svg class="w-i" aria-hidden="true"><use href="#i-spark"/></svg><span>Where is the AI, and what does it do?</span></div>
+          <div class="h-q" role="option" id="h-q-write" data-a="write" data-k="write writes change changes sync post update touch back risk ledger read only" aria-selected="false"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg><span>Do you change anything in our ERP?</span></div>
+          <div class="h-q" role="option" id="h-q-erp" data-a="erp" data-k="erp which system systems software work with support run accounting connect connection integrate integration" aria-selected="false"><svg class="w-i" aria-hidden="true"><use href="#i-link"/></svg><span>How do you connect to our ERP and systems?</span></div>
+          <div class="h-q" role="option" id="h-q-data" data-a="data" data-k="data live where server cloud popia hosted host stored security south africa" aria-selected="false"><svg class="w-i" aria-hidden="true"><use href="#i-server"/></svg><span>Where does our data live?</span></div>
+          <div class="h-q" role="option" id="h-q-cost" data-a="cost" data-k="cost price bootcamp pay fee how much quote expensive" aria-selected="false"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg><span>What does a Bootcamp cost?</span></div>
+          <div class="h-q" role="option" id="h-q-who" data-a="who" data-k="who work team people leadership stephan ernst build does actually senior" aria-selected="false"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg><span>Who actually does the work?</span></div>
+          <p class="h-ask-none" hidden>No ready answer for that one.</p>
+        </div>
+        <div class="h-ask-res" aria-live="polite">
+          <article class="h-ans is-on" data-a="ace">
+            <p class="h-ans-q">What is VSG ACE?</p>
+            <p class="h-ans-a">VSG ACE is the AI platform VSG deploys and runs for your business. VSG Core organises your data, VSG Endorse runs your AI automations, VSG Procure and custom applications put that data to work, and the ACE Command Centre is designed to open everything with one login. ACE integrates with your ERP and existing systems and never changes them.</p>
+            <p class="h-ans-f"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg>One platform, every team</p>
+            <a class="w-link" href="/ace">Explore VSG ACE<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="h-ans" data-a="ai">
+            <p class="h-ans-q">Where is the AI, and what does it do?</p>
+            <p class="h-ans-a">Every night, VSG&rsquo;s AI checks every order, invoice, stock line and supplier statement in your systems. By morning, the problems are found, each one is costed and the fix is drafted: the reorder, the supplier query, the customer email. Your team reviews every item and makes the call.</p>
+            <p class="h-ans-f"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg>The AI suggests, a person decides</p>
+            <a class="w-link" href="/endorse">See VSG Endorse<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="h-ans" data-a="write">
+            <p class="h-ans-q">Do you change anything in our ERP?</p>
+            <p class="h-ans-a">No. VSG integrates with your ERP without changing anything in it. When an order is needed, your team receives a ready-to-import order file and makes the final call.</p>
+            <p class="h-ans-f"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg>0 changes made in your ERP</p>
+            <a class="w-link" href="/core">How VSG Core works<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="h-ans" data-a="erp">
+            <p class="h-ans-q">How do you connect to our ERP and systems?</p>
+            <p class="h-ans-a">Every VSG product integrates with your ERP and the systems you already run, from spreadsheets to email. We set up each connection for you, and nothing in your ERP changes.</p>
+            <p class="h-ans-f"><svg class="w-i" aria-hidden="true"><use href="#i-link"/></svg>Integrates with your ERP and existing systems</p>
+            <a class="w-link" href="/core">How VSG Core connects<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="h-ans" data-a="data">
+            <p class="h-ans-q">Where does our data live?</p>
+            <p class="h-ans-a">On your own servers or with a South African hosting provider. Your data never leaves South Africa and is handled in line with POPIA.</p>
+            <p class="h-ans-f"><svg class="w-i" aria-hidden="true"><use href="#i-server"/></svg>In South Africa, in line with POPIA</p>
+            <a class="w-link" href="/core">Where VSG Core runs<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="h-ans" data-a="cost">
+            <p class="h-ans-q">What does a Bootcamp cost?</p>
+            <p class="h-ans-a">A fixed price, agreed before we start. If you go ahead within 30 days, it is credited against the work that follows.</p>
+            <p class="h-ans-f"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg>No surprises on the invoice</p>
+            <a class="w-link" href="/bootcamp">See the five days<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="h-ans" data-a="who">
+            <p class="h-ans-q">Who actually does the work?</p>
+            <p class="h-ans-a">Senior people, on your site. The people who scope your Bootcamp lead the work that follows it, so nothing gets lost in a hand-off.</p>
+            <p class="h-ans-f"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg>Senior people, no hand-offs</p>
+            <a class="w-link" href="/about">About VSG<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="h-ans h-ans--none" data-a="none">
+            <p class="h-ans-q">Not on the list?</p>
+            <p class="h-ans-a">Ask us directly. A senior member of our team reads every message and replies, usually the same day.</p>
+            <a class="w-link" href="/contact?topic=contact">Contact us<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+      </div>
+      <div class="h-ask-ft" aria-hidden="true">
+        <span><kbd class="kbd">Enter</kbd>to ask</span>
+        <span class="h-ask-ft-k"><kbd class="kbd">/</kbd>to type from anywhere</span>
+        <span class="h-ask-who">{{> mark size="14"}}Answered by VSG</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. LEADERSHIP -->
+<section class="w-sec h-team" aria-labelledby="h-team-h">
+  <div class="w-wrap">
+    <div class="w-split w-split--even">
+      <div>
+        <h2 class="w-h2" id="h-team-h">Leadership. <span class="w-mute">The people behind every VSG engagement.</span></h2>
+        <p class="w-body">VSG is based in Cape Town and built for the companies that make, move and sell South Africa&rsquo;s goods: manufacturers, distributors, wholesalers and retailers.</p>
+        <div class="w-actions"><a class="w-link" href="/about">About VSG<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </div>
+      <div class="h-people" data-reveal-group>
+        <article class="h-person">
+          <span class="h-mono" aria-hidden="true">SE</span>
+          <div>
+            <h3 class="w-h4">Stephan Esterhuizen</h3>
+            <p class="h-role">Founder and CEO</p>
+            <p class="w-small">Leads VSG&rsquo;s strategy and sets the standard for every client engagement.</p>
+          </div>
+        </article>
+        <article class="h-person">
+          <span class="h-mono h-mono--alt" aria-hidden="true">ES</span>
+          <div>
+            <h3 class="w-h4">Ernst Schloms</h3>
+            <p class="h-role">Co-founder, head of engineering</p>
+            <p class="w-small">Leads the engineering behind every VSG product and how it runs securely on your own server or in South African hosting.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{> cta title="Put VSG ACE to work." sub="Start with a five-day Bootcamp on your own numbers, at a fixed price, or request a demo of VSG ACE." primary="Book a Bootcamp" primary_href="/bootcamp#book" secondary="Request a demo" secondary_href="/contact?topic=ace"}}

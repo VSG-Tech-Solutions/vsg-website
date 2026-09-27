@@ -1,32 +1,488 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
-  <meta charset="utf-8">
-  <title>VSG ACE — The per-customer AI that runs every VSG product · VSG Tech</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="VSG ACE is the per-customer AI core every VSG product runs on. Isolated, portable, auditable, local-first. Built for South African mid-market.">
-  <link rel="stylesheet" href="colors_and_type.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <style>
-    html, body { margin: 0; background: var(--paper); }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { overflow-x: hidden; }
-    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
-    ::selection { background: var(--coral-soft); color: var(--ink-1); }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VSG ACE | One platform. Your entire business.</title>
+<meta name="description" content="VSG ACE is the AI platform for operations: your own AI operations environment, deployed and run by VSG. Live data, AI automations and applications on one platform, integrated with your ERP and existing systems.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vsgtech.co.za/ace">
+<meta name="theme-color" content="#F6F7FB">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VSG">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:title" content="VSG ACE. One platform. Your entire business.">
+<meta property="og:description" content="Live data, AI automations and applications on one platform, with a view for every role. Integrates with your ERP and existing systems. Your team approves every decision.">
+<meta property="og:url" content="https://vsgtech.co.za/ace">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VSG ACE. One platform. Your entire business.">
+<meta name="twitter:description" content="Live data, AI automations and applications on one platform, with a view for every role. Integrates with your ERP and existing systems. Your team approves every decision.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="assets/site/halo.css?v=ade82759">
+<link rel="stylesheet" href="assets/site/site.css?v=666f17f3">
+<link rel="stylesheet" href="assets/site/pages/ace.css?v=a9788e3d">
+<script src="assets/site/site.js?v=b69ff06d" defer></script>
+<script src="assets/site/pages/ace.js?v=ca6d34e5" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"VSG","legalName":"VSG Tech Solutions (Pty) Ltd","url":"https://vsgtech.co.za/","logo":"https://vsgtech.co.za/assets/site/logo/mark.svg","description":"An AI company that specializes in operations.","founder":[{"@type":"Person","name":"Stephan Esterhuizen","jobTitle":"Founder and CEO"},{"@type":"Person","name":"Ernst Schloms","jobTitle":"Co-founder, engineering"}],"areaServed":"ZA","address":{"@type":"PostalAddress","addressLocality":"Cape Town","addressRegion":"Western Cape","addressCountry":"ZA"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"VSG ACE","applicationCategory":"BusinessApplication","description":"The AI platform for operations. A data layer, AI automations, applications and a command centre, integrated with your ERP and existing systems.","url":"https://vsgtech.co.za/ace","hasPart":[{"@type":"SoftwareApplication","name":"VSG Core","description":"Your business data, organised: live dashboards, reports and look-ups."},{"@type":"SoftwareApplication","name":"VSG Endorse","description":"Every AI automation in your business, approved by your team."},{"@type":"SoftwareApplication","name":"VSG Procure","description":"Procurement planning: forecasts, cash, supplier quotes and purchase orders."}],"provider":{"@type":"Organization","name":"VSG Tech Solutions (Pty) Ltd","address":{"@type":"PostalAddress","addressLocality":"Cape Town","addressCountry":"ZA"}}}</script>
 </head>
-<body>
-  <div id="app"></div>
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-  <script type="text/babel" src="js/atoms.jsx"></script>
-  <script type="text/babel" src="js/Nav.jsx"></script>
-  <script type="text/babel" src="js/Ace.jsx"></script>
-  <script type="text/babel" src="js/Footer.jsx"></script>
-  <script type="text/babel" src="js/DemoModal.jsx"></script>
-  <script type="text/babel" src="js/PageShell.jsx"></script>
-  <script type="text/babel" src="js/AcePage.jsx"></script>
+<body class="w-page w-page-ace">
+<svg class="w-sprite" aria-hidden="true" focusable="false"><defs><symbol id="i-menu" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h12M4 10h12M4 14h12"/></symbol><symbol id="i-x" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.4 5.4l9.2 9.2M14.6 5.4l-9.2 9.2"/></symbol><symbol id="i-home" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 9.2 10 3.6l6.6 5.6V16a.9.9 0 0 1-.9.9h-3.5v-4.4H7.8v4.4H4.3A.9.9 0 0 1 3.4 16z"/></symbol><symbol id="i-search" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5.4"/><path d="M13.2 13.2 17 17"/></symbol><symbol id="i-grid" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="5.6" height="5.6" rx="1.4"/><rect x="11.2" y="3.2" width="5.6" height="5.6" rx="1.4"/><rect x="3.2" y="11.2" width="5.6" height="5.6" rx="1.4"/><rect x="11.2" y="11.2" width="5.6" height="5.6" rx="1.4"/></symbol><symbol id="i-layers" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3 3 6.6l7 3.6 7-3.6z"/><path d="M3 11l7 3.6 7-3.6"/></symbol><symbol id="i-chart" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 16.4h13.2"/><path d="M6 16V9.6M10 16V5.4M14 16v-4.4"/></symbol><symbol id="i-users" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7.6" r="2.6"/><path d="M3 16c.7-2.4 2.5-3.6 5-3.6s4.3 1.2 5 3.6"/><path d="M13.4 5.6a2.4 2.4 0 0 1 0 4.4M15.4 16c-.2-1.4-.7-2.5-1.6-3.2"/></symbol><symbol id="i-cal" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.6" width="14" height="12.4" rx="2.4"/><path d="M3 8.6h14M7 3.2v2.6M13 3.2v2.6"/></symbol><symbol id="i-clock" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="M10 6.2V10l2.8 1.8"/></symbol><symbol id="i-agent" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.6" y="6" width="12.8" height="9.4" rx="2.6"/><path d="M10 6V3.2M7.2 10.2v1.4M12.8 10.2v1.4"/></symbol><symbol id="i-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 10.4 8 14l7.8-8"/></symbol><symbol id="i-down" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 4.4L15 8"/></symbol><symbol id="i-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11.2M11 5.6l4.4 4.4-4.4 4.4"/></symbol><symbol id="i-doc" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2.6h6.5L15.4 6.5V17.4H5z"/><path d="M11.2 2.8v3.8h3.8"/></symbol><symbol id="i-bolt" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.6 5.6 11h3.6l-.6 6.4L14.4 9h-3.6z"/></symbol><symbol id="i-inbox" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.4 5.2 4.6h9.6L17 11.4v4a1.4 1.4 0 0 1-1.4 1.4H4.4A1.4 1.4 0 0 1 3 15.4z"/><path d="M3 11.4h3.6l1 2h4.8l1-2H17"/></symbol><symbol id="i-link" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.4 11.6 11.6 8.4M7 13a2.8 2.8 0 0 1 0-4l1.6-1.6M13 7a2.8 2.8 0 0 1 0 4l-1.6 1.6"/></symbol><symbol id="i-graph" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="15" cy="5.4" r="2.2"/><circle cx="10.4" cy="14.6" r="2.2"/><path d="M6.6 7.4l2.6 5.4M13.4 7l-2 5.6M7.1 5.7h5.8"/></symbol><symbol id="i-table" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="3.6" width="14.4" height="12.8" rx="1.6"/><path d="M2.8 8h14.4M8 8v8.4"/></symbol><symbol id="i-eye" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.4 10S5.2 5 10 5s7.6 5 7.6 5-2.8 5-7.6 5S2.4 10 2.4 10Z"/><circle cx="10" cy="10" r="2.2"/></symbol><symbol id="i-gear" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="2.4"/><path d="M10 3.2v1.9M10 14.9v1.9M3.2 10h1.9M14.9 10h1.9M5.2 5.2l1.35 1.35M13.45 13.45 14.8 14.8M14.8 5.2l-1.35 1.35M6.55 13.45 5.2 14.8"/></symbol><symbol id="i-wrench" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.4 3.4a3.9 3.9 0 0 0-2.1 5.1l-6 6a1.4 1.4 0 0 0 2 2l6-6a3.9 3.9 0 0 0 5.1-2.1l-2.7.6-1.9-1.9z"/></symbol><symbol id="i-truck" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.6 6.4h7.8v7.2H2.6z"/><path d="M10.4 8.8h3.4l2.6 2.6v2.2h-6z"/><circle cx="5.6" cy="15" r="1.5"/><circle cx="13.6" cy="15" r="1.5"/></symbol><symbol id="i-lock" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8.6" width="12" height="8.4" rx="2"/><path d="M6.8 8.6V6.4a3.2 3.2 0 0 1 6.4 0v2.2"/><path d="M10 12v1.6"/></symbol><symbol id="i-server" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.4" width="13.6" height="5.6" rx="1.6"/><rect x="3.2" y="11" width="13.6" height="5.6" rx="1.6"/><path d="M6.2 6.2h.1M6.2 13.8h.1M9.4 6.2h4.4M9.4 13.8h4.4"/></symbol><symbol id="i-mail" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="4.6" width="14.4" height="10.8" rx="2"/><path d="M3.4 5.6 10 10.6l6.6-5"/></symbol><symbol id="i-box" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.8 16.6 6.4v7.2L10 17.2 3.4 13.6V6.4z"/><path d="M3.4 6.4 10 10l6.6-3.6M10 10v7.2"/></symbol><symbol id="i-receipt" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 2.8h10.8v14.4l-2.2-1.4-2 1.4-2-1.4-2 1.4-2.6-1.4z"/><path d="M7.4 6.8h5.2M7.4 9.8h5.2M7.4 12.8h3"/></symbol><symbol id="i-list" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.4 5.4h9.2M7.4 10h9.2M7.4 14.6h9.2"/><path d="M3.6 5.4h.1M3.6 10h.1M3.6 14.6h.1"/></symbol><symbol id="i-trace" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="2.8" width="7.4" height="5.6" rx="1.4"/><path d="M6.5 8.4v4.4a2 2 0 0 0 2 2h4.2"/><circle cx="14.8" cy="14.8" r="2.2"/></symbol><symbol id="i-code" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 6 3 10l4 4M13 6l4 4-4 4M11.2 4.4 8.8 15.6"/></symbol><symbol id="i-coins" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="8" cy="6" rx="4.6" ry="2.2"/><path d="M3.4 6v3.4c0 1.2 2 2.2 4.6 2.2s4.6-1 4.6-2.2V6"/><path d="M7.4 13.4c.6 1.1 2.4 1.8 4.6 1.8 2.6 0 4.6-1 4.6-2.2V9.6c0-1-1.4-1.9-3.4-2.1"/></symbol></defs></svg>
+<a class="w-skip" href="#main">Skip to content</a>
+<div class="w-announce"><p><span><span class="w-ann-l">VSG Bootcamp: five days on your site, one fixed price agreed up front.</span><span class="w-ann-s">VSG Bootcamp: five days, fixed price.</span></span> <a href="/bootcamp">How the five days work<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a></p></div>
+<header class="w-hdr" data-nav>
+  <nav class="w-nav" aria-label="Main">
+    <a class="w-logo" href="/" aria-label="VSG home"><svg class="w-wordmark" viewBox="-32.2 -736.3 2360.7 792.6" height="22" width="66" aria-hidden="true" focusable="false"><path fill="currentColor" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="var(--wm-dot,#0B5CFF)" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></svg>
+</a>
+    <ul class="w-nav-list" role="list">
+      <li class="w-nav-item is-current">
+        <button class="w-nav-trig" type="button" aria-expanded="false" aria-controls="w-mm-platform">Platform<svg class="w-i w-nav-chev" aria-hidden="true"><use href="#i-down"/></svg></button>
+        <div class="w-mm w-mm--platform" id="w-mm-platform">
+          <div class="w-mm-grid w-mm-grid--ace">
+            <a class="w-mm-feat" href="/ace" aria-current="page">
+              <span class="w-mm-feat-k">VSG ACE</span>
+              <b>The AI platform for operations.</b>
+              <span class="w-mm-feat-d">Data, AI automations and applications on one platform, with a view for every role.</span>
+              <span class="w-mm-feat-lk">Explore VSG ACE<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              <span class="w-mm-feat-n"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg>Every part of ACE integrates with your ERP and existing systems, and never changes them.</span>
+            </a>
+            <div>
+              <p class="w-mm-h">Parts of VSG ACE</p>
+              <ul class="w-mm-list" role="list">
+              <li><a class="w-mm-a" href="/core">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-layers"/></svg></span>
+                <span class="w-mm-t"><b>VSG Core</b></span>
+                <span class="w-mm-d">Your business data, organised. Live dashboards, custom reports and every number traced to its source.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/endorse">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg></span>
+                <span class="w-mm-t"><b>VSG Endorse</b></span>
+                <span class="w-mm-d">Every AI automation in your business. Your team approves every action.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/procure">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></span>
+                <span class="w-mm-t"><b>VSG Procure</b></span>
+                <span class="w-mm-d">Procurement planning, from forecast to purchase order, at the landed price.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/custom">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-code"/></svg></span>
+                <span class="w-mm-t"><b>Custom applications</b></span>
+                <span class="w-mm-d">Built for your operational bottlenecks, delivered in phases.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/ace#command-centre">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-grid"/></svg></span>
+                <span class="w-mm-t"><b>ACE Command Centre</b></span>
+                <span class="w-mm-d">A view for every role.</span>
+              </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="w-nav-item">
+        <button class="w-nav-trig" type="button" aria-expanded="false" aria-controls="w-mm-start">Get started<svg class="w-i w-nav-chev" aria-hidden="true"><use href="#i-down"/></svg></button>
+        <div class="w-mm w-mm--services" id="w-mm-start">
+          <ul class="w-mm-list" role="list">
+              <li><a class="w-mm-a" href="/bootcamp">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-cal"/></svg></span>
+                <span class="w-mm-t"><b>VSG Bootcamp</b></span>
+                <span class="w-mm-d">Five days on your site, at a fixed price. One AI automation running on your data by day four.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/contact?topic=ace">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-eye"/></svg></span>
+                <span class="w-mm-t"><b>Request a demo</b></span>
+                <span class="w-mm-d">See ACE in a guided walkthrough.</span>
+              </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="w-nav-item">
+        <button class="w-nav-trig" type="button" aria-expanded="false" aria-controls="w-mm-company">Company<svg class="w-i w-nav-chev" aria-hidden="true"><use href="#i-down"/></svg></button>
+        <div class="w-mm w-mm--company" id="w-mm-company">
+          <ul class="w-mm-list" role="list">
+              <li><a class="w-mm-a" href="/about">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg></span>
+                <span class="w-mm-t"><b>About VSG</b></span>
+                <span class="w-mm-d">An AI company that specializes in operations.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/contact">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-mail"/></svg></span>
+                <span class="w-mm-t"><b>Contact</b></span>
+                <span class="w-mm-d">Speak to our team in Cape Town.</span>
+              </a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <div class="w-nav-r">
+      <a class="w-nav-link" href="/contact?topic=contact">Contact</a>
+      <a class="btn btn-p w-nav-cta" href="/bootcamp#book">Book a Bootcamp</a>
+      <button class="w-burger" type="button" aria-expanded="false" aria-controls="w-sheet" aria-label="Open menu"><svg class="w-i" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+    <span class="w-mm-bg" aria-hidden="true"></span>
+  </nav>
+</header>
+<div class="w-sheet" id="w-sheet" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="w-sheet-in">
+    <div class="w-sheet-hd">
+      <a class="w-logo" href="/" aria-label="VSG home"><svg class="w-wordmark" viewBox="-32.2 -736.3 2360.7 792.6" height="22" width="66" aria-hidden="true" focusable="false"><path fill="currentColor" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="var(--wm-dot,#0B5CFF)" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></svg>
+</a>
+      <button class="w-burger" type="button" data-close aria-label="Close menu"><svg class="w-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="w-sheet-body">
+      <p class="w-sheet-h">Platform</p>
+      <a class="w-sheet-a w-sheet-a--ace" href="/ace" aria-current="page"><b>VSG ACE</b><span>The AI platform for operations</span></a>
+      <a class="w-sheet-a w-sheet-a--part" href="/core"><b>VSG Core</b></a>
+      <a class="w-sheet-a w-sheet-a--part" href="/endorse"><b>VSG Endorse</b></a>
+      <a class="w-sheet-a w-sheet-a--part" href="/procure"><b>VSG Procure</b></a>
+      <a class="w-sheet-a w-sheet-a--part" href="/custom"><b>Custom applications</b></a>
+      <p class="w-sheet-h">Get started</p>
+      <a class="w-sheet-a" href="/bootcamp"><b>VSG Bootcamp</b></a>
+      <a class="w-sheet-a" href="/contact?topic=ace"><b>Request a demo</b></a>
+      <p class="w-sheet-h">Company</p>
+      <a class="w-sheet-a" href="/about"><b>About VSG</b></a>
+      <a class="w-sheet-a" href="/contact"><b>Contact</b></a>
+    </div>
+    <div class="w-sheet-ft">
+      <a class="btn btn-p btn-xl" href="/bootcamp#book">Book a Bootcamp</a>
+      <a class="btn btn-s btn-xl" href="/contact?topic=contact">Contact</a>
+    </div>
+  </div>
+</div>
+<main id="main" tabindex="-1">
+<section class="w-hero w-dark ace-hero" aria-labelledby="ace-h1">
+  <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap">
+    <div class="w-hero-in">
+      <p class="w-chip ace-chip"><span><b>VSG ACE.</b> The AI platform for operations.</span></p>
+      <h1 class="w-display" id="ace-h1">One platform.<br> Your entire business.<br><span class="w-accent">AI in every team,<br class="ace-br"> every number,<br class="ace-br"> every decision.</span></h1>
+      <p class="w-lead">Walk into Monday already knowing which customers stopped ordering, which supplier invoices don&rsquo;t match the delivery and which items run out before the next order lands. That is VSG ACE: your own AI operations environment, built around your business and run by VSG. Every VSG product and custom system you add joins it. Your team approves every decision.</p>
+      <div class="w-actions w-actions--center">
+        <a class="btn btn-p btn-xl" href="/contact?topic=ace">Request a demo</a>
+        <a class="btn btn-s btn-xl" href="/bootcamp#book">Book a Bootcamp</a>
+      </div>
+      <p class="w-trust"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg>Integrates with your ERP and existing systems, and never changes them. Deployed on your own server or South African hosting.</p>
+    </div>
+  </div>
+  <div class="w-wrap w-wrap--wide ace-shot" id="command-centre">
+    <div class="h-cc" data-cc data-role="md" data-app="home">
+  <div class="h-cc-roles" role="radiogroup" aria-label="View the command centre as">
+    <span class="h-cc-roles-l">View as</span>
+    <button type="button" role="radio" aria-checked="true" data-cc-role="md">Managing director</button>
+    <button type="button" role="radio" aria-checked="false" data-cc-role="cc">Finance manager</button>
+    <button type="button" role="radio" aria-checked="false" data-cc-role="buyer">Buyer</button>
+  </div>
+  <div class="w-float w-float--lg h-cc-win">
+    <nav class="h-cc-rail" aria-label="Products">
+      <span class="h-cc-mk"><svg class="w-mark w-mark--inv" viewBox="0 0 32 32" width="18" height="18" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><g transform="translate(4.327 19.457) scale(0.01017)"><path fill="var(--mk-ink,#fff)" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="#0B5CFF" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></g></svg>
+</span>
+      <button type="button" class="h-cc-ic is-on" data-cc-app="home" data-roles="md cc buyer" aria-label="ACE Command Centre" title="ACE Command Centre"><svg class="w-i" aria-hidden="true"><use href="#i-home"/></svg></button>
+      <button type="button" class="h-cc-ic" data-cc-app="core" data-roles="md cc buyer" aria-label="VSG Core" title="VSG Core"><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg></button>
+      <button type="button" class="h-cc-ic" data-cc-app="procure" data-roles="md buyer" aria-label="VSG Procure" title="VSG Procure"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></button>
+      <button type="button" class="h-cc-ic" data-cc-app="endorse" data-roles="md cc" aria-label="VSG Endorse" title="VSG Endorse"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg></button>
+      <span class="h-cc-sp"></span>
+      <button type="button" class="h-cc-ic" data-cc-app="settings" data-roles="md" aria-label="Settings" title="Settings"><svg class="w-i" aria-hidden="true"><use href="#i-gear"/></svg></button>
+    </nav>
+    <div class="h-cc-main">
+      <div class="h-cc-top">
+        <span class="h-cc-org">Karoo Industrial Supply</span><span class="h-cc-sl">/</span><b class="h-cc-crumb" data-cc-crumb>ACE Command Centre</b>
+        <span class="h-cc-fill"></span>
+        <span class="h-cc-search"><svg class="w-i" aria-hidden="true"><use href="#i-search"/></svg><span>Search everything</span></span>
+        <span class="h-cc-bell"><svg class="w-i" aria-hidden="true"><use href="#i-inbox"/></svg><i data-cc-badge>3</i></span>
+        <span class="h-cc-av" data-cc-av>SE</span>
+      </div>
+      <div class="h-cc-body">
+                <div class="h-cc-p" data-cc-p="home">
+          <aside class="h-cc-side"><b>Command centre</b><span class="is-on">Today</span><span>Approvals</span><span>Alerts</span><span>Reports</span><span>Automations</span></aside>
+          <div class="h-cc-c h-cc-c--dash">
+            <div class="h-cc-hello"><p class="h-cc-h">Good morning. Your business at a glance.</p><span class="h-cc-live"><i></i>Refreshed from your ERP at 06:00</span></div>
+            <ul class="h-cc-kpis h-cc-kpis--rich" role="list">
+              <li data-roles="md buyer"><span>Sales this week</span><b class="w-num">R&nbsp;4.61m</b><em class="h-cc-up">&#9650; 4.8% on last week</em><svg class="h-cc-spark" viewBox="0 0 84 26" aria-hidden="true"><polyline points="0.0,21.3 7.6,15.9 15.3,24.0 22.9,10.4 30.5,18.6 38.2,7.7 45.8,13.1 53.5,2.3 61.1,10.4 68.7,5.0 76.4,7.7 84.0,2.0"/></svg></li>
+              <li data-roles="md cc"><span>Cash owed to you</span><b class="w-num">R&nbsp;1.28m</b><em class="h-cc-down">14 accounts overdue</em><svg class="h-cc-spark is-down" viewBox="0 0 84 26" aria-hidden="true"><polyline points="0.0,2.0 9.3,4.8 18.7,7.5 28.0,12.1 37.3,9.3 46.7,14.8 56.0,17.6 65.3,19.4 74.7,22.2 84.0,24.0"/></svg></li>
+              <li data-roles="md buyer"><span>Stock value</span><b class="w-num">R&nbsp;18.4m</b><em>5 items running out</em><svg class="h-cc-spark" viewBox="0 0 84 26" aria-hidden="true"><polyline points="0.0,24.0 12.0,17.7 24.0,13.0 36.0,6.7 48.0,9.9 60.0,2.0 72.0,3.6 84.0,5.1"/></svg></li>
+              <li data-roles="md cc buyer"><span>Waiting for approval</span><b class="w-num" data-cc-wait>3</b><em>One click each</em><svg class="h-cc-spark is-down" viewBox="0 0 84 26" aria-hidden="true"><polyline points="0.0,2.0 14.0,13.0 28.0,7.5 42.0,18.5 56.0,13.0 70.0,24.0 84.0,18.5"/></svg></li>
+            </ul>
+            <div class="h-cc-grid2">
+              <div class="h-cc-panel" data-roles="md cc buyer">
+                <div class="h-cc-ph"><b>Sales and cash collected</b><span><i class="h-cc-key h-cc-key--bar"></i>Sales <i class="h-cc-key h-cc-key--line"></i>Cash in</span></div>
+                <svg class="h-cc-chart" viewBox="0 0 480 170" role="img" aria-label="Sales and cash collected per week, last 12 weeks"><line x1="30" x2="476" y1="150" y2="150" class="h-cc-grid"/><text x="24" y="154" class="h-cc-ax" text-anchor="end">0m</text><line x1="30" x2="476" y1="122.4" y2="122.4" class="h-cc-grid"/><text x="24" y="126.4" class="h-cc-ax" text-anchor="end">1m</text><line x1="30" x2="476" y1="94.8" y2="94.8" class="h-cc-grid"/><text x="24" y="98.8" class="h-cc-ax" text-anchor="end">2m</text><line x1="30" x2="476" y1="67.2" y2="67.2" class="h-cc-grid"/><text x="24" y="71.2" class="h-cc-ax" text-anchor="end">3m</text><line x1="30" x2="476" y1="39.599999999999994" y2="39.599999999999994" class="h-cc-grid"/><text x="24" y="43.599999999999994" class="h-cc-ax" text-anchor="end">4m</text><line x1="30" x2="476" y1="12" y2="12" class="h-cc-grid"/><text x="24" y="16" class="h-cc-ax" text-anchor="end">5m</text><rect class="h-cc-bar" x="34.0" y="42.4" width="28.8" height="107.6" rx="3" style="--i:0"/><rect class="h-cc-bar" x="70.8" y="36.8" width="28.8" height="113.2" rx="3" style="--i:1"/><rect class="h-cc-bar" x="107.7" y="45.1" width="28.8" height="104.9" rx="3" style="--i:2"/><rect class="h-cc-bar" x="144.5" y="31.3" width="28.8" height="118.7" rx="3" style="--i:3"/><rect class="h-cc-bar" x="181.3" y="39.6" width="28.8" height="110.4" rx="3" style="--i:4"/><rect class="h-cc-bar" x="218.2" y="28.6" width="28.8" height="121.4" rx="3" style="--i:5"/><rect class="h-cc-bar" x="255.0" y="34.1" width="28.8" height="115.9" rx="3" style="--i:6"/><rect class="h-cc-bar" x="291.8" y="23.0" width="28.8" height="127.0" rx="3" style="--i:7"/><rect class="h-cc-bar" x="328.7" y="31.3" width="28.8" height="118.7" rx="3" style="--i:8"/><rect class="h-cc-bar" x="365.5" y="25.8" width="28.8" height="124.2" rx="3" style="--i:9"/><rect class="h-cc-bar" x="402.3" y="28.6" width="28.8" height="121.4" rx="3" style="--i:10"/><rect class="h-cc-bar is-now" x="439.2" y="22.8" width="28.8" height="127.2" rx="3" style="--i:11"/><polyline class="h-cc-line" points="48.4,61.7 85.3,53.4 122.1,56.2 158.9,50.6 195.8,58.9 232.6,45.1 269.4,42.4 306.3,39.6 343.1,42.4 379.9,34.1 416.8,31.3 453.6,28.6"/><circle class="h-cc-dot" cx="453.6" cy="28.6" r="4"/><text x="48.4" y="166" class="h-cc-ax" text-anchor="middle">W27</text><text x="158.9" y="166" class="h-cc-ax" text-anchor="middle">W30</text><text x="269.4" y="166" class="h-cc-ax" text-anchor="middle">W33</text><text x="379.9" y="166" class="h-cc-ax" text-anchor="middle">W36</text><text x="453.6" y="166" class="h-cc-ax" text-anchor="middle">W38</text></svg>
+                <ul class="h-cc-sum" role="list"><li><span>Sales, week 38</span><b class="w-num">R&nbsp;4.61m</b></li><li><span>Cash in, week 38</span><b class="w-num">R&nbsp;4.40m</b></li><li><span>Collected</span><b class="w-num">95%</b></li></ul>
+                <div class="h-cc-best"><p>Top customers this week</p><ul role="list"><li><span>Namakwa Mining Services</span><b class="w-num">R&nbsp;486&nbsp;200</b></li><li><span>Overberg Agri Co-op</span><b class="w-num">R&nbsp;402&nbsp;750</b></li><li><span>Tugela Water Works</span><b class="w-num">R&nbsp;355&nbsp;900</b></li></ul></div>
+              </div>
+              <div class="h-cc-panel">
+                <div class="h-cc-ph"><b>Needs your attention</b><span>Biggest first</span></div>
+                <ul class="h-cc-jobs h-cc-att" role="list">
+                  <li data-roles="md buyer"><div><span class="st st-a"><i></i>VSG Procure</span><b>Conveyor belt EP400 runs out in 3 weeks</b><small>On the stock-out list. Three quotes compared at landed cost.</small></div><b class="w-num">R&nbsp;412&nbsp;800</b><button type="button" class="btn btn-p btn-sm" data-cc-ok="ep400">Approve</button></li>
+                  <li data-roles="md cc"><div><span class="st st-ai"><i></i>VSG Endorse</span><b>Breede Irrigation, 67 days overdue</b><small>Reminder drafted for approval</small></div><b class="w-num">R&nbsp;312&nbsp;400</b><button type="button" class="btn btn-p btn-sm" data-cc-ok="breede">Approve</button></li>
+                  <li data-roles="md cc buyer"><div><span class="st st-ai"><i></i>VSG Endorse</span><b>Highveld Cable Co. billed above the order</b><small>Payment held, query drafted</small></div><b class="w-num">R&nbsp;24&nbsp;350</b><button type="button" class="btn btn-p btn-sm" data-cc-ok="highveld">Approve</button></li>
+                </ul>
+              </div>
+            </div>
+            <div class="h-cc-panel">
+              <div class="h-cc-ph"><b>Automations running</b><span>Every morning, and the moment something changes</span></div>
+              <div class="h-cc-auto" role="table" aria-label="Automations running">
+                <div class="h-cc-ar h-cc-ah" role="row"><span role="columnheader">Automation</span><span role="columnheader">Last run</span><span role="columnheader">Found</span><span role="columnheader">Status</span></div>
+                <div class="h-cc-ar" role="row" data-roles="md buyer"><span role="cell"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg>Stock running low</span><span role="cell">06:00</span><span role="cell">5 items</span><span role="cell"><em class="h-cc-ok">Running</em></span></div>
+                <div class="h-cc-ar" role="row" data-roles="md cc"><span role="cell"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg>Late payments</span><span role="cell">06:05</span><span role="cell">14 accounts</span><span role="cell"><em class="h-cc-ok">Running</em></span></div>
+                <div class="h-cc-ar" role="row" data-roles="md cc buyer"><span role="cell"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg>Supplier invoices</span><span role="cell">06:10</span><span role="cell">5 flagged</span><span role="cell"><em class="h-cc-ok">Running</em></span></div>
+                <div class="h-cc-ar" role="row" data-roles="md"><span role="cell"><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg>Monday management pack</span><span role="cell">Mon 07:00</span><span role="cell">Sent</span><span role="cell"><em class="h-cc-ok">Running</em></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+                <div class="h-cc-p" data-cc-p="core" hidden>
+          <aside class="h-cc-side"><b>VSG Core</b><span>Search</span><span>Customers</span><span>Suppliers</span><span>Items</span><span class="is-on">Reports</span><span>Dashboards</span></aside>
+          <div class="h-cc-c">
+            <p class="h-cc-h">Monday management pack, week 38</p>
+            <div class="h-cc-bars" aria-hidden="true"><i style="--h:44%"></i><i style="--h:58%"></i><i style="--h:51%"></i><i style="--h:66%"></i><i style="--h:72%"></i><i style="--h:69%"></i><i style="--h:82%"></i></div>
+            <p class="h-cc-sm">Sales per week. Click any bar to see the invoices behind it.</p>
+            <ul class="h-cc-rows" role="list"><li><span>Sales this week</span><b class="w-num">R&nbsp;4.61m</b></li><li><span>Stock value</span><b class="w-num">R&nbsp;18.4m</b></li><li><span>Debtors over 60 days</span><b class="w-num">R&nbsp;498&nbsp;150</b></li></ul>
+          </div>
+        </div>
+                <div class="h-cc-p" data-cc-p="procure" hidden>
+          <aside class="h-cc-side"><b>VSG Procure</b><span class="is-on">Planning</span><span>Quotes</span><span>Review</span><span>Orders</span></aside>
+          <div class="h-cc-c">
+            <p class="h-cc-h">Planning: months of stock left</p>
+            <div class="h-cc-grid" role="table" aria-label="Months of stock left">
+              <div class="h-cc-gr h-cc-gh" role="row"><span role="columnheader">Item</span><span role="columnheader">Oct</span><span role="columnheader">Nov</span><span role="columnheader">Dec</span><span role="columnheader">Jan</span></div>
+              <div class="h-cc-gr" role="row"><span role="cell">Bearing 6205</span><span role="cell" class="lv-ok">2.4</span><span role="cell" class="lv-ok">1.6</span><span role="cell" class="lv-w">0.9</span><span role="cell" class="lv-x">0.0</span></div>
+              <div class="h-cc-gr" role="row"><span role="cell">Cable 4mm, 100m</span><span role="cell" class="lv-w">1.2</span><span role="cell" class="lv-w">0.6</span><span role="cell" class="lv-x">0.0</span><span role="cell" class="lv-x">0.0</span></div>
+              <div class="h-cc-gr" role="row"><span role="cell">PVC pipe 110mm</span><span role="cell" class="lv-ok">3.1</span><span role="cell" class="lv-ok">2.7</span><span role="cell" class="lv-ok">2.2</span><span role="cell" class="lv-ok">1.8</span></div>
+            </div>
+            <p class="h-cc-sm">Order file ready to check: 14 lines, each traced to its quote.</p>
+          </div>
+        </div>
+                <div class="h-cc-p" data-cc-p="endorse" hidden>
+          <aside class="h-cc-side"><b>VSG Endorse</b><span class="is-on">Inbox</span><span>Automations</span><span>Record</span><span>Monthly results</span></aside>
+          <div class="h-cc-c">
+            <p class="h-cc-h">Inbox: waiting for your approval</p>
+            <ul class="h-cc-jobs" role="list">
+              <li><div><b>Breede Irrigation</b><small>67 days late. Reminder drafted.</small></div><b class="w-num">R&nbsp;312&nbsp;400</b><button type="button" class="btn btn-p btn-sm" data-cc-ok="breede">Approve</button></li>
+              <li><div><b>Highveld Cable Co.</b><small>Billed above the order. Query drafted.</small></div><b class="w-num">R&nbsp;24&nbsp;350</b><button type="button" class="btn btn-p btn-sm" data-cc-ok="highveld">Approve</button></li>
+              <li><div><b>Safety boots, size 8</b><small>Short on the last three counts. Recount drafted.</small></div><b class="w-num">R&nbsp;48&nbsp;730</b><button type="button" class="btn btn-p btn-sm" data-cc-ok="boots">Approve</button></li>
+            </ul>
+          </div>
+        </div>
+                <div class="h-cc-p" data-cc-p="settings" hidden>
+          <aside class="h-cc-side"><b>Settings</b><span class="is-on">People and roles</span><span>Connections</span></aside>
+          <div class="h-cc-c">
+            <p class="h-cc-h">People and roles</p>
+            <ul class="h-cc-rows" role="list"><li><span>S. Ebrahim, managing director</span><b>Everything</b></li><li><span>T. Naidoo, finance manager</span><b>Endorse, Core</b></li><li><span>L. Botha, buyer</span><b>Procure, Core</b></li></ul>
+            <p class="h-cc-sm"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg> Your ERP is connected and secure. Sign in with your Microsoft work account.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="w-cap">An illustration of the ACE Command Centre. Switch the role, then click the icons on the left.</p>
+</div>
+
+  </div>
+</section>
+
+<section class="w-sec w-bg-white" aria-labelledby="ace-one-h">
+  <div class="w-wrap">
+    <div class="w-head w-head--split">
+      <h2 class="w-h2" id="ace-one-h">Streamline your entire business from one platform. <span class="w-mute">Every system, every AI agent, every number.</span></h2>
+      <p class="w-lead">Stop digging through three systems and a spreadsheet for one number. Every manager opens ACE to what changed overnight and what needs their decision before lunch.</p>
+    </div>
+    <ul class="ace-one" role="list" data-reveal-group>
+      <li><span class="ace-one-ic"><svg class="w-i" aria-hidden="true"><use href="#i-link"/></svg></span><b>Your systems</b><p>Your ERP, spreadsheets and existing systems, integrated on one platform.</p></li>
+      <li><span class="ace-one-ic ace-one-ic--ai"><svg class="w-i" aria-hidden="true"><use href="#i-agent"/></svg></span><b>AI agents</b><p>AI that checks your business every day, spots the problems and drafts the fix for your team to approve.</p></li>
+      <li><span class="ace-one-ic"><svg class="w-i" aria-hidden="true"><use href="#i-bolt"/></svg></span><b>Automations</b><p>Checks, alerts and scheduled reports that run by themselves, every day.</p></li>
+      <li><span class="ace-one-ic"><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg></span><b>Live dashboards</b><p>Sales, cash, stock and margin for every role, on one screen.</p></li>
+      <li><span class="ace-one-ic"><svg class="w-i" aria-hidden="true"><use href="#i-eye"/></svg></span><b>Monitoring</b><p>Every number across the business watched on every sync, with data health checks and alerts when something moves.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="w-sec w-bg-canvas" aria-labelledby="ace-cc-h">
+  <div class="w-wrap">
+    <div class="w-head w-head--split">
+      <h2 class="w-h2" id="ace-cc-h">The ACE Command Centre. <span class="w-mute">One login. A view for every role.</span></h2>
+      <p class="w-lead">The Command Centre is designed so everyone signs in once and lands on their own work. The managing director sees sales, cash and margin. The buyer sees what will run short. The credit controller sees who owes what. And every approval waits for the person who owns it.</p>
+    </div>
+    <ul class="ace-roles" role="list" data-reveal-group>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-home"/></svg></span><b>Managing director</b><p>Sales, cash, stock and margin across the business, with the decisions waiting for approval today.</p></li>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg></span><b>Finance</b><p>Cash, margin and what is owed in and out, with every figure traced to its source.</p></li>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></span><b>Buying</b><p>How many months of stock you hold on every item, what will run short and the cash tied up above target.</p></li>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-graph"/></svg></span><b>Sales</b><p>Sales by customer and by item, with AI explaining what changed and what needs attention.</p></li>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg></span><b>Customer service</b><p>Every customer&rsquo;s orders, invoices and history on one page.</p></li>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-truck"/></svg></span><b>Operations</b><p>Stock levels, open orders and the issues waiting for a decision.</p></li>
+    </ul>
+    <p class="w-body ace-roles-n"><b>Designed for one login.</b> Each automation or application you add is designed to appear in the Command Centre, working from the same numbers your team already trusts.</p>
+  </div>
+</section>
+
+<section class="w-sec w-bg-white" aria-labelledby="ace-core-h">
+  <div class="w-wrap">
+    <div class="w-split ace-model">
+      <div>
+        <p class="lbl ace-k">ACE &middot; Your AI operations environment</p>
+        <h2 class="w-h2" id="ace-core-h">Powered by VSG Core. <span class="w-mute">A live picture of your business.</span></h2>
+        <p class="w-body">Sales in the ERP, stock counts in a spreadsheet, prices in an email. VSG Core brings it together on a schedule and organises it around suppliers, stock, orders, customers and invoices. Every report and automation works from Core, so sales and finance walk into the Monday meeting with the same number.</p>
+        <a class="w-link" href="/core">Explore VSG Core<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <figure class="ace-graph" data-ace-graph aria-label="VSG Core at the centre, linked to suppliers, stock, orders, customers and invoices.">
+        <svg class="ace-graph-l" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <line data-l="0" x1="50" y1="50" x2="50" y2="10"/><line data-l="1" x1="50" y1="50" x2="89" y2="36"/><line data-l="2" x1="50" y1="50" x2="75" y2="86"/><line data-l="3" x1="50" y1="50" x2="25" y2="86"/><line data-l="4" x1="50" y1="50" x2="11" y2="36"/>
+        </svg>
+        <span class="ace-node ace-node--core"><b>VSG Core</b><small>The things your business runs on</small></span>
+        <span class="ace-node" data-n="0" style="--x:50%;--y:10%"><svg class="w-i" aria-hidden="true"><use href="#i-truck"/></svg>Suppliers</span>
+        <span class="ace-node" data-n="1" style="--x:89%;--y:36%"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg>Stock</span>
+        <span class="ace-node" data-n="2" style="--x:75%;--y:86%"><svg class="w-i" aria-hidden="true"><use href="#i-list"/></svg>Orders</span>
+        <span class="ace-node" data-n="3" style="--x:25%;--y:86%"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg>Customers</span>
+        <span class="ace-node" data-n="4" style="--x:11%;--y:36%"><svg class="w-i" aria-hidden="true"><use href="#i-receipt"/></svg>Invoices</span>
+      </figure>
+    </div>
+    <ul class="ace-pillars" role="list" data-reveal-group>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-layers"/></svg></span><b>AI on your data.</b><p>Core integrates with your ERP, spreadsheets and existing systems, updates on a set schedule and brings everything together. AI explains what changed and what needs attention. Every number traces back to its source.</p></li>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-bolt"/></svg></span><b>AI in your work.</b><p>Each automation is built for your business. AI spots the problem, works out what it costs and drafts the fix, and your team approves every item in one inbox.</p></li>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg></span><b>AI behind every decision.</b><p>Dashboards, reports and applications give every role the view it needs to act, and each automation&rsquo;s results are measured every month against your own ERP figures.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="w-sec w-dark" aria-labelledby="ace-layers-h">
+  <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap">
+    <div class="w-split ace-layers-grid">
+      <div>
+        <h2 class="w-h2" id="ace-layers-h">Four parts. <span class="w-mute">One platform.</span></h2>
+        <p class="w-body">Four parts, one job each. Core keeps every number straight. Endorse checks the invoices and drafts the follow-ups for your approval. Procure plans the buying, and custom applications fix the bottlenecks only your business has. The Command Centre is designed to put it all behind one login.</p>
+      </div>
+      <ol class="ace-stack" role="list" data-reveal-group>
+        <li class="ace-lay ace-lay--cc"><span class="ace-lay-k">ACE Command Centre</span><b>Designed to put every dashboard, application and automation behind one login</b><p>A view built for every role, from the managing director to the buyer.</p></li>
+        <li class="ace-lay"><span class="ace-lay-k">ACE Application Layer</span><b><a href="/procure">VSG Procure</a> and <a href="/custom">custom applications</a></b><p>Procure plans buying and stock for every item you hold, from forecast to purchase order. Custom applications are built for your own operational bottlenecks and delivered in phases, each at a fixed price.</p></li>
+        <li class="ace-lay ace-lay--ai"><span class="ace-lay-k">ACE Automation Layer</span><b><a href="/endorse">VSG Endorse</a></b><p>Runs every AI automation built for your business. AI prepares the work and your team approves it. No action reaches a customer or supplier without that approval, and nothing is written to your ERP.</p></li>
+        <li class="ace-lay"><span class="ace-lay-k">ACE Data Layer</span><b><a href="/core">VSG Core</a></b><p>A live picture of your suppliers, stock, orders, customers and invoices, behind every dashboard, report and AI insight.</p></li>
+        <li class="ace-lay ace-lay--base"><span class="ace-lay-k">Your systems</span><b>Your ERP, spreadsheets and existing systems</b><p>Integrated. Never changed.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="w-sec w-bg-canvas w-fx-sec" aria-labelledby="ace-cap-h">
+  <div class="w-wrap">
+    <div class="w-head w-head--split">
+      <h2 class="w-h2" id="ace-cap-h">What you get with VSG ACE. <span class="w-mute">Every part, and what it does for your business.</span></h2>
+      <p class="w-lead">Fewer surprises at month end. Less cash sitting on the shelf. Hours back for your buyer and your credit controller. And every decision still made by your people.</p>
+    </div>
+    <ul class="w-fx w-fx--4" role="list" data-reveal-group>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-grid"/></svg></span><span class="w-fx-part">ACE Command Centre</span></div><b class="w-fx-t">A view for every role</b><p class="w-fx-d">Designed so one login opens a view built for each person's role across every part of ACE.</p><p class="w-fx-v"><span>Why it matters</span>Faster decisions, because every manager starts the day on the figures that belong to their role.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-trace"/></svg></span><span class="w-fx-part">VSG Core</span></div><b class="w-fx-t">Every number, proven</b><p class="w-fx-d">Click any figure on a dashboard or report to trace it to its source.</p><p class="w-fx-v"><span>Why it matters</span>Confidence in every meeting, because every team works from one set of numbers that anyone can check.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-table"/></svg></span><span class="w-fx-part">VSG Core</span></div><b class="w-fx-t">Reports in your format</b><p class="w-fx-d">VSG builds your reports to the layout your team already works from.</p><p class="w-fx-v"><span>Why it matters</span>Time back at every month end, with reports built once to your format instead of rebuilt by hand.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-agent"/></svg></span><span class="w-fx-part">VSG Endorse</span></div><b class="w-fx-t">AI that prepares the work</b><p class="w-fx-d">Automations built for your business check your ERP, email, spreadsheets and documents, find the problems, work out what each one costs and draft the fix.</p><p class="w-fx-v"><span>Why it matters</span>More of your team's time spent deciding, because the searching, checking and preparation is done before they start.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg></span><span class="w-fx-part">VSG Endorse</span></div><b class="w-fx-t">Approval before anything moves</b><p class="w-fx-d">Nothing reaches a customer or supplier until the right person approves, and every decision is logged with who, when, what and the documents behind it.</p><p class="w-fx-v"><span>Why it matters</span>Complete control over AI, with an exportable record ready for your auditors and your board.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-cal"/></svg></span><span class="w-fx-part">VSG Endorse</span></div><b class="w-fx-t">Scheduled packs and alerts</b><p class="w-fx-d">Alerts and scheduled reports, such as a weekly management pack with a summary of what changed, go straight to your own team.</p><p class="w-fx-v"><span>Why it matters</span>Earlier warning on problems, because leaders see what changed without having to ask for it.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg></span><span class="w-fx-part">VSG Procure</span></div><b class="w-fx-t">Stock and cash, five months ahead</b><p class="w-fx-d">Procure forecasts every item from your own sales and projects stock and months of cover, including committed and planned orders, flagging items about to run out and stock held above target.</p><p class="w-fx-v"><span>Why it matters</span>Fewer stock-outs and less cash tied up in excess stock, with the cash you could release shown for every item.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-receipt"/></svg></span><span class="w-fx-part">VSG Procure</span></div><b class="w-fx-t">True landed price comparison</b><p class="w-fx-d">Supplier replies are imported without retyping and converted to a landed price with the exchange rate, duty, clearing, freight and other costs your buyer sets.</p><p class="w-fx-v"><span>Why it matters</span>Better buying on every order, with the cheapest landed price per line and the supplier who can cover the whole order side by side.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-wrench"/></svg></span><span class="w-fx-part">Custom applications</span></div><b class="w-fx-t">Built for your bottlenecks</b><p class="w-fx-d">VSG designs custom AI systems, workflow automation and software around the bottlenecks unique to your business, and adds each one to your AI operations environment, on the same data and approvals.</p><p class="w-fx-v"><span>Why it matters</span>Software shaped around your operation instead of the other way round, aimed first at the bottleneck that costs you the most.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-layers"/></svg></span><span class="w-fx-part">Custom applications</span></div><b class="w-fx-t">Phased, fixed price delivery</b><p class="w-fx-d">Every build is delivered in phases by the senior team that scoped it, with each phase scoped and priced on its own.</p><p class="w-fx-v"><span>Why it matters</span>Controlled spend, with a fixed price agreed before work starts and every phase proven before the next begins.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-server"/></svg></span><span class="w-fx-part">Platform</span></div><b class="w-fx-t">Your server or South African hosting</b><p class="w-fx-d">Choose where ACE runs: your own server or South African hosting.</p><p class="w-fx-v"><span>Why it matters</span>Full control over where your data lives, with every deployment set up in line with POPIA.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-link"/></svg></span><span class="w-fx-part">Platform</span></div><b class="w-fx-t">Your ERP stays as it is</b><p class="w-fx-d">VSG deploys, connects and runs ACE, which integrates with your ERP and existing systems and never changes them.</p><p class="w-fx-v"><span>Why it matters</span>Less disruption, with no system to replace, no migration to plan and your ERP still the record your team trusts.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="w-sec w-bg-white" id="erp" aria-labelledby="ace-erp-h">
+  <div class="w-wrap">
+    <div class="w-head w-head--split">
+      <h2 class="w-h2" id="ace-erp-h">Built on the systems you already run. <span class="w-mute">Nothing replaced.</span></h2>
+      <p class="w-lead">Keep the ERP your team already trusts. ACE integrates with your ERP and existing systems, updates on a schedule and never changes a record. Purchase orders leave ACE as a file your team checks and imports. Switch ACE off tomorrow and your ERP is exactly as it was.</p>
+    </div>
+    <div class="ace-flow" role="img" aria-label="Your ERP, spreadsheets and existing systems sync on a schedule into VSG Core, which feeds the ACE Command Centre. Purchase orders leave as a file your team reviews and imports.">
+      <div class="ace-fl-src">
+        <span class="ace-fl-n ace-fl-n--erp"><svg class="w-i" aria-hidden="true"><use href="#i-server"/></svg><b>Your ERP</b><small>Master records, unchanged</small></span>
+        <span class="ace-fl-n"><svg class="w-i" aria-hidden="true"><use href="#i-table"/></svg><b>Spreadsheets and systems</b><small>Price lists, stock counts, other files</small></span>
+      </div>
+      <span class="ace-fl-ar"><svg class="w-i" aria-hidden="true"><use href="#i-clock"/></svg>Scheduled updates</span>
+      <span class="ace-fl-n ace-fl-n--core"><svg class="w-i" aria-hidden="true"><use href="#i-layers"/></svg><b>VSG Core</b><small>Every number, one source</small></span>
+      <span class="ace-fl-ar ace-fl-ar--plain"><svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      <div class="ace-fl-out">
+        <span class="ace-fl-n ace-fl-n--cc"><svg class="w-i" aria-hidden="true"><use href="#i-grid"/></svg><b>ACE Command Centre</b><small>Every role, one login</small></span>
+        <span class="ace-fl-n ace-fl-n--file"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg><b>Purchase order file</b><small>Reviewed and imported by your team</small></span>
+      </div>
+    </div>
+    <ul class="ace-three" role="list" data-reveal-group>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-link"/></svg></span><b>Your ERP</b><p>VSG ACE integrates with the ERP you run and leaves every record in it exactly as it is.</p></li>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-table"/></svg></span><b>Your systems</b><p>The spreadsheets and systems your teams already work in, organised alongside your ERP data in VSG Core.</p></li>
+      <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg></span><b>Your people</b><p>Every problem goes to the right person with its cost and a drafted fix, ready to approve.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="w-sec w-bg-canvas" aria-labelledby="ace-start-h">
+  <div class="w-wrap">
+    <div class="w-head w-head--split">
+      <h2 class="w-h2" id="ace-start-h">Start with a Bootcamp. <span class="w-mute">One AI automation on your data by day four.</span></h2>
+      <p class="w-lead">Five days on your site, one fixed price. AI combs through thousands of your transactions and costs every issue it finds. We map your key processes step by step. By day four, an AI automation is running on your own data. On Friday, you walk away with a fixed quote for phase one.</p>
+    </div>
+    <ol class="ace-steps" role="list" data-reveal-group>
+      <li><span class="ace-step-n mono">01</span><b>Every issue costed</b><p>AI analyses thousands of your transactions, and our team puts a cost on every issue it finds.</p></li>
+      <li><span class="ace-step-n mono">02</span><b>Key processes mapped</b><p>Order to payment and purchase to supplier payment, mapped step by step.</p></li>
+      <li><span class="ace-step-n mono">03</span><b>One automation running</b><p>An AI automation runs on your own data by day four.</p></li>
+      <li><span class="ace-step-n mono">04</span><b>A fixed quote for phase one</b><p>A clear scope and a fixed price for phase one on VSG ACE. If you go ahead within 30 days, the Bootcamp fee is credited against it.</p></li>
+    </ol>
+    <div class="w-actions ace-start-act">
+      <a class="btn btn-p btn-lg" href="/bootcamp#book">Book a Bootcamp</a>
+      <a class="btn btn-s btn-lg" href="/bootcamp">See the five days</a>
+    </div>
+  </div>
+</section>
+
+<section class="w-sec w-dark w-cta" aria-label="Book a Bootcamp">
+  <div class="w-glow w-glow--cta" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap w-cta-in">
+    <h2 class="w-h2">Put VSG ACE to work.</h2>
+    <p class="w-lead">Start with a five-day Bootcamp on your own numbers, at a fixed price, or request a demo of VSG ACE.</p>
+    <div class="w-actions w-actions--center">
+      <a class="btn btn-p btn-xl" href="/bootcamp#book">Book a Bootcamp</a>
+      <a class="btn btn-s btn-xl" href="/contact?topic=ace">Request a demo</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="w-foot" id="site-footer">
+  <div class="w-wrap">
+    <div class="w-foot-grid">
+      <div class="w-foot-brand">
+        <a class="w-logo" href="/" aria-label="VSG home"><svg class="w-wordmark" viewBox="-32.2 -736.3 2360.7 792.6" height="24" width="71" aria-hidden="true" focusable="false"><path fill="currentColor" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="var(--wm-dot,#0B5CFF)" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></svg>
+</a>
+        <p>An AI company that specializes in operations. VSG ACE is the AI platform for operations, for South African manufacturers, distributors, wholesalers and retailers.</p>
+      </div>
+      <nav class="w-foot-col" aria-label="Platform">
+        <p class="w-foot-h">Platform</p>
+        <a href="/ace">VSG ACE</a>
+        <a href="/core">VSG Core</a>
+        <a href="/endorse">VSG Endorse</a>
+        <a href="/procure">VSG Procure</a>
+        <a href="/custom">Custom applications</a>
+      </nav>
+      <nav class="w-foot-col" aria-label="Get started">
+        <p class="w-foot-h">Get started</p>
+        <a href="/bootcamp">VSG Bootcamp</a>
+        <a href="/contact?topic=ace">Request a demo</a>
+      </nav>
+      <nav class="w-foot-col" aria-label="Company">
+        <p class="w-foot-h">Company</p>
+        <a href="/about">About VSG</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+    <div class="w-foot-base">
+      <p>&copy; 2026 VSG Tech Solutions (Pty) Ltd. Cape Town, South Africa.</p>
+      <p><a href="/privacy">Privacy</a></p>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

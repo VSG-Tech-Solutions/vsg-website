@@ -1,31 +1,300 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
-  <meta charset="utf-8">
-  <title>Contact — Tell us what's getting in the way · VSG Tech</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="One form. One reply, from Stephan, within one working day. Tell us what's getting in the way.">
-  <link rel="stylesheet" href="colors_and_type.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <style>
-    html, body { margin: 0; background: var(--paper); }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { overflow-x: hidden; }
-    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
-    ::selection { background: var(--coral-soft); color: var(--ink-1); }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact VSG | Request a demo or book a Bootcamp</title>
+<meta name="description" content="Request a demo of VSG ACE, the AI platform for operations, or of VSG Core, Endorse or Procure. Book a VSG Bootcamp (a five-day assessment on your site) or discuss a custom build. Cape Town, South Africa.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vsgtech.co.za/contact">
+<meta name="theme-color" content="#F6F7FB">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VSG">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:title" content="Contact VSG | Request a demo or book a Bootcamp">
+<meta property="og:description" content="Request a demo of VSG ACE, the AI platform for operations, or of VSG Core, Endorse or Procure. Book a VSG Bootcamp (a five-day assessment on your site) or discuss a custom build. Cape Town, South Africa.">
+<meta property="og:url" content="https://vsgtech.co.za/contact">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Contact VSG | Request a demo or book a Bootcamp">
+<meta name="twitter:description" content="Request a demo of VSG ACE, the AI platform for operations, or of VSG Core, Endorse or Procure. Book a VSG Bootcamp (a five-day assessment on your site) or discuss a custom build. Cape Town, South Africa.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="assets/site/halo.css?v=ade82759">
+<link rel="stylesheet" href="assets/site/site.css?v=666f17f3">
+<link rel="stylesheet" href="assets/site/pages/contact.css?v=d50e6c3c">
+<script src="assets/site/site.js?v=b69ff06d" defer></script>
+<script src="assets/site/pages/contact.js?v=403d5a77" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"VSG","legalName":"VSG Tech Solutions (Pty) Ltd","url":"https://vsgtech.co.za/","logo":"https://vsgtech.co.za/assets/site/logo/mark.svg","description":"An AI company that specializes in operations.","founder":[{"@type":"Person","name":"Stephan Esterhuizen","jobTitle":"Founder and CEO"},{"@type":"Person","name":"Ernst Schloms","jobTitle":"Co-founder, engineering"}],"areaServed":"ZA","address":{"@type":"PostalAddress","addressLocality":"Cape Town","addressRegion":"Western Cape","addressCountry":"ZA"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"VSG ACE","applicationCategory":"BusinessApplication","description":"The AI platform for operations. A data layer, AI automations, applications and a command centre, integrated with your ERP and existing systems.","url":"https://vsgtech.co.za/ace","hasPart":[{"@type":"SoftwareApplication","name":"VSG Core","description":"Your business data, organised: live dashboards, reports and look-ups."},{"@type":"SoftwareApplication","name":"VSG Endorse","description":"Every AI automation in your business, approved by your team."},{"@type":"SoftwareApplication","name":"VSG Procure","description":"Procurement planning: forecasts, cash, supplier quotes and purchase orders."}],"provider":{"@type":"Organization","name":"VSG Tech Solutions (Pty) Ltd","address":{"@type":"PostalAddress","addressLocality":"Cape Town","addressCountry":"ZA"}}}</script>
 </head>
-<body>
-  <div id="app"></div>
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-  <script type="text/babel" src="js/atoms.jsx"></script>
-  <script type="text/babel" src="js/Nav.jsx"></script>
-  <script type="text/babel" src="js/Footer.jsx"></script>
-  <script type="text/babel" src="js/DemoModal.jsx"></script>
-  <script type="text/babel" src="js/PageShell.jsx"></script>
-  <script type="text/babel" src="js/ContactPage.jsx"></script>
+<body class="w-page w-page-contact">
+<svg class="w-sprite" aria-hidden="true" focusable="false"><defs><symbol id="i-menu" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h12M4 10h12M4 14h12"/></symbol><symbol id="i-x" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.4 5.4l9.2 9.2M14.6 5.4l-9.2 9.2"/></symbol><symbol id="i-grid" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="5.6" height="5.6" rx="1.4"/><rect x="11.2" y="3.2" width="5.6" height="5.6" rx="1.4"/><rect x="3.2" y="11.2" width="5.6" height="5.6" rx="1.4"/><rect x="11.2" y="11.2" width="5.6" height="5.6" rx="1.4"/></symbol><symbol id="i-layers" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3 3 6.6l7 3.6 7-3.6z"/><path d="M3 11l7 3.6 7-3.6"/></symbol><symbol id="i-users" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7.6" r="2.6"/><path d="M3 16c.7-2.4 2.5-3.6 5-3.6s4.3 1.2 5 3.6"/><path d="M13.4 5.6a2.4 2.4 0 0 1 0 4.4M15.4 16c-.2-1.4-.7-2.5-1.6-3.2"/></symbol><symbol id="i-cal" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.6" width="14" height="12.4" rx="2.4"/><path d="M3 8.6h14M7 3.2v2.6M13 3.2v2.6"/></symbol><symbol id="i-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 10.4 8 14l7.8-8"/></symbol><symbol id="i-down" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 4.4L15 8"/></symbol><symbol id="i-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11.2M11 5.6l4.4 4.4-4.4 4.4"/></symbol><symbol id="i-doc" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2.6h6.5L15.4 6.5V17.4H5z"/><path d="M11.2 2.8v3.8h3.8"/></symbol><symbol id="i-eye" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.4 10S5.2 5 10 5s7.6 5 7.6 5-2.8 5-7.6 5S2.4 10 2.4 10Z"/><circle cx="10" cy="10" r="2.2"/></symbol><symbol id="i-send" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 10 16.8 4.2 12.4 17l-2.6-5.4z"/></symbol><symbol id="i-lock" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8.6" width="12" height="8.4" rx="2"/><path d="M6.8 8.6V6.4a3.2 3.2 0 0 1 6.4 0v2.2"/><path d="M10 12v1.6"/></symbol><symbol id="i-mail" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="4.6" width="14.4" height="10.8" rx="2"/><path d="M3.4 5.6 10 10.6l6.6-5"/></symbol><symbol id="i-box" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.8 16.6 6.4v7.2L10 17.2 3.4 13.6V6.4z"/><path d="M3.4 6.4 10 10l6.6-3.6M10 10v7.2"/></symbol><symbol id="i-code" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 6 3 10l4 4M13 6l4 4-4 4M11.2 4.4 8.8 15.6"/></symbol></defs></svg>
+<a class="w-skip" href="#main">Skip to content</a>
+<div class="w-announce"><p><span><span class="w-ann-l">VSG Bootcamp: five days on your site, one fixed price agreed up front.</span><span class="w-ann-s">VSG Bootcamp: five days, fixed price.</span></span> <a href="/bootcamp">How the five days work<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a></p></div>
+<header class="w-hdr" data-nav>
+  <nav class="w-nav" aria-label="Main">
+    <a class="w-logo" href="/" aria-label="VSG home"><svg class="w-wordmark" viewBox="-32.2 -736.3 2360.7 792.6" height="22" width="66" aria-hidden="true" focusable="false"><path fill="currentColor" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="var(--wm-dot,#0B5CFF)" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></svg>
+</a>
+    <ul class="w-nav-list" role="list">
+      <li class="w-nav-item">
+        <button class="w-nav-trig" type="button" aria-expanded="false" aria-controls="w-mm-platform">Platform<svg class="w-i w-nav-chev" aria-hidden="true"><use href="#i-down"/></svg></button>
+        <div class="w-mm w-mm--platform" id="w-mm-platform">
+          <div class="w-mm-grid w-mm-grid--ace">
+            <a class="w-mm-feat" href="/ace">
+              <span class="w-mm-feat-k">VSG ACE</span>
+              <b>The AI platform for operations.</b>
+              <span class="w-mm-feat-d">Data, AI automations and applications on one platform, with a view for every role.</span>
+              <span class="w-mm-feat-lk">Explore VSG ACE<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              <span class="w-mm-feat-n"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg>Every part of ACE integrates with your ERP and existing systems, and never changes them.</span>
+            </a>
+            <div>
+              <p class="w-mm-h">Parts of VSG ACE</p>
+              <ul class="w-mm-list" role="list">
+              <li><a class="w-mm-a" href="/core">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-layers"/></svg></span>
+                <span class="w-mm-t"><b>VSG Core</b></span>
+                <span class="w-mm-d">Your business data, organised. Live dashboards, custom reports and every number traced to its source.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/endorse">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg></span>
+                <span class="w-mm-t"><b>VSG Endorse</b></span>
+                <span class="w-mm-d">Every AI automation in your business. Your team approves every action.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/procure">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></span>
+                <span class="w-mm-t"><b>VSG Procure</b></span>
+                <span class="w-mm-d">Procurement planning, from forecast to purchase order, at the landed price.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/custom">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-code"/></svg></span>
+                <span class="w-mm-t"><b>Custom applications</b></span>
+                <span class="w-mm-d">Built for your operational bottlenecks, delivered in phases.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/ace#command-centre">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-grid"/></svg></span>
+                <span class="w-mm-t"><b>ACE Command Centre</b></span>
+                <span class="w-mm-d">A view for every role.</span>
+              </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="w-nav-item">
+        <button class="w-nav-trig" type="button" aria-expanded="false" aria-controls="w-mm-start">Get started<svg class="w-i w-nav-chev" aria-hidden="true"><use href="#i-down"/></svg></button>
+        <div class="w-mm w-mm--services" id="w-mm-start">
+          <ul class="w-mm-list" role="list">
+              <li><a class="w-mm-a" href="/bootcamp">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-cal"/></svg></span>
+                <span class="w-mm-t"><b>VSG Bootcamp</b></span>
+                <span class="w-mm-d">Five days on your site, at a fixed price. One AI automation running on your data by day four.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/contact?topic=ace">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-eye"/></svg></span>
+                <span class="w-mm-t"><b>Request a demo</b></span>
+                <span class="w-mm-d">See ACE in a guided walkthrough.</span>
+              </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="w-nav-item is-current">
+        <button class="w-nav-trig" type="button" aria-expanded="false" aria-controls="w-mm-company">Company<svg class="w-i w-nav-chev" aria-hidden="true"><use href="#i-down"/></svg></button>
+        <div class="w-mm w-mm--company" id="w-mm-company">
+          <ul class="w-mm-list" role="list">
+              <li><a class="w-mm-a" href="/about">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg></span>
+                <span class="w-mm-t"><b>About VSG</b></span>
+                <span class="w-mm-d">An AI company that specializes in operations.</span>
+              </a></li>
+              <li><a class="w-mm-a" href="/contact" aria-current="page">
+                <span class="w-mm-ic"><svg class="w-i" aria-hidden="true"><use href="#i-mail"/></svg></span>
+                <span class="w-mm-t"><b>Contact</b></span>
+                <span class="w-mm-d">Speak to our team in Cape Town.</span>
+              </a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <div class="w-nav-r">
+      <a class="w-nav-link" href="/contact?topic=contact">Contact</a>
+      <a class="btn btn-p w-nav-cta" href="/bootcamp#book">Book a Bootcamp</a>
+      <button class="w-burger" type="button" aria-expanded="false" aria-controls="w-sheet" aria-label="Open menu"><svg class="w-i" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+    <span class="w-mm-bg" aria-hidden="true"></span>
+  </nav>
+</header>
+<div class="w-sheet" id="w-sheet" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="w-sheet-in">
+    <div class="w-sheet-hd">
+      <a class="w-logo" href="/" aria-label="VSG home"><svg class="w-wordmark" viewBox="-32.2 -736.3 2360.7 792.6" height="22" width="66" aria-hidden="true" focusable="false"><path fill="currentColor" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="var(--wm-dot,#0B5CFF)" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></svg>
+</a>
+      <button class="w-burger" type="button" data-close aria-label="Close menu"><svg class="w-i" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="w-sheet-body">
+      <p class="w-sheet-h">Platform</p>
+      <a class="w-sheet-a w-sheet-a--ace" href="/ace"><b>VSG ACE</b><span>The AI platform for operations</span></a>
+      <a class="w-sheet-a w-sheet-a--part" href="/core"><b>VSG Core</b></a>
+      <a class="w-sheet-a w-sheet-a--part" href="/endorse"><b>VSG Endorse</b></a>
+      <a class="w-sheet-a w-sheet-a--part" href="/procure"><b>VSG Procure</b></a>
+      <a class="w-sheet-a w-sheet-a--part" href="/custom"><b>Custom applications</b></a>
+      <p class="w-sheet-h">Get started</p>
+      <a class="w-sheet-a" href="/bootcamp"><b>VSG Bootcamp</b></a>
+      <a class="w-sheet-a" href="/contact?topic=ace"><b>Request a demo</b></a>
+      <p class="w-sheet-h">Company</p>
+      <a class="w-sheet-a" href="/about"><b>About VSG</b></a>
+      <a class="w-sheet-a" href="/contact" aria-current="page"><b>Contact</b></a>
+    </div>
+    <div class="w-sheet-ft">
+      <a class="btn btn-p btn-xl" href="/bootcamp#book">Book a Bootcamp</a>
+      <a class="btn btn-s btn-xl" href="/contact?topic=contact">Contact</a>
+    </div>
+  </div>
+</div>
+<main id="main" tabindex="-1">
+<section class="w-hero w-bg-canvas c-hero" aria-labelledby="c-h1">
+  <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap">
+    <div class="c-grid">
+      <div class="c-copy">
+        <h1 class="w-h1 c-h1" id="c-h1">Contact VSG.<br><span class="w-accent" data-contact-accent>Tell us what you need.</span></h1>
+        <p class="w-lead">Request a demo of VSG ACE, the AI platform for operations, or of VSG Core, Endorse or Procure. Book a VSG Bootcamp (a five-day assessment on your site) or discuss a custom build. Every VSG product integrates with your ERP and existing systems.</p>
+      </div>
+
+      <div class="c-side">
+        <div class="c-card" data-contact-card>
+                    <div class="c-nojs c-nojs--ok" id="sent" role="status"><h2 class="w-h3">Thank you. <span class="w-mute">Your message has been received.</span></h2><p class="w-small">A senior member of our team will respond personally.</p></div>
+          <div class="c-nojs c-nojs--err" id="held" role="status"><h2 class="w-h3">Your message is saved. <span class="w-mute">Delivery to our team is delayed.</span></h2><p class="w-small">To make sure it reaches us, please also email <a href="mailto:stephan@vsgtech.co.za">stephan@vsgtech.co.za</a>.</p></div>
+          <div class="c-nojs c-nojs--err" id="error" role="status"><h2 class="w-h3">Your message was not sent.</h2><p class="w-small">Please enter your name, a valid email address and your message, or email us directly at <a href="mailto:stephan@vsgtech.co.za">stephan@vsgtech.co.za</a>.</p></div>
+          <form class="w-form w-form-card c-form" method="post" action="/api/lead" data-contact novalidate aria-labelledby="c-form-h">
+            <div class="c-form-hd">
+              <h2 class="w-h3" id="c-form-h" data-form-h>Send a message</h2>
+              <p class="c-form-sub"><span class="c-dot" aria-hidden="true"></span>Read personally by our senior team.</p>
+            </div>
+            <div class="fgrid c-fgrid">
+              <div class="field">
+                <label for="c-name">Name</label>
+                <div class="fld"><input id="c-name" name="name" autocomplete="name" required data-err="Please add your name."></div>
+                <p class="emsg" hidden></p>
+              </div>
+              <div class="field">
+                <label for="c-email">Work email</label>
+                <div class="fld"><input id="c-email" name="email" type="email" autocomplete="email" required data-err="Please add an email we can reply to."></div>
+                <p class="emsg" hidden></p>
+              </div>
+              <div class="field">
+                <label for="c-co">Company<span class="opt">Optional</span></label>
+                <div class="fld"><input id="c-co" name="company" autocomplete="organization"></div>
+              </div>
+              <div class="field">
+                <label for="c-role">Job title<span class="opt">Optional</span></label>
+                <div class="fld"><input id="c-role" name="role" autocomplete="organization-title"></div>
+              </div>
+              <div class="field">
+                <label for="c-phone">Phone<span class="opt">Optional</span></label>
+                <div class="fld"><input id="c-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+              </div>
+              <div class="field">
+                <label for="c-topic">Topic</label>
+                <select class="sel" id="c-topic" name="topic" aria-describedby="c-topic-help">
+                  <option value="A demo of VSG ACE" selected>A demo of VSG ACE</option>
+                  <option value="A demo of VSG Procure">A demo of VSG Procure</option>
+                  <option value="A demo of VSG Endorse">A demo of VSG Endorse</option>
+                  <option value="A demo of VSG Core">A demo of VSG Core</option>
+                  <option value="A VSG Bootcamp">A VSG Bootcamp</option>
+                  <option value="Custom software and AI">Custom software and AI</option>
+                  <option value="Something else">Something else</option>
+                </select>
+                <p class="c-topic-help" id="c-topic-help" aria-live="polite"><span data-topic-help>Tell us about your business and what you want to achieve.</span></p>
+              </div>
+              <div class="field span2">
+                <label for="c-msg" data-msg-l>Message</label>
+                <div class="fld ta"><textarea id="c-msg" name="message" rows="5" required placeholder="A few lines is plenty." data-err="Please add a short message."></textarea></div>
+                <p class="emsg" hidden></p>
+              </div>
+            </div>
+            <div class="c-hp" aria-hidden="true"><label for="c-hp">Leave this empty</label><input id="c-hp" name="company_site" tabindex="-1" autocomplete="off"></div>
+            <input type="hidden" name="source" value="contact">
+            <div class="w-form-foot">
+              <button class="btn btn-p btn-xl" type="submit"><span data-send-l>Send message</span><svg class="w-i" aria-hidden="true"><use href="#i-send"/></svg></button>
+              <p class="w-form-note">We use your details only to respond to your enquiry. See our <a href="/privacy">privacy policy</a>.</p>
+            </div>
+            <p class="w-form-status" data-contact-status role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="c-done" data-contact-done hidden tabindex="-1" aria-labelledby="c-done-h">
+            <div class="c-seal" aria-hidden="true">
+              <span class="c-seal-card"></span>
+              <span class="c-seal-disc"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.2 10.4 8.6 13.6 15 6.8"/></svg></span>
+            </div>
+            <h2 class="w-h3" id="c-done-h">Thank you. <span class="w-mute">Your message has been received.</span></h2>
+            <p class="w-body">A senior member of our team will respond personally.</p>
+            <div class="w-actions">
+              <a class="btn btn-s btn-lg" href="/bootcamp">See the Bootcamp</a>
+              <button class="btn btn-s btn-lg c-again" type="button" data-contact-again>Send another message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="c-more">
+        <div class="c-direct">
+          <p class="c-direct-l">Prefer email?</p>
+          <div class="c-mailrow">
+            <a class="c-mail" href="mailto:stephan@vsgtech.co.za"><svg class="w-i" aria-hidden="true"><use href="#i-mail"/></svg>stephan@vsgtech.co.za</a>
+            <button class="btn btn-s btn-sm c-copybtn" type="button" data-copy="stephan@vsgtech.co.za" hidden><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg><span data-copy-l>Copy</span></button>
+          </div>
+        </div>
+
+        <address class="c-addr">
+          <span>VSG Tech Solutions (Pty) Ltd</span>
+          <span>Cape Town, South Africa</span>
+        </address>
+
+        <a class="w-link c-book" href="/bootcamp#book">Book a VSG Bootcamp<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <p class="c-legal">We process your personal information in line with POPIA, South Africa's data protection law.</p>
+  </div>
+</section>
+</main>
+<footer class="w-foot" id="site-footer">
+  <div class="w-wrap">
+    <div class="w-foot-grid">
+      <div class="w-foot-brand">
+        <a class="w-logo" href="/" aria-label="VSG home"><svg class="w-wordmark" viewBox="-32.2 -736.3 2360.7 792.6" height="24" width="71" aria-hidden="true" focusable="false"><path fill="currentColor" d="M178.467529296875 -680.0 335.8609619140625 -234.1273193359375 362.7603759765625 -128.9320068359375H350.1864013671875L377.0858154296875 -234.1273193359375L535.0916748046875 -680.0H696.520751953125L446.668701171875 0.0H257.9910888671875L7.75146484375 -680.0Z M917.8935546875 -505.426025390625Q917.8935546875 -478.0 934.7811279296875 -461.81805419921875Q951.668701171875 -445.6361083984375 980.44384765625 -435.89202880859375Q1009.218994140625 -426.14794921875 1044.6879272460938 -419.372802734375Q1080.1568603515625 -412.59765625 1118.1257934570312 -404.79144287109375Q1156.0947265625 -396.9852294921875 1191.5636596679688 -383.7603759765625Q1227.0325927734375 -370.5355224609375 1255.8077392578125 -348.61688232421875Q1284.5828857421875 -326.6982421875 1301.470458984375 -291.77960205078125Q1318.3580322265625 -256.8609619140625 1318.3580322265625 -204.8609619140625Q1318.3580322265625 -134.9615478515625 1282.7958984375 -85.2869873046875Q1247.2337646484375 -35.6124267578125 1184.9157104492188 -9.6627197265625Q1122.59765625 16.2869873046875 1042.8609619140625 16.2869873046875Q962.5118408203125 16.2869873046875 899.275146484375 -8.6627197265625Q836.0384521484375 -33.6124267578125 795.476318359375 -84.624267578125Q754.9141845703125 -135.6361083984375 742.976318359375 -212.822509765625H911.8551025390625Q921.5059814453125 -162.84619140625 955.9822998046875 -136.05181884765625Q990.4586181640625 -109.2574462890625 1044.473388671875 -109.2574462890625Q1098.8135986328125 -109.2574462890625 1126.3712768554688 -129.53997802734375Q1153.928955078125 -149.822509765625 1153.928955078125 -184.8994140625Q1153.928955078125 -213.4881591796875 1137.0413818359375 -231.05767822265625Q1120.15380859375 -248.627197265625 1091.378662109375 -259.0650634765625Q1062.603515625 -269.5029296875 1027.1345825195312 -277.3905029296875Q991.6656494140625 -285.278076171875 953.6967163085938 -293.8905029296875Q915.727783203125 -302.5029296875 880.2588500976562 -315.53399658203125Q844.7899169921875 -328.5650634765625 816.0147705078125 -350.09613037109375Q787.2396240234375 -371.627197265625 770.35205078125 -405.54583740234375Q753.4644775390625 -439.4644775390625 753.4644775390625 -489.627197265625Q753.4644775390625 -547.201171875 784.1390380859375 -594.1005859375Q814.8135986328125 -641.0 873.3565063476562 -668.6434936523438Q931.8994140625 -696.2869873046875 1015.473388671875 -696.2869873046875Q1086.372802734375 -696.2869873046875 1146.9970703125 -672.7559204101562Q1207.621337890625 -649.224853515625 1248.2958984375 -600.05029296875Q1288.970458984375 -550.875732421875 1299.1331787109375 -471.75146484375H1128.029541015625Q1117.5413818359375 -522.603515625 1087.90234375 -546.6730346679688Q1058.2633056640625 -570.7425537109375 1009.1864013671875 -570.7425537109375Q967.2337646484375 -570.7425537109375 942.5636596679688 -552.928955078125Q917.8935546875 -535.1153564453125 917.8935546875 -505.426025390625Z M2025.0089111328125 -461.95263671875H1857.35498046875Q1843.25439453125 -512.3165283203125 1807.8402099609375 -538.4674072265625Q1772.426025390625 -564.6182861328125 1721.5118408203125 -564.6182861328125Q1670.822509765625 -564.6182861328125 1634.6524047851562 -537.4363403320312Q1598.4822998046875 -510.25439453125 1579.4127807617188 -459.778076171875Q1560.34326171875 -409.3017578125 1560.34326171875 -339.0Q1560.34326171875 -268.6982421875 1580.0252075195312 -218.721923828125Q1599.7071533203125 -168.74560546875 1637.1834716796875 -142.06365966796875Q1674.6597900390625 -115.3817138671875 1726.9615478515625 -115.3817138671875Q1763.875732421875 -115.3817138671875 1794.7706909179688 -129.22637939453125Q1825.6656494140625 -143.071044921875 1845.9600219726562 -172.22930908203125Q1866.25439453125 -201.3875732421875 1871.7041015625 -247.4407958984375H1947.1005859375Q1947.1005859375 -158.2396240234375 1916.5192260742188 -99.6390380859375Q1885.9378662109375 -41.0384521484375 1832.9689331054688 -12.375732421875Q1780.0 16.2869873046875 1711.6124267578125 16.2869873046875Q1616.55029296875 16.2869873046875 1545.6819458007812 -26.825439453125Q1474.8135986328125 -69.9378662109375 1435.3638916015625 -149.35650634765625Q1395.9141845703125 -228.775146484375 1395.9141845703125 -339.0Q1395.9141845703125 -449.224853515625 1435.8638916015625 -529.44970703125Q1475.8135986328125 -609.674560546875 1549.7130126953125 -652.9807739257812Q1623.6124267578125 -696.2869873046875 1725.7366943359375 -696.2869873046875Q1799.0858154296875 -696.2869873046875 1861.7100830078125 -670.0310668945312Q1924.3343505859375 -643.775146484375 1967.5902709960938 -591.7633056640625Q2010.84619140625 -539.75146484375 2025.0089111328125 -461.95263671875ZM2024.621337890625 0.0H1915.8135986328125L1871.7041015625 -247.4407958984375H1742.4112548828125V-367.59765625H2024.621337890625Z"/><path fill="var(--wm-dot,#0B5CFF)" d="M2127.75146484375 0.0V-160.668701171875H2288.420166015625V0.0Z"/></svg>
+</a>
+        <p>An AI company that specializes in operations. VSG ACE is the AI platform for operations, for South African manufacturers, distributors, wholesalers and retailers.</p>
+      </div>
+      <nav class="w-foot-col" aria-label="Platform">
+        <p class="w-foot-h">Platform</p>
+        <a href="/ace">VSG ACE</a>
+        <a href="/core">VSG Core</a>
+        <a href="/endorse">VSG Endorse</a>
+        <a href="/procure">VSG Procure</a>
+        <a href="/custom">Custom applications</a>
+      </nav>
+      <nav class="w-foot-col" aria-label="Get started">
+        <p class="w-foot-h">Get started</p>
+        <a href="/bootcamp">VSG Bootcamp</a>
+        <a href="/contact?topic=ace">Request a demo</a>
+      </nav>
+      <nav class="w-foot-col" aria-label="Company">
+        <p class="w-foot-h">Company</p>
+        <a href="/about">About VSG</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+    <div class="w-foot-base">
+      <p>&copy; 2026 VSG Tech Solutions (Pty) Ltd. Cape Town, South Africa.</p>
+      <p><a href="/privacy">Privacy</a></p>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

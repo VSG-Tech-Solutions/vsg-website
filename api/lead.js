@@ -1,12 +1,17 @@
 /**
- * VSG Tech — lead form serverless function
+ * VSG Tech, lead form serverless function
  *
- * Single endpoint handling demo bookings (DemoModal) and the /contact form.
- * Ports the behavior of src/app/actions/contact-lead.ts from the previous
- * Next.js app: validates → Resend if RESEND_API_KEY is set → otherwise logs
- * to function output. Always returns ok=true on a valid submit so the UI
- * shows the thank-you state; `delivered` tells you whether email actually
- * went out.
+ * One endpoint for the Bootcamp booking form and the /contact form.
+ * Validates, then sends through Resend if RESEND_API_KEY is set, otherwise
+ * logs the lead to the function output. A valid submit returns ok=true;
+ * `delivered` says whether the email actually went out. The pages treat
+ * delivered=false as a soft failure and ask the buyer to email Stephan too.
+ * Every undelivered lead is logged with the tag [LEAD_UNDELIVERED] so a log
+ * search or alert on that tag finds it.
+ *
+ * Without JavaScript the contact form posts urlencoded data here. Those
+ * requests get a 303 back to /contact#sent, #held (saved, email down) or
+ * #error, so nobody lands on a raw JSON page.
  *
  * POST /api/lead
  * Body: { name, email, company?, phone?, role?, topic?, problem?, message? }
@@ -34,17 +39,33 @@ function validEmail(v) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 }
 
-async function readJsonBody(req) {
+function isFormPost(req) {
+  const ct = String((req.headers && req.headers["content-type"]) || "").toLowerCase();
+  return ct.indexOf("application/x-www-form-urlencoded") === 0 || ct.indexOf("multipart/form-data") === 0;
+}
+
+function parse(raw, form) {
+  if (!raw) return {};
+  return form ? Object.fromEntries(new URLSearchParams(raw)) : JSON.parse(raw);
+}
+
+async function readBody(req) {
   if (req.body && typeof req.body === "object") return req.body;
+  const form = isFormPost(req);
+  if (typeof req.body === "string") return parse(req.body, form);
   return new Promise((resolve, reject) => {
     let raw = "";
     req.on("data", (chunk) => { raw += chunk; });
     req.on("end", () => {
-      try { resolve(raw ? JSON.parse(raw) : {}); }
+      try { resolve(parse(raw, form)); }
       catch (e) { reject(e); }
     });
     req.on("error", reject);
   });
+}
+
+function alertUndelivered(why, textBody) {
+  console.error("[LEAD_UNDELIVERED] " + why + "\n" + textBody);
 }
 
 export default async function handler(req, res) {
@@ -53,12 +74,24 @@ export default async function handler(req, res) {
     return res.status(405).json({ ok: false, error: "Method not allowed" });
   }
 
+  const form = isFormPost(req);
+  // A no-JS form post gets a redirect back to the contact page instead of JSON.
+  const reply = (status, body, anchor) => {
+    if (form) {
+      res.statusCode = 303;
+      res.setHeader("Location", "/contact#" + anchor);
+      return res.end();
+    }
+    return res.status(status).json(body);
+  };
+
   let raw;
   try {
-    raw = await readJsonBody(req);
+    raw = await readBody(req);
   } catch {
-    return res.status(400).json({ ok: false, error: "Bad JSON body" });
+    return reply(400, { ok: false, error: "Bad request body" }, "error");
   }
+  if (raw && raw.company_site) return reply(200, { ok: true, delivered: true }, "sent"); // honeypot
 
   const input = {
     name:    sanitise(raw.name,    120),
@@ -69,26 +102,30 @@ export default async function handler(req, res) {
     topic:   sanitise(raw.topic,   120),
     problem: sanitise(raw.problem,  80),
     message: sanitise(raw.message || raw.note, 4000),
-    source:  sanitise(raw.source,   60) || "unknown",
+    source:  sanitise(raw.source,   60) || (form ? "contact (no JS)" : "unknown"),
   };
 
   if (!input.name || !input.email || !input.message) {
-    return res.status(400).json({
-      ok: false,
-      error: "Please fill in name, email and a short message.",
-    });
+    return reply(400, { ok: false, error: "Please fill in name, email and a short message." }, "error");
   }
   if (!validEmail(input.email)) {
-    return res.status(400).json({
-      ok: false,
-      error: "That email address doesn't look right.",
-    });
+    return reply(400, { ok: false, error: "That email address does not look right." }, "error");
   }
 
-  const tag = input.topic || input.problem || "general enquiry";
-  const subject = `[VSG ${input.source}] ${input.company || input.name} — ${tag}`;
+  // The topic leads the subject so demo requests stand out in the inbox.
+  const TOPICS = {
+    "procure-demo": "DEMO REQUEST, VSG Procure",
+    "endorse-demo": "DEMO REQUEST, VSG Endorse",
+    "core-demo":    "DEMO REQUEST, VSG Core",
+    "bootcamp":     "Bootcamp booking",
+    "custom":       "Custom build enquiry",
+    "contact":      "General enquiry",
+  };
+  const topicKey = input.topic.toLowerCase();
+  const topicLabel = TOPICS[topicKey] || input.topic || input.problem || "General enquiry";
+  const subject = `[VSG] ${topicLabel}: ${input.company || input.name}`;
   const textBody = [
-    `New enquiry via vsgtech.co.za (${input.source})`,
+    `${topicLabel}, from vsgtech.co.za (${input.source})`,
     ``,
     `Name:    ${input.name}`,
     `Email:   ${input.email}`,
@@ -103,9 +140,9 @@ export default async function handler(req, res) {
   ].filter(Boolean).join("\n");
 
   if (!process.env.RESEND_API_KEY) {
-    // No Resend key — log so nothing is lost, but report delivered=false.
-    console.log("[/api/lead] RESEND_API_KEY not set — logging lead only:\n" + textBody);
-    return res.status(200).json({ ok: true, delivered: false });
+    // No Resend key: log so nothing is lost, and report delivered=false.
+    alertUndelivered("RESEND_API_KEY not set", textBody);
+    return reply(200, { ok: true, delivered: false }, "held");
   }
 
   try {
@@ -120,14 +157,13 @@ export default async function handler(req, res) {
     });
     if (sendRes.error) {
       console.error("[/api/lead] Resend error:", sendRes.error);
-      // Still return ok so the UI shows the thank-you and we don't lose the lead.
-      console.log("[/api/lead] Lead (undelivered):\n" + textBody);
-      return res.status(200).json({ ok: true, delivered: false });
+      alertUndelivered("Resend returned an error", textBody);
+      return reply(200, { ok: true, delivered: false }, "held");
     }
-    return res.status(200).json({ ok: true, delivered: true });
+    return reply(200, { ok: true, delivered: true }, "sent");
   } catch (err) {
     console.error("[/api/lead] Send threw:", err);
-    console.log("[/api/lead] Lead (undelivered):\n" + textBody);
-    return res.status(200).json({ ok: true, delivered: false });
+    alertUndelivered("Send threw", textBody);
+    return reply(200, { ok: true, delivered: false }, "held");
   }
 }

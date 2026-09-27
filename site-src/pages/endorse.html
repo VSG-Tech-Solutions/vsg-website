@@ -1,0 +1,663 @@
+---
+title: VSG Endorse | Every AI automation, approved by your team
+description: Supplier invoices checked, reorders drafted, reports written. AI does the work and your team approves it. Integrates with your ERP and existing systems.
+og_title: VSG Endorse. Every AI automation in your business, approved by your team.
+og_description: Supplier invoices checked, reorders drafted and reports written, every day, across finance, stock, suppliers and sales. Every automation runs on one platform, and your team approves every action.
+path: /endorse
+nav: endorse
+---
+<!-- VSG Endorse. Violet only where AI output is shown (suggestion cards, the AI tag, the violet frame);
+     every human action stays cobalt. All figures are Karoo Industrial Supply demo data (a fictional company, not a client). -->
+
+<!-- 1. HERO: the big idea (one place to run every automation), how, with the AI part; then the approval inbox as a big floating window -->
+<section class="w-hero w-bg-canvas e-hero" aria-labelledby="e-h1">
+  <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap w-wrap--wide">
+    <div class="e-hero-in">
+      <span class="w-chip e-chip"><span><b>VSG Endorse.</b> <span class="e-chip-x">Your team approves every decision.</span></span></span>
+      <h1 class="w-h1 e-h1" id="e-h1"><span class="e-l">Every automation in your business.</span> <span class="e-l w-accent">Approved by your team.</span></h1>
+      <p class="w-lead">Supplier invoices checked. Reorders drafted before the shelf runs low. Monday&rsquo;s report written before Monday begins. VSG Endorse is where every automation in your business runs, every day, on VSG ACE. Each one is built around the way you work. Nothing goes out until the right person approves it, in one inbox. The routine runs itself. Your team makes the calls.</p>
+      <div class="w-actions">
+        <a class="btn btn-p btn-xl" href="/contact?topic=endorse-demo">Request a demo</a>
+        <a class="btn btn-s btn-xl" href="/contact?topic=contact">Contact us</a>
+      </div>
+      <p class="w-trust"><svg class="w-i" aria-hidden="true"><use href="#i-lock"/></svg>Integrates with your ERP and existing systems. Fixed price per automation.</p>
+    </div>
+
+    <div class="w-frame w-frame--ai e-hero-frame">
+      <div class="w-float w-float--lg e-inbox" data-inbox role="group" aria-label="Example VSG Endorse approval inbox for Karoo Industrial Supply, running four automations. Try Approve, Reject or the documents button.">
+        {{> winbar product="VSG Endorse" org="Karoo Industrial Supply" crumb="Approvals"}}
+        <div class="w-float-app">
+          <aside class="w-float-side" aria-hidden="true">
+            <span class="lbl">Endorse</span>
+            <nav class="nav">
+              <a class="on"><svg class="w-i"><use href="#i-inbox"/></svg>Approvals<span class="c" data-wait-nav>3</span></a>
+              <a><svg class="w-i"><use href="#i-hist"/></svg>Decision log</a>
+              <a><svg class="w-i"><use href="#i-chart"/></svg>Monthly results</a>
+            </nav>
+            <span class="lbl">Automations</span>
+            <nav class="nav">
+              <a><svg class="w-i"><use href="#i-box"/></svg>Stock running low</a>
+              <a><svg class="w-i"><use href="#i-coins"/></svg>Late payments</a>
+              <a><svg class="w-i"><use href="#i-doc"/></svg>Supplier invoices</a>
+              <a><svg class="w-i"><use href="#i-receipt"/></svg>Stock counts</a>
+            </nav>
+          </aside>
+          <div class="w-float-main e-ibx">
+            <div class="e-list">
+              <div class="e-list-hd">
+                <div class="e-list-t"><b>Approvals</b><span class="e-wait"><span data-wait>3</span> waiting</span></div>
+                <div class="e-tot"><span>Approved today</span><b class="w-num" data-total data-format="rand">R&nbsp;0</b></div>
+              </div>
+              <p class="e-run"><svg class="w-i" aria-hidden="true"><use href="#i-inbox"/></svg><span><b>This morning</b>: three jobs from three automations, biggest first.</span></p>
+              <ol class="e-props" role="list" data-props>
+                <li class="e-prop ag is-sel" data-id="cvb" data-name="Conveyor belt EP400" data-amount="412800">
+                  <div class="e-prop-hd"><span class="st st-ai"><i></i>AI suggestion</span><span class="e-prop-days">Runs out in 3 weeks</span></div>
+                  <div class="e-prop-row"><b>Conveyor belt EP400</b><b class="e-prop-amt w-num">R&nbsp;412&nbsp;800</b></div>
+                  <p class="e-prop-why">The next delivery is 5 weeks away. Reorder drafted from your last approved quote.</p>
+                  <div class="e-prop-acts">
+                    <button class="btn btn-p btn-sm" type="button" data-act="approve" aria-label="Approve: Conveyor belt EP400, R 412 800">Approve</button>
+                    <button class="btn btn-s btn-sm" type="button" data-act="reject" aria-label="Reject: Conveyor belt EP400">Reject</button>
+                    <button class="e-srcb" type="button" data-act="src" aria-label="See the documents behind it: Conveyor belt EP400"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg>3 documents</button>
+                    <span class="e-done" data-done hidden><span class="st st-ok"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg>Approved by L. Botha</span></span>
+                  </div>
+                </li>
+                <li class="e-prop ag" data-id="breede" data-name="Breede Irrigation" data-amount="312400">
+                  <div class="e-prop-hd"><span class="st st-ai"><i></i>AI suggestion</span><span class="e-prop-days">67 days overdue</span></div>
+                  <div class="e-prop-row"><b>Breede Irrigation</b><b class="e-prop-amt w-num">R&nbsp;312&nbsp;400</b></div>
+                  <p class="e-prop-why">Payment was promised for last Friday and has not arrived.</p>
+                  <div class="e-prop-acts">
+                    <button class="btn btn-p btn-sm" type="button" data-act="approve" aria-label="Approve: Breede Irrigation, R 312 400">Approve</button>
+                    <button class="btn btn-s btn-sm" type="button" data-act="reject" aria-label="Reject: Breede Irrigation">Reject</button>
+                    <button class="e-srcb" type="button" data-act="src" aria-label="See the documents behind it: Breede Irrigation"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg>3 documents</button>
+                    <span class="e-done" data-done hidden><span class="st st-ok"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg>Approved by T. Naidoo</span></span>
+                  </div>
+                </li>
+                <li class="e-prop ag" data-id="highveld" data-name="Highveld Cable Co." data-amount="24350">
+                  <div class="e-prop-hd"><span class="st st-ai"><i></i>AI suggestion</span><span class="e-prop-days">Billed above the order</span></div>
+                  <div class="e-prop-row"><b>Highveld Cable Co.</b><b class="e-prop-amt w-num">R&nbsp;24&nbsp;350</b></div>
+                  <p class="e-prop-why">Invoice INV-7781 is R&nbsp;24&nbsp;350 higher than purchase order PO-4471.</p>
+                  <div class="e-prop-acts">
+                    <button class="btn btn-p btn-sm" type="button" data-act="approve" aria-label="Approve: Highveld Cable Co., R 24 350">Approve</button>
+                    <button class="btn btn-s btn-sm" type="button" data-act="reject" aria-label="Reject: Highveld Cable Co.">Reject</button>
+                    <button class="e-srcb" type="button" data-act="src" aria-label="See the documents behind it: Highveld Cable Co."><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg>2 documents</button>
+                    <span class="e-done" data-done hidden><span class="st st-ok"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg>Approved by P. Mokoena</span></span>
+                  </div>
+                </li>
+              </ol>
+              <div class="e-empty" data-empty hidden>
+                <span class="e-empty-ic"><svg class="w-i" aria-hidden="true"><use href="#i-check"/></svg></span>
+                <p><b>All clear for today.</b><br>Every decision is in the log. The automations run again tomorrow morning.</p>
+                <button class="btn btn-s btn-sm" type="button" data-replay>Replay the example</button>
+              </div>
+            </div>
+
+            <aside class="e-det" aria-label="Job detail">
+              <section class="e-det-p" data-for="cvb">
+                <div class="e-det-hd"><b>Conveyor belt EP400</b><span class="w-num">R&nbsp;412&nbsp;800</span></div>
+                <p class="lbl">Why</p>
+                <p class="e-det-t">At the current rate of use, stock runs out in 3 weeks. The next delivery is 5 weeks away.</p>
+                <p class="lbl">Where this comes from</p>
+                <ul class="e-srcs" role="list">
+                  <li><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg><span>Stock on hand, main warehouse</span><em>Your ERP</em></li>
+                  <li><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg><span>Sales over the last 12 months</span><em>Your ERP</em></li>
+                  <li><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg><span>Quote Q-0415-L, last approved</span><em>Supplier</em></li>
+                </ul>
+                <p class="lbl">Suggested</p>
+                <p class="e-det-t">Order 1&nbsp;200 metres on your last approved quote today.</p>
+                <div class="e-draft">
+                  <div class="e-draft-hd"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg><b>Purchase order, draft</b><span class="tag">Not sent</span></div>
+                  <p>1&nbsp;200 m conveyor belt EP400 at <b>R&nbsp;344</b> per metre, landed. Total <b>R&nbsp;412&nbsp;800</b>. Delivery in 14 days. Ready for your buyer to approve and import into your ERP.</p>
+                </div>
+              </section>
+              <section class="e-det-p" data-for="breede" hidden>
+                <div class="e-det-hd"><b>Breede Irrigation</b><span class="w-num">R&nbsp;312&nbsp;400</span></div>
+                <p class="lbl">Why</p>
+                <p class="e-det-t">Payment was promised for last Friday and has not arrived.</p>
+                <p class="lbl">Where this comes from</p>
+                <ul class="e-srcs" role="list">
+                  <li><svg class="w-i" aria-hidden="true"><use href="#i-table"/></svg><span>Overdue accounts report</span><em>67 days</em></li>
+                  <li><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg><span>Invoice INV-20874</span><em>Your ERP</em></li>
+                  <li><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg><span>Invoice INV-20902</span><em>Your ERP</em></li>
+                </ul>
+                <p class="lbl">Suggested</p>
+                <p class="e-det-t">Call today, then send the drafted reminder.</p>
+              </section>
+              <section class="e-det-p" data-for="highveld" hidden>
+                <div class="e-det-hd"><b>Highveld Cable Co.</b><span class="w-num">R&nbsp;24&nbsp;350</span></div>
+                <p class="lbl">Why</p>
+                <p class="e-det-t">Invoice INV-7781 is R&nbsp;24&nbsp;350 higher than purchase order PO-4471.</p>
+                <p class="lbl">Where this comes from</p>
+                <ul class="e-srcs" role="list">
+                  <li><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg><span>Invoice INV-7781</span><em>Supplier</em></li>
+                  <li><svg class="w-i" aria-hidden="true"><use href="#i-receipt"/></svg><span>Purchase order PO-4471</span><em>Your ERP</em></li>
+                </ul>
+                <p class="lbl">Suggested</p>
+                <p class="e-det-t">Hold payment and send the drafted query to the supplier.</p>
+              </section>
+            </aside>
+          </div>
+        </div>
+      </div>
+      <div class="w-float w-float--mini w-over w-over--tr e-pill" aria-hidden="true">
+        <div class="e-pill-in"><svg class="w-i"><use href="#i-lock"/></svg>0 changes made in your ERP</div>
+      </div>
+    </div>
+    <p class="w-cap">A morning in the approval inbox. Approve, reject or open the documents behind each item.</p>
+    <p class="w-sr" aria-live="polite" data-live></p>
+  </div>
+</section>
+
+<!-- 2. THE PROBLEM TODAY, in the owner's words, with rand examples -->
+<section class="w-sec w-bg-white" aria-labelledby="e-prob-h">
+  <div class="w-wrap">
+    <div class="w-split e-prob">
+      <div class="w-head">
+        <h2 class="w-h2" id="e-prob-h">Routine checks take up your team&rsquo;s week. <span class="w-mute">Costly problems still slip through.</span></h2>
+        <p class="w-lead">Your best people spend the week ticking through reports: stock levels, supplier invoices, count sheets, customer orders. Then month end hits, the checks get skipped and the overcharge gets paid. What Endorse catches in an ordinary week:</p>
+      </div>
+      <ul class="w-feats e-prob-l" role="list" data-reveal-group>
+        <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></span><b>A top-selling item runs out in 9 days.</b><p>The next delivery is 21 days away. Without a reorder today, sales are lost.</p></li>
+        <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg></span><b>Supplier invoices R&nbsp;38&nbsp;610 above the order.</b><p>Five invoices priced above the order or billed for more than arrived. Without a check, they are paid in full.</p></li>
+        <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-receipt"/></svg></span><b>A stock count R&nbsp;48&nbsp;730 short.</b><p>The same items came up short three counts in a row, a pattern buried in the reports.</p></li>
+        <li><span class="w-feat-ic"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg></span><b>Three regular customers stopped ordering.</b><p>Together they bought R&nbsp;410&nbsp;000 last quarter. The drop went unnoticed for six weeks.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET WITH VSG ENDORSE: every feature, what it does and why it matters -->
+<section class="w-sec w-dark w-fx-sec" aria-labelledby="e-fx-h">
+  <div class="w-glow" aria-hidden="true"><i></i><i></i></div>
+  <div class="w-wrap">
+    <div class="w-head w-head--split">
+      <h2 class="w-h2" id="e-fx-h">What you get with VSG Endorse. <span class="w-mute">Every feature gives your team time back and keeps control with them.</span></h2>
+      <p class="w-lead">You get finished work, not another tool to run. AI checks the invoices, the stock and the orders, works out what each problem costs and drafts the fix. Your team approves from a single inbox, every decision goes on record, and the hours they spent checking come back.</p>
+    </div>
+    <ul class="w-fx w-fx--4" role="list" data-reveal-group>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-agent"/></svg></span></div><b class="w-fx-t">Automations built for your business</b><p class="w-fx-d">We design each automation around a task your team handles by hand today, working from your ERP, email, spreadsheets and documents.</p><p class="w-fx-v"><span>Why it matters</span>Time back for your best people on the work that costs the business most.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-spark"/></svg></span></div><b class="w-fx-t">AI that finds the problems</b><p class="w-fx-d">AI checks every invoice, order and stock line and shows what each problem costs.</p><p class="w-fx-v"><span>Why it matters</span>Faster decisions, because every issue reaches your team with its value attached.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg></span></div><b class="w-fx-t">The fix, already drafted</b><p class="w-fx-d">The reorder, the supplier query or the customer email is drafted before anyone asks, ready for review.</p><p class="w-fx-v"><span>Why it matters</span>Fewer mistakes and less admin, as your team checks prepared work instead of building it from scratch.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-inbox"/></svg></span></div><b class="w-fx-t">A single approval inbox</b><p class="w-fx-d">Work from every automation arrives in one inbox, with its value and the evidence behind it a click away.</p><p class="w-fx-v"><span>Why it matters</span>Complete control, because nothing reaches a customer or supplier until a person approves it.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-send"/></svg></span></div><b class="w-fx-t">Alerts and scheduled reports</b><p class="w-fx-d">Alerts go straight to the right person on your team, and scheduled reports such as a weekly management pack arrive with a summary of what changed.</p><p class="w-fx-v"><span>Why it matters</span>Earlier action on what needs attention, without anyone having to run a report.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-hist"/></svg></span></div><b class="w-fx-t">A complete decision log</b><p class="w-fx-d">Each approval and rejection is logged with the person, the time, the decision and the source documents behind it, ready to export.</p><p class="w-fx-v"><span>Why it matters</span>Audit-ready governance, with a clear answer for your CFO and your auditor on every decision.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg></span></div><b class="w-fx-t">Monthly results report</b><p class="w-fx-d">Each month a report shows what every automation achieved, measured on actual results in your ERP data.</p><p class="w-fx-v"><span>Why it matters</span>A clear record of what each automation found, what your team approved and what changed in your numbers, so you know where to invest next.</p></li>
+      <li class="w-fx-i"><div class="w-fx-top"><span class="w-fx-ic"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg></span></div><b class="w-fx-t">A fixed price per automation</b><p class="w-fx-d">Each automation is scoped and priced at a fixed amount.</p><p class="w-fx-v"><span>Why it matters</span>Predictable spend, with no open-ended project and the freedom to add automations at your own pace.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3. BUILT AROUND YOUR BUSINESS: a switch (native radios, CSS :has, works without JS) swaps the automations list in one Endorse window -->
+<section class="w-sec w-bg-canvas" aria-labelledby="e-fit-h">
+  <div class="w-wrap">
+    <div class="w-split e-fit-split">
+      <div class="w-head e-fit-head">
+        <h2 class="w-h2" id="e-fit-h">Built around your business. <span class="w-mute">No two Endorse setups are the same.</span></h2>
+        <p class="w-lead">Endorse fits your business, not the other way round. We start with the work that costs you most and build an automation for each piece.</p>
+        <p class="w-body">A distributor could start with invoices checked before payment and reorders drafted before the shelf runs dry. A manufacturer, with stock count differences and supplier price increases. A retailer, with open quotes followed up and late deliveries spotted early.</p>
+        <a class="w-link" href="/contact?topic=endorse-demo">Tell us your task<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <div class="e-fit" data-fit>
+        <div class="e-seg" role="radiogroup" aria-label="Show Endorse for a kind of business">
+          <input class="e-seg-r" type="radio" name="e-fit" id="e-fit-d" value="d" checked><label for="e-fit-d">Distributor</label>
+          <input class="e-seg-r" type="radio" name="e-fit" id="e-fit-m" value="m"><label for="e-fit-m">Manufacturer</label>
+          <input class="e-seg-r" type="radio" name="e-fit" id="e-fit-r" value="r"><label for="e-fit-r">Retailer</label>
+        </div>
+        <div class="w-frame w-frame--ai e-fit-frame">
+          <div class="w-float e-fitw">
+            {{> winbar product="VSG Endorse" org="Your business" crumb="Automations"}}
+          <div class="e-fit-p" data-for="d">
+            <div class="e-fit-hd"><div><b>Automations</b><span>Built for a distributor</span></div><span class="st st-ai"><i></i><span class="w-num">10</span>&nbsp;jobs waiting</span></div>
+            <ul class="e-fit-l" role="list">
+            <li><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></span><span class="e-fit-t"><b>Reorder alerts</b><small>Items that will run out before the next delivery, reorder drafted</small></span><span class="e-fit-w"><span class="w-num">3</span> waiting</span></li>
+            <li><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-receipt"/></svg></span><span class="e-fit-t"><b>Supplier invoice checks</b><small>Each invoice against the order and the delivery</small></span><span class="e-fit-w"><span class="w-num">2</span> waiting</span></li>
+            <li><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-shield"/></svg></span><span class="e-fit-t"><b>Credit limit checks</b><small>Customers over their limit, before the next order ships</small></span><span class="e-fit-w"><span class="w-num">1</span> waiting</span></li>
+            <li><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg></span><span class="e-fit-t"><b>Customers who stopped buying</b><small>Regular customers who have stopped ordering</small></span><span class="e-fit-w"><span class="w-num">4</span> waiting</span></li>
+            <li class="e-fit-next"><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></span><span class="e-fit-t"><b>Your next automation</b><small>Same inbox, same record. Nothing new to learn.</small></span></li>
+            </ul>
+          </div>
+          <div class="e-fit-p" data-for="m">
+            <div class="e-fit-hd"><div><b>Automations</b><span>Built for a manufacturer</span></div><span class="st st-ai"><i></i><span class="w-num">19</span>&nbsp;jobs waiting</span></div>
+            <ul class="e-fit-l" role="list">
+            <li><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></span><span class="e-fit-t"><b>Stock count differences</b><small>Counted against the system, with what each difference costs</small></span><span class="e-fit-w"><span class="w-num">9</span> waiting</span></li>
+            <li><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg></span><span class="e-fit-t"><b>Checking supplier invoices</b><small>Each invoice against the order and the delivery</small></span><span class="e-fit-w"><span class="w-num">5</span> waiting</span></li>
+            <li><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg></span><span class="e-fit-t"><b>Supplier price changes</b><small>Prices that moved since the last order</small></span><span class="e-fit-w"><span class="w-num">2</span> waiting</span></li>
+            <li><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-clock"/></svg></span><span class="e-fit-t"><b>Items about to run out</b><small>Materials that will not last until the next delivery</small></span><span class="e-fit-w"><span class="w-num">3</span> waiting</span></li>
+            <li class="e-fit-next"><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></span><span class="e-fit-t"><b>Your next automation</b><small>Same inbox, same record. Nothing new to learn.</small></span></li>
+            </ul>
+          </div>
+          <div class="e-fit-p" data-for="r">
+            <div class="e-fit-hd"><div><b>Automations</b><span>Built for a retailer</span></div><span class="st st-ai"><i></i><span class="w-num">24</span>&nbsp;jobs waiting</span></div>
+            <ul class="e-fit-l" role="list">
+            <li><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-note"/></svg></span><span class="e-fit-t"><b>Quotes never followed up</b><small>Open quotes with no follow-up</small></span><span class="e-fit-w"><span class="w-num">6</span> waiting</span></li>
+            <li><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-truck"/></svg></span><span class="e-fit-t"><b>Late deliveries</b><small>Supplier orders past their due date</small></span><span class="e-fit-w"><span class="w-num">4</span> waiting</span></li>
+            <li><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></span><span class="e-fit-t"><b>Slow and dead stock</b><small>Stock that has not sold in 90 days, and the cash tied up in it</small></span><span class="e-fit-w"><span class="w-num">12</span> waiting</span></li>
+            <li><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg></span><span class="e-fit-t"><b>Rebate and discount checks</b><small>Discounts given outside the agreed terms</small></span><span class="e-fit-w"><span class="w-num">2</span> waiting</span></li>
+            <li class="e-fit-next"><span class="e-fit-ic"><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></span><span class="e-fit-t"><b>Your next automation</b><small>Same inbox, same record. Nothing new to learn.</small></span></li>
+            </ul>
+          </div>
+          </div>
+        </div>
+        <p class="w-cap">Three examples of where Endorse can start. Choose a business type to see its automations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. HOW IT WORKS: three plain steps, with the isometric flow and one job moving through it -->
+<section class="w-sec w-bg-white" aria-labelledby="e-flow-h">
+  <div class="w-wrap">
+    <div class="w-head">
+      <h2 class="w-h2" id="e-flow-h">Every automation works in three steps. <span class="w-mute">Your team has the final word.</span></h2>
+      <p class="w-lead">Your team arrives to finished work. On the schedule you set, each automation goes through the latest figures from your ERP and existing systems. The fast seller that runs dry in nine days. The invoice billed for 120 units when 96 arrived. The customer who ordered every week and then stopped. For each one, AI works out the money at stake and drafts the reorder, the supplier query or the email. By the time the kettle boils, your team has one approval inbox, biggest amounts on top, and every decision is logged.</p>
+    </div>
+
+    <div class="e-flow" data-reveal>
+      <div class="w-frame w-frame--sunk e-flow-frame"><div class="w-fit" data-w="1152">
+        <div class="w-fit-in">
+          <div class="w-iso e-iso" aria-hidden="true" data-pause-offscreen>
+            <div class="w-iso-world e-world">
+              <i class="e-path"></i>
+              <div class="w-cube w-cube--dark e-st-core" style="--x:0px;--y:10px;--w:260px;--d:170px;--h:18px"><i class="w-cube-top"><span class="e-ents"><em>Suppliers</em><em>Stock</em><em>Orders</em><em>Customers</em><em>Invoices</em></span></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div>
+              <div class="w-cube e-st-tray" style="--x:360px;--y:20px;--w:210px;--d:150px;--h:12px"><i class="w-cube-top"></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div>
+              <div class="w-cube w-cube--ghost" style="--x:360px;--y:20px;--w:210px;--d:150px;--h:44px"><i class="w-cube-top"></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div>
+              <div class="w-cube e-st-log" style="--x:700px;--y:10px;--w:230px;--d:170px;--h:10px"><i class="w-cube-top"><span class="e-logrows"><i></i><i></i><i></i><i></i><i></i></span></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div>
+
+              <div class="e-card e-c1" style="--dl:0s"><div class="w-cube e-card-c" style="--w:150px;--d:104px;--h:5px"><i class="w-cube-top"><span class="e-card-f"><b></b><s></s><s></s><u><svg class="w-i"><use href="#i-check"/></svg></u></span></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div></div>
+              <div class="e-card e-c2" style="--dl:-6s"><div class="w-cube e-card-c" style="--w:150px;--d:104px;--h:5px"><i class="w-cube-top"><span class="e-card-f"><b></b><s></s><s></s><u><svg class="w-i"><use href="#i-check"/></svg></u></span></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div></div>
+              <div class="e-card e-c3" style="--dl:-12s"><div class="w-cube e-card-c" style="--w:150px;--d:104px;--h:5px"><i class="w-cube-top"><span class="e-card-f"><b></b><s></s><s></s><u><svg class="w-i"><use href="#i-check"/></svg></u></span></i><i class="w-cube-front"></i><i class="w-cube-side"></i></div></div>
+
+              <span class="e-bb e-bb-cur" style="--bx:470px;--by:96px;--bz:70px"><span class="e-cur"><svg viewBox="0 0 20 20"><path d="M4 2.5v13.2l3.6-3.4 2.5 5.6 2.3-1-2.5-5.5h5z"/></svg></span></span>
+              <span class="e-bb" style="--bx:130px;--by:-6px;--bz:112px"><span class="e-lab"><b>Your ERP data</b><small>Integrated, never changed</small></span></span>
+              <span class="e-bb" style="--bx:465px;--by:24px;--bz:70px"><span class="e-lab e-lab--hi"><b>Approval inbox</b><small>Biggest amount first</small></span></span>
+              <span class="e-bb" style="--bx:815px;--by:20px;--bz:36px"><span class="e-lab"><b>Decision log</b><small>Who approved what, and why</small></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div><ul class="e-legend" role="list" aria-hidden="true"><li><i></i>Your ERP data</li><li class="e-lg-in"><i></i>Approval inbox</li><li class="e-lg-log"><i></i>Decision log</li></ul><p class="w-sr">A diagram: jobs prepared by the AI leave your ERP data, which is never changed, and queue in the approval inbox with the biggest amount first. A person approves the top job and it drops, checked, into the decision log.</p>
+    </div>
+
+    <ol class="e-steps" role="list" data-reveal-group>
+      <li><span class="e-step-ic"><svg class="w-i" aria-hidden="true"><use href="#i-layers"/></svg></span><b>1. Your latest data comes in on a schedule</b><p>Orders, invoices, stock and supplier data, checked every day. Nothing in your ERP is changed.</p></li>
+      <li><span class="e-step-ic e-step-ic--ai"><svg class="w-i" aria-hidden="true"><use href="#i-spark"/></svg></span><b>2. AI finds the problems and drafts the fix</b><p>Supplier price increases, stock count differences, delayed orders: each problem costed and ranked, with the fix already drafted.</p></li>
+      <li><span class="e-step-ic e-step-ic--you"><svg class="w-i" aria-hidden="true"><use href="#i-user"/></svg></span><b>3. Your team decides</b><p>Approve, reject or edit each item. Nothing goes to a customer or supplier until then, and every decision is logged.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 5. AUTOMATIONS WE BUILD: four examples plus "your job". Accordion on the left swaps the window on the right (CSS :has, no JS needed) -->
+<section class="w-sec w-bg-canvas" aria-labelledby="e-auto-h">
+  <div class="w-wrap">
+    <div class="w-head">
+      <h2 class="w-h2" id="e-auto-h">Automations we build. <span class="w-mute">Four examples, and one built for you.</span></h2>
+      <p class="w-lead">Each automation checks every line, every time it runs, and hands your team only the problems: what went wrong, what it costs and a drafted response.</p>
+    </div>
+
+    <div class="e-auto" data-auto data-pause-offscreen>
+      <div class="e-acc">
+        <details class="e-acc-i" name="e-auto" open>
+          <summary><span class="e-acc-ic"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg></span><span class="e-acc-t">Stock about to run out</span><svg class="w-i e-acc-chev" aria-hidden="true"><use href="#i-down"/></svg></summary>
+          <div class="e-acc-b">
+            <p>Every morning, your buyer receives the items that will run out before the next delivery arrives, largest sales at risk first, with a reorder drafted for each. For example: 7 items, R&nbsp;412&nbsp;000 of sales at risk.</p>
+            <dl class="e-io"><div><dt>Works from</dt><dd>Stock on hand, recent sales and open purchase orders.</dd></div><div><dt>You get</dt><dd>A ranked list of items to reorder, each with an order drafted for approval.</dd></div></dl>
+          </div>
+        </details>
+        <details class="e-acc-i" name="e-auto">
+          <summary><span class="e-acc-ic"><svg class="w-i" aria-hidden="true"><use href="#i-table"/></svg></span><span class="e-acc-t">Stock count variances</span><svg class="w-i e-acc-chev" aria-hidden="true"><use href="#i-down"/></svg></summary>
+          <div class="e-acc-b">
+            <p>Your physical count compared with your system, with the value of every difference and the items that come up short again and again. For example: R&nbsp;48&nbsp;730 short, with one item short three counts in a row.</p>
+            <dl class="e-io"><div><dt>Works from</dt><dd>Your count sheets and the stock in your ERP.</dd></div><div><dt>You get</dt><dd>The total value of the difference, and the items to investigate first.</dd></div></dl>
+          </div>
+        </details>
+        <details class="e-acc-i" name="e-auto">
+          <summary><span class="e-acc-ic"><svg class="w-i" aria-hidden="true"><use href="#i-receipt"/></svg></span><span class="e-acc-t">Supplier statements checked</span><svg class="w-i e-acc-chev" aria-hidden="true"><use href="#i-down"/></svg></summary>
+          <div class="e-acc-b">
+            <p>Each supplier statement checked against your books, with every difference explained line by line. For example: R&nbsp;24&nbsp;350, from two invoices that were never captured.</p>
+            <dl class="e-io"><div><dt>Works from</dt><dd>The supplier's statement and what you owe them in your ERP.</dd></div><div><dt>You get</dt><dd>Every difference, explained invoice by invoice.</dd></div></dl>
+          </div>
+        </details>
+        <details class="e-acc-i" name="e-auto">
+          <summary><span class="e-acc-ic"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg></span><span class="e-acc-t">Invoice checks before payment</span><svg class="w-i e-acc-chev" aria-hidden="true"><use href="#i-down"/></svg></summary>
+          <div class="e-acc-b">
+            <p>Every supplier invoice checked against what was ordered and what was delivered, so your team only sees the ones that need attention. For example: 5 of 46 invoices, overcharged by R&nbsp;38&nbsp;610.</p>
+            <dl class="e-io"><div><dt>Works from</dt><dd>Supplier invoices, your orders and what you received.</dd></div><div><dt>You get</dt><dd>Only the invoices that need attention, each with the reason.</dd></div></dl>
+          </div>
+        </details>
+        <details class="e-acc-i e-acc-i--you" name="e-auto">
+          <summary><span class="e-acc-ic"><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></span><span class="e-acc-t">Your task</span><svg class="w-i e-acc-chev" aria-hidden="true"><use href="#i-down"/></svg></summary>
+          <div class="e-acc-b">
+            <p>Tell us which task takes up most of your team&rsquo;s week. We build the automation for it, around the way your business works.</p>
+            <dl class="e-io"><div><dt>Works from</dt><dd>Your ERP and existing systems: email, spreadsheets and documents.</dd></div><div><dt>You get</dt><dd>Only what needs attention, ready for your team to approve.</dd></div></dl>
+            <a class="w-link e-acc-lk" href="/contact?topic=endorse-demo">Tell us the job<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </details>
+      </div>
+
+      <div class="e-uis">
+        <div class="w-frame w-frame--ai e-uis-frame">
+          <!-- Stock about to run out -->
+          <div class="w-float e-ui" data-ui="1">
+            {{> winbar product="VSG Endorse" org="Karoo Industrial Supply" crumb="Reorder alerts"}}
+            <div class="e-ui-hd"><div><b>Today</b><span>7 items, <span class="w-num">R&nbsp;412&nbsp;000</span> of sales at risk</span></div><span class="st st-ai"><i></i>Reorder list</span></div>
+            <div class="tblx">
+              <table class="tbl e-tbl">
+                <thead><tr><th>Item</th><th class="r">Runs out</th><th class="r">Reorder</th></tr></thead>
+                <tbody>
+                  <tr><td class="nm">Conveyor belt EP400</td><td class="r">21 days</td><td class="r">1&nbsp;200&nbsp;m</td></tr>
+                  <tr><td class="nm">Centrifugal pump 50mm</td><td class="r">14 days</td><td class="r">60</td></tr>
+                  <tr><td class="nm">Safety boots, size 8</td><td class="r">12 days</td><td class="r">120 pairs</td></tr>
+                  <tr class="e-more"><td colspan="3">4 more on today's list</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="e-mail">
+              <div class="e-draft-hd"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg><b>Reorder: conveyor belt EP400</b><span class="tag">Draft, not placed</span></div>
+              <p>1&nbsp;200&nbsp;m from the supplier on your last approved quote. The next delivery is 5 weeks away, so the stock runs out first.</p>
+              <div class="e-mail-acts"><span class="btn btn-p btn-sm">Approve</span><span class="small">Your buyer approves it before it is placed.</span></div>
+            </div>
+          </div>
+          <!-- Stock counts -->
+          <div class="w-float e-ui" data-ui="2">
+            {{> winbar product="VSG Endorse" org="Karoo Industrial Supply" crumb="Stock counts"}}
+            <div class="e-ui-hd"><div><b>Warehouse 2</b><span>Last count against the system</span></div><span class="st st-ai"><i></i>Difference</span></div>
+            <div class="e-stats">
+              <div class="stat"><span class="lbl">Items counted</span><b>212</b></div>
+              <div class="stat"><span class="lbl">Out by too much</span><b>9</b></div>
+              <div class="stat"><span class="lbl">Net difference</span><b class="e-neg">-R&nbsp;48&nbsp;730</b></div>
+            </div>
+            <div class="e-offender">
+              <div class="e-off-hd"><span class="st st-x"><i></i>Short every time</span></div>
+              <div class="e-off-row">
+                <div><b>Safety boots, size 8</b><span class="mono">SFB-STC-08</span></div>
+                <div class="e-dots" aria-label="Short on the last 3 counts"><i></i><i></i><i></i></div>
+              </div>
+              <p class="small">Short on the last 3 counts. Worth a look at how it is picked and booked out.</p>
+            </div>
+          </div>
+          <!-- Supplier statements -->
+          <div class="w-float e-ui" data-ui="3">
+            {{> winbar product="VSG Endorse" org="Karoo Industrial Supply" crumb="Supplier statements"}}
+            <div class="e-ui-hd"><div><b>Highveld Cable Co.</b><span>Their statement against your books</span></div><span class="st st-ok"><i></i>Explained</span></div>
+            <div class="e-recon">
+              <div><span>Their statement</span><b class="w-num">R&nbsp;1&nbsp;046&nbsp;220</b></div>
+              <div><span>Your books</span><b class="w-num">R&nbsp;1&nbsp;021&nbsp;870</b></div>
+              <div class="e-recon-d"><span>Difference</span><b class="w-num">R&nbsp;24&nbsp;350</b></div>
+            </div>
+            <table class="tbl e-tbl">
+              <thead><tr><th>Line</th><th>Reason</th><th class="r">Amount</th></tr></thead>
+              <tbody>
+                <tr><td class="nm mono">INV-7781</td><td>Not captured</td><td class="r">R&nbsp;18&nbsp;900</td></tr>
+                <tr><td class="nm mono">INV-7794</td><td>Not captured</td><td class="r">R&nbsp;5&nbsp;450</td></tr>
+                <tr class="e-sum"><td colspan="2">Explained</td><td class="r">R&nbsp;24&nbsp;350</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Matching invoices -->
+          <div class="w-float e-ui" data-ui="4">
+            {{> winbar product="VSG Endorse" org="Karoo Industrial Supply" crumb="Matching invoices"}}
+            <div class="e-ui-hd"><div><b>This week</b><span>46 invoices against order and delivery</span></div><span class="st st-ai"><i></i>5 problems</span></div>
+            <div class="e-match">
+              <div class="e-bar" aria-hidden="true"><i class="ok" style="--n:41"></i><i class="w" style="--n:3"></i><i class="x" style="--n:2"></i></div>
+              <ul class="e-match-l" role="list">
+                <li><i class="ok"></i><span>Match the order and the delivery</span><b class="w-num">41</b></li>
+                <li><i class="w"></i><span>Priced above the order, R&nbsp;13&nbsp;910</span><b class="w-num">3</b></li>
+                <li><i class="x"></i><span>Billed for more than arrived, R&nbsp;24&nbsp;700</span><b class="w-num">2</b></li>
+              </ul>
+              <p class="e-match-n"><svg class="w-i" aria-hidden="true"><use href="#i-user"/></svg>Only the 5 problems, R&nbsp;38&nbsp;610 in total, go to a person.</p>
+            </div>
+          </div>
+          <!-- Your job: a new automation, drawn in the same window -->
+          <div class="w-float e-ui" data-ui="5">
+            {{> winbar product="VSG Endorse" org="Your business" crumb="New automation"}}
+            <div class="e-ui-hd"><div><b>Your job</b><span>Built around how your team does it today</span></div><span class="st st-n"><i></i>Your automation</span></div>
+            <ol class="e-new" role="list">
+              <li><span class="e-new-n">1</span><div><b>Connects to</b><span>The ERP, the inbox or the spreadsheet your team works from</span></div></li>
+              <li class="e-new-ai"><span class="e-new-n">2</span><div><b>The AI finds and drafts</b><span>Every line checked, the biggest problems first, the note drafted</span></div></li>
+              <li class="e-new-you"><span class="e-new-n">3</span><div><b>A person endorses</b><span>In the same approval inbox as every other automation</span></div></li>
+            </ol>
+            <p class="e-match-n e-new-f"><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg>Added next to your other automations. Nothing new to learn.</p>
+          </div>
+        </div>
+        <p class="w-cap">Choose an automation to see what your team receives.</p>
+      </div>
+    </div>
+
+    <div class="e-jobs" data-reveal>
+      <div class="e-jobs-hd">
+        <h3 class="w-h3">Much of what your team does by hand can be automated.</h3>
+        <p class="w-body">If your team does it by hand every week, we can build an automation for it. A few we build often, each shaped to your process.</p>
+      </div>
+      <div class="e-jobs-grid">
+        <div class="e-jobs-g"><p class="e-jobs-h"><svg class="w-i" aria-hidden="true"><use href="#i-coins"/></svg>Finance</p><ul role="list"><li>Overdue accounts prioritised, with reminders drafted</li><li>Supplier statements checked against your books</li><li>Invoices checked against orders before payment</li><li>Duplicate payments flagged before they are paid</li><li>Month-end checks prepared and ready to review</li><li>Unmatched customer payments flagged</li></ul></div>
+        <div class="e-jobs-g"><p class="e-jobs-h"><svg class="w-i" aria-hidden="true"><use href="#i-box"/></svg>Stock and inventory</p><ul role="list"><li>Reorders suggested before items run out</li><li>Slow and dead stock identified, with the cash tied up</li><li>Stock count variances investigated item by item</li><li>Stock transfers between branches suggested</li></ul></div>
+        <div class="e-jobs-g"><p class="e-jobs-h"><svg class="w-i" aria-hidden="true"><use href="#i-truck"/></svg>Buying and suppliers</p><ul role="list"><li>Supplier price increases flagged on every invoice</li><li>Supplier quotes compared side by side</li><li>Late deliveries tracked, with the customer orders affected</li><li>Supplier performance scored every month</li></ul></div>
+        <div class="e-jobs-g"><p class="e-jobs-h"><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg>Sales and customers</p><ul role="list"><li>Open quotes followed up before deals go cold</li><li>Customers who stop ordering flagged early</li><li>Discounts and rebates checked against agreed terms</li><li>Orders on hold escalated to the right person</li></ul></div>
+        <div class="e-jobs-g"><p class="e-jobs-h"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg>Management reporting</p><ul role="list"><li>A weekly management pack, written by AI and sent to your inbox</li><li>A daily summary of sales, cash and stock</li><li>Plain-language explanations of what changed in your numbers and why</li></ul></div>
+        <div class="e-jobs-g"><p class="e-jobs-h"><svg class="w-i" aria-hidden="true"><use href="#i-warn"/></svg>Real-time alerts</p><ul role="list"><li>Stock falling below a safe level</li><li>A customer exceeding their credit limit</li><li>An order stuck for more than three days</li><li>A supplier changing its prices</li></ul></div>
+        <div class="e-jobs-g"><p class="e-jobs-h"><svg class="w-i" aria-hidden="true"><use href="#i-mail"/></svg>Documents and admin</p><ul role="list"><li>Invoices, statements and orders read from email and prepared for capture</li><li>Documents checked for errors before capture</li><li>New customer and supplier accounts checked before they are opened</li></ul></div>
+        <div class="e-jobs-g"><p class="e-jobs-h"><svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg>Your business</p><ul role="list"><li>The task that takes up most of your team&rsquo;s week</li><li><a class="w-link" href="/contact?topic=endorse-demo">Tell us about it</a></li></ul></div>
+      </div>
+      <p class="w-body e-jobs-rule">Every automation integrates with your ERP and existing systems: email, spreadsheets and the PDFs that land in the inbox every day. We build it, connect it and keep it running. Your team simply approves.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. EVERYTHING IN ONE PLACE: what you see in Endorse, then the decision log, the monthly results and the check on the AI -->
+<section class="w-sec w-bg-white" aria-labelledby="e-rec-h">
+  <div class="w-wrap">
+    <div class="w-head">
+      <h2 class="w-h2" id="e-rec-h">Every automation on VSG&nbsp;ACE. <span class="w-mute">One inbox, one decision log, one monthly report.</span></h2>
+      <p class="w-lead">Open Endorse and see every automation at work: what it checked this morning and what it found. Add another and it joins the same inbox and the same log. Your team never learns a new system.</p>
+      <p class="w-body e-rule"><b>See or act.</b> Your dashboards and reports live in <a class="w-link" href="/core">VSG Core</a>. The work gets done in Endorse: the checks, the alerts, the drafted emails, the weekly management pack. Both run on the same numbers, so the Monday meeting and the work on the desk always agree.</p>
+    </div>
+    <ul class="e-see" role="list" data-reveal-group>
+        <li><span class="e-see-ic"><svg class="w-i" aria-hidden="true"><use href="#i-list"/></svg></span><b>Today's work, per automation</b><p>What each automation checked this morning, and what it found.</p></li>
+        <li><span class="e-see-ic"><svg class="w-i" aria-hidden="true"><use href="#i-inbox"/></svg></span><b>The approval inbox</b><p>Every item waiting for approval, largest amount first.</p></li>
+        <li><span class="e-see-ic"><svg class="w-i" aria-hidden="true"><use href="#i-hist"/></svg></span><b>The decision log</b><p>A record of who approved what, and why.</p></li>
+        <li><span class="e-see-ic"><svg class="w-i" aria-hidden="true"><use href="#i-chart"/></svg></span><b>Monthly results</b><p>The real change each automation made this month, measured in your ERP.</p></li>
+    </ul>
+    <div class="w-bento e-rec" data-reveal-group>
+      <article class="w-tile w-tile--sunk e-rec-t">
+        <div class="w-tile-head">
+          <h3 class="w-h3">Decision log</h3>
+          <p class="w-body">Every decision on record: who made it, when, for how much and on what evidence. Written in plain words your financial director and auditor can read at a glance, and ready to export.</p>
+        </div>
+        <div class="w-tile-art">
+          <div class="w-float e-log">
+            {{> winbar product="VSG Endorse" org="Karoo Industrial Supply" crumb="Decision log"}}
+            <ol class="e-log-l" role="list">
+              <li><time>Tue 07:12</time><div><b>Conveyor belt EP400: approve the reorder</b><span>Approved by L. Botha, buyer. Based on 3 documents.</span></div><em class="w-num">R&nbsp;412&nbsp;800</em></li>
+              <li><time>Tue 07:14</time><div><b>Highveld Cable Co.: query the invoice above the order</b><span>Approved by M. van Wyk, financial manager. Based on 3 documents.</span></div><em class="w-num">R&nbsp;12&nbsp;480</em></li>
+              <li><time>Tue 07:19</time><div><b>Breede Irrigation: call and send reminder</b><span>Approved by T. Naidoo, credit controller. Based on 3 documents.</span></div><em class="w-num">R&nbsp;312&nbsp;400</em></li>
+            </ol>
+            <div class="e-log-f"><span class="btn btn-s btn-sm"><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg>Export for the auditor</span><span class="small">Plain words, no codes.</span></div>
+          </div>
+        </div>
+      </article>
+      <article class="w-tile w-tile--sunk e-rec-t">
+        <div class="w-tile-head">
+          <h3 class="w-h3">Monthly results report</h3>
+          <p class="w-body">Each month we measure the real results in your ERP data, automation by automation: fewer items out of stock, overcharges credited, slow stock cleared. Actual results, never estimates.</p>
+        </div>
+        <div class="w-tile-art">
+          <div class="w-float e-val">
+            {{> winbar product="VSG Endorse" org="Karoo Industrial Supply" crumb="Monthly results"}}
+            <div class="e-val-in">
+              <div class="e-val-hd"><b>Results, this month</b><span class="st st-n"><i></i>Example report</span></div>
+              <div class="e-val-g">
+                <div class="e-val-s">
+                  <span class="lbl">Items out of stock</span>
+                  <p class="e-val-v"><span class="e-val-from">12</span><svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg><b class="w-num" data-count="5" data-from="12" data-dur="1400">5</b></p>
+                  <svg class="e-spark" viewBox="0 0 240 64" aria-hidden="true"><path class="e-spark-base" d="M8 14H232"/><path class="e-spark-l" d="M8 14C80 16 150 44 232 50"/><circle cx="8" cy="14" r="4"/><circle class="e-spark-end" cx="232" cy="50" r="4.5"/></svg>
+                  <p class="small">12 at the start of the month, 5 now.</p>
+                </div>
+                <div class="e-val-s">
+                  <span class="lbl">Overcharges credited</span>
+                  <p class="e-val-v"><b class="w-num" data-count="38610" data-format="rand">R&nbsp;38&nbsp;610</b></p>
+                  <p class="small">Five supplier invoices corrected. Taken from the credit notes in your ERP.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="w-tile w-tile--tint w-tile--wide w-span-2 e-accu-t">
+        <div class="w-tile-head">
+          <h3 class="w-h3">Every number traces to its source.</h3>
+          <p class="w-body">Click any figure in the decision log or the results report and see the ERP transactions behind it.</p>
+        </div>
+        <div class="w-tile-art">
+          <div class="w-float e-accu" data-accu>
+            <div class="e-accu-in">
+              <div class="e-accu-hd"><div><b>Call list against what the credit controller did</b><span>Late payers, last month</span></div><p class="e-accu-v"><b class="w-num">13</b> of 14 calls made as suggested</p></div>
+              <ol class="e-sq" role="list" aria-label="13 of 14 suggested calls were made">
+                <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li class="miss"></li>
+              </ol>
+              <p class="small">One call on the list was not made. We show you which one, and why the list had it.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="w-cap">Every decision is logged, and every month ends with a results report.</p>
+  </div>
+</section>
+
+<!-- 7. WHERE THE AI HELPS, AND WHERE A PERSON DECIDES (obsidian): anatomy of one job -->
+<section class="w-sec w-dark e-anat-sec" aria-labelledby="e-anat-h">
+  <div class="w-wrap">
+    <div class="w-head w-head--center">
+      <h2 class="w-h2" id="e-anat-h">AI prepares the work. <span class="w-mute">Your team makes the call.</span></h2>
+      <p class="w-lead">AI does the slow, careful work, then hands over. Each item arrives on one card: the amount, the evidence and the reason in plain words. Your team makes the call. No email reaches a customer or supplier until a person approves it.</p>
+    </div>
+
+    <div class="e-anat" data-anat data-reveal>
+      <div class="e-calls e-calls--l">
+        <button class="e-call" type="button" data-part="value" aria-pressed="false"><b>The value, found by the AI</b><span>R&nbsp;12&nbsp;480 above the order.</span></button>
+        <button class="e-call" type="button" data-part="reason" aria-pressed="false"><b>The reason, written by the AI</b><span>"Billed for 120 units. 96 received."</span></button>
+      </div>
+
+      <div class="w-float e-acard" aria-label="Example job card, Highveld Cable Co." role="group">
+        <div class="ag e-acard-ag">
+          <div class="e-acard-hd"><span class="st st-ai"><i></i>AI suggestion</span><span>Invoice checks automation</span></div>
+          <div class="e-part" data-part="value">
+            <p class="e-acard-name">Highveld Cable Co.</p>
+            <p class="e-acard-amt"><span class="w-num">R&nbsp;12&nbsp;480</span><em>Above the order</em></p>
+          </div>
+          <div class="e-part" data-part="sources">
+            <p class="lbl">Where this comes from</p>
+            <ul class="e-chips" role="list">
+              <li><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg>PO-20518</li>
+              <li><svg class="w-i" aria-hidden="true"><use href="#i-truck"/></svg>Delivery note DN-7731</li>
+              <li><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg>INV-20874</li>
+            </ul>
+          </div>
+          <div class="e-part" data-part="reason">
+            <p class="lbl">Why</p>
+            <p class="e-acard-why">Billed for 120 units. 96 received.</p>
+            <p class="e-acard-do">Suggested: hold payment and send the drafted query to the supplier.</p>
+          </div>
+          <div class="e-part e-part--acts" data-part="decision">
+            <div class="e-acard-acts"><span class="btn btn-p btn-sm">Approve</span><span class="btn btn-s btn-sm">Reject</span><span class="btn btn-s btn-sm">Change</span></div>
+            <p class="e-acard-sig"><svg class="w-i" aria-hidden="true"><use href="#i-user"/></svg>Your name goes on the record.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-calls e-calls--r">
+        <button class="e-call" type="button" data-part="sources" aria-pressed="false"><b>Where it comes from</b><span>The purchase order, the delivery note and invoice INV-20874, one click away, straight from your ERP.</span></button>
+        <button class="e-call" type="button" data-part="decision" aria-pressed="false"><b>The decision, always your team&rsquo;s</b><span>Approve, reject or change it. Your name goes in the decision log.</span></button>
+      </div>
+    </div>
+    <p class="w-cap w-cap--center">Choose a label to see where it sits on the card.</p>
+  </div>
+</section>
+
+<!-- 8. WHO IT IS FOR, the fixed price per automation, and what it needs from you -->
+<section class="w-sec w-bg-white" aria-labelledby="e-price-h">
+  <div class="w-wrap">
+    <div class="w-split">
+      <div>
+        <h2 class="w-h2" id="e-price-h">Built for finance and operations teams.</h2>
+        <p class="w-body">For South African manufacturers, distributors, wholesalers and retailers whose best people are buried in checks, follow ups and paperwork. Endorse gives them their week back, one automation at a time, and shows what each one is worth.</p>
+        <p class="w-body">Every automation has a fixed price, agreed before work starts. No surprises. We quote after a VSG Bootcamp, five days on your site at a fixed price, or after a short call to scope the work.</p>
+        <div class="w-actions">
+          <a class="btn btn-p btn-xl" href="/contact?topic=endorse-demo">Request a demo</a>
+          <a class="btn btn-s btn-xl" href="/contact?topic=contact">Contact us</a>
+        </div>
+      </div>
+      <div>
+        <div class="w-frame e-q-frame">
+          <div class="w-float e-quote" data-hover-tilt="3">
+            <div class="e-q-hd"><span class="e-q-mk">{{> mark size="18"}}</span><div><b>Quote</b><span>After a Bootcamp or a scoping call</span></div><span class="st st-a"><i></i>Fixed before work starts</span></div>
+            <p class="e-q-t">Automation: supplier invoice checks</p>
+            <dl class="e-q-l">
+              <div><dt>Price</dt><dd><b>Fixed</b>, per automation, agreed before we start</dd></div>
+              <div><dt>You get</dt><dd>Every invoice checked against the order and the delivery, with queries drafted</dd></div>
+              <div><dt>Needs</dt><dd>A secure connection to your ERP</dd></div>
+              <div><dt>Runs on</dt><dd>Your own server, or South African hosting</dd></div>
+              <div><dt>Changes in your ERP</dt><dd>None</dd></div>
+            </dl>
+          </div>
+        </div>
+        <p class="w-cap">What a quote covers. The amount depends on your business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8b. WHAT IT NEEDS FROM YOU (obsidian band): a one-way flow -->
+<section class="w-sec w-dark e-one" aria-labelledby="e-one-h">
+  <div class="w-wrap">
+    <div class="w-head w-head--center">
+      <h2 class="w-h2" id="e-one-h">Two things from you. <span class="w-mute">Nothing in your ERP changes.</span></h2>
+      <p class="w-lead">First, a secure integration with your ERP and existing systems, set up with your IT team. Second, somewhere to run: your own server or South African hosting. Endorse hands back its work as approvals, alerts, reports, drafted emails and files. Anything bound for a customer or supplier waits for your team to send. Switch Endorse off and your ERP is exactly as it was.</p>
+    </div>
+
+    <div class="e-way" data-reveal data-pause-offscreen>
+      <ol class="e-way-n" role="list">
+        <li><span class="e-node"><svg class="w-i" aria-hidden="true"><use href="#i-server"/></svg></span><b>Your ERP</b><small>Integrated</small></li>
+        <li class="e-link" aria-hidden="true"><i></i></li>
+        <li><span class="e-node"><svg class="w-i" aria-hidden="true"><use href="#i-layers"/></svg></span><b>VSG Core</b><small>Your data, organised</small></li>
+        <li class="e-link" aria-hidden="true"><i></i></li>
+        <li><span class="e-node e-node--ai"><svg class="w-i" aria-hidden="true"><use href="#i-spark"/></svg></span><b>VSG Endorse</b><small>AI flags and prepares</small></li>
+        <li class="e-link" aria-hidden="true"><i></i></li>
+        <li><span class="e-node e-node--you"><svg class="w-i" aria-hidden="true"><use href="#i-users"/></svg></span><b>Your people</b><small>Approve and send</small></li>
+      </ol>
+      <div class="e-back" aria-hidden="true"><i class="e-back-l"></i><span class="e-back-x"></span><span class="e-back-t"><svg class="w-i"><use href="#i-lock"/></svg>Never changes your ERP</span></div>
+      <ul class="e-outs" role="list" aria-label="What Endorse hands back">
+        <li><svg class="w-i" aria-hidden="true"><use href="#i-list"/></svg>An alert or report</li>
+        <li><svg class="w-i" aria-hidden="true"><use href="#i-mail"/></svg>A drafted email</li>
+        <li><svg class="w-i" aria-hidden="true"><use href="#i-doc"/></svg>A file</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 9. QUESTIONS -->
+<section class="w-sec w-bg-white" aria-labelledby="e-faq-h">
+  <div class="w-wrap">
+    <div class="e-faq">
+      <div class="e-faq-hd">
+        <h2 class="w-h2" id="e-faq-h">Frequently asked questions.</h2>
+        <p class="w-body">Another question? Speak to our team.</p>
+        <a class="w-link" href="/contact?topic=contact">Contact us<svg class="w-i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="e-faq-l">
+        <details class="e-q"><summary>What if the job we want automated is not on this page?<svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>We build it. The automations on this page are examples. Tell us about the task and we will help you decide what it takes to automate.</p></details>
+        <details class="e-q"><summary>Do we have to start with all of them?<svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>No. Start with the one that costs you the most and add more when you are ready.</p></details>
+        <details class="e-q"><summary>Does the AI make decisions on its own?<svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>No. AI finds the issue, works out its value and drafts the work. A person approves, rejects or edits every action, and their name goes in the decision log. Only alerts and reports for your own team are sent directly.</p></details>
+        <details class="e-q"><summary>Does it change anything in our ERP?<svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>No. VSG Endorse integrates with your ERP and existing systems without changing anything in your ERP. Endorse returns alerts, reports, draft emails and files, and your team decides what to do with each.</p></details>
+        <details class="e-q"><summary>Do we need our own AI team?<svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>No. We find the jobs, build each automation, connect it to your ERP and the other systems your team uses, and keep it running. We test it on your own real cases before it goes live.</p></details>
+        <details class="e-q"><summary>Can it send us alerts and reports?<svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Yes. Alerts and scheduled reports are automations too, sent straight to the person responsible: stock about to run out, a customer over their credit limit, an order stuck for three days, a weekly management pack written by AI. Anything addressed to a customer or supplier waits for approval.</p></details>
+        <details class="e-q"><summary>Does it email our customers?<svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Only with approval. Endorse drafts the email, and a person reads and sends each one.</p></details>
+        <details class="e-q"><summary>How do we know it works?<svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Every decision is logged, every number traces to its source, and the monthly results report measures the real change in your ERP, automation by automation.</p></details>
+        <details class="e-q"><summary>How is it priced?<svg class="w-i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Each automation has a fixed price, agreed before any work starts. We quote it after a VSG Bootcamp or a short call to scope the work.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{> cta title="See what Endorse can run in your business." sub="We walk you through the approval inbox and decision log, and map the tasks that cost your team the most. Endorse integrates with your ERP and existing systems, and nothing in your ERP changes." primary="Request a demo" primary_href="/contact?topic=endorse-demo"}}
