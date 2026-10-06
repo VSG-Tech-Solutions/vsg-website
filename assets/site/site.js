@@ -666,9 +666,9 @@
         { label: 'VSG Endorse', st: 'AI automations', ai: true, p: [-0.84, -0.52], e: ['customers', 'invoices', 'suppliers', 'stock'] },
         { label: 'Custom builds', st: 'Made for you', p: [0.08, 0.86], e: ['suppliers', 'stock', 'orders', 'customers', 'invoices'] }
       ];
-      var col = light ? { ink: '20,22,37', acc: '11,92,255', ai: '124,77,255', mute: '#535A6E' } : { ink: '255,255,255', acc: '110,155,255', ai: '182,156,255', mute: '#A9AEC0' };
-      var bg = '#141625';
-      function findBg() { var el = M; while (el && el !== d.documentElement) { var c = getComputedStyle(el).backgroundColor; if (c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent') return c; el = el.parentElement; } return light ? '#F6F7FB' : '#141625'; }
+      var col = light ? { ink: '20,22,37', acc: '11,92,255', ai: '124,77,255', mute: '#55545A' } : { ink: '255,255,255', acc: '110,155,255', ai: '182,156,255', mute: '#A6A5A0' };
+      var bg = '#0B0B0D';
+      function findBg() { var el = M; while (el && el !== d.documentElement) { var c = getComputedStyle(el).backgroundColor; if (c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent') return c; el = el.parentElement; } return light ? '#F6F7FB' : '#0B0B0D'; }
       var W = 0, H = 0, dpr = 1, running = false, t0 = performance.now(), pulses = [], lastSpawn = 0, active = 0, lastSwitch = 0, lastDraw = 0;
       function rgba(c, a) { return 'rgba(' + c + ',' + a + ')'; }
       function size() { var r = cv.getBoundingClientRect(); dpr = Math.min(2, w.devicePixelRatio || 1); W = r.width; H = r.height; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); bg = findBg(); }

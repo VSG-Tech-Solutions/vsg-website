@@ -87,7 +87,7 @@ product components used inside illustrations (`.btn`, `.tbl`, `.ag`, `.st`, `.na
 `assets/site/site.css` is the website layer; every website class starts with `w-`.
 
 **Type:** `.w-display` (hero H1 only, 44 to 84px, 22ch measure; add `.w-display--long` for a headline line longer than about 25 characters), `.w-h1` (page heroes), `.w-h2`, `.w-h3`, `.w-h4`,
-`.w-mute` (the grey second clause of a two-tone headline), `.w-accent` (the solid cobalt second
+`.w-mute` (the grey second clause of a two-tone headline), `.w-accent` (the grey second
 line of a hero; never gradient), `.w-lead`, `.w-body`, `.w-small`, `.w-tiny`, `.w-num` (mono figures),
 `.w-prose`, `.w-word` (the huge "products" / "custom" word).
 
@@ -97,8 +97,8 @@ rhythm), `--tight`, `--flush-top`, `--flush-bottom`; backgrounds `.w-bg-white`, 
 `--split` (only when the right column earns it); `.w-split` (copy beside a visual), `--rev`, `--even`,
 `--top`; `.w-actions` (button row), `--center`; `.w-trust` (one small line under hero buttons).
 
-**Buttons and links:** Halo `.btn .btn-p` (primary, cobalt) and `.btn .btn-s` (secondary) at
-`.btn-lg` (44px) or `.btn-xl` (52px). `.w-link` for a cobalt text link with an arrow.
+**Buttons and links:** Halo `.btn .btn-p` (primary, ink black) and `.btn .btn-s` (secondary) at
+`.btn-lg` (44px) or `.btn-xl` (52px). `.w-link` for an ink text link with an arrow.
 One label per intent. Home and Bootcamp: **Book a Bootcamp** (`/bootcamp#book`) primary. Procure, Endorse
 and Core: **Request a demo** (`/contact?topic=<key>-demo`) primary. Custom: **Tell us what you need**
 (`/contact?topic=custom`). The secondary is always **Contact us** (`/contact?topic=contact`); the nav link
@@ -110,7 +110,7 @@ or availability labels; the other badge modifiers stay in the CSS for product UI
 `.w-chip` is a hero pill holding a badge and a short line.
 
 **Blocks:** `.w-hero` + `.w-hero-in` + `.w-hero-shot` (centred hero with a window under it);
-`.w-glow` (ambient cobalt and violet light, two `<i>`); `.w-bento` (2 columns), `--lead`, `.w-span-2`;
+`.w-glow` (soft neutral ambient light, two `<i>`); `.w-bento` (2 columns), `--lead`, `.w-span-2`;
 `.w-tile` + `--cobalt` (the lead product), `--dark`, `--sunk`, `--tint`, `--wide`; `.w-tile-head`,
 `.w-tile-art`, `--bleed` (UI crops off the tile edge); `.w-rows` (hairline rows, status on the right);
 `.w-feats` (icon well, title, one line); `.w-board` + `.w-board-col` + `.w-board-h` + `.w-board-card`
@@ -221,3 +221,11 @@ and work at 390px.
   `cd /c/VSG-Tech-Solutions/VSG_WebsiteV2 && .claude/skills/impeccable/scripts/impeccable detect --json <abs path to your built page>`.
   Known and accepted findings: Halo's `--e3` elevation ("thin border wide shadow"), `.w-sec` and window
   bars as "cramped padding", Halo's unused `.prog.ind` as "marquee", `body` clipping horizontal overflow.
+
+## Brand colours (2026-10-06)
+
+The site follows the VSG brand sheet: black and white carry the page; ink `#0B0B0D`, stone `#F2F1EC`, white.
+Colour lives in the full stop: teal `#00A396` for VSG, ACE and Core (`#2CCFBF` on dark), violet `#6A3BF0` for Endorse and AI,
+azure `#0369A1` for Procure. Buttons are ink. The overrides sit in the brand block at the top of `site.css`; `halo.css` stays a clean
+copy of the design pack. Product names close with `<span class="w-pt">.</span>` (`--endorse`, `--procure` for the others).
+Some class names still say cobalt (`.w-tile--cobalt`); they now render in ink.

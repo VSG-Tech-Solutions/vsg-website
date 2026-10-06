@@ -32,7 +32,7 @@
 .a-sign.is-away .a-sign-st{color:var(--w-dark-mute)}
 
 .a-sign-disc{position:absolute;left:50%;top:50%;width:50%;height:50%;display:grid;place-items:center;border-radius:18%;background:var(--acc);color:#fff;
-  box-shadow:0 0 0 rgba(20,22,37,0);will-change:transform;
+  box-shadow:0 0 0 rgba(11,11,13,0);will-change:transform;
   transition:transform .28s var(--w-ease),box-shadow .28s var(--w-ease)}
 .a-sign-disc svg{width:44%;height:44%;transition:opacity .2s var(--w-ease)}
 .a-sign.is-away .a-sign-disc{transform:translate(16%,14%) scale(1.05);box-shadow:var(--e3);

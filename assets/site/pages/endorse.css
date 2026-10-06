@@ -1,3 +1,4 @@
+:root{--w-acc-dark:#A98BFF}  /* brand sheet: this product's small accents on dark grounds */
 /* VSG Endorse page. Page layout only, with Halo and site tokens; shared classes are not restyled.
    Violet (--acc2) appears only on AI output: suggestion cards, AI tags, the Endorse frame and node. */
 
@@ -34,7 +35,7 @@
 
 .e-props{display:grid;gap:10px;margin:0;padding:0}
 .e-prop{position:relative;padding:14px 16px 14px;transition:border-color .2s var(--w-ease),box-shadow .2s var(--w-ease),opacity .24s var(--w-ease),transform .24s var(--w-ease)}
-.e-prop.is-sel{border-color:#C7B5FF;box-shadow:0 0 0 3px rgba(124,77,255,.10)}
+.e-prop.is-sel{border-color:#C7B5FF;box-shadow:0 0 0 3px rgba(106,59,240,.10)}
 .e-prop-hd{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .e-prop-days{font-family:var(--fm);font-size:var(--t-xs);color:var(--fg2)}
 .e-prop-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:10px}
@@ -387,7 +388,7 @@
 .e-way-n>li:not(.e-link){display:grid;justify-items:center;gap:4px;text-align:center;min-width:0;width:148px}
 .e-node{display:grid;place-items:center;width:64px;height:64px;margin-bottom:12px;border-radius:18px;background:var(--w-dark-2);box-shadow:inset 0 0 0 1px var(--w-dark-line);color:#fff}
 .e-node .w-i{width:24px;height:24px}
-.e-node--ai{background:rgba(124,77,255,.18);box-shadow:inset 0 0 0 1px rgba(182,156,255,.45);color:var(--w-ai-dark)}
+.e-node--ai{background:rgba(106,59,240,.18);box-shadow:inset 0 0 0 1px rgba(169,139,255,.45);color:var(--w-ai-dark)}
 .e-node--you{background:var(--acc);box-shadow:none}
 .e-way-n b{font-size:17px;font-weight:600;letter-spacing:-.012em}
 .e-way-n small{font-size:14px;line-height:1.4;color:var(--w-dark-ink-2)}
