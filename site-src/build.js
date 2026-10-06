@@ -26,7 +26,7 @@ const PAGES = path.join(SRC, 'pages');
 const PARTS = path.join(SRC, 'partials');
 const ASSETS = path.join(ROOT, 'assets', 'site');
 const OUT_ASSETS = path.join(ASSETS, 'pages');
-const SITE = 'https://vsgtech.co.za';
+const SITE = 'https://www.vsgtech.co.za';
 
 const read = f => fs.readFileSync(f, 'utf8').replace(/\r\n/g, '\n');
 const hash = s => crypto.createHash('md5').update(s).digest('hex').slice(0, 8);

@@ -1,5 +1,5 @@
 /* Contact page behaviour: topic help, copy the email address, and the message form.
-   The form posts JSON {name, email, company, phone, role, topic, message, source:"contact"} to /api/lead.
+   The form posts JSON {name, email, company, phone, role, topic, message, consent, consent_notice, source:"contact"} to /api/lead.
    Without JS the form still posts to /api/lead as a normal form. */
 (function () {
   'use strict';
@@ -117,6 +117,8 @@
       role: f('role').value.trim(),
       topic: f('topic').value,
       message: f('message').value.trim(),
+      consent: f('consent').checked ? 'yes' : '',
+      consent_notice: f('consent_notice').value,
       source: 'contact'
     };
 

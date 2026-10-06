@@ -332,7 +332,11 @@
       function err(el, msg) {
         var fld = el.closest('.field'), m = fld && $('.emsg', fld);
         el.setAttribute('aria-invalid', msg ? 'true' : 'false');
-        if (m) { m.textContent = msg || ''; m.hidden = !msg; }
+        if (m) {
+          m.textContent = msg || ''; m.hidden = !msg;
+          if (msg) { m.id = m.id || (el.id || el.name) + '-err'; el.setAttribute('aria-describedby', m.id); }
+          else if (el.getAttribute('aria-describedby') === m.id) el.removeAttribute('aria-describedby');
+        }
       }
       $$('input,textarea,select', form).forEach(function (el) { el.addEventListener('input', function () { if (el.getAttribute('aria-invalid') === 'true' && el.checkValidity()) err(el, ''); }); });
       form.addEventListener('submit', function (e) {
