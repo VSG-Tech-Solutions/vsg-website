@@ -764,7 +764,7 @@
   var panes = cc.querySelectorAll('[data-cc-p]'), crumb = cc.querySelector('[data-cc-crumb]'), av = cc.querySelector('[data-cc-av]');
   var badge = cc.querySelector('[data-cc-badge]'), waitKpi = cc.querySelector('[data-cc-wait]');
   var NAMES = { home: 'ACE Command Centre', core: 'VSG Core', procure: 'VSG Procure', endorse: 'VSG Endorse', settings: 'Settings' };
-  var AV = { md: 'SE', cc: 'TN', buyer: 'LB' };
+  var AV = { md: 'SE', cc: 'MW', buyer: 'LB' };
   var done = {}, current = 'md';
   function show(app) {
     icons.forEach(function (b) { b.classList.toggle('is-on', b.getAttribute('data-cc-app') === app); });
@@ -774,7 +774,7 @@
   function role(r) {
     roleBtns.forEach(function (b) { b.setAttribute('aria-checked', String(b.getAttribute('data-cc-role') === r)); });
     icons.forEach(function (b) { b.hidden = (b.getAttribute('data-roles') || '').split(' ').indexOf(r) < 0; });
-    cc.querySelectorAll('.h-cc-c [data-roles]').forEach(function (el) { el.hidden = el.getAttribute('data-roles').split(' ').indexOf(r) < 0; });
+    cc.querySelectorAll('[data-cc-p] [data-roles]').forEach(function (el) { el.hidden = el.getAttribute('data-roles').split(' ').indexOf(r) < 0; });
     if (av) av.textContent = AV[r];
     current = r; count();
     show('home');
