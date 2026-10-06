@@ -48,7 +48,7 @@
 .ace-lay b a{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:3px}
 .ace-lay b a:hover{text-decoration-color:#fff}
 .ace-lay p{font-size:14.5px;line-height:1.5;color:var(--w-dark-ink-2)}
-.ace-lay--cc{background:rgba(11,11,13,.2);border-color:rgba(44,207,191,.5)}
+.ace-lay--cc{background:rgba(0,163,150,.14);border-color:rgba(44,207,191,.5)}
 .ace-lay--ai .ace-lay-k{color:var(--w-ai-dark,#A98BFF)}
 .ace-lay--base{margin-top:6px;background:transparent;border-style:dashed;border-color:rgba(255,255,255,.22)}
 .ace-lay--base .ace-lay-k{color:var(--w-dark-ink-2)}

@@ -171,9 +171,9 @@
   .c-arrow-p{animation:c-flow 4.2s var(--w-ease-io) infinite}
 }
 @keyframes c-flow{0%{transform:translateX(0);opacity:0}15%{opacity:1}75%{transform:translateX(104px);opacity:1}90%,100%{transform:translateX(104px);opacity:0}}
-.c-srv{--cf:#FFFFFF;--cs:#E9ECF4;--cl:#DDE1EB}
-.c-srv .w-cube-front{background:repeating-linear-gradient(to bottom,#E9ECF4 0 20px,#DCE0EA 20px 21px)}
-.c-srv .w-cube-side{background:repeating-linear-gradient(to right,#DDE1EB 0 20px,#D0D5E1 20px 21px)}
+.c-srv{--cf:#FFFFFF;--cs:#EEEDE8;--cl:#E3E2DD}
+.c-srv .w-cube-front{background:repeating-linear-gradient(to bottom,#EEEDE8 0 20px,#E2E1DC 20px 21px)}
+.c-srv .w-cube-side{background:repeating-linear-gradient(to right,#E3E2DD 0 20px,#D7D6D1 20px 21px)}
 .c-cube-l{align-content:center;justify-items:center;gap:4px;text-align:center}
 .c-cube-l b{font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.1;color:var(--fg)}
 .c-cube-l small{font-family:var(--fm);font-size:11px;color:var(--fg2)}

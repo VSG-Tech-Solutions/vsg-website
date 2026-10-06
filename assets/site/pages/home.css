@@ -405,7 +405,10 @@ html:not(.js) .h-fx-rate{display:none}
 .h-day{--cf:rgba(255,255,255,.035);--cs:rgba(255,255,255,.06);--cl:rgba(255,255,255,.045);--cb:rgba(255,255,255,.24);
   transition:transform .5s var(--w-ease)}
 .h-day>i{transition:background-color .45s var(--w-ease),box-shadow .45s var(--w-ease)}
-.h-boot-art:not(.is-armed) .h-day,.h-day.is-on{--cf:var(--acc);--cs:#2A2A2E;--cl:#1C1C1F;--cb:rgba(255,255,255,.22)}
+.h-boot-art:not(.is-armed) .h-day,.h-day.is-on{--cf:#F2F1EC;--cs:#D8D7D0;--cl:#BDBCB5;--cb:rgba(11,11,13,.14)}
+.h-boot-art:not(.is-armed) .h-day--5,.h-day--5.is-on{--cf:#00A396;--cs:#008A7F;--cl:#00736C;--cb:rgba(11,11,13,.14)}
+.h-boot-art:not(.is-armed) .h-day .h-day-l,.h-day.is-on .h-day-l{color:#0B0B0D}
+.h-boot-art:not(.is-armed) .h-day .h-day-l small,.h-day.is-on .h-day-l small{color:rgba(11,11,13,.62)}
 .h-boot-art:not(.is-armed) .h-day--5,.h-boot-art.is-done .h-day--5{--z:28px}
 .h-day-l{display:grid;place-content:center;justify-items:center;gap:2px;font-size:15px;font-weight:600;letter-spacing:-.01em;color:#fff;line-height:1.1}
 .h-day-l small{font-family:var(--fm);font-size:12px;font-weight:500;letter-spacing:.02em;color:rgba(255,255,255,.72)}

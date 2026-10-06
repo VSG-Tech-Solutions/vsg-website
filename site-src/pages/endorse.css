@@ -1,4 +1,4 @@
-:root{--w-acc-dark:#A98BFF}  /* brand sheet: this product's small accents on dark grounds */
+:root{--w-acc-dark:#A98BFF;--acc:#6A3BF0;--acc-h:#5A2FDB;--accs:#EEE9FE;--acc-b:#DDD3FD;--acc-r:rgba(106,59,240,.3)}  /* brand sheet: Endorse's colour, violet, on its own page; buttons stay ink */
 /* VSG Endorse page. Page layout only, with Halo and site tokens; shared classes are not restyled.
    Violet (--acc2) appears only on AI output: suggestion cards, AI tags, the Endorse frame and node. */
 

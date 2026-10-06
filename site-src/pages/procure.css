@@ -1,4 +1,5 @@
-:root{--w-acc-dark:#38BDF8}  /* brand sheet: this product's small accents on dark grounds */
+:root{--w-acc-dark:#38BDF8;--acc:#0369A1;--acc-h:#035A8A;--accs:#F0EFEA;--acc-b:#BFDDEF;--acc-r:rgba(3,105,161,.3)}  /* brand sheet: Procure's colour, azure, on its own page; buttons stay ink */
+.p-iso .w-cube--acc{--cs:#035A8A;--cl:#024C75}
 /* VSG Procure page. Layout for this page only, with Halo and site tokens.
    Page classes start with "p-". Shared classes are used as they are.
    The product windows recreate the real VSG Procure screens: Analysis, RFQ Import, Review, Setup / Connect. */
@@ -432,7 +433,7 @@
 .p-of-q--h{top:auto;bottom:10px;height:40px;justify-content:center;border-color:transparent;font-size:15px;font-weight:600;color:var(--w-dark-ink-2)}
 .p-of-rs{position:absolute;left:330px;top:calc(66px + (var(--r) - 1) * 52px + 22px);width:0;height:0;transform-style:preserve-3d}
 .p-of-rs::before{content:"";position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:#8A8985;transition:background-color .2s var(--w-ease)}
-.p-of-rs>i{position:absolute;left:-1px;top:0;width:2px;height:var(--g);transform-origin:50% 0;transform:rotateX(90deg);overflow:hidden;background:rgba(11,11,13,.42);opacity:.5;
+.p-of-rs>i{position:absolute;left:-1px;top:0;width:2px;height:var(--g);transform-origin:50% 0;transform:rotateX(90deg);overflow:hidden;background:rgba(3,105,161,.42);opacity:.5;
   transition:background-color .2s var(--w-ease),opacity .2s var(--w-ease)}
 .p-of-rs>i::after{content:"";position:absolute;left:0;right:0;top:0;height:28px;background:linear-gradient(to top,transparent,#fff);opacity:0}
 @media (prefers-reduced-motion:no-preference){
