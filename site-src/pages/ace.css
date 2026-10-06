@@ -111,6 +111,9 @@
 .ace-steps li:nth-child(3){border-top-color:var(--acc2)}
 .ace-steps li:nth-child(4){border-top-color:var(--acc)}
 .ace-step-n{font-size:13px;color:var(--fg3)}
+.ace-steps--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ace-steps--3 li:nth-child(3){border-top-color:var(--acc2)}.ace-steps--3 li:nth-child(1){border-top-color:var(--vsg-teal)}
+.ace-grow-note{margin-top:clamp(24px,3vw,36px)}
 .ace-steps b{font-size:16.5px;font-weight:600}
 .ace-steps p{font-size:15px;line-height:1.5;color:var(--fg2)}
 .ace-start-act{margin-top:clamp(28px,3vw,40px)}
@@ -155,3 +158,5 @@
 
 /* the five-line headline leaves room for the buttons on a laptop screen */
 #ace-h1{font-size:clamp(38px,4.4vw,64px)}
+@media (min-width:761px){.ace-steps.ace-steps--3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.ace-steps.ace-steps--3{grid-template-columns:1fr}}
