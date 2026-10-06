@@ -1000,7 +1000,7 @@ html:not(.js) .w-flip-back{transform:none;margin-top:12px}
 .ccx-table--plan .ccx-tr span:first-child{flex-direction:column;align-items:flex-start;gap:0}
 .ccx-table--plan small{font:400 10.5px var(--fm);color:var(--t3)}
 .ccx-table--plan .ccx-tr span[class^="lv-"]{justify-content:center;font:500 12px var(--fm);margin:3px;border-radius:5px;padding:5px 0}
-.ccx-table--plan .is-sel{background:#F3F8FC;box-shadow:inset 3px 0 0 #0369A1}
+.ccx-table--plan .is-sel{background:#EEF5FA}
 .ccx-plan{font:500 11.5px var(--fm);color:#0369A1!important}
 .ccx-table--ppl .ccx-tr{grid-template-columns:minmax(0,1.3fr) 1fr 1.2fr}
 .ccx-tag{font-style:normal;font-size:11px;padding:2px 8px;border-radius:999px;background:#F2F1EC;color:var(--t2)}
