@@ -221,3 +221,15 @@
   .c-q p{padding-right:0;font-size:16px}
 }
 @container (max-width:360px){.c-prop .cf{display:none}}
+
+/* custom-app windows, matching the ACE demo screens */
+.c-desk-k{font-size:12px;color:var(--fg3)}
+.c-desk-k b{color:var(--fg);font-weight:var(--w-semi)}
+.c-desk-note{display:block;font-size:11px;color:var(--warn-ink)}
+.c-desk-main .c-ords{list-style:none;margin:0;padding:0 16px 14px;display:grid;gap:8px}
+.c-ord{display:grid;grid-template-columns:auto 1fr;gap:7px 12px;align-items:baseline;padding:11px 12px;border-radius:10px;box-shadow:0 0 0 1px var(--line)}
+.c-ord b{font-size:12.5px;font-weight:var(--w-semi)}
+.c-ord-st{font-size:12px;color:var(--fg2);text-align:right}
+.c-ord-bar{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.c-ord-bar i{height:5px;border-radius:999px;background:var(--line)}
+.c-ord--1 .c-ord-bar i:nth-child(-n+1),.c-ord--2 .c-ord-bar i:nth-child(-n+2),.c-ord--3 .c-ord-bar i:nth-child(-n+3){background:#0B5CFF}

@@ -33,31 +33,30 @@ og_description: Custom AI systems, workflow automation and bespoke software, bui
             <div class="c-in c-in--1">
               <div class="w-float w-float--lg c-desk">
                 {{> winbar product="VSG" crumb="Quote desk"}}
-                <div class="w-float-app">{{> acerail on="apps"}}
+                <div class="w-float-app">{{> acerail on="quotes"}}
                   <aside class="w-float-side">
-                    <span class="lbl">Sales</span>
+                    <div class="w-side-h"><b>Quote desk</b><small>Custom application</small></div>
                     <nav class="nav">
-                      <a class="on"><svg class="w-i"><use href="#i-receipt"/></svg>Quote desk<span class="c">3</span></a>
-                      <a><svg class="w-i"><use href="#i-users"/></svg>Customers</a>
-                      <a><svg class="w-i"><use href="#i-list"/></svg>Price rules</a>
+                      <a class="on"><svg class="w-i"><use href="#i-note"/></svg>Quotes<span class="c">3</span></a>
+                      <a class="sub">New quote</a>
+                      <a><svg class="w-i"><use href="#i-graph"/></svg>Won and lost</a>
                     </nav>
-                    <span class="lbl">Built for you</span>
+                    <span class="lbl">Setup</span>
                     <nav class="nav">
-                      <a><svg class="w-i"><use href="#i-bolt"/></svg>Month-end pack</a>
-                      <a><svg class="w-i"><use href="#i-mail"/></svg>Customer queries</a>
+                      <a><svg class="w-i"><use href="#i-list"/></svg>Price rules</a>
                     </nav>
                   </aside>
                   <div class="w-float-main c-desk-main">
-                    <div class="c-desk-hd"><b>Quotes this week</b></div>
+                    <div class="c-desk-hd"><b>Quotes</b><span class="c-desk-k">Won this month <b class="num">54%</b></span></div>
                     <table class="tbl c-desk-tbl">
-                      <thead><tr><th>Quote</th><th>Customer</th><th class="r c-hide-s">Lines</th><th class="r">Status</th></tr></thead>
+                      <thead><tr><th>Quote</th><th>Customer</th><th class="r c-hide-s">Value</th><th class="r">Status</th></tr></thead>
                       <tbody>
-                        <tr><td class="nm mono">Q-2291</td><td>Breede Irrigation</td><td class="r c-hide-s">14</td><td class="r"><span class="st st-ok"><i></i>Sent</span></td></tr>
-                        <tr class="sel"><td class="nm mono">Q-2292</td><td>Kraalbos Building Supplies</td><td class="r c-hide-s">6</td><td class="r"><span class="st st-a"><i></i>Checking</span></td></tr>
-                        <tr><td class="nm mono">Q-2293</td><td>Olifants Engineering</td><td class="r c-hide-s">9</td><td class="r"><span class="st st-n"><i></i>Draft</span></td></tr>
+                        <tr><td class="nm mono">Q-2291</td><td>Breede Irrigation</td><td class="r num c-hide-s">R 259 025</td><td class="r"><span class="st st-pr"><i></i>Sent</span></td></tr>
+                        <tr class="sel"><td class="nm mono">Q-2292</td><td>Swartland Building Supplies<small class="c-desk-note">Over its credit limit</small></td><td class="r num c-hide-s">R 44 549</td><td class="r"><span class="st st-w"><i></i>Finance sign-off</span></td></tr>
+                        <tr><td class="nm mono">Q-2293</td><td>Olifants Engineering</td><td class="r num c-hide-s">R 159 774</td><td class="r"><span class="st st-n"><i></i>Draft</span></td></tr>
                       </tbody>
                     </table>
-                    <div class="pf"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M10 4v12"/></svg>Prices from your own rules. Nothing typed twice.</div>
+                    <div class="pf"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M10 4v12"/></svg>Every price from your own rules, cost and stock. Below the margin floor, a manager approves.</div>
                   </div>
                 </div>
               </div>
@@ -200,26 +199,29 @@ og_description: Custom AI systems, workflow automation and bespoke software, bui
         </div>
         <div class="w-tile-art w-tile-art--bleed">
           <div class="w-float c-soft">
-            {{> winbar product="VSG" crumb="Order status"}}
-            <div class="w-float-app">{{> acerail on="apps"}}
+            {{> winbar product="VSG" crumb="Customer portal"}}
+            <div class="w-float-app">{{> acerail on="portal"}}
               <aside class="w-float-side" aria-hidden="true">
+                <div class="w-side-h"><b>Customer portal</b><small>Custom application</small></div>
                 <nav class="nav">
-                  <a class="on"><svg class="w-i"><use href="#i-truck"/></svg>My orders<span class="c">3</span></a>
-                  <a><svg class="w-i"><use href="#i-doc"/></svg>Delivery notes</a>
+                  <a class="on"><svg class="w-i"><use href="#i-box"/></svg>My orders<span class="c">3</span></a>
+                  <a><svg class="w-i"><use href="#i-truck"/></svg>Deliveries</a>
                   <a><svg class="w-i"><use href="#i-receipt"/></svg>Invoices</a>
+                  <a><svg class="w-i"><use href="#i-rotate"/></svg>Quick reorder</a>
+                </nav>
+                <span class="lbl">Karoo admin</span>
+                <nav class="nav">
+                  <a><svg class="w-i"><use href="#i-users"/></svg>Portal users</a>
                 </nav>
               </aside>
               <div class="w-float-main c-desk-main">
-                <div class="c-desk-hd"><b>Breede Irrigation</b></div>
-                <table class="tbl">
-                  <caption class="w-sr">Example customer order-status screen for a Karoo Industrial Supply customer</caption>
-                  <thead><tr><th scope="col">Order</th><th scope="col" class="r">Lines</th><th scope="col" class="r">Status</th></tr></thead>
-                  <tbody>
-                    <tr><td class="nm mono">SO-4471</td><td class="r">12</td><td class="r"><span class="st st-ok"><i></i>Loaded, ETA Thu</span></td></tr>
-                    <tr><td class="nm mono">SO-4478</td><td class="r">6</td><td class="r"><span class="st st-a"><i></i>Picking</span></td></tr>
-                    <tr><td class="nm mono">SO-4483</td><td class="r">3</td><td class="r"><span class="st st-n"><i></i>Confirmed</span></td></tr>
-                  </tbody>
-                </table>
+                <div class="c-desk-hd"><b>My orders</b><span class="c-desk-k">Breede Irrigation</span></div>
+                <ul class="c-ords" role="list" aria-label="Example orders a Karoo Industrial Supply customer tracks in their portal">
+                  <li class="c-ord c-ord--3"><b class="mono">SO-4471</b><span class="c-ord-st">Loaded, arrives Thursday</span><span class="c-ord-bar" aria-hidden="true"><i></i><i></i><i></i><i></i></span></li>
+                  <li class="c-ord c-ord--2"><b class="mono">SO-4478</b><span class="c-ord-st">Being picked</span><span class="c-ord-bar" aria-hidden="true"><i></i><i></i><i></i><i></i></span></li>
+                  <li class="c-ord c-ord--1"><b class="mono">SO-4483</b><span class="c-ord-st">Confirmed</span><span class="c-ord-bar" aria-hidden="true"><i></i><i></i><i></i><i></i></span></li>
+                </ul>
+                <div class="pf"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10.4 8 14l8-8"/></svg>Deliveries signed on the day. The statement, any time.</div>
               </div>
             </div>
           </div>
