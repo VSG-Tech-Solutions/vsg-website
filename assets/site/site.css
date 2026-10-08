@@ -1115,3 +1115,99 @@ html:not(.js) .w-flip-back{transform:none;margin-top:12px}
 
 .w-ann-s{display:none}
 @media (max-width:620px){.w-announce p>span{display:inline}.w-announce a{margin:0 0 0 6px}.w-ann-l{display:none}.w-ann-s{display:inline}}
+
+/* ---- Product windows in the real product look (VSG Procure F14 "Enterprise", mockup #29) ----
+   The product UIs on the site now match the shipped app: a slate shell bar, a cool grey workspace, white
+   cards on a slate hairline, the VSG blue for the one primary action. The website around them stays
+   black, white and teal. */
+.w-float{--btn:#0B5CFF;--btn-h:#0840B3}
+.w-float .btn-p{background:#0B5CFF;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.18)}
+.w-float .btn-p:hover{background:#0840B3}
+.w-winbar{background:#354A5F;border-bottom-color:#354A5F}
+.w-winbar-mk{--mk-dot:#8DB2FF}
+.w-winbar-crumb{color:#C9D3DD}
+.w-winbar-crumb .w-i{color:#7D93AA}
+.w-winbar .w-badge--sample{color:#C9D3DD;box-shadow:inset 0 0 0 1px rgba(255,255,255,.24)}
+.w-winbar .w-conn{border-color:rgba(255,255,255,.2)}
+.w-winbar .w-conn i{background:#4FD1A1;box-shadow:0 0 0 3px rgba(79,209,161,.2)}
+.w-winbar .w-conn em{color:#C9D3DD}
+
+/* ---- the ACE Command Centre: Enterprise colours and two-level navigation ---- */
+.ccx{--ws:#EDEFF0;--ln:#E1E4E7;--ln2:#D5D9DD;--t1:#32363A;--t2:#6A6D70;--t3:#8A8D90;background:#354A5F;color:var(--t1)}
+.ccx-bar{background:#354A5F;color:#fff}
+.ccx-brand{--mk-ink:#354A5F;--mk-dot:#0B5CFF}
+.ccx-brand .w-pt{color:#8DB2FF}
+.ccx-crumbs{border-left-color:rgba(255,255,255,.18);color:#C9D3DD}
+.ccx-search{background:#2B3D4F;border-color:#4D637A;color:#B9C6D3}
+.ccx-search kbd{border-color:#4D637A;color:#B9C6D3}
+.ccx-bell i{background:#fff;color:#354A5F}
+.ccx-bell i.is-zero{background:#4D637A;color:#B9C6D3}
+.ccx-me{border-radius:8px;background:#0B5CFF;color:#fff}
+.ccx-body{grid-template-columns:52px minmax(0,1fr);background:var(--ws);border-radius:12px 12px 0 0;overflow:hidden}
+.ccx-rail{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 0;background:#F7F8F9;border-right:1px solid var(--ln);position:relative;z-index:3}
+.ccx-ri{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:grid;place-items:center;width:36px;height:36px;border-radius:10px;color:#6A6D70;transition:background-color .14s,color .14s}
+.ccx-ri .w-i{width:18px;height:18px}
+.ccx-ri:hover{background:#EEF2F6;color:var(--t1)}
+.ccx-ri.is-on{background:#E5EEF8;color:#0B5CFF;box-shadow:inset 3px 0 0 #0B5CFF}
+.ccx-ri:focus-visible{outline:2px solid #0B5CFF;outline-offset:1px}
+.ccx-ri[hidden]{display:none}
+.ccx-rdot{position:absolute;right:5px;bottom:5px;width:7px;height:7px;border-radius:2px;box-shadow:0 0 0 2px #F7F8F9}
+.ccx-ri.is-on .ccx-rdot{box-shadow:0 0 0 2px #E5EEF8}
+.ccx-rdot--core{background:#00A396}.ccx-rdot--endorse{background:#6A3BF0}.ccx-rdot--procure{background:#0A4FD6}
+.ccx-ri::after{content:attr(data-tip);position:absolute;left:calc(100% + 9px);top:50%;transform:translateY(-50%);padding:5px 9px;border-radius:7px;background:#32363A;color:#fff;font-size:12px;font-weight:550;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .12s;z-index:10}
+.ccx-ri:hover::after,.ccx-ri:focus-visible::after{opacity:1}
+.ccx-rsep{width:20px;height:1px;background:var(--ln2);margin:3px 0}
+.ccx-main{padding:0;display:block}
+.ccx-pane{display:grid;grid-template-columns:176px minmax(0,1fr);min-height:100%}
+.ccx-pane[hidden]{display:none}
+.ccx-pane>.ccx-p{padding:18px 20px 20px}
+.ccx-side{display:flex;flex-direction:column;gap:1px;padding:12px 8px;background:#fff;border-right:1px solid var(--ln)}
+.ccx-sh{display:grid;gap:1px;padding:4px 8px 10px;margin-bottom:6px;border-bottom:1px solid var(--ln)}
+.ccx-sh b{font-size:13.5px;font-weight:650;letter-spacing:-.01em}
+.ccx-sh b i{font-style:normal}
+.ccx-sh small{font-size:11px;color:var(--t3)}
+.ccx-sl{margin:10px 8px 3px;font-size:11px;color:var(--t2)}
+.ccx-si{display:flex;align-items:center;gap:8px;height:28px;padding:0 8px;border-radius:7px;font-size:12.5px;font-weight:500;color:var(--t1)}
+.ccx-si .w-i{width:15px;height:15px;color:#6A6D70;flex:none}
+.ccx-si.is-on{background:#E5EEF8;font-weight:600;box-shadow:inset 3px 0 0 #0B5CFF}
+.ccx-si.is-on .w-i{color:#0B5CFF}
+.ccx-si.is-sub{position:relative;padding-left:26px;font-weight:400;color:var(--t2)}
+.ccx-si.is-sub::before{content:"";position:absolute;left:15px;top:6px;width:6px;height:8px;border-left:1px solid #B9BEC3;border-bottom:1px solid #B9BEC3;border-bottom-left-radius:3px}
+.ccx-si.is-sub.is-on{color:var(--t1)}
+.ccx-si em{margin-left:auto;font-style:normal;min-width:18px;height:17px;padding:0 5px;border-radius:999px;background:#EEF0F2;color:var(--t2);font:600 10.5px/17px var(--fm);text-align:center}
+.ccx-card,.ccx-kpis li{border:0;box-shadow:0 0 0 1px rgba(53,74,95,.10),0 1px 2px rgba(53,74,95,.06);border-radius:12px}
+.ccx-date{border:0;box-shadow:0 0 0 1px #D5D9DD,0 1px 0 #C9CED3;border-radius:8px}
+.ccx-sync i{background:#29845A;box-shadow:0 0 0 3px #CDFEE1}
+.ccx-chart .ccx-bar{fill:#D5DCE4}
+.ccx-chart .ccx-bar.is-now{fill:#0B5CFF}
+.ccx-chart .pt.is-now{fill:#0B5CFF}
+.ccx-spark .l{stroke:#0B5CFF}.ccx-spark .d{fill:#0B5CFF}.ccx-spark .a{fill:rgba(11,92,255,.08)}
+.ccx-tip{background:#32363A}
+.ccx-cust li:first-child i{background:#0B5CFF}
+.ccx-th span{background:#fff}
+.ccx-brief{background:#F6F3FF;border:0;box-shadow:0 0 0 1px #E2DAFB}
+.ccx-tag{background:#EEF0F2}
+.ccx .lv-x{background:#FBECEE;color:#A1202B!important}.ccx .lv-w{background:#FBF3DC;color:#7E5A00!important}.ccx .lv-ok{background:#E8F4EC;color:#1C6B40!important}
+@media (max-width:1020px){.ccx-pane{grid-template-columns:1fr}.ccx-side{display:none}}
+@media (max-width:760px){
+  .ccx-body{grid-template-columns:1fr;border-radius:10px 10px 0 0}
+  .ccx-rail{flex-direction:row;justify-content:flex-start;gap:4px;padding:8px;overflow-x:auto;border-right:0;border-bottom:1px solid var(--ln)}
+  .ccx-rsep,.ccx-sp{display:none}
+  .ccx-ri::after{display:none}
+  .ccx-ri.is-on{box-shadow:inset 0 -2px 0 #0B5CFF}
+  .ccx-pane>.ccx-p{padding:14px}
+}
+
+/* ---- the ACE system rail inside product windows: each product sits in ACE, as in the app ---- */
+.w-float-app:has(>.w-acerail){grid-template-columns:44px 164px minmax(0,1fr)}
+.w-acerail{display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 0;background:#F7F8F9;border-right:1px solid var(--line)}
+.w-acerail .ar{position:relative;display:grid;place-items:center;width:30px;height:30px;border-radius:8px;color:#6A6D70}
+.w-acerail .ar .w-i{width:15px;height:15px}
+.w-acerail .ar-dot{position:absolute;right:4px;bottom:4px;width:6px;height:6px;border-radius:2px;box-shadow:0 0 0 2px #F7F8F9}
+.w-acerail .ar-sep{width:16px;height:1px;background:var(--line2);margin:2px 0}
+.w-acerail .ar-sp{flex:1}
+.w-acerail[data-on="home"] .ar-home,.w-acerail[data-on="core"] .ar-core,.w-acerail[data-on="endorse"] .ar-endorse,.w-acerail[data-on="procure"] .ar-procure,.w-acerail[data-on="apps"] .ar-apps{background:#E5EEF8;color:#0B5CFF;box-shadow:inset 3px 0 0 #0B5CFF}
+.w-acerail[data-on="core"] .ar-core .ar-dot,.w-acerail[data-on="endorse"] .ar-endorse .ar-dot,.w-acerail[data-on="procure"] .ar-procure .ar-dot{box-shadow:0 0 0 2px #E5EEF8}
+@container (max-width:900px){.w-float-app:has(>.w-acerail){grid-template-columns:40px minmax(0,1fr)}.w-float-app:has(>.w-acerail)>.w-float-side{display:none}}
+@container (max-width:640px){.w-float-app:has(>.w-acerail){grid-template-columns:1fr}.w-acerail{display:none}}
+.ccx-chartw{margin-block:auto}
